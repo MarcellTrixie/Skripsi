@@ -11,9 +11,52 @@ Pada subbab ini akan diuraikan tentang teori \textit{regular expression},
 
 \subsection{Teori \textit{Regular Expression}}
 
-\textit{Regular Expression} (\textit{Regex)} adalah jenis pola teks tertentu yang dapat digunakan pada banyak aplikasi modern dan bahasa pemrograman. \textit{Regex} terdiri dari kombinasi antara \textit{normalcharacter}, \textit{metacharacter} dan \textit{metasequences}. \textit{Normal character} mewakili karakter itu sendiri, sedangkan \textit{metacharacter} dan \textit{metasequences} merupakan karakter atau urutan karakter yang mewakili ide seperti kuantitas, lokasi, atau jenis karakter.
+\textit{Regular Expression} atau yang sering disebut dengan \textit{Regex} adalah teks string yang disandikan khusus untuk digunakan digunakan sebagai pola untuk mencocokan set string tertentu. \textit{Regex} mulai muncul pada tahun 1940-an sebagai cara untuk menggambarkan bahasa biasa, tetapi \textit{Regex} benar-benar mulai muncul di dunia pemrograman selama tahun 1970-an. \textit{Regex} terdiri dari kombinasi antara \textit{normalcharacter} dan \textit{metacharacter} atau \textit{metasequences}. \textit{Normal character} mewakili karakter itu sendiri, sedangkan \textit{metacharacter} dan \textit{metasequences} merupakan karakter atau urutan karakter yang mewakili ide seperti kuantitas, lokasi, atau jenis karakter.
 
 \textit{Regex}dapat digunakan untuk memverifikasi kecocokan antara input dengan pola teks, untuk menemukan teks yang cocok dengan pola dalam teks yang lebih besar, untuk mengganti teks yang cocok dengan pola dengan teks lain atau menyusun ulang bit dari teks yang cocok dan untuk membagi sebuah blok teks menjadi beberapa subteks.
 
-\subsection{\textit{Regex Metacharacters, Modes, dan Construct}}
+\subsection{\textit{Metacharacters}}
+Ada 14 metakarakter yang digunakan dalam \textit{Regex}, masing-masing memiliki makna khusus yang akan dijelaskan pada tabel:
 
+\begin{tabular}{|c|c|c|}
+\hline 
+Metakarakter & Nama & Tujuan \\ 
+\hline 
+. & Full Stop & Cocok untuk karakter apapun \\ 
+\hline 
+\ & Backslash & • \\ 
+\hline 
+| & Vertical Bar & Alternasi  \\ 
+\hline 
+^ & Circumflex & Awal dari line anchor \\ 
+\hline 
+\$ & Dollar Sign & Akhir dari line anchor \\ 
+\hline 
+? & Question Mark & Nol atau satu kuantifier \\ 
+\hline 
+* & Asterisk & Nol atau lebih kuantifier \\ 
+\hline 
++ & Plus Sign & Satu atau lebih kuantifier \\ 
+\hline 
+[ & Left Square Bracket & Membuka kelas karakter\\ 
+\hline 
+] & Right Square Bracket & Menutup kelas karakter \\ 
+\hline 
+{ & Left Curly Bracket & Membuka kuantifier atau blok \\ 
+\hline 
+} & Right Curly Bracket & Menutup kuantifier atau blok \\ 
+\hline 
+( & Left Parenthesis & Membuka grup \\ 
+\hline 
+) & Right Parenthesis & Menutup grup \\ 
+\hline 
+\end{tabular} 
+
+\subsection{\textit{Character Classes}}
+\begin{enumerate}
+	\item Negated Character Classes
+	\item Union and Difference
+	\item POSIX Character Classes
+\end{enumerate}
+
+\subsection{\textit{Character Shorthands}}
