@@ -2,7 +2,7 @@
 \chapter{Landasan Teori}
 \label{chap:teori}
 
-Pada bab 2 akan diuraikan tentang landasan teori yang membahas \textit{regular expression},
+Pada bab 2 akan diuraikan tentang landasan teori yang membahas \textit{regular expression} dan \textit{library PDF Parser}.
 
 \section{\textit{Regular Expression}}
 \label{sec:regex} 
@@ -11,12 +11,12 @@ Pada subbab ini akan diuraikan tentang teori \textit{regular expression},
 
 \subsection{Teori \textit{Regular Expression}}
 
-\textit{Regular Expression} atau yang sering disebut dengan \textit{Regex} adalah teks string yang disandikan khusus untuk digunakan digunakan sebagai pola untuk mencocokan set string tertentu. \textit{Regex} mulai muncul pada tahun 1940-an sebagai cara untuk menggambarkan bahasa biasa, tetapi \textit{Regex} benar-benar mulai muncul di dunia pemrograman selama tahun 1970-an. \textit{Regex} terdiri dari kombinasi antara \textit{normalcharacter} dan \textit{metacharacter} atau \textit{metasequences}. \textit{Normal character} mewakili karakter itu sendiri, sedangkan \textit{metacharacter} dan \textit{metasequences} merupakan karakter atau urutan karakter yang mewakili ide seperti kuantitas, lokasi, atau jenis karakter.
+\textit{Regular Expression} atau yang sering disebut dengan \textit{Regex} adalah teks string yang disandikan khusus untuk digunakan digunakan sebagai pola untuk mencocokan set string tertentu. \textit{Regex} mulai muncul pada tahun 1940-an sebagai cara untuk menggambarkan bahasa biasa, tetapi \textit{Regex} benar-benar mulai muncul di dunia pemrograman selama tahun 1970-an. Istilah \textit{Regular Expression} berasal dari teori matematika dan komputer sains, dimana istilah tersebut mencerminkan sifat ekspresi matematika yang disebut keteraturan. Ekspresi tersebut dapat diimplementasikan dalam perangkat lunak menggunakan \textit{deterministic finite automaton} (DFA). DFA adalah \textit{finite state machine} (FSA) yang tidak menggunakan \textit{backtracking}.
 
-\textit{Regex}dapat digunakan untuk memverifikasi kecocokan antara input dengan pola teks, untuk menemukan teks yang cocok dengan pola dalam teks yang lebih besar, untuk mengganti teks yang cocok dengan pola dengan teks lain atau menyusun ulang bit dari teks yang cocok dan untuk membagi sebuah blok teks menjadi beberapa subteks.
+\textit{Regex} terdiri dari kombinasi antara \textit{normalcharacter} dan \textit{metacharacter} atau \textit{metasequences}. \textit{Normal character} mewakili karakter itu sendiri, sedangkan \textit{metacharacter} dan \textit{metasequences} merupakan karakter atau urutan karakter yang mewakili ide seperti kuantitas, lokasi, atau jenis karakter. \textit{Regex} dapat digunakan untuk memverifikasi kecocokan antara input dengan pola teks, untuk menemukan teks yang cocok dengan pola dalam teks yang lebih besar, untuk mengganti teks yang cocok dengan pola dengan teks lain atau menyusun ulang bit dari teks yang cocok dan untuk membagi sebuah blok teks menjadi beberapa subteks. \\
 
 \subsection{\textit{Metacharacters}}
-Ada 14 metakarakter yang digunakan dalam \textit{Regex}, masing-masing memiliki makna khusus yang akan dijelaskan pada tabel:
+Ada 14 metakarakter yang digunakan dalam \textit{Regex}, masing-masing memiliki makna khusus yang akan dijelaskan pada tabel: \\
 
 \begin{tabular}{|c|c|c|}
 \hline 
@@ -24,11 +24,11 @@ Metakarakter & Nama & Tujuan \\
 \hline 
 . & Full Stop & Cocok untuk karakter apapun \\ 
 \hline 
-\ & Backslash & • \\ 
+$\backslash$ & Backslash & • \\ 
 \hline 
-| & Vertical Bar & Alternasi  \\ 
+$\vert$ & Vertical Bar & Alternasi  \\ 
 \hline 
-^ & Circumflex & Awal dari line anchor \\ 
+$\hat{}$ & Circumflex & Awal dari line anchor \\ 
 \hline 
 \$ & Dollar Sign & Akhir dari line anchor \\ 
 \hline 
@@ -42,9 +42,9 @@ Metakarakter & Nama & Tujuan \\
 \hline 
 ] & Right Square Bracket & Menutup kelas karakter \\ 
 \hline 
-{ & Left Curly Bracket & Membuka kuantifier atau blok \\ 
+$\lbrace$ & Left Curly Bracket & Membuka kuantifier atau blok \\ 
 \hline 
-} & Right Curly Bracket & Menutup kuantifier atau blok \\ 
+$\rbrace$ & Right Curly Bracket & Menutup kuantifier atau blok \\ 
 \hline 
 ( & Left Parenthesis & Membuka grup \\ 
 \hline 
@@ -55,8 +55,11 @@ Metakarakter & Nama & Tujuan \\
 \subsection{\textit{Character Classes}}
 \begin{enumerate}
 	\item Negated Character Classes
+	
 	\item Union and Difference
+	
 	\item POSIX Character Classes
+	
 \end{enumerate}
 
 \subsection{\textit{Character Shorthands}}
