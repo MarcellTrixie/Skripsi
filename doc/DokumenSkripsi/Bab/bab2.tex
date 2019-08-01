@@ -7,59 +7,238 @@ Pada bab 2 akan diuraikan tentang landasan teori yang membahas \textit{regular e
 \section{\textit{Regular Expression}}
 \label{sec:regex} 
  
-Pada subbab ini akan diuraikan tentang teori \textit{regular expression},
+\textit{Regular expression} (\textit{regex}) adalah jenis pola teks tertentu yang dapat digunakan pada banyak aplikasi modern dan bahasa pemrograman. \textit{Regex} biasanya dimanfaatkan untuk memverifikasi kecocokan antara input dengan pola teks, untuk menemukan teks yang cocok dengan pola dalam teks yang lebih besar, untuk mengganti teks yang cocok dengan pola dengan teks lain atau menyusun ulang bit dari teks yang cocok dan untuk membagi sebuah blok teks menjadi beberapa subteks. \textit{Regex}sudah banyak digunakan dalam pencocokan pola, misalnya untuk validasi beberapa string seperti \textit{username} dan \textit{password}, alamat \textit{e-mail}, alamat \textit{IP} ataupun nomor telepon. Pemanfaatan \textit{regex} dengan baik, dapat menyederhanakan banyak tugas pemrograman dan pemrosesan teks dalam kehidupan sehari-hari.
 
-\subsection{Teori \textit{Regular Expression}}
+Istilah \textit{regex} berasal dari teori matematika dan komputer sains, yang mencerminkan sifat ekspresi dalam matematika yang disebut keteraturan. Ekspresi tersebut dapat diimplementasikan dalam perangkat lunak, dengan menggunakan \textit{Deterministic Finite Automaton} (DFA). DFA adalah \textit{finite state machine} yang tidak menggunakan \textit{backtracking}.
 
-\textit{Regular Expression} atau yang sering disebut dengan \textit{Regex} adalah teks string yang disandikan khusus untuk digunakan digunakan sebagai pola untuk mencocokan set string tertentu. \textit{Regex} mulai muncul pada tahun 1940-an sebagai cara untuk menggambarkan bahasa biasa, tetapi \textit{Regex} benar-benar mulai muncul di dunia pemrograman selama tahun 1970-an. Istilah \textit{Regular Expression} berasal dari teori matematika dan komputer sains, dimana istilah tersebut mencerminkan sifat ekspresi matematika yang disebut keteraturan. Ekspresi tersebut dapat diimplementasikan dalam perangkat lunak menggunakan \textit{deterministic finite automaton} (DFA). DFA adalah \textit{finite state machine} (FSA) yang tidak menggunakan \textit{backtracking}.
+\section{\textit{Perl Compatible Regular Expression}}
+\label{sec:perc}
 
-\textit{Regex} terdiri dari kombinasi antara \textit{normalcharacter} dan \textit{metacharacter} atau \textit{metasequences}. \textit{Normal character} mewakili karakter itu sendiri, sedangkan \textit{metacharacter} dan \textit{metasequences} merupakan karakter atau urutan karakter yang mewakili ide seperti kuantitas, lokasi, atau jenis karakter. \textit{Regex} dapat digunakan untuk memverifikasi kecocokan antara input dengan pola teks, untuk menemukan teks yang cocok dengan pola dalam teks yang lebih besar, untuk mengganti teks yang cocok dengan pola dengan teks lain atau menyusun ulang bit dari teks yang cocok dan untuk membagi sebuah blok teks menjadi beberapa subteks. \\
+\textit{Perl Compatible Regular Expression}(PERC) adalah serangkaian fungsi yang menerapkan pencocokan pola \textit{regex} menggunakan sintaks dan semantik yang sama dengan \textit{Perl 5}. Pada subbab ini akan dijelaskan mengenai bagian-bagian dari PERC yang akan digunakan untuk membangun perangkat lunak.
 
-\subsection{\textit{Metacharacters}}
-Ada 14 metakarakter yang digunakan dalam \textit{Regex}, masing-masing memiliki makna khusus yang akan dijelaskan pada tabel: \\
+\subsection{Metakarakter}
 
-\begin{tabular}{|c|c|c|}
-\hline 
-Metakarakter & Nama & Tujuan \\ 
-\hline 
-. & Full Stop & Cocok untuk karakter apapun \\ 
-\hline 
-$\backslash$ & Backslash & • \\ 
-\hline 
-$\vert$ & Vertical Bar & Alternasi  \\ 
-\hline 
-$\hat{}$ & Circumflex & Awal dari line anchor \\ 
-\hline 
-\$ & Dollar Sign & Akhir dari line anchor \\ 
-\hline 
-? & Question Mark & Nol atau satu kuantifier \\ 
-\hline 
-* & Asterisk & Nol atau lebih kuantifier \\ 
-\hline 
-+ & Plus Sign & Satu atau lebih kuantifier \\ 
-\hline 
-[ & Left Square Bracket & Membuka kelas karakter\\ 
-\hline 
-] & Right Square Bracket & Menutup kelas karakter \\ 
-\hline 
-$\lbrace$ & Left Curly Bracket & Membuka kuantifier atau blok \\ 
-\hline 
-$\rbrace$ & Right Curly Bracket & Menutup kuantifier atau blok \\ 
-\hline 
-( & Left Parenthesis & Membuka grup \\ 
-\hline 
-) & Right Parenthesis & Menutup grup \\ 
-\hline 
-\end{tabular} 
+Metakarakter pada \textit{regex} dibedakan menjadi 2 jenis berdasarkan dari posisinya, yaitu metakarakter \textit{outside square brackets} dan metakarakter \textit{outside square brackets}. Meskipun ada beberapa simbol metakarakter yang sama, namun fungsinya agak berbeda. Pada metakarakter \textit{outside square brackets} terdapat 14 simbol, sedangkan metakarakter \textit{inside square brackets} terdapat 3 simbol. Rincian dari ke-2 metakarakter tersebut akan dijelaskan sebagai berikut:
+	
+\begin{table}[H]
+	\caption {Tabel metakarakter \textit{outside square brackets}} \label{tab:metacharacters-outside}
+	\begin{center}
+		\begin{tabular}{|c|c|}
+		\hline 
+		Metakarakter & Nama \\ 
+		\hline 
+		$\backslash$ & Backslash \\ 
+		\hline 
+		$\hat{}$ & Circumflex Anchor\\ 
+		\hline 
+		\$ & Dollar Anchor\\ 
+		\hline 
+		. & Dot \\ 
+		\hline 
+		[ & Left Square Bracket \\ 
+		\hline 
+		] & Right Square Bracket \\ 
+		\hline 
+		$\vert$ & Vertical Bar \\ 
+		\hline 
+		( & Left Parenthesis \\ 
+		\hline 
+		) & Right Parenthesis \\ 
+		\hline 
+		? & Question Mark \\ 
+		\hline 
+		* & Asterisk \\ 
+		\hline 
+		+ & Plus Sign \\ 
+		\hline 
+		$\lbrace$ & Left Curly Brace \\ 
+		\hline 
+		$\rbrace$ & Right Curly Brace \\ 
+		\hline 
+		\end{tabular} 
+	\end{center}
+\end{table}
 
-\subsection{\textit{Character Classes}}
+Pada tabel 2.1 telah dijabarkan metakarakter \textit{outside square brackets}. Tentunya, masing-masing dari metakarakter tersebut memiliki fungsi. Berikut adalah penjelasan dari fungsi metakarakter dari tabel 2.1:
+
 \begin{enumerate}
-	\item Negated Character Classes
+	\item \textit{Backslash} \\
+	Metakarakter \textit{backslash} yang berada di luar kelas karakter memiliki beberapa fungsi, yaitu:
+	\begin{itemize}
+		\item Membuat karakter lepas\\
+		Apabila diikuti oleh karakter non-alfanumerik, metakarakter ini dapat menghilangkan makna khusus yang dimiliki oleh karakter tersebut. Misalnya pada saat ingin mencocokan karakater "*", dengan menggunakan metakarkter \textit{backslash} dapat dituliskan dengan "$\backslash$*". Jadi karakter \textit{asterisk} akan terbaca sebagai karakter bukan sebagai metakarakter.
+				
+		\item Menggunakan karakter yang tidak dapat ditulis dalam pola, seperti $\backslash$a (\textit{alarm}), $\backslash$cx (\textit{control-x}, $\backslash$e (\textit{escape}) dan lain-lain.
+		
+		\item Menentukan jenis karakter dalam pola, seperti $\backslash$d (angka desimal), $\backslash$D (non-angka desimal), $\backslash$w (karakter kata), $\backslash$W (non-karakter kata) dan lain-lain.
+		
+		\item Menggunakan pernyataan sederhana tertentu, seperti $\backslash$b (\textit{word boundary}), $\backslash$B (\textit{non-word boundary} dan lain-lain.
+		
+	\end{itemize}
 	
-	\item Union and Difference
+	\item \textit{Anchor}\\
+	Metakarakter circumflex digunakan sebagai tanda awal yang memulai suatu teks string, sedangkan dollar digunakan sebagai tanda akhir dari teks string.	
 	
-	\item POSIX Character Classes
+	\item \textit{Dot} \\
+	Metakarakter ini cocok dengan karakter apapun, keculai karakter \textit{newline}.
+	
+	\item \textit{Square Brackets} \\
+	Metakarakter yang terdiri dari pasangan "[" dan "]", memiliki fungsi untuk mendefinisikan kelas karakter. Kelas karakter akan berada di antara 2 karakter tersebut.	Contohnya kelas karakter numerik [0-9] sama dengan [0123456789].
+	
+	\item \textit{Vertical Bar} \\
+	Metakarakter ini berfungsi untuk memisahkan beberapa kondisi pola alternatif yang berbeda. Sebagai contohnya untuk pola A | B, maka hasilnya akan mencocokan "A" atau "B".
+	
+	\item \textit{Parenthesis} \\
+	Metakarakter yang terdiri dari pasangan "(" dan ")", memiliki fungsi untuk mengelompokan subpola dalam \textit{regex}.	
+	
+	\item \textit{Quantifiers} \\
+	Metakarakter yang berfungsi untuk menunjukkan berapa banyak instance karakter, set karakter, atau kelas karakter yang harus dicocokkan. Pada metakarakter ini terdapat 3 jenis, yaitu:
+	\begin{itemize}
+		\item \textit{question mark} (?), dengan jumlah kuantifier antara 0 hingga 1 {0,1}.
+		\item \textit{asterisk} (*), dengan jumlah kuantifier 0 atau lebih {0,}.
+		\item \textit{plus sign} (+), dengan jumlah kuantifier 1 atau lebih {1,}.
+	\end{itemize}	 
+
+	\item \textit{Curly Brackets} \\
+	Metakarakter yang terdiri dari pasangan "{" dan "}", memiliki fungsi untuk mendefinisikan angka minimal dan maksimum dari kuantifiers yang akan digunakan. Misalnya pola a{1,5}, akan cocok dengan "a", "aa", "aaa", "aaaa" atau "aaaaa".
+	
+\end{enumerate}
+		
+Metakarakter \textit{inside square brackets}, merupakan bagian dari kelas karakter. Pada bagian kelas  karakter ini hanya terdapat 3 macam metakarakter saja. Berikut adalah rincian metakarakternya:
+		
+\begin{table}[H]
+	\caption {Tabel metakarakter \textit{inside square brackets}} \label{tab:metacharacters-inside}
+	\begin{center}
+		\begin{tabular}{|c|c|}
+		\hline 
+		Metakarakter & Nama \\ 
+		\hline 
+		$\backslash$ & Backslash \\ 
+		\hline 
+		$\hat{}$ & Circumflex \\ 
+		\hline 
+		- & Hyphen \\ 
+		\hline 
+		\end{tabular} 
+	\end{center}
+\end{table}
+
+Pada tabel 2.2 telah disebutkan macam-macam metakarakter \textit{inside square brackets}. Dari ke-3 metakarakter tersebut ada beberapa yang memiliki simbol yang sama dengan metakarakter \textit{outside square brackets}, namun fungsinya berbeda. Berikut adalah penjelasan dari fungsi metakarakter dari tabel 2.2:
+
+\begin{enumerate}
+	\item \textit{Backslash} \\
+	Metakarakter ini fungsinya sama dengan \textit{backslash} yang ada pada \textit{outside square brackets}. Namun dari ke-4 fungsi tersebut hanya 3 fungsi saja yang digunakan, yaitu membuat karakter lepas, Menggunakan karakter yang tidak dapat ditulis dalam pola dan menentukan jenis karakter dalam pola.
+	
+	\item \textit{Circumflex} \\
+	Metakarakter ini memiliki fungsi yang berbeda dengan yang digunakan pada \textit{outside square brackets}. Fungsinya untuk membuat negasi, namun hanya berlaku untuk karakter pertamanya saja. Contohnya [$\hat{}$0] akan cocok dengan semua karakter kecuali karakter 0.
+	
+	\item \textit{Hyphen} \\
+	Metakarakter ini berfungsi untuk menentukan jangkauan dari sebuah karakter dalam kelas karakter, seperti [0-9] yang menandakan jangkauan karakter dari angka 0 hingga 9.
+	
+\end{enumerate}
+	
+\subsection{Kelas Karakter}
+
+Kelas karakter adalah karakter yang memiliki atribut yang spesifik yang dikelompokan dalam sebuah kelas. Karakter tersebut dapat berbeda di setiap negara. Kelas karakter hanya valid digunakan pada \textit{regex} didalam tanda kurung siku pada \textit{bracket expression}. Perl mendukung notasi POSIX yang digunakan untuk kelas karakter. Dalam penggunaannya, kelas-kelas tersebut ditulis diantara "[:" dan ":]". PCRE juga mendukung penggunaan notasi ini. Sebagai contoh untuk kelas alfanumerik, penulisannya yaitu [:alnum:]. Berikut ini akan dijelaskan macam-macam kelas karakter yang digunakan:
+
+\begin{table}[H]
+	\caption {Tabel kelas karakter} \label{tab:character classes}
+	\begin{center}
+		\begin{tabular}{|c|c|}
+		\hline 
+		Classes & Deskripsi \\ 
+		\hline 
+		alnum & letters dan digit \\ 
+		\hline 
+		alpha & letters \\ 
+		\hline 
+		ascii & character code 0-127 \\ 
+		\hline 
+		blank & space / tab \\ 
+		\hline 
+		cntrl & control characters \\ 
+		\hline 
+		digit & decimal digits \\ 
+		\hline 
+		graph & printing characters, excluding space \\ 
+		\hline 
+		lower & lower case letters \\ 
+		\hline 
+		print & printing characters, including space \\ 
+		\hline 
+		punct & printing characters, excluding letters and digits \\ 
+		\hline 
+		space & white space \\ 
+		\hline 
+		upper & upper case letters \\ 
+		\hline 
+		word & "word" characters \\ 
+		\hline 
+		xdigit & hexadecimal digits \\ 
+		\hline 
+		\end{tabular} 
+	\end{center}
+\end{table}
+
+Dari tabel 2.3, telah diuraikan 14 jenis kelas karakter. Masing-masing dari kelas karakter tersebut, akan dijelaskan sebagai berikut:
+
+\begin{enumerate}
+	\item \textit{alnum} \\
+	Kelas yang berisi dengan karakter alfanumerik, meliputi angka dan huruf. Karakter-karakter yang termasuk yaitu, huruf a-Z atau A-Z dan angka 0-9.
+	
+	\item \textit{alpha} \\
+	Kelas yang berisi dengan karakter huruf. Karakter-karakter yang termasuk yaitu, huruf a-Z atau A-Z.	
+	
+	\item \textit{ascii} \\
+	Kelas yang merepresentasikan kode karakter dari 0-127.
+	
+	\item \textit{blank} \\
+	Karakter-karakter yang termasuk yaitu, TAB dan spasi.
+	
+	\item \textit{control} \\
+	Karakter kontrol adalah karakter yang tidak merepresentasikan simbol tetapi merepresentasikan character encoding.
+	
+	\item \textit{digit} \\
+	Kelas yang berisi dengan karakter numerik. Karakter-karakter yang termasuk yaitu, angka 0-9.
+	
+	\item \textit{graph} \\
+	Kelas yang berisi karakter yang dapat dicetak dan tampak. Contoh karakter yang dapat dicetak namun tidak tampak adalah karakter spasi dan TAB. Jadi pada kelas ini karakter spasi dan tab tidak termasuk.
+	
+	\item \textit{lower} \\
+	Kelas yang berisi karakter dengan huruf kecil.
+	
+	\item \textit{print} \\
+	Kelas yang berisi karakter yang dapat dicetak. Karakter yang termasuk kelas ini adalah spasi.
+	
+	\item \textit{punct} \\
+	Kelas yang berisi karakter yang dapat dicetak, namun tidak termasuk alfanumerik.
+	
+	\item \textit{space} \\
+	Karakter yang termasuk kelas ini adalah spasi dan TAB.
+	
+	\item \textit{upper} \\
+	Kelas yang berisi karakter dengan huruf kapital.
+	
+	\item \textit{word} \\
+	Kelas yang berisi karakter kata.
+	
+	\item \textit{xdijit} \\
+	Kelas yang merepresentasikan bilangan hexadesimal, a-f atau A-F dan 0-9.
 	
 \end{enumerate}
 
-\subsection{\textit{Character Shorthands}}
+\section{PDF Parser}
+
+\textit{PDF Parser} adalah sebuah \textit{PHP library} yang digunakan untuk mengekstrak data yang ada dalam sebuah file PDF. Fitur-fitur yang sudah ada dalam \textit{library} ini, yaitu:
+
+\begin{enumerate}
+	\item Memuat / mengurai objek dan header
+	\item Ekstrak data meta, seperti nama penulis, deskripsi dan sebagainya
+	\item Ekstrak teks dari halaman berurut
+	\item Dapat digunakan untuk kompresi PDF
+	\item Mendukung \textit{MAC OS Roman charset encoding}
+	\item Menangani \textit{encoding} heksa dan oktal pada teks
+
+Dari fitur yang sudah ada, ada beberapa yang masih belum bisa ditangani oleh \textit{library} ini. \textit{PDF Parser}  belum dapat mengekstrak dokumen yang diamankan. Namun \textit{library} ini  masih aktif dalam pengembangan.
+	
+\end{enumerate}
