@@ -106,7 +106,7 @@ Metakarakter \textit{inside square brackets} merupakan bagian dari kelas karakte
 \begin{table}[H]
 	\caption {Tabel metakarakter \textit{inside square brackets}} \label{tab:metacharacters-inside}
 	\begin{center}
-		\begin{tabular}{|c|l|}
+		\begin{tabular}{|p{1.5cm} |p{2.5cm}|}
 		\hline 
 		Simbol & Nama \\ 
 		\hline 
@@ -115,8 +115,8 @@ Metakarakter \textit{inside square brackets} merupakan bagian dari kelas karakte
 		$\hat{}$ & Circumflex \\ 
 		\hline 
 		- & Hyphen \\ 
-		\hline 
-		\end{tabular} 
+		\hline
+		\end{tabular}
 	\end{center}
 \end{table}
 
@@ -141,93 +141,57 @@ Kelas karakter adalah karakter yang memiliki atribut yang spesifik yang dikelomp
 \begin{table}[H]
 	\caption {Tabel kelas karakter} \label{tab:character classes}
 	\begin{center}
-		\begin{tabular}{|c|l|}
+		\begin{tabular}{|p{2 cm}|>{\raggedright} p{5 cm}| p{7.5 cm}|}
+		\hline
+		Kelas & Deskripsi & Keterangan \\ 
 		\hline 
-		Kelas & Deskripsi \\ 
+		alnum & Alfanumerik & Kelas yang berisi dengan karakter alfanumerik, meliputi angka dan huruf. Karakter-karakter yang termasuk yaitu, huruf a-Z atau A-Z dan angka 0-9. Simbol atau karakter khusus tidak termasuk dalam kelas ini. \newline \\ 
 		\hline 
-		alnum & Alfanumerik \\ 
+		alpha & Huruf & Kelas yang berisi dengan karakter huruf. Karakter-karakter yang termasuk yaitu, huruf a-Z atau A-Z.	Simbol atau karakter khusus tidak termasuk dalam kelas ini. \newline \\ 
 		\hline 
-		alpha & Huruf \\ 
+		ascii & Kode karakter & Kelas yang merepresentasikan kode karakter dari 0-127. \newline \\ 
 		\hline 
-		ascii & Kode karakter (0-127) \\ 
+		blank & Spasi dan Tab & Karakter-karakter yang termasuk yaitu, TAB dan spasi. \newline \\ 
 		\hline 
-		blank & Spasi dan Tab \\ 
+		cntrl & Karakter kontrol & Karakter kontrol adalah karakter yang tidak merepresentasikan simbol tetapi merepresentasikan character encoding. \newline \\ 
 		\hline 
-		cntrl & Karakter kontrol \\ 
-		\hline 
-		digit & Angka desimal \\ 
-		\hline 
-		graph & Karakter cetak (kecuali spasi) \\ 
-		\hline 
-		lower & Huruf kecil \\ 
-		\hline 
-		print & Karakter cetak (termasuk spasi) \\ 
-		\hline 
-		punct & Karakter cetak (kecuali alfanumerik) \\ 
-		\hline 
-		space & \textit{White space} \\ 
-		\hline 
-		upper & Huruf kapital \\ 
-		\hline 
-		word & Karakter ''word'' \\ 
-		\hline 
-		xdigit & Heksadesimal \\ 
+		digit & Angka desimal & Kelas yang berisi dengan karakter numerik. Karakter-karakter yang termasuk yaitu, angka 0-9. \newline \\ 
 		\hline 
 		\end{tabular} 
 	\end{center}
 \end{table}
 
-Pada tabel 2.3, telah diuraikan 14 jenis kelas karakter. Masing-masing dari kelas karakter tersebut, akan dijelaskan sebagai berikut:
-
-\begin{enumerate}
-	\item \textit{alnum} \\
-	Kelas yang berisi dengan karakter alfanumerik, meliputi angka dan huruf. Karakter-karakter yang termasuk yaitu, huruf a-Z atau A-Z dan angka 0-9. Simbol atau karakter khusus tidak termasuk dalam kelas ini.
-	
-	\item \textit{alpha} \\
-	Kelas yang berisi dengan karakter huruf. Karakter-karakter yang termasuk yaitu, huruf a-Z atau A-Z.	Simbol atau karakter khusus tidak termasuk dalam kelas ini.
-	
-	\item \textit{ascii} \\
-	Kelas yang merepresentasikan kode karakter dari 0-127.
-	
-	\item \textit{blank} \\
-	Karakter-karakter yang termasuk yaitu, TAB dan spasi.
-	
-	\item \textit{control} \\
-	Karakter kontrol adalah karakter yang tidak merepresentasikan simbol tetapi merepresentasikan character encoding.
-	
-	\item \textit{digit} \\
-	Kelas yang berisi dengan karakter numerik. Karakter-karakter yang termasuk yaitu, angka 0-9.
-	
-	\item \textit{graph} \\
-	Kelas yang berisi karakter yang dapat dicetak dan tampak. Contoh karakter yang dapat dicetak namun tidak tampak adalah karakter spasi dan TAB. Jadi pada kelas ini karakter spasi dan tab tidak termasuk.
-	
-	\item \textit{lower} \\
-	Kelas yang berisi karakter dengan huruf kecil.
-	
-	\item \textit{print} \\
-	Kelas yang berisi karakter yang dapat dicetak. Karakter yang termasuk kelas ini adalah spasi.
-	
-	\item \textit{punct} \\
-	Kelas yang berisi karakter yang dapat dicetak, namun tidak termasuk alfanumerik.
-	
-	\item \textit{space} \\
-	Karakter yang termasuk kelas ini adalah spasi dan TAB.
-	
-	\item \textit{upper} \\
-	Kelas yang berisi karakter dengan huruf kapital.
-	
-	\item \textit{word} \\
-	Kelas yang berisi karakter kata.
-	
-	\item \textit{xdijit} \\
-	Kelas yang merepresentasikan bilangan hexadesimal, a-f atau A-F dan 0-9.
-	
-\end{enumerate}
+\begin{table}[H]
+	\caption {Tabel kelas karakter} \label{tab:character classes}
+	\begin{center}
+		\begin{tabular}{|p{2 cm}|>{\raggedright} p{5 cm}| p{7.5 cm}|}
+		\hline
+		Kelas & Deskripsi & Keterangan \\ 
+		\hline 
+		graph & Karakter cetak (kecuali spasi) & Kelas yang berisi karakter yang dapat dicetak dan tampak. Contoh karakter yang dapat dicetak namun tidak tampak adalah karakter spasi dan TAB. Jadi pada kelas ini karakter spasi dan tab tidak termasuk. \newline \\ 
+		\hline 
+		lower & Huruf kecil & Kelas yang berisi karakter dengan huruf kecil. \newline \\ 
+		\hline 
+		print & Karakter cetak (termasuk spasi) & Kelas yang berisi karakter yang dapat dicetak. Karakter yang termasuk kelas ini adalah spasi. \newline \\ 
+		\hline 
+		punct & Karakter cetak (kecuali alfanumerik) & Kelas yang berisi karakter yang dapat dicetak, namun tidak termasuk alfanumerik. \newline \\ 
+		\hline 
+		space & Ruang putih & Karakter yang termasuk kelas ini adalah spasi dan TAB. \newline \\ 
+		\hline 
+		upper & Huruf kapital & Kelas yang berisi karakter dengan huruf kapital. \newline \\ 
+		\hline 
+		word & Karakter ''word'' & Kelas yang berisi karakter kata. \newline \\ 
+		\hline 
+		xdigit & Heksadesimal & Kelas yang merepresentasikan bilangan hexadesimal, a-f atau A-F dan 0-9. \newline \\ 
+		\hline 
+		\end{tabular} 
+	\end{center}
+\end{table}
 
 \section{PDF Parser}
 \label{sec:pdfparser}
 
-\textit{PDF Parser}~\cite{pdfparser} adalah sebuah \textit{PHP library} yang digunakan untuk mengekstrak data yang ada dalam sebuah file PDF. Fitur-fitur yang sudah ada dalam \textit{library} ini, yaitu:
+\textit{PDF Parser}~\cite{pdfparser} adalah sebuah \textit{PHP library} yang digunakan untuk mengekstrak data yang ada dalam sebuah file PDF. Fitur-fitur yang terdapat dalam \textit{PDF Parser} adalah sebagai berikut:
 
 \begin{enumerate}
 	\item Memuat / mengurai objek dan header
@@ -237,7 +201,14 @@ Pada tabel 2.3, telah diuraikan 14 jenis kelas karakter. Masing-masing dari kela
 	\item Mendukung \textit{MAC OS Roman charset encoding}
 	\item Menangani \textit{encoding} heksa dan oktal pada teks
 
-Dari fitur yang sudah ada, ada beberapa yang masih belum bisa ditangani oleh \textit{library} ini. \textit{PDF Parser} belum dapat mengekstrak dokumen yang diamankan. Selain itu, \textit{library} ini tidak dapat mendeteksi jenis teks yang dicetak miring, tebal dan bergaris bawah. Hingga saat ini, pengembangan \textit{library PDF parser} masih terus berjalan.
+Dari fitur yang sudah ada, masih ada yang belum bisa ditangani oleh \textit{library} ini. \textit{PDF Parser} belum dapat mengekstrak dokumen yang diamankan. Selain itu, \textit{library} ini tidak dapat mendeteksi jenis teks yang dicetak miring, tebal dan bergaris bawah. Hingga saat ini, pengembangan \textit{library PDF parser} masih terus berjalan. 
+
+\textit{Library} ini dapat digunakan pada \textit{PHP} dengan versi 5.3 ke atas. Namun, sebelum menggunakannya, ada beberapa hal yang perlu dilakukan terlebih dahulu. Ada 2 macam cara untuk memasangnya, yaitu:
+
+\begin{itemize}
+	\item Menggunakan \textit{composer} \\
+	\item Dijadikan sebagai \textit{standalone library} \\
+\end{itemize}
 	
 \end{enumerate}
 
