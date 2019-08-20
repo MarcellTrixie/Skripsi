@@ -74,9 +74,9 @@ Dari ke-7 pengamatan yang telah dilakukan, terdapat beberapa kesalahan-kesalahan
 		\hline		
 		PS-03 & Pemberian spasi sebelum dan setelah tanda baca & Salah satu hal kecil yang sering mengganggu adalah penggunaan spasi sebelum dan setelah tanda baca. Tanda baca yang paling sering dipakai, seperti titik, koma, tanya, dan seru harus diberi spasi setelahnya. Spasi juga digunakan sebelum menggunakan tanda kurung buka. Ada beberapa kesalahan yang masih ditemukan seperti, memberi spasi sebelum tanda tanya ataupun memberi spasi sebelum dan setelah garis miring. \newline \\ 
 		\hline
-		PS-04 & Pemberian spasi sebelum dan setelah tanda baca & Setiap huruf pertama pada kata pertama dalam sebuah kalimat harus ditulis dengan huruf kapital. \newline \\ 
+		PS-04 & Pemberian spasi sebelum dan setelah tanda baca & Masalah ini sering ditemukan dalam penulisan dokumen skripsi, biasanya terjadi pada saat menyisipkan gambar atau tabel. Susunan atau ukuran gambar yang tidak tepat dapat mengakibatkan terciptanya ruang kosong yang besar. \newline \\
 		\hline 
-		PS-05 & Pemberian spasi sebelum dan setelah tanda baca & Masalah ini sering ditemukan dalam penulisan dokumen skripsi, biasanya terjadi pada saat menyisipkan gambar atau tabel. Susunan atau ukuran gambar yang tidak tepat dapat mengakibatkan terciptanya ruang kosong yang besar. \newline \\ 
+		PS-05 & Awal kalimat tidak menggunakan huruf kapital & Setiap huruf pertama pada kata pertama dalam sebuah kalimat harus ditulis dengan huruf kapital. \newline \\  
 		\hline 
 		PS-06 & Pemberian spasi sebelum dan setelah tanda baca & Setiap kata dalam sebuah kalimat dipisahkan dengan jarak 1 spasi agar kalimat dapat dibaca dan dimengerti dengan baik. \newline \\ 
 		\hline 
@@ -230,7 +230,7 @@ Survei dilanjutkan dengan melakukan wawancara secara personal kepada dosen-dosen
 \end{enumerate}
 \end{comment}
 
-\subsection{Keputusan Implementasi Hasil Survei}
+\section{Keputusan Implementasi Hasil Survei}
 
 Setiap hasil survei yang didapatkan melalui pengamatan sidang skripsi dan wawancara dosen, telah diberikan sebuah kode. Kode tersebut akan digunakan sebagai identitas dari setiap hasil survei. Namun, tidak semua dari hasil survei tersebut dapat diimplementasikan menggunakan \textit{regex}. Metode yang digunakan untuk mendeteksi kesalahan yaitu dengan \textit{pattern matching}, sehingga hal-hal yang bersifat kontekstual tidak dapat dicek dengan \textit{regex}. Berikut ini adalah hasil keputusan yang telah diambil pada setiap hasil survei di atas:
 
@@ -241,58 +241,72 @@ Setiap hasil survei yang didapatkan melalui pengamatan sidang skripsi dan wawanc
 		\hline
 		Kode & Survei & Keputusan & Alasan \\ 
 		\hline 
-		PS-01 & Penulisan Kata & Tidak & Tidak dapat diselesaikan menggunakan \textit{regular expression}, karena \newline \\ 
+		PS-01 & Penulisan Kata & Ya & Dapat diselesaikan menggunakan \textit{regular expression} \newline \\ 
 		\hline 
-		PS-02 & Penggunaan imbuhan di- dan kata depan di- & Tidak & Tidak dapat diselesaikan menggunakan \textit{regular expression}, karena \newline \\ 
+		PS-02 & Penggunaan imbuhan di- dan kata depan di- & Ya & Dapat diselesaikan menggunakan \textit{regular expression}. Namun untuk penggunaan kata depan di- tidak bisa diimplementasi karena pada kamus Indonesia \textit{LibreOffice} tidak ada fitur untuk membedakan kata sebagai keterangan atau bukan. \newline \\ 
 		\hline 
 		PS-03 & Pemberian spasi sebelum dan setelah tanda baca & Ya & Dapat diselesaikan menggunakan \textit{regular expression} \newline \\ 
 		\hline 
-		PS-04 & Awal kalimat tidak menggunakan huruf kapital & Ya & Dapat diselesaikan menggunakan \textit{regular expression} \newline \\ 
-		\hline 
-		PS-05 & Terdapat ruang kosong yang besar & Tidak & Tidak dapat diselesaikan menggunakan \textit{regular expression}, karena \newline \\ 
-		\hline 
-		PS-06 & Tidak ada spasi antar kata & Ya & Dapat diselesaikan menggunakan \textit{regular expression} \newline \\ 
+		PS-04 & Terdapat ruang kosong yang besar & Tidak & Tidak dapat diselesaikan menggunakan \textit{regular expression}, karena hasil ekstrak dari PDF menggunakan \textit{PDF Parser} tidak mendeteksi adanya baris kosong. \newline \\ 
 		\hline 
 		\end{tabular}
 	\end{center}
 \end{table}
 
 \begin{table}[H]
-	\centering
 	\caption {Tabel keputusan implementasi} \label{tab:keputusan}
+	\begin{center}
 		\begin{tabular}{|p{1.5 cm}|>{\raggedright} p{4 cm}| p{2 cm}| p{7 cm}|}
 		\hline
-		PS-07 & Gambar tidak sesuai tempatnya & Tidak & Tidak dapat diselesaikan menggunakan \textit{regular expression}, karena \newline \\ 
-		\hline 
 		Kode & Survei & Keputusan & Alasan \\ 
+		\hline 
+		PS-05 & Awal kalimat tidak menggunakan huruf kapital & Ya & Dapat diselesaikan menggunakan \textit{regular expression} \newline \\ 
 		\hline
-		PS-08 & Tidak ada keterangan untuk gambar dan tabel & Tidak & Tidak dapat diselesaikan menggunakan \textit{regular expression}, karena \newline \\ 
+		PS-06 & Tidak ada spasi antar kata & Ya & Dapat diselesaikan menggunakan \textit{regular expression} \newline \\ 
+		\hline 
+		PS-07 & Gambar tidak sesuai tempatnya & Tidak & Tidak dapat diselesaikan menggunakan \textit{regular expression}, karena hasil ekstrak PDF dari \textit{PDF Parser} tidak dapat mendeteksi gambar. \newline \\ 
+		\hline 
+		PS-08 & Tidak ada keterangan untuk gambar dan tabel & Tidak & Tidak dapat diselesaikan menggunakan \textit{regular expression}, karena hasil ekstrak PDF dari \textit{PDF Parser} tidak dapat mendeteksi gambar dan tabel. \newline \\ 
 		\hline 
 		PS-09 & Jumlah subbab dalam 1 bab tidak boleh hanya 1 & Ya & Dapat diselesaikan menggunakan \textit{regular expression} \newline \\ 
 		\hline 
-		KAL-01 & Cetak miring untuk bahasa asing & Tidak & Tidak dapat diselesaikan menggunakan \textit{regular expression}, karena \newline \\ 
+		KAL-01 & Cetak miring untuk bahasa asing & Tidak & Tidak dapat diselesaikan menggunakan \textit{regular expression}, karena membutuhkan kamus bahasa Inggris. Selain itu \textit{PDF Parser} tidak dapat mencocokan teks yang cetak miring. \newline \\ 
 		\hline 
-		KAL-02 & Kalimat pengantar untuk setiap subbab & Tidak & Tidak dapat diselesaikan menggunakan \textit{regular expression}, karena \newline \\ 
+		KAL-02 & Kalimat pengantar untuk setiap subbab & Ya & Dapat diselesaikan menggunakan \textit{regular expression}. \newline \\ 
 		\hline 
 		KAL-03 & Kelengkapan data skripsi & Ya & Dapat diselesaikan menggunakan \textit{regular expression} \newline \\ 
 		\hline 
-		CHW-01 & Letak keterangan untuk gambar dan tabel & Tidak & Tidak dapat diselesaikan menggunakan \textit{regular expression}, karena \newline \\ 
+		CHW-01 & Letak keterangan untuk gambar dan tabel & Tidak & Tidak dapat diselesaikan menggunakan \textit{regular expression}, karena hasil ekstrak PDF dari \textit{PDF Parser} tidak dapat mendeteksi gambar dan tabel.\newline \\ 
 		\hline 
 		CHW-02 & Penggunaan bahasa yang benar & Ya & Dapat diselesaikan menggunakan \textit{regular expression} \newline \\ 
 		\hline  
-		HUH-01 & Rujukan untuk gambar dan tabel & Tidak & Tidak dapat diselesaikan menggunakan \textit{regular expression}, karena \newline \\ 
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[H]
+	\caption {Tabel keputusan implementasi} \label{tab:keputusan}
+	\begin{center}
+		\begin{tabular}{|p{1.5 cm}|>{\raggedright} p{4 cm}| p{2 cm}| p{7 cm}|}
+		\hline
+		Kode & Survei & Keputusan & Alasan \\ 
+		\hline
+		HUH-01 & Rujukan untuk gambar dan tabel & Tidak & Tidak dapat diselesaikan menggunakan \textit{regular expression}, karena hasil ekstrak PDF dari \textit{PDF Parser} tidak dapat mendeteksi gambar dan tabel. \newline \\ 
 		\hline 
-		HUH-02 & Penulisan pseudocode & Tidak & Tidak dapat diselesaikan menggunakan \textit{regular expression}, karena \newline \\ 
+		HUH-02 & Penulisan pseudocode & Tidak & Tidak dapat diselesaikan menggunakan \textit{regular expression}, karena hasil ekstrak PDF dari \textit{PDF Parser} tidak dapat mendeteksi pseudocode. \newline \\ 
 		\hline 
-		HUH-03 & Penulisan kata hubung & Tidak & Tidak dapat diselesaikan menggunakan \textit{regular expression}, karena \newline \\ 
+		HUH-03 & Penulisan kata hubung & Tidak & Tidak dapat diselesaikan menggunakan \textit{regular expression}, karena \textit{regex} tidak dapat memeriksa kata hubung yang digunakan sudah tepat atau belum berdasarkan fungsi dari kata hubung tersebut. \newline \\ 
 		\hline 
 		VAN-01 & Tahun skripsi pada cover skripsi & Ya & Dapat diselesaikan menggunakan \textit{regular expression} \newline \\ 
 		\hline 
-		VAN-02 & Konsistensi penggunaan kata & Tidak & Tidak dapat diselesaikan menggunakan \textit{regular expression}, karena \newline \\ 
+		VAN-02 & Konsistensi penggunaan kata & Tidak & Tidak dapat diselesaikan menggunakan \textit{regular expression}, karena \newline tidak dapat membuat padanan kata untuk memeriksa kosistensi penggunaan kata. \\ 
 		\hline 
 		VAN-03 & Penggunaan kata ganti orang & Ya & Dapat diselesaikan menggunakan \textit{regular expression} \newline \\ 
 		\hline 
 		NAT-01 & Penulisan daftar referensi & Ya & Dapat diselesaikan menggunakan \textit{regular expression} \newline \\ 
 		\hline
 		\end{tabular}
+	\end{center}
 \end{table}
+
+Seperti yang sudah dijabarkan pada tabel 3.7 hingga tabel 3.9, 12 dari 21 hasil survei akan diimplementasikan menjadi fitur dalam perangkat lunak. Keputusan tersebut diambil berdasarkan bisa / tidaknya kesalahan tersebut diperiksa menggunakan \textit{pattern matching regex} dan tingkat kesulitan untuk memeriksa kesalahan tersebut.

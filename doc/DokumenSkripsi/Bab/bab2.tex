@@ -1,3 +1,25 @@
+\lstdefinelanguage{plaintext}{
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  identifierstyle=\color{black},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset
+{ 
+    language=plaintext,
+    basicstyle=\footnotesize,
+    numbers=left,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=1,
+    breaklines=true,
+    breakatwhitespace=false,
+    frame=leftline
+}
+
 %versi 2 (8-10-2016)
 \chapter{Landasan Teori}
 \label{chap:teori}
@@ -32,15 +54,11 @@ Metakarakter pada \textit{regex} dibedakan menjadi 2 jenis berdasarkan dari posi
 		\hline 
 		. & Dot \\ 
 		\hline 
-		[ & Left Square Bracket \\ 
-		\hline 
-		] & Right Square Bracket \\ 
+		[ ] & Square Bracket \\ 
 		\hline 
 		$\vert$ & Vertical Bar \\ 
 		\hline 
-		( & Left Parenthesis \\ 
-		\hline 
-		) & Right Parenthesis \\ 
+		( ) & Parenthesis \\ 
 		\hline 
 		? & Question Mark \\ 
 		\hline 
@@ -48,22 +66,20 @@ Metakarakter pada \textit{regex} dibedakan menjadi 2 jenis berdasarkan dari posi
 		\hline 
 		+ & Plus \\ 
 		\hline 
-		$\lbrace$ & Left Curly Brace \\ 
-		\hline 
-		$\rbrace$ & Right Curly Brace \\ 
+		$\lbrace$ $\rbrace$ & Curly Bracket \\ 
 		\hline 
 		\end{tabular} 
 	\end{center}
 \end{table}
 
-Pada tabel 2.1 telah disebutkan simbol-simbol yang digunakan pada metakarakter \textit{outside square brackets}. Berikut ini adalah penjelasan fungsi dari setiap metakarakter:
+Pada tabel \ref{tab:metacharacters-outside} telah disebutkan simbol-simbol yang digunakan pada metakarakter \textit{outside square brackets}. Berikut ini adalah penjelasan fungsi dari setiap metakarakter:
 
 \begin{enumerate}
 	\item \textit{Backslash} \\
 	\textit{Backslash} yang berada di luar kelas karakter memiliki beberapa fungsi, yaitu:
 	\begin{itemize}
 		\item Membuat karakter lepas\\
-		Apabila diikuti oleh karakter non-alfanumerik, metakarakter ini dapat menghilangkan makna khusus yang dimiliki oleh karakter tersebut. Misalnya pada saat ingin mencocokan karakater ''*'', dengan menggunakan metakarkter \textit{backslash} dapat dituliskan dengan ''$\backslash$*''. Jadi karakter \textit{asterisk} akan terbaca sebagai karakter bukan sebagai metakarakter.
+		Apabila diikuti oleh karakter non-alfanumerik, metakarakter ini dapat menghilangkan makna khusus yang dimiliki oleh karakter tersebut. Misalnya pada saat ingin mencocokan karakter ''*'', dengan menggunakan metakarakter \textit{backslash} dapat dituliskan dengan ''$\backslash$*''. Jadi karakter \textit{asterisk} akan terbaca sebagai karakter bukan sebagai metakarakter.
 				
 		\item Menggunakan karakter yang tidak dapat ditulis dalam pola, seperti $\backslash$a (\textit{alarm}), $\backslash$cx (\textit{control-x}, $\backslash$e (\textit{escape}) dan lain-lain.
 		
@@ -91,9 +107,9 @@ Pada tabel 2.1 telah disebutkan simbol-simbol yang digunakan pada metakarakter \
 	\item \textit{Quantifiers} \\
 	\textit{Quantifiers} berfungsi untuk menunjukkan berapa banyak instance karakter, set karakter, atau kelas karakter yang harus dicocokkan. Pada metakarakter ini terdapat 3 jenis, yaitu:
 	\begin{itemize}
-		\item \textit{question mark} (?), dengan jumlah kuantifier antara 0 hingga 1 {0,1}.
-		\item \textit{asterisk} (*), dengan jumlah kuantifier 0 atau lebih {0,}.
-		\item \textit{plus} (+), dengan jumlah kuantifier 1 atau lebih {1,}.
+		\item \textit{question mark} (?), dengan jumlah kuantifier $\lbrace$ 0,1 $\rbrace$ (0 hingga 1).
+		\item \textit{asterisk} (*), dengan jumlah kuantifier $\lbrace$ 0, $\rbrace$ (0 atau lebih). 
+		\item \textit{plus} (+), dengan jumlah kuantifier $\lbrace$ 1, $\rbrace$ (1 atau lebih). 
 	\end{itemize}	 
 
 	\item \textit{Curly Brackets} \\
@@ -120,17 +136,17 @@ Metakarakter \textit{inside square brackets} merupakan bagian dari kelas karakte
 	\end{center}
 \end{table}
 
-Pada tabel 2.2 telah disebutkan macam-macam metakarakter \textit{inside square brackets}. Dari ke-3 metakarakter tersebut ada beberapa yang memiliki simbol yang sama dengan metakarakter \textit{outside square brackets}, namun fungsinya berbeda. Berikut adalah penjelasan dari fungsi metakarakter dari tabel 2.2:
+Pada tabel \ref{tab:metacharacters-inside} telah disebutkan macam-macam metakarakter \textit{inside square brackets}. Dari ke-3 metakarakter tersebut ada beberapa yang memiliki simbol yang sama dengan metakarakter \textit{outside square brackets}, namun fungsinya berbeda. Berikut adalah penjelasan dari fungsi metakarakter dari tabel \ref{tab:metacharacters-inside}
 
 \begin{enumerate}
 	\item \textit{Backslash} \\
 	Metakarakter ini fungsinya sama dengan \textit{backslash} yang ada pada \textit{outside square brackets}. Namun dari ke-4 fungsi tersebut hanya 3 fungsi saja yang digunakan, yaitu membuat karakter lepas, Menggunakan karakter yang tidak dapat ditulis dalam pola dan menentukan jenis karakter dalam pola.
 	
 	\item \textit{Circumflex} \\
-	Metakarakter ini memiliki fungsi yang berbeda dengan yang digunakan pada \textit{outside square brackets}. Fungsinya untuk membuat negasi, namun hanya berlaku untuk karakter pertamanya saja. Contohnya [$\hat{}$0] akan cocok dengan semua karakter kecuali karakter 0.
+	Metakarakter ini memiliki fungsi yang berbeda dengan yang digunakan pada \textit{outside square brackets}. Fungsinya untuk membuat negasi, namun hanya berlaku untuk karakter pertamanya saja. Contohnya [ $\hat{}$ 0 ] akan cocok dengan semua karakter kecuali karakter 0.
 	
 	\item \textit{Hyphen} \\
-	Metakarakter ini berfungsi untuk menentukan jangkauan dari sebuah karakter dalam kelas karakter, seperti [0-9] yang menandakan jangkauan karakter dari angka 0 hingga 9.
+	Metakarakter ini berfungsi untuk menentukan jangkauan dari sebuah karakter dalam kelas karakter, seperti [ 0-9 ] yang menandakan jangkauan karakter dari angka 0 hingga 9.
 	
 \end{enumerate}
 	
@@ -191,26 +207,18 @@ Kelas karakter adalah karakter yang memiliki atribut yang spesifik yang dikelomp
 \section{PDF Parser}
 \label{sec:pdfparser}
 
-\textit{PDF Parser}~\cite{pdfparser} adalah sebuah \textit{PHP library} yang digunakan untuk mengekstrak data yang ada dalam sebuah file PDF. Fitur-fitur yang terdapat dalam \textit{PDF Parser} adalah sebagai berikut:
+\textit{PDF Parser}~\cite{pdfparser} adalah sebuah \textit{PHP library} yang digunakan untuk mengekstrak data yang ada dalam sebuah file PDF. \textit{PDF Parser} dapat digunakan pada \textit{PHP} dengan versi 5.3 ke atas. Terdapat beberapa fitur yang dimiliki oleh \textit{library} ini. Berikut adalah fitur yang sudah dapat digunakan:
 
-\begin{enumerate}
+\begin{itemize}
 	\item Memuat / mengurai objek dan header
 	\item Menampilkan data meta, seperti nama penulis, deskripsi dan sebagainya
 	\item Menampilkan isi dari teks PDF
 	\item Dapat digunakan untuk kompresi PDF
 	\item Mendukung \textit{MAC OS Roman charset encoding}
 	\item Menangani \textit{encoding} heksa dan oktal pada teks
+\end{itemize}
 
 Dari fitur yang sudah ada, masih ada yang belum bisa ditangani oleh \textit{library} ini. \textit{PDF Parser} belum dapat mengekstrak dokumen yang diamankan. Selain itu, \textit{library} ini tidak dapat mendeteksi jenis teks yang dicetak miring, tebal dan bergaris bawah. Hingga saat ini, pengembangan \textit{library PDF parser} masih terus berjalan. 
-
-\textit{Library} ini dapat digunakan pada \textit{PHP} dengan versi 5.3 ke atas. Namun, sebelum menggunakannya, ada beberapa hal yang perlu dilakukan terlebih dahulu. Ada 2 macam cara untuk memasangnya, yaitu:
-
-\begin{itemize}
-	\item Menggunakan \textit{composer} \\
-	\item Dijadikan sebagai \textit{standalone library} \\
-\end{itemize}
-	
-\end{enumerate}
 
 \section{Kamus Indonesia \textit{LibreOffice}}
 \label{sec:kamusindo}
@@ -218,3 +226,79 @@ Dari fitur yang sudah ada, masih ada yang belum bisa ditangani oleh \textit{libr
 LibreOffice adalah sebuah paket aplikasi perkantoran berfitur lengkap yang tersedia secara gratis. LibreOffice menggunakan \textit{Open Document Format} (ODF) sebagai format aslinya untuk menyimpan dokumen. ODF menjadi format standar terbuka yang sedang diadopsi sebagai format file yang dibutuhkan untuk penerbitan dan penerimaan dokumen. LibreOffice juga dapat membuka dan menyimpan dokumen dalam format lainnya. Salah satunya format yang digunakan oleh beberapa versi dari Microsoft Office.
 
 LibreOffice memiliki ekstensi untuk kamus Indonesia. Ekstensi ini sudah mengalami beberapa perkembangan, mulai dari versi 1.0 yang rilis pada tanggal 19 Mei 2012. Versi 1.0 merupakan hasil unggahan kembali dari ekstensi \textit{OpenOffice} yang terakhir diperbaharui pada tahun 2009. Pada tanggal 17 Mei 2014 versi 1.1 dirilis, pada versi ini LibreOffice versi 4.0 dapat menggunakan ekstensi ini. Selanjutnya, pada tanggal 15 Juli 2014 versi 2.0 dirilis. Pada versi yang paling baru ini digunakan metode baru dengan sirkumfiks yang kemudian mengubah daftar kata, sehingga memuat semua lema dari Kamus Besar Indonesia.
+
+Ekstensi kamus Indonesia ini dapat diunduh secara gratis oleh para pengguna melalui halaman resmi dari \textit{LibreOffice}. Ekstensi yang dapat diunduh tersebut memiliki nama \textit{id\_id.oxt}. Dalam ekstensi tersebut, terdapat beberapa file yang berisi informasi tentang kamus Indonesia, yaitu \textit{id\_ID.aff} dan \textit{id\_ID.dic}.
+
+\subsection{File \textit{id\_ID.dic}}
+
+File ini berisi kata-kata yang akan digunakan dalam kamus bahasa Indonesia. File ini dapat dibuka dengan menggunakan aplikasi \textit{notepad} atau teks editor lainnya. Setelah dibuka menggunakan teks editor, akan terlihat 31129 baris yang berisi kata-kata yang ada dalam kamus bahasa Indonesia \textit{LibreOffice}. Untuk menjelaskan hal tersebut, akan diambil beberapa potong baris dari file tersebut.
+	
+	\begin{lstlisting}[caption={Potongan kode untuk file \textit{id\_ID.dic}}			\label{lst:idDic},language=plaintext,xleftmargin=.35\textwidth] 
+31128
+a
+ab
+aba
+aba-aba
+abad/i0
+abadi/DkMkO0k0nl
+abadiah
+abah/DkMk
+abah-abah
+	\end{lstlisting}	
+	
+Pada listing \ref{lst:idDic}, baris pertama pada file ini menyatakan banyaknya kata yang ada pada kamus. Kata yang ada dalam kamus tersebut berjumlah 31128 buah. Baris ke-2 hingga ke-31128 merupakan kata-kata yang ada pada kamus. Namun ada beberapa kata tersebut ada yang terlihat berbeda, seperti pada baris 6, 7 dan 9. Di sebelah kiri dari kata tersebut terdapat garis miring yang disertai sebuah kode. Kode tersebut berarti bahwa kata tersebut dapat ditambahkan oleh imbuhan tertentu. Bagian ini akan dijelaskan lebih lanjut pada pembahasan file \textit{id\_ID.aff}.
+
+\subsection{File \textit{id\_ID.aff}}
+
+File ini berisi daftar awalan dan akhiran untuk kamus Indonesia. Awalan akan disimbolkan dengan huruf kapital, sedangkan akhiran akan disimbolkan dengan huruf kecil.
+
+\begin{enumerate}
+	\item \textit{Prefiks} (Awalan) \\
+	
+	\begin{lstlisting}[caption={Potongan kode untuk prefiks}			\label{lst:prefiks},language=plaintext,xleftmargin=.35\textwidth] 
+PFX B0 Y 2	# ber-
+PFX B0 0 ber  	[^r]
+PFX B0 0 be    	r
+	\end{lstlisting}
+	
+	Listing \ref{lst:prefiks} merupakan salah satu contoh dari awalan yang terdapat pada kamus bahasa Indonesia. Berikut ini adalah penjelasan dari baris kode tersebut:	
+
+	\begin{itemize}
+		\item PFW\\
+		Menandakan bahwa kode tersebut merupakan awalan
+		
+		\item B0\\
+		Huruf B menunjukan awalan yang dimulai dengan huruf B, dan angka 0 menunjukan bentuk awalan asli
+		
+		\item 2\\
+		Menandakan bahwa ada 2 jenis awalan yang dapat digunakan, yaitu ber- dan be-
+		\item -ber\\
+		Menandakan bahwa kode tersebut merupakan awalan ber-
+	\end{itemize}	
+		
+	\item \textit{Sufiks} (Akhiran) \\	
+	
+	\begin{lstlisting}[caption={Potongan kode untuk sufiks}			\label{lst:sufiks},language=plaintext,xleftmargin=.35\textwidth] 
+SFX k0 Y  3	 # -kan
+SFX k0 0  kan    . 
+SFX k0 0  kanlah
+SFX k0 0  kankah
+	\end{lstlisting}
+	
+	 Listing \ref{lst:sufiks} merupakan salah satu contoh dari akhiran yang terdapat pada kamus bahasa Indonesia. Berikut ini adalah penjelasan dari baris kode tersebut:
+	
+	\begin{itemize}
+		\item SFX\\
+		Menandakan bahwa kode tersebut merupakan akhiran
+		
+		\item k0\\
+		Huruf k menunjukan akhiran yang dimulai dengan huruf k, dan angka 0 menunjukan bentuk akhiran asli
+		
+		\item 3\\
+		Menandakan bahwa ada 3 jenis akhiran yang dapat digunakan, yaitu -kan, -kanlah dan -kankah
+		
+		\item -kan\\
+		Menandakan bahwa kode tersebut merupakan akhiran -kan 
+	\end{itemize}
+	
+\end{enumerate}
