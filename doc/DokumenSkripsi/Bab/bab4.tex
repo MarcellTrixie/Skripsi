@@ -1,0 +1,47 @@
+\chapter{Perancangan}
+\label{chap:Perancangan}
+
+Pada bab ini dijelaskan mengenai perancangan perangkat lunak yang dibangun.
+
+\section{Algoritma Pengecekan}
+
+Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring dan akan diimplementasikan dalam perangkat lunak. Pengecekan kesalahan tersebut akan dilakukan dengan menggunakan teknik \textit{pattern matching regex}. Berikut adalah rincian dari hasil survei yang dipilih beserta penyelesaiannya:
+
+\begin{enumerate}
+	\item Penulisan kata (PS-01) \\
+	Untuk mendeteksi kesalahan penulisan kata, akan digunakan ekstensi kamus bahasa Indonesia \textit{LibreOffice}. Dengan menggunakan kamus tersebut, dapat meminimalisir kesalahan penulisan suatu kata. \newline
+	Penyelesaian dengan \textit{regex}:
+	
+	\item Pemberian spasi sebelum dan sesudah tanda baca (PS-03) \\
+	Kesalahan ini akan terdeteksi apabila tidak ada karakter spasi sebelum ataupun sesudah tanda baca.
+	Penyelesaian dengan \textit{regex}:
+	
+	\item Awal kalimat tidak menggunakan huruf kapital (PS-05) \\
+	Kesalahan ini akan terdeteksi apabila setelah tanda baca pada akhir kalimat, karakter pertama setelah spasi menggunakan huruf kecil.	
+	Penyelesaian dengan \textit{regex}:
+	
+	\item Tidak ada spasi antar kata (PS-06) \\
+	Hal ini dapat diselesaikan dengan menggunakan kamus bahasa Indonesia. Pada saat dua atau lebih kata tidak dipisahkan dengan spasi, maka kata tersebut tidak akan terdapat pada kamus. \newline
+	Penyelesaian dengan \textit{regex}:
+	
+	\item Jumlah subbab dalam 1 bab tidak boleh hanya 1 (PS-09) \\
+	Kesalahan ini dapat diselesaikan dengan mencari jumlah subbab yang ada dalam sebuah bab. \newline:
+	Penyelesaian dengan \textit{regex}:
+	
+	\item Kalimat pengantar untuk setiap subbab (KAL-02) \\
+	Kesalahan ini dapat dideteksi dengan melihat ada atau tidaknya kalimat setelah subbab dibuat. \newline
+	Penyelesaian dengan \textit{regex}:
+	
+	\item Kelengkapan data skripsi (KAL-03) \\
+	Kesalahan ini dapat terlihat pada halaman cover skripsi. Mahasiswa yang belum mengisi data skripsi, pada file PDFnya akan ditampilkan tulisan template pada data skripsinya. \newline
+	Penyelesaian dengan \textit{regex}:
+	
+	\item Penggunaan kata ganti orang (VAN-03) \\
+	Kesalahan ini dapat diatasi dengan memasukan kata-kata yang termasuk dalam kata ganti orang menjadi kata-kata yang tidak dapat digunakan. \newline
+	Penyelesaian dengan \textit{regex}:
+	
+	\item Penulisan daftar referensi (NAT-01) \\
+	Kesalahan dalam penulisan daftar referensi dapat dilihat dengan munculnya tanda ''[?]''. \newline
+	Penyelesaian dengan \textit{regex}:
+	
+\end{enumerate}

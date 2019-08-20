@@ -243,7 +243,7 @@ Setiap hasil survei yang didapatkan melalui pengamatan sidang skripsi dan wawanc
 		\hline 
 		PS-01 & Penulisan Kata & Ya & Dapat diselesaikan menggunakan \textit{regular expression} \newline \\ 
 		\hline 
-		PS-02 & Penggunaan imbuhan di- dan kata depan di- & Ya & Dapat diselesaikan menggunakan \textit{regular expression}. Namun untuk penggunaan kata depan di- tidak bisa diimplementasi karena pada kamus Indonesia \textit{LibreOffice} tidak ada fitur untuk membedakan kata sebagai keterangan atau bukan. \newline \\ 
+		PS-02 & Penggunaan imbuhan di- dan kata depan di- & Tidak & Tidak dapat diselesaikan menggunakan \textit{regular expression}, karena pada kamus Indonesia \textit{LibreOffice} tidak ada fitur untuk membedakan kata sebagai keterangan atau bukan. \newline \\ 
 		\hline 
 		PS-03 & Pemberian spasi sebelum dan setelah tanda baca & Ya & Dapat diselesaikan menggunakan \textit{regular expression} \newline \\ 
 		\hline 
@@ -278,7 +278,7 @@ Setiap hasil survei yang didapatkan melalui pengamatan sidang skripsi dan wawanc
 		\hline 
 		CHW-01 & Letak keterangan untuk gambar dan tabel & Tidak & Tidak dapat diselesaikan menggunakan \textit{regular expression}, karena hasil ekstrak PDF dari \textit{PDF Parser} tidak dapat mendeteksi gambar dan tabel.\newline \\ 
 		\hline 
-		CHW-02 & Penggunaan bahasa yang benar & Ya & Dapat diselesaikan menggunakan \textit{regular expression} \newline \\ 
+		CHW-02 & Penggunaan bahasa yang benar & Tidak & Dapat diselesaikan menggunakan \textit{regular expression}. Namun survei ini tidak diimplementasi, karena penyelesaiannya sama dengan survei PS-01, sehingga akan disatukan implementasinya. \newline \\
 		\hline  
 		\end{tabular}
 	\end{center}
@@ -297,7 +297,7 @@ Setiap hasil survei yang didapatkan melalui pengamatan sidang skripsi dan wawanc
 		\hline 
 		HUH-03 & Penulisan kata hubung & Tidak & Tidak dapat diselesaikan menggunakan \textit{regular expression}, karena \textit{regex} tidak dapat memeriksa kata hubung yang digunakan sudah tepat atau belum berdasarkan fungsi dari kata hubung tersebut. \newline \\ 
 		\hline 
-		VAN-01 & Tahun skripsi pada cover skripsi & Ya & Dapat diselesaikan menggunakan \textit{regular expression} \newline \\ 
+		VAN-01 & Tahun skripsi pada cover skripsi & Tidak & Kesalahan ini dapat diselesaikan menggunakan \textit{regular expression}. Namun hal ini dapat digabung pada kesalahan kelengkapan data skripsi (KAL-03), karena tahun skripsi menjadi salah satu data skripsi yang harus diisi. \newline \\ 
 		\hline 
 		VAN-02 & Konsistensi penggunaan kata & Tidak & Tidak dapat diselesaikan menggunakan \textit{regular expression}, karena \newline tidak dapat membuat padanan kata untuk memeriksa kosistensi penggunaan kata. \\ 
 		\hline 
@@ -309,4 +309,4 @@ Setiap hasil survei yang didapatkan melalui pengamatan sidang skripsi dan wawanc
 	\end{center}
 \end{table}
 
-Seperti yang sudah dijabarkan pada tabel 3.7 hingga tabel 3.9, 12 dari 21 hasil survei akan diimplementasikan menjadi fitur dalam perangkat lunak. Keputusan tersebut diambil berdasarkan bisa / tidaknya kesalahan tersebut diperiksa menggunakan \textit{pattern matching regex} dan tingkat kesulitan untuk memeriksa kesalahan tersebut.
+Seperti yang sudah dijabarkan pada tabel 3.7 hingga tabel 3.9, 9 dari 21 hasil survei akan diimplementasikan menjadi fitur dalam perangkat lunak. Keputusan tersebut diambil berdasarkan bisa / tidaknya kesalahan tersebut diperiksa menggunakan \textit{pattern matching regex} dan tingkat kesulitan untuk memeriksa kesalahan tersebut.

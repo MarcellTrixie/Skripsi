@@ -220,6 +220,70 @@ Kelas karakter adalah karakter yang memiliki atribut yang spesifik yang dikelomp
 
 Dari fitur yang sudah ada, masih ada yang belum bisa ditangani oleh \textit{library} ini. \textit{PDF Parser} belum dapat mengekstrak dokumen yang diamankan. Selain itu, \textit{library} ini tidak dapat mendeteksi jenis teks yang dicetak miring, tebal dan bergaris bawah. Hingga saat ini, pengembangan \textit{library PDF parser} masih terus berjalan. 
 
+\textit{PDF Parser} memiliki beberapa kelas yang menjalankan fungsional dari \textit{library ini}. Pada subbab berikut akan dijelaskan beberapa kelas dari \textit{library PDF Parser}.
+
+\subsection{Kelas Parser}
+Kelas ini berfungsi untuk mengatur ekstraksi file PDF. \textit{Method-method} yang terdapat pada kelas ini adalah sebagai berikut:
+
+\begin{itemize}
+	\item public function \_construct() \\
+	Berfungsi untuk konstruktor kelas Parser.
+	
+	\item public function parseFile(\$filename) \\
+	Berfungsi untuk mengembalikan isi konten dari file yang akan diekstrak. \newline
+	Parameter: nama file yang akan diekstrak. \newline
+	Kembalian: konten dari file yang akan diekstrak.
+	
+	\item public function parseContent(\$content) \\
+	Berfungsi untuk mengekstrak konten pada dokumen. \newline
+	Parameter: konten dari file PDF. \newline
+	Kembalian: dokumen yang akan diekstrak.
+	
+	\item protected function parseTrailer(\$structure, \$document) \\
+	Parameter: struktur dan dokumen \newline
+	Kembalian: header dengan parameter trailer dan dokumen.
+	
+	\item protected function parseObject(\$id, \$structure, \$document) \\
+	Parameter: id, struktur dan dokumen
+	
+	\item protected function parseHeader(\$structure, \$document) \\
+	Berfungsi untuk mengekstrak header pada dokumen. \newline
+	Parameter: struktur dan dokumen \newline	
+	Kembalian: header dengan parameter trailer dan dokumen.
+	
+	\item protected function parseHeaderElement(\$type, \$value, \$document) \\
+	Berfungsi untuk mengekstrak elemen-elemen yang ada pada header. \newline
+	Parameter: tipe, value dan dokumen
+\end{itemize}
+
+\subsection{Page}
+Kelas ini merepresentasikan halaman-halaman yang ada pada dokumen PDF. \textit{Method-method} yang terdapat pada kelas ini adalah sebagai berikut:
+
+\begin{itemize}
+	\item public function getFonts() \\
+	Kembalian: mengembalikan array font.	
+	
+	\item public function getFont(\$id) \\
+	Parameter: id dengan tipe data String. \newline
+	Kembalian: megembalikan font.
+	
+	\item public function getXObjects() \\
+	Kembalian: mengembalikan sebuah array PDFObject.
+	
+	\item public function getXObject(\$id) \\
+	Parameter: id dengan tipe data String. \newline
+	Kembalian: mengembalikan PDFObject.
+	
+	\item public function getText(Page \$page = null )\\
+	Parameter: atribut \textit{page} dengan tipe data kelas Page. \newline
+	Kembalian: mengembalikan isi teks.
+		
+	\item public function getTextArray(Page \$page = null) \\
+	Parameter: atribut \textit{page} dengan tipe data kelas Page. \newline
+	Kembalian: mengembalikan isi teks dalam sebuah array.
+	
+\end{itemize}
+
 \section{Kamus Indonesia \textit{LibreOffice}}
 \label{sec:kamusindo}
 
@@ -250,7 +314,7 @@ Pada listing \ref{lst:idDic}, baris pertama pada file ini menyatakan banyaknya k
 
 \subsection{File \textit{id\_ID.aff}}
 
-File ini berisi daftar awalan dan akhiran untuk kamus Indonesia. Awalan akan disimbolkan dengan huruf kapital, sedangkan akhiran akan disimbolkan dengan huruf kecil.
+File ini berisi daftar awalan dan akhiran untuk kamus Indonesia. Awalan akan disimbolkan dengan huruf kapital, sedangkan akhiran akan disimbolkan dengan huruf kecil. Selain ke-2 hal tesebut, ada juga yang merupakan gabungan dari awalan dan akhiran. Berikut adalah penjelasan dari awalan dan akhiran:
 
 \begin{enumerate}
 	\item \textit{Prefiks} (Awalan) \\
