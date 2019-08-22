@@ -16,7 +16,7 @@
 \makeatletter
 \renewcommand{\@maketitle} {\begin{center} {\LARGE \textbf{ \textsc{\@title}} \par} \bigskip {\large \textbf{\textsc{\@author}} }\end{center} }
 \renewcommand{\thispagestyle}[1]{}
-\markright{\textbf{\textsc{AIF402 \textemdash Rencana Kerja Skripsi \textemdash Sem. Genap 2019/2020}}}
+\markright{\textbf{\textsc{AIF402 \textemdash Rencana Kerja Skripsi \textemdash Sem. Ganjil 2019/2020}}}
 
 \newcommand{\HRule}{\rule{\linewidth}{0.4mm}}
 \renewcommand{\baselinestretch}{1}
@@ -46,7 +46,9 @@
 \section{Deskripsi}
 Skripsi merupakan karangan ilmiah yang wajib ditulis oleh mahasiswa sebagai bagian dari persyaratan akhir pendidikan akademiknya. Namun dalam penulisannya, peserta skripsi sering melakukan kesalahan kecil yang tidak dapat diabaikan. Kesalahan sering terjadi dalam penggunaan imbuhan, kata keterangan, penulisan kata dan sebagainya. Hal-hal seperti ini seharusnya dapat diperiksa dan diminimalisir oleh diri sendiri. Pada saat bimbingan, waktu dosen pembimbing lebih baik dimanfaatkan untuk membahas konten dibanding memeriksa kesalahan-kesalahan tersebut.
 
-Dari masalah tersebut dapat dibuat sebuah aplikasi untuk melakukan pemeriksaan pada dokumen skripsi. Kesalahan yang akan diperiksa berasal dari survei yang dilakukan kepada dosen-dosen Informatika Unpar. Hasil dari survei tersebut akan diseleksi untuk diimplementasikan ke dalam aplikasi. Aplikasi sederhana ini dapat dimanfaatkan oleh mahasiswa Informatika Unpar secara mandiri. Aplikasi ini dijalankan melalui melalui terminal \textit{command Windows}. Aplikasi menerima masukan berupa file \textit{PDF} skripsi dan menampilkan laporan yang berisi kesalahan-kesalahan yang ditemukan pada dokumen skripsi. 
+Dari masalah tersebut dapat dibuat sebuah aplikasi untuk melakukan pemeriksaan pada dokumen skripsi. Kesalahan yang akan diperiksa berasal dari survei yang dilakukan kepada dosen-dosen Informatika Unpar. Hasil dari survei tersebut akan diseleksi untuk diimplementasikan ke dalam aplikasi. Kesalahan tersebut akan diperiksa menggunakan \textit{Regular Expression}, dengan menggunakan teknik \textit{pattern matching}.
+
+Aplikasi sederhana ini dapat dimanfaatkan oleh mahasiswa Informatika Unpar secara mandiri. Aplikasi ini dijalankan melalui melalui terminal \textit{command Windows}. Aplikasi menerima masukan berupa file \textit{PDF} skripsi dan menampilkan laporan yang berisi kesalahan-kesalahan yang ditemukan pada dokumen skripsi melalui terminal.
 
 \section{Rumusan Masalah}
 Berdasarkan deskripsi topik yang sudah ditulis, dapat dirumuskan masalah sebagai berikut:
@@ -115,5 +117,4 @@ Menyetujui, \\
 }{
 % \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013\\
 \vspace{2cm} Nama: \makebox[3cm]{\hrulefill}\\ Pembimbing Tunggal
-}
-\end{document}
+}\end{document}
