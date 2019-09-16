@@ -1,7 +1,5 @@
 <?php
-
-	include "Checker.php";
-
+	
 	/* 
 	 * Sub class dari kelas Checker
 	 * @author Marcell Trixie
@@ -11,13 +9,12 @@
 		/* 
 		 * Method untuk memeriksa kesalahan dalam dokumen skripsi
 		 */
-		public function errorChecking($document, $page){
+		public function errorChecking($document){
 			$array = explode(". ", $document);
 			foreach ($array as $row => $value) {
 				$row = $row+1;
-				if (preg_match("/^(\s[^A-Z][a-z].*)|^([^A-Z][a-z].*)/", $value)) {
+				if (preg_match("/^(\s[a-z][a-z0-9].*)|^([a-z][a-z0-9].*)/", $value)) {
 					$result = [
-						"page    : $page",
 						"row     : $row",
 						"error   : Huruf pertama pada kalimat harus menggunakan huruf kapital",
 						"excerpt : $value"

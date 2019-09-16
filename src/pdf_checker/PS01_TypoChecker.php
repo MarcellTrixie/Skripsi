@@ -1,4 +1,4 @@
-<?
+<?php
 	
 	/* 
 	 * Sub class dari kelas Checker

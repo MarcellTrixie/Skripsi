@@ -1,5 +1,5 @@
 <?php
-	
+
 	/* 
 	 * Sub class dari kelas Checker
 	 * Memeriksa penggunaan spasi setelah tanda baca
@@ -15,7 +15,7 @@
 			$result;
 			foreach ($array as $row => $value) {
 				$row = $row+1;
-				if (preg_match("/([A-Za-z0-9]*[,.!?])/", $value)) {
+				if (preg_match("/([A-Za-z0-9]*[,.!?][A-Za-z0-9])/", $value)) {
 					$result = [
 						"row     : $row",
 						"error   : Beri spasi setelah tanda baca",

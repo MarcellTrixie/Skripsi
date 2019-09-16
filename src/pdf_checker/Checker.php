@@ -16,7 +16,7 @@
 		/* 
 		 * Method untuk memeriksa kesalahan dalam dokumen skripsi
 		 */
-		public function errorChecking($document, $page){
+		public function errorChecking($document){
 			
 		}
 

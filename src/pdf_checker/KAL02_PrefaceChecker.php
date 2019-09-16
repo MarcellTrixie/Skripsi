@@ -1,5 +1,7 @@
-<?
+<?php
 	
+	include "Checker.php";
+
 	/* 
 	 * Sub class dari kelas Checker
 	 * Memeriksa kata pengantar sebelum subbab

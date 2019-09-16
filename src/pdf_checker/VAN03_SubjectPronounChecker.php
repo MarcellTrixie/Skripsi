@@ -15,7 +15,7 @@
 			$result;
 			foreach ($array as $row => $value) {
 				$row = $row+1;
-				if (preg_match("/saya|kamu|dia+[\s|.,?!]/i", $value)) {
+				if (preg_match("/saya|kamu|dia/i", $value)) {
 					$result = [
 						"row     : $row",
 						"error   : Kalimat ini mengandung kata ganti orang",
