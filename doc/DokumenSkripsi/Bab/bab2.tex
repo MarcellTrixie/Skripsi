@@ -24,7 +24,7 @@
 \chapter{Landasan Teori}
 \label{chap:teori}
 
-Pada bab 2 akan diuraikan tentang landasan teori yang membahas \textit{regular expression} dan \textit{library PDF Parser}.
+Pada bab ini dijelaskan tentang landasan teori yang membahas \textit{regular expression}, \textit{library PDF Parser} dan kamus bahasa Indonesia \textit{LibreOffice}.
 
 \section{\textit{Regular Expression}}
 \label{sec:regex} 
@@ -207,7 +207,7 @@ Kelas karakter adalah karakter yang memiliki atribut yang spesifik yang dikelomp
 \section{PDF Parser}
 \label{sec:pdfparser}
 
-\textit{PDF Parser}~\cite{pdfparser} adalah sebuah \textit{PHP library} yang digunakan untuk mengekstrak data yang ada dalam sebuah file PDF. \textit{PDF Parser} dapat digunakan pada \textit{PHP} dengan versi 5.3 ke atas. Terdapat beberapa fitur yang dimiliki oleh \textit{library} ini. Berikut adalah fitur yang sudah dapat digunakan:
+\textit{PDF Parser}~\cite{pdfparser} adalah sebuah \textit{library} yang digunakan untuk mengekstrak data yang ada dalam sebuah file PDF. \textit{Library} ini digunakan untuk kebutuhan pengguna yang menggunakan bahasa pemrograman PHP. \textit{PDF Parser} dapat digunakan pada \textit{PHP} dengan versi 5.3 ke atas. Terdapat beberapa fitur yang dimiliki oleh \textit{library} ini. Berikut adalah fitur yang sudah dapat digunakan:
 
 \begin{itemize}
 	\item Memuat / mengurai objek dan header
@@ -226,33 +226,38 @@ Dari fitur yang sudah ada, masih ada yang belum bisa ditangani oleh \textit{libr
 Kelas ini berfungsi untuk mengatur ekstraksi file PDF. \textit{Method-method} yang terdapat pada kelas ini adalah sebagai berikut:
 
 \begin{itemize}
+	\item \$object \\
+	Atribut ini adalah sebuah array, yang akan menyimpan objek-objek dari file PDF yang akan diekstrak.
+
 	\item public function \_construct() \\
 	Berfungsi untuk konstruktor kelas Parser.
 	
 	\item public function parseFile(\$filename) \\
-	Berfungsi untuk mengembalikan isi konten dari file yang akan diekstrak. \newline
+	Method ini berfungsi untuk mengekstrak isi file dokumen PDF. \newline
 	Parameter: nama file yang akan diekstrak. \newline
 	Kembalian: konten dari file yang akan diekstrak.
 	
 	\item public function parseContent(\$content) \\
-	Berfungsi untuk mengekstrak konten pada dokumen. \newline
+	Method ini berfungsi untuk mengekstrak konten pada dokumen. \newline
 	Parameter: konten dari file PDF. \newline
 	Kembalian: dokumen yang akan diekstrak.
 	
 	\item protected function parseTrailer(\$structure, \$document) \\
+	Method ini berfungsi untuk Parameter: struktur dan dokumen.
 	Parameter: struktur dan dokumen \newline
 	Kembalian: header dengan parameter trailer dan dokumen.
 	
 	\item protected function parseObject(\$id, \$structure, \$document) \\
+	Method ini berfungsi untuk.
 	Parameter: id, struktur dan dokumen
 	
 	\item protected function parseHeader(\$structure, \$document) \\
-	Berfungsi untuk mengekstrak header pada dokumen. \newline
+	Method ini berfungsi untuk mengekstrak header pada dokumen. \newline
 	Parameter: struktur dan dokumen \newline	
 	Kembalian: header dengan parameter trailer dan dokumen.
 	
 	\item protected function parseHeaderElement(\$type, \$value, \$document) \\
-	Berfungsi untuk mengekstrak elemen-elemen yang ada pada header. \newline
+	Method ini berfungsi untuk mengekstrak elemen-elemen yang ada pada header. \newline
 	Parameter: tipe, value dan dokumen
 \end{itemize}
 
@@ -261,24 +266,30 @@ Kelas ini merepresentasikan halaman-halaman yang ada pada dokumen PDF. \textit{M
 
 \begin{itemize}
 	\item public function getFonts() \\
+	Method ini berfungsi untuk mendapatkan font yang digunakan dalam PDF dalam bentuk array. \newline
 	Kembalian: mengembalikan array font.	
 	
 	\item public function getFont(\$id) \\
+	Method ini memiliki fungsi yang sama dengan method getFonts(). Namun method ini hanya mengembalikan nilai pada indeks tertentu saja, berdasarkan id yang didapatkan dari parameter. \newline
 	Parameter: id dengan tipe data String. \newline
 	Kembalian: megembalikan font.
 	
 	\item public function getXObjects() \\
+	Method ini berfungsi untuk. \newline
 	Kembalian: mengembalikan sebuah array PDFObject.
 	
 	\item public function getXObject(\$id) \\
+	Method ini berfungsi untuk. \newline
 	Parameter: id dengan tipe data String. \newline
 	Kembalian: mengembalikan PDFObject.
 	
 	\item public function getText(Page \$page = null )\\
+	Method ini berfungsi untuk mendapatkan isi teks dari file PDF yang telah melalui proses ekstrak dalam bentuk string. \newline
 	Parameter: atribut \textit{page} dengan tipe data kelas Page. \newline
 	Kembalian: mengembalikan isi teks.
 		
 	\item public function getTextArray(Page \$page = null) \\
+	Method ini berfungsi untuk mendapatkan isi teks dari file PDF yang telah melalui proses ekstrak dalam bentuk array. \newline
 	Parameter: atribut \textit{page} dengan tipe data kelas Page. \newline
 	Kembalian: mengembalikan isi teks dalam sebuah array.
 	
@@ -287,7 +298,7 @@ Kelas ini merepresentasikan halaman-halaman yang ada pada dokumen PDF. \textit{M
 \section{Kamus Indonesia \textit{LibreOffice}}
 \label{sec:kamusindo}
 
-LibreOffice adalah sebuah paket aplikasi perkantoran berfitur lengkap yang tersedia secara gratis. LibreOffice menggunakan \textit{Open Document Format} (ODF) sebagai format aslinya untuk menyimpan dokumen. ODF menjadi format standar terbuka yang sedang diadopsi sebagai format file yang dibutuhkan untuk penerbitan dan penerimaan dokumen. LibreOffice juga dapat membuka dan menyimpan dokumen dalam format lainnya. Salah satunya format yang digunakan oleh beberapa versi dari Microsoft Office.
+LibreOffice~\cite{libreoffice} adalah sebuah paket aplikasi perkantoran berfitur lengkap yang tersedia secara gratis. LibreOffice menggunakan \textit{Open Document Format} (ODF) sebagai format aslinya untuk menyimpan dokumen. ODF menjadi format standar terbuka yang sedang diadopsi sebagai format file yang dibutuhkan untuk penerbitan dan penerimaan dokumen. LibreOffice juga dapat membuka dan menyimpan dokumen dalam format lainnya. Salah satunya format yang digunakan oleh beberapa versi dari Microsoft Office.
 
 LibreOffice memiliki ekstensi untuk kamus Indonesia. Ekstensi ini sudah mengalami beberapa perkembangan, mulai dari versi 1.0 yang rilis pada tanggal 19 Mei 2012. Versi 1.0 merupakan hasil unggahan kembali dari ekstensi \textit{OpenOffice} yang terakhir diperbaharui pada tahun 2009. Pada tanggal 17 Mei 2014 versi 1.1 dirilis, pada versi ini LibreOffice versi 4.0 dapat menggunakan ekstensi ini. Selanjutnya, pada tanggal 15 Juli 2014 versi 2.0 dirilis. Pada versi yang paling baru ini digunakan metode baru dengan sirkumfiks yang kemudian mengubah daftar kata, sehingga memuat semua lema dari Kamus Besar Indonesia.
 
@@ -317,7 +328,8 @@ Pada listing \ref{lst:idDic}, baris pertama pada file ini menyatakan banyaknya k
 File ini berisi daftar awalan dan akhiran untuk kamus Indonesia. Awalan akan disimbolkan dengan huruf kapital, sedangkan akhiran akan disimbolkan dengan huruf kecil. Selain ke-2 hal tesebut, ada juga yang merupakan gabungan dari awalan dan akhiran. Berikut adalah penjelasan dari awalan dan akhiran:
 
 \begin{enumerate}
-	\item \textit{Prefiks} (Awalan) \\
+	\item \textit{Prefiks} \\
+	\textit{Prefiks} atau awalan adalah imbuhan yang ditambahkan pada bagian awal sebuah kata dasar atau bentuk dasar, misalnya ber-, pe-, me- dan lain-lain. Penulisan kode awalan pada file ini akan disimbolkan dengan huruf kapital.
 	
 	\begin{lstlisting}[caption={Potongan kode untuk prefiks}			\label{lst:prefiks},language=plaintext,xleftmargin=.35\textwidth] 
 PFX B0 Y 2	# ber-
@@ -328,7 +340,7 @@ PFX B0 0 be    	r
 	Listing \ref{lst:prefiks} merupakan salah satu contoh dari awalan yang terdapat pada kamus bahasa Indonesia. Berikut ini adalah penjelasan dari baris kode tersebut:	
 
 	\begin{itemize}
-		\item PFW\\
+		\item PFX\\
 		Menandakan bahwa kode tersebut merupakan awalan
 		
 		\item B0\\
@@ -340,7 +352,8 @@ PFX B0 0 be    	r
 		Menandakan bahwa kode tersebut merupakan awalan ber-
 	\end{itemize}	
 		
-	\item \textit{Sufiks} (Akhiran) \\	
+	\item \textit{Sufiks} \\	
+	\textit{Sufiks} atau akhiran adalah imbuhan yang ditambahkan pada bagian belakang kata dasar, misalnya -an, -kan, -i dan lain-lain. Penulisan kode akhiran pada file ini akan disimbolkan dengan huruf kecil.
 	
 	\begin{lstlisting}[caption={Potongan kode untuk sufiks}			\label{lst:sufiks},language=plaintext,xleftmargin=.35\textwidth] 
 SFX k0 Y  3	 # -kan
@@ -363,6 +376,31 @@ SFX k0 0  kankah
 		
 		\item -kan\\
 		Menandakan bahwa kode tersebut merupakan akhiran -kan 
+	\end{itemize}
+	
+	\item \textit{Konfiks} \\	
+	\textit{Konfiks} adalah imbuhan tunggal yang terbentuk dari perpaduan awalan dan akhiran.
+	
+	\begin{lstlisting}[caption={Potongan kode untuk konfiks}			\label{lst:konfiks},language=plaintext,xleftmargin=.35\textwidth] 
+PFX KT Y 2	# keter- (keter-an)
+PFX KT 0 keter/A1	[^r]
+PFX KT 0 kete/A1	r
+
+SFX Sa Y 1	# -an (se-an) 	+ o0
+SFX Sa 0 an/S1o0A1 . 
+	\end{lstlisting}
+	
+	Listing \ref{lst:konfiks} merupakan salah satu contoh dari konfiks yang terdapat pada kamus bahasa
+Indonesia. Berikut ini adalah penjelasan dari baris kode tersebut:
+	
+	\begin{itemize}
+		\item Kolom pertama biasanya digunakan sebagai tanda untuk mengetahui apakah kode tersebut termasuk awalan atau akhiran. Namun pada konfiks tidak ada simbol khusus yang menandakan bahwa kode tersebut adalah sebuah konfiks. Pada baris 1 tertulis ”PFX”, yang berarti konfiks ini berakar pada awalan tertentu. Pada baris 5 tertulis ”SFX”, yang berarti konfiks ini berakar pada akhiran tertentu.
+		
+		\item Kolom ke-2 menunjukan simbol dari awalan atau akhiran yang digunakan. Pada baris 1, konfiks itu berasal dari awalan keter-, dapat dilihat bahwa huruf K berarti ”ke” dan huruf T adalah ”ter”. Pada baris 5, huruf S berarti awalan yang berasal dari huruf S dan huruf a berarti akhiran yang berasal dari huruf a.
+		
+		\item Kolom ke-4 menunjukan berapa banyak jumlah konfiks yang dapat digunakan. Pada baris 1 terdapat 2 jenis, sedangkan pada baris 5 terdapat 1 jenis saja.
+		
+		\item Kolom ke-5 menunjukan jenis konfiks yang digunakan. Baris 1-3 merupakan contoh dari konfiks keter-an, sedangkan baris 5-6 merupakan contoh dari konfiks se-an.
 	\end{itemize}
 	
 \end{enumerate}
