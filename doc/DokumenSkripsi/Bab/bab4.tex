@@ -29,11 +29,11 @@ Pada gambar \ref{fig:diagram_kelas} telah ditunjukan bahwa perangkat lunak memil
 		\end{itemize}
 	
 	\item Kelas KAL02\_PrefaceChecker \\
-	Kelas ini digunakan untuk memeriksa kata pengantar pada setiap bab dan subbab. Berikut adalah \textit{method} yang terdapat pada kelas ini:
+	Kelas ini digunakan untuk memeriksa ada atau tidaknya kata pengantar sebelum memulai bab atau subbab. Berikut adalah \textit{method} yang terdapat pada kelas ini:
 	
 		\begin{itemize}
 			\item errorChecking(\$pdf\_extract) \\
-			Method ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan berupa array String pdf\_extract. Bagian yang diperiksa pada kelas ini hanya bab 1 hingga bab 6.
+			Method ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan berupa array String pdf\_extract. Bagian yang diperiksa pada method ini hanya bab 1 hingga 6.
 		\end{itemize}
 	
 	\item Kelas KAL03\_ThesisDataChecker \\
@@ -41,7 +41,7 @@ Pada gambar \ref{fig:diagram_kelas} telah ditunjukan bahwa perangkat lunak memil
 			
 		\begin{itemize}
 			\item errorChecking(\$pdf\_extract) \\
-			Method ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan berupa array String pdf\_extract.
+			Method ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan berupa array String pdf\_extract. Bagian yang diperiksa adalah halaman cover bahasa Indonesia dan bahasa Inggris.
 		\end{itemize}
 		
 	\item Kelas NAT01\_ReferenceChecker \\
@@ -49,7 +49,7 @@ Pada gambar \ref{fig:diagram_kelas} telah ditunjukan bahwa perangkat lunak memil
 	
 		\begin{itemize}
 			\item errorChecking(\$pdf\_extract) \\
-			Method ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan berupa array String pdf\_extract.
+			Method ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan berupa array String pdf\_extract. Bagian yang diperiksa adalah bab 1 hingga 6.
 		\end{itemize}
 			
 	\item Kelas PS01\_TypoChecker \\
@@ -57,7 +57,7 @@ Pada gambar \ref{fig:diagram_kelas} telah ditunjukan bahwa perangkat lunak memil
 	
 		\begin{itemize}
 			\item errorChecking(\$pdf\_extract) \\
-			Method ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan berupa array String pdf\_extract.
+			\textit{Method} ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. \textit{Method} ini menerima masukan berupa array String pdf\_extract. Bagian yang diperiksa adalah bab 1 hingga 6.
 		\end{itemize}
 			
 	\item Kelas PS03\_SpaceChecker \\
@@ -65,7 +65,7 @@ Pada gambar \ref{fig:diagram_kelas} telah ditunjukan bahwa perangkat lunak memil
 	
 		\begin{itemize}
 			\item errorChecking(\$pdf\_extract) \\
-			Method ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan berupa array String pdf\_extract.
+			\textit{Method} ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. \textit{Method} ini menerima masukan berupa array String pdf\_extract. Bagian yang diperiksa adalah bab 1 hingga 6.
 		\end{itemize}
 			
 	\item Kelas PS05\_CapitalLetterChecker \\
@@ -73,7 +73,7 @@ Pada gambar \ref{fig:diagram_kelas} telah ditunjukan bahwa perangkat lunak memil
 		
 		\begin{itemize}
 			\item errorChecking(\$pdf\_extract) \\
-			Method ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan berupa array String pdf\_extract.
+			\textit{Method} ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. \textit{Method} ini menerima masukan berupa array String pdf\_extract. Bagian yang diperiksa adalah bab 1 hingga 6.
 		\end{itemize}
 			
 	\item Kelas PS09\_SubChapterChecker \\
@@ -81,7 +81,7 @@ Pada gambar \ref{fig:diagram_kelas} telah ditunjukan bahwa perangkat lunak memil
 			
 		\begin{itemize}
 			\item errorChecking(\$pdf\_extract) \\
-			Method ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan berupa array String pdf\_extract.
+			Method ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan berupa array String pdf\_extract. Bagian yang diperiksa adalah bab 1 hingga 6.
 		\end{itemize}
 			
 	\item Kelas VAN03\_SubjectProunounChecker \\
@@ -89,52 +89,223 @@ Pada gambar \ref{fig:diagram_kelas} telah ditunjukan bahwa perangkat lunak memil
 	
 		\begin{itemize}
 			\item errorChecking(\$pdf\_extract) \\
-			Method ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan berupa array String pdf\_extract.
+			Method ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan berupa array String pdf\_extract. Bagian yang diperiksa adalah bab 1 hingga 6.
 		\end{itemize}
 			
 	\item Kelas SkripsiExtract \\
-	kelas ini digunakan untuk melakukan ekstaksi file PDF skripi. Berikut adalah \textit{method} yang terdapat pada kelas ini:
+	kelas ini digunakan untuk melakukan ekstak file PDF skripi. Berikut adalah atribut dan \textit{method} yang terdapat pada kelas ini:
+	
+		\begin{itemize}
+			\item extractFromPDF(\$input) \\
+			Method ini berfungsi untuk melakukan proses ekstrak file PDF skripsi. Hasil dari ekstrak tersebut akan disimpan dalam sebuah array multidimensional dengan tipe data String. 
+			
+			\item getCoverPage() \\
+			Method ini berfungsi untuk mendapatkan halaman cover skripsi dalam bahasa Indonesia dan bahasa Inggris.
+			
+			\item getAbstractPage() \\
+			Method ini berfungsi untuk mendapatkan halaman abstrak dalam bahasa Indonesia dan bahasa Inggris.
+			
+			\item getListPage() \\
+			Method ini berfungsi untuk mendapatkan halaman daftar isi, daftar gambar dan daftar tabel.
+			
+			\item getContent() \\
+			Method ini berfungsi untuk mendapatkan halaman konten skripsi dari bab 1 sampai bab 6.
+			
+			\item getReferencePage() \\
+			Method ini berfungsi untuk mendapatkan halaman daftar referensi.
+			
+		\end{itemize}
 	
 	\item Kelas Main \\
-	Kelas ini digunakan untuk menjalankan perangkat lunak.
+	Kelas ini digunakan untuk menjalankan perangkat lunak. Kelas ini tidak memiliki atribut dan \textit{method}, hanya terdiri dari beberapa baris kode yang memanggil \textit{method} untuk mengekstrak dan memeriksa file PDF skripsi. 
 
 \end{enumerate} 
 
-\section{Algoritma Pengecekan}
-Pada bagian ini akan dijelaskan algoritma pengecekan yang akan digunakan pada perangkat lunak. Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring dan akan diimplementasikan dalam perangkat lunak. Pengecekan kesalahan tersebut akan dilakukan dengan menggunakan teknik \textit{pattern matching regex}. Berikut adalah rincian dari hasil survei yang dipilih beserta penyelesaiannya:
+\section{Perancangan Algoritma}
+Pada bagian ini akan dijelaskan algoritma pengekstrak dokumen skripsi dan pengecekan kesalahan yang akan digunakan pada perangkat lunak.
+ 
+\subsection{Algoritma Pengekstrak Dokumen}
+Dokumen skripsi yang akan diperiksa dalam perangkat lunak merupakan file yang memiliki ekstensi \textit{PDF}. Perangkat lunak memerlukan ekstraksi dari \textit{PDF} agar dapat melakukan pemeriksaan. Perangkat lunak menggunakan \textit{library PDFParser} untuk mengekstrak dokumen skripsi yang akan disimpan dalam beberapa bagian, berdasarkan konten-konten yang ada. Konten-konten yang dimaksud seperti, halaman cover, abstrak, daftar isi, daftar tabel, daftar gambar dan seterusnya. Ada beberapa alasan yang mendorong untuk melakukan pemisahan konten-konten tersebut, salah satunya yaitu agar pemeriksa dapat memeriksa bagian-bagian spesifik yang menjadi tanggungjawab dari pemeriksa tersebut.
+
+\subsection{Algoritma Pengecekan Kesalahan}
+Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring dan akan diimplementasikan dalam perangkat lunak. Pengecekan kesalahan tersebut akan dilakukan dengan menggunakan teknik \textit{pattern matching regex}. Hasil ekstrak dari PDF skripsi akan dipotong dengan delimiter karakter titik dan spasi 1 buah ke dalam sebuah array. Hal ini dilakukan agar pemeriksaan dapat lebih mudah dilakukan apabila teks sudah dipecah menjadi sebuah kalimat utuh. Berikut adalah rincian dari hasil survei yang dipilih beserta penyelesaiannya:
 
 \begin{enumerate}
 	\item Penulisan kata (PS-01) \\
-	Untuk mendeteksi kesalahan penulisan kata, akan digunakan ekstensi kamus bahasa Indo10
-nesia \textit{LibreOffice}. Dengan digunakan kamus tersebut, kesalahan penulisan suatu kata dapat diminimalisir. \newline
-	Penyelesaian dengan \textit{regex}:
+	Untuk mendeteksi kesalahan penulisan kata, akan digunakan ekstensi kamus bahasa Indonesia \textit{LibreOffice}. Dengan digunakan kamus tersebut, kesalahan penulisan suatu kata dapat diminimalisir. Pola pengecekan yang digunakan akan dijelaskan pada tabel \ref{tab:ps01}.
+		
+	\begin{table}[H]
+		\renewcommand{\arraystretch}{1.5}
+		\caption {Tabel rincian pengecekan survei PS-01} 
+		\label{tab:ps01}
+		\begin{center}
+			\begin{tabular}{|p{3.5cm} |p{10.5cm}|}
+			\hline 
+			Pola & • \\ 
+			\hline 
+			Deskripsi & • \\ 
+			\hline 
+			Contoh & Istilah \textit{regex} berasal dari toeri matematika dan komputer sains, yang mencerminkan sifat ekspresi dalam matematika yang disebut keteraturan. \\ 
+			\hline 
+			Laporan & Pada baris ini ditemukan penulisan kata yang salah \\ 
+			\hline
+			\end{tabular}
+		\end{center}
+	\end{table}
 	
 	\item Pemberian spasi sebelum dan sesudah tanda baca (PS-03) \\
-	Kesalahan ini akan terdeteksi apabila tidak ada karakter spasi sebelum ataupun sesudah tanda baca.
-	Penyelesaian dengan \textit{regex}:
+	Kesalahan ini akan terdeteksi apabila tidak ada karakter spasi sebelum ataupun sesudah tanda baca. Pola pengecekan yang digunakan akan dijelaskan pada tabel \ref{tab:ps03}.
+		
+	\begin{table}[H]
+		\renewcommand{\arraystretch}{1.5}
+		\caption {Tabel rincian pengecekan survei PS-03} 
+		\label{tab:ps03}
+		\begin{center}
+			\begin{tabular}{|p{3.5cm} |p{10.5cm}|}
+			\hline 
+			Pola & /([A-Za-z0-9]*[,.!?][A-Za-z0-9])/ \\ 
+			\hline 
+			Deskripsi & • \\ 
+			\hline 
+			Contoh & Aplikasi ini dijalankan melalui melalui terminal command Windows.laporan dari hasil kesalahan tersebut akan ditampilkan melalui terminal command Windows. \\ 
+			\hline 
+			Laporan & Perhatikan spasi sebelum atau setelah tanda baca \\ 
+			\hline
+			\end{tabular}
+		\end{center}
+	\end{table}
 	
 	\item Awal kalimat tidak menggunakan huruf kapital (PS-05) \\
-	Kesalahan ini akan terdeteksi apabila setelah tanda baca pada akhir kalimat, karakter pertama setelah spasi menggunakan huruf kecil.	
-	Penyelesaian dengan \textit{regex}:
+	Kesalahan ini akan terdeteksi apabila setelah tanda baca pada akhir kalimat, karakter pertama setelah spasi menggunakan huruf kecil. Pola pengecekan yang digunakan akan dijelaskan pada tabel \ref{tab:ps05}.
+		
+	\begin{table}[H]
+		\renewcommand{\arraystretch}{1.5}
+		\caption {Tabel rincian pengecekan survei PS-05} 
+		\label{tab:ps05}
+		\begin{center}
+			\begin{tabular}{|p{3.5cm} |p{10.5cm}|}
+			\hline 
+			Pola & / $\hat{}$ ($\backslash$s[a-z][a-z0-9].*)| $\hat{}$ ([a-z][a-z0-9].*)/ \\ 
+			\hline 
+			Deskripsi & • \\ 
+			\hline 
+			Contoh & aplikasi sederhana ini,dapat dimanfaatkan oleh mahasiswa Informatika Unpar secara mandiri \\ 
+			\hline 
+			Laporan & Huruf pertama pada kalimat ini tidak menggunakan huruf kapital \\ 
+			\hline
+			\end{tabular}
+		\end{center}
+	\end{table}
 	
 	\item Jumlah subbab dalam 1 bab tidak boleh hanya 1 (PS-09) \\
-	Kesalahan ini dapat diselesaikan dengan mencari jumlah subbab yang ada dalam sebuah bab. \newline:
-	Penyelesaian dengan \textit{regex}:
+	Kesalahan ini dapat diselesaikan dengan mencari jumlah subbab yang ada dalam sebuah bab. Pola pengecekan yang digunakan akan dijelaskan pada tabel \ref{tab:ps09}.
+		
+	\begin{table}[H]
+		\renewcommand{\arraystretch}{1.5}
+		\caption {Tabel rincian pengecekan survei PS-09} 
+		\label{tab:ps09}
+		\begin{center}
+			\begin{tabular}{|p{3.5cm} |p{10.5cm}|}
+			\hline 
+			Pola & • \\ 
+			\hline 
+			Deskripsi & • \\ 
+			\hline 
+			Contoh & • \\ 
+			\hline 
+			Laporan & Pada bab ini hanya terdapat 1 subbab, lebih baik tidak perlu menggunakan subbab \\ 
+			\hline
+			\end{tabular}
+		\end{center}
+	\end{table}
 	
 	\item Kalimat pengantar untuk setiap subbab (KAL-02) \\
-	Kesalahan ini dapat dideteksi dengan melihat ada atau tidaknya kalimat setelah subbab dibuat. \newline
-	Penyelesaian dengan \textit{regex}:
+	Kesalahan ini dapat dideteksi dengan melihat ada atau tidaknya kalimat setelah subbab dibuat. Pola pengecekan yang digunakan akan dijelaskan pada tabel \ref{tab:kal02}.
+		
+	\begin{table}[H]
+		\renewcommand{\arraystretch}{1.5}
+		\caption {Tabel rincian pengecekan survei KAL-02} 
+		\label{tab:kal02}
+		\begin{center}
+			\begin{tabular}{|p{3.5cm} |p{10.5cm}|}
+			\hline 
+			Pola & • \\ 
+			\hline 
+			Deskripsi & • \\ 
+			\hline 
+			Contoh & • \\ 
+			\hline 
+			Laporan & Berilah kata pengantar untuk bab atau subbab \\ 
+			\hline
+			\end{tabular}
+		\end{center}
+	\end{table}
 	
 	\item Kelengkapan data skripsi (KAL-03) \\
-	Kesalahan ini dapat terlihat pada halaman cover skripsi. Mahasiswa yang belum mengisi data skripsi, pada file PDFnya akan ditampilkan tulisan template pada data skripsinya. \newline
-	Penyelesaian dengan \textit{regex}:
+	Kesalahan ini dapat terlihat pada halaman cover skripsi. Mahasiswa yang belum mengisi data skripsi, pada file PDFnya akan ditampilkan tulisan template pada data skripsinya.Pola pengecekan yang digunakan akan dijelaskan pada tabel \ref{tab:kal03}.
+		
+	\begin{table}[H]
+		\renewcommand{\arraystretch}{1.5}
+		\caption {Tabel rincian pengecekan survei KAL-03} 
+		\label{tab:kal03}
+		\begin{center}
+			\begin{tabular}{|p{3.5cm} |p{10.5cm}|}
+			\hline 
+			Pola & /SKRIPSI/TUGAS AKHIR|Judul Bahasa Indonesia|Nama Lengkap|10 digit NPM UNPAR|MATEMATIKA/FISIKA/TEKNIK INFORMATIKA|tahun/i \\ 
+			\hline 
+			Deskripsi & Pola akan mencari kata-kata yang sama dengan template pada halaman cover skripsi. Hal ini berlaku untuk halaman cover bahasa Indonesia dan bahasa Inggris. \\ 
+			\hline 
+			Contoh & <<Judul Bahasa Indonesia>> \\ 
+			\hline 
+			Laporan & Ada data skripsi yang belum dilengkapi, data dapat diisi pada file data.tex \\ 
+			\hline
+			\end{tabular}
+		\end{center}
+	\end{table}
 	
 	\item Penggunaan kata ganti orang (VAN-03) \\
-	Kesalahan ini dapat diatasi dengan memasukan kata-kata yang termasuk dalam kata ganti orang menjadi kata-kata yang tidak dapat digunakan. \newline
-	Penyelesaian dengan \textit{regex}:
+	Kesalahan ini dapat diatasi dengan memasukan kata-kata yang termasuk dalam kata ganti orang menjadi kata-kata yang tidak dapat digunakan. Pola pengecekan yang digunakan akan dijelaskan pada tabel \ref{tab:van03}.
+		
+	\begin{table}[H]
+		\renewcommand{\arraystretch}{1.5}
+		\caption {Tabel rincian pengecekan survei VAN-03} 
+		\label{tab:van03}
+		\begin{center}
+			\begin{tabular}{|p{3.5cm} |p{10.5cm}|}
+			\hline 
+			Pola & /saya|kamu|dia/i \\ 
+			\hline 
+			Deskripsi & Pola akan mendeteksi kata ganti orang yang sudah dimasukan \\ 
+			\hline 
+			Contoh & Saya akan membuat
+aplikasi ini menggunakan bahasa pemrograman PHP \\ 
+			\hline 
+			Laporan & Kalimat tersebut mengandung kata ganti orang \\ 
+			\hline
+			\end{tabular}
+		\end{center}
+	\end{table}
 	
 	\item Penulisan daftar referensi (NAT-01) \\
-	Kesalahan dalam penulisan daftar referensi dapat dilihat dengan munculnya tanda ''[?]''. \newline
-	Penyelesaian dengan \textit{regex}:
+	Kesalahan dalam penulisan daftar referensi dapat dilihat dengan munculnya tanda ''[?]'', yang menandakan bahwa referensi tersebut tidak dirujuk dengan baik. Pola pengecekan yang digunakan akan dijelaskan pada tabel \ref{tab:nat01}.
+		
+	\begin{table}[H]
+		\renewcommand{\arraystretch}{1.5}
+		\caption {Tabel rincian pengecekan survei NAT-01} 
+		\label{tab:nat01}
+		\begin{center}
+			\begin{tabular}{|p{3.5cm} |p{10.5cm}|}
+			\hline 
+			Pola & /[?]/ \\ 
+			\hline 
+			Deskripsi & Pola akan mencari simbol ''[?]'' dalam kalimat \\ 
+			\hline 
+			Contoh & \textit{Regular expression} [?] adalah jenis pola teks tertentu yang dapat digunakan pada banyak aplikasi modern dan bahasa pemrograman \\ 
+			\hline 
+			Laporan & Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya\\ 
+			\hline
+			\end{tabular}
+		\end{center}
+	\end{table}
 	
 \end{enumerate}

@@ -33,14 +33,16 @@ Pada bab ini akan dibahas mengenai landasan teori yang membahas \textit{regular 
 
 Istilah \textit{regex} berasal dari teori matematika dan komputer sains, yang mencerminkan sifat ekspresi dalam matematika yang disebut keteraturan. Ekspresi tersebut dapat diimplementasikan dalam perangkat lunak, dengan menggunakan \textit{Deterministic Finite Automaton} (DFA). DFA adalah \textit{finite state machine} yang tidak menggunakan \textit{backtracking}.
 
-Regex dapat digunakan dalam berbagai bahasa pemrograman, salah satunya yaitu, \textit{Perl Compatible Regular Expression} (PCRE). PCRE~\cite{pcre} adalah serangkaian fungsi yang menerapkan pencocokan pola \textit{regex} dengan menggunakan sintaks dan semantik yang sama dengan bahasa pemrograman \textit{Perl 5}, meskipun ada beberapa sedikit perbedaan. Pada saat ini, implementasi yang digunakan sesuai dengan \textit{Perl} versi 5.005.
+\textit{Regex} dapat digunakan dalam berbagai bahasa pemrograman, salah satunya yaitu, \textit{Perl Compatible Regular Expression} (PCRE). PCRE~\cite{pcre} adalah serangkaian fungsi yang menerapkan pencocokan pola \textit{regex} dengan menggunakan sintaks dan semantik yang sama dengan bahasa pemrograman \textit{Perl 5}, meskipun ada beberapa sedikit perbedaan. Pada saat ini, implementasi yang digunakan sesuai dengan \textit{Perl} versi 5.005.
 
 \subsection{Metakarakter}
 
 Metakarakter pada \textit{regex} dibedakan menjadi 2 jenis berdasarkan dari posisinya, yaitu metakarakter \textit{outside square brackets} dan metakarakter \textit{outside square brackets}. Meskipun ada beberapa simbol metakarakter yang sama, namun fungsinya agak berbeda. Pada metakarakter \textit{outside square brackets} terdapat 14 simbol, sedangkan metakarakter \textit{inside square brackets} terdapat 3 simbol. Rincian dari ke-2 metakarakter tersebut akan dijelaskan sebagai berikut:
 	
 \begin{table}[H]
-	\caption {Tabel metakarakter \textit{outside square brackets}} \label{tab:metacharacters-outside}
+	\renewcommand{\arraystretch}{1.5}
+	\caption {Tabel metakarakter \textit{outside square brackets}} 
+	\label{tab:metacharacters-outside}
 	\begin{center}
 		\begin{tabular}{|c|l|}
 		\hline 
@@ -120,9 +122,11 @@ Pada tabel \ref{tab:metacharacters-outside} telah disebutkan simbol-simbol yang 
 Metakarakter \textit{inside square brackets} merupakan bagian dari kelas karakter. Pada bagian kelas  karakter ini hanya terdapat 3 macam metakarakter saja. Berikut adalah metakarakter yang digunakan:
 		
 \begin{table}[H]
-	\caption {Tabel metakarakter \textit{inside square brackets}} \label{tab:metacharacters-inside}
+	\renewcommand{\arraystretch}{1.5}
+	\caption {Tabel metakarakter \textit{inside square brackets}} 
+	\label{tab:metacharacters-inside}
 	\begin{center}
-		\begin{tabular}{|p{1.5cm} |p{2.5cm}|}
+		\begin{tabular}{|c|l|}
 		\hline 
 		Simbol & Nama \\ 
 		\hline 
@@ -155,6 +159,7 @@ Pada tabel \ref{tab:metacharacters-inside} telah disebutkan macam-macam metakara
 Kelas karakter adalah karakter yang memiliki atribut yang spesifik yang dikelompokan dalam sebuah kelas. Karakter tersebut dapat berbeda di setiap negara. Kelas karakter hanya valid digunakan pada \textit{regex} didalam tanda kurung siku pada \textit{bracket expression}. Perl mendukung notasi POSIX yang digunakan untuk kelas karakter. Dalam penggunaannya, kelas-kelas tersebut ditulis diantara ''[:'' dan '':]''. PCRE juga mendukung penggunaan notasi ini. Sebagai contoh untuk kelas alfanumerik, penulisannya yaitu [:alnum:]. Berikut ini akan dijelaskan macam-macam kelas karakter yang digunakan:
 
 \begin{table}[H]
+	\renewcommand{\arraystretch}{1.5}
 	\caption {Tabel kelas karakter} \label{tab:character classes}
 	\begin{center}
 		\begin{tabular}{|p{2 cm}|>{\raggedright} p{5 cm}| p{7.5 cm}|}
@@ -169,20 +174,21 @@ Kelas karakter adalah karakter yang memiliki atribut yang spesifik yang dikelomp
 		\hline 
 		blank & Spasi dan Tab & Karakter-karakter yang termasuk yaitu, TAB dan spasi. \newline \\ 
 		\hline 
-		cntrl & Karakter kontrol & Karakter kontrol adalah karakter yang tidak merepresentasikan simbol tetapi merepresentasikan character encoding. \newline \\ 
-		\hline 
-		digit & Angka desimal & Kelas yang berisi dengan karakter numerik. Karakter-karakter yang termasuk yaitu, angka 0-9. \newline \\ 
-		\hline 
 		\end{tabular} 
 	\end{center}
 \end{table}
 
 \begin{table}[H]
+	\renewcommand{\arraystretch}{1.5}
 	\caption {Tabel kelas karakter} \label{tab:character classes}
 	\begin{center}
 		\begin{tabular}{|p{2 cm}|>{\raggedright} p{5 cm}| p{7.5 cm}|}
 		\hline
 		Kelas & Deskripsi & Keterangan \\ 
+		\hline 
+		cntrl & Karakter kontrol & Karakter kontrol adalah karakter yang tidak merepresentasikan simbol tetapi merepresentasikan character encoding. \newline \\ 		
+		\hline 
+		digit & Angka desimal & Kelas yang berisi dengan karakter numerik. Karakter-karakter yang termasuk yaitu, angka 0-9. \newline \\ 		
 		\hline 
 		graph & Karakter cetak (kecuali spasi) & Kelas yang berisi karakter yang dapat dicetak dan tampak. Contoh karakter yang dapat dicetak namun tidak tampak adalah karakter spasi dan TAB. Jadi pada kelas ini karakter spasi dan tab tidak termasuk. \newline \\ 
 		\hline 
