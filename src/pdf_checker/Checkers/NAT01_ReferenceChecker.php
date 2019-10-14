@@ -10,12 +10,12 @@
 		/* 
 		 * Method untuk memeriksa kesalahan dalam dokumen skripsi
 		 */
-		public function errorChecking($document){
-			$array = explode(". ", $document);
-			$result;
+		public function errorChecking($pdf_extract){
+			$array = explode(". ", $pdf_extract->getContentPage());
 			foreach ($array as $row => $value) {
 				$row = $row+1;
-				if (preg_match("/\[\?\]/i", $value)) {
+				$pattern = "/[?]/";
+				if (preg_match($pattern, $value)) {
 					$result = [
 						"row     : $row",
 						"error   : PDFLatex tidak dapat menerima referensi dengan baik",

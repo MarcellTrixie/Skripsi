@@ -9,11 +9,12 @@
 		/* 
 		 * Method untuk memeriksa kesalahan dalam dokumen skripsi
 		 */
-		public function errorChecking($document){
-			$array = explode(". ", $document);
+		public function errorChecking($pdf_extract){
+			$array = explode(". ", $pdf_extract->getContentPage());
 			foreach ($array as $row => $value) {
 				$row = $row+1;
-				if (preg_match("/^(\s[a-z][a-z0-9].*)|^([a-z][a-z0-9].*)/", $value)) {
+				$pattern = "/^(\s[a-z][a-z0-9].*)|^([a-z][a-z0-9].*)/";
+				if (preg_match($pattern, $value)) {
 					$result = [
 						"row     : $row",
 						"error   : Huruf pertama pada kalimat harus menggunakan huruf kapital",

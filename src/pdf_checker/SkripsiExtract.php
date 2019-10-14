@@ -8,10 +8,10 @@
 
 		protected $file;
 		protected $parser;
-		protected $content;
 		protected $cover;
-		protected $abstract;
-		protected $pdfPage;
+		protected $abstractPage;
+		protected $listPage;
+		protected $contentPage;
 
 		/*
 		 * Method untuk mengekstrak file PDF skripsi
@@ -24,28 +24,41 @@
 			$pages  = $pdf->getPages();
 
 			foreach ($pages as $page => $value) {
-				//Menyimpan halaman cover dan abstrak
-				if($page == 0 || $page == 2){
+				if (preg_match("/SKRIPSI|TUGAS AKHIR|UNDERGRADUATE THESIS/", $value->getText())) {
+				//if($page == 0 || $page == 2){
 					$this->cover = trim(preg_replace('/\s+/', ' ', $value->getText()));
 				}
-				elseif($page == 4|| $page == 6){
-					$this->abstract = trim(preg_replace('/\s+/', ' ', $value->getText()));
+				else if (preg_match("/ABSTRAK|ABSTRACT/", $value->getText())) {
+				//elseif($page == 4|| $page == 6){
+					$this->abstractPage = trim(preg_replace('/\s+/', ' ', $value->getText()));
 				}
-				//Skip halaman daftar referensi, tabel dan gambar
-				elseif ($page == 8 || $page == 10 || $page == 12) {
-					continue;
+				else if (preg_match("/DAFTAR ISI|DAFTAR GAMBAR|DAFTAR TABEL|DAFTAR REFERENSI/", $value->getText())) {
+				//elseif ($page == 8 || $page == 10 || $page == 12) {
+					$this->listPage = trim(preg_replace('/\s+/', ' ', $value->getText()));
+					echo $this->listPage;
 				}
 				else{
-					$string = trim(preg_replace('/\s+/', ' ', $value->getText()));
-    				$this->content = preg_replace("/[0-9]*$/", "", $string);
+					$temp = trim(preg_replace('/\s+/', ' ', $value->getText()));
+    				$this->contentPage = preg_replace("/[0-9]*$/", "", $temp);
 				}	
 			}
  		}
 
- 		public function getCover() {
- 			return $this->cover();
+ 		public function getCoverPage() {
+ 			return $this->cover;
  		}
 
+ 		public function getAbstractPage() {
+ 			return $this->abstractPage;
+ 		}
+
+ 		public function getListPage() {
+ 			return $this->listPage;
+ 		}
+
+ 		public function getContentPage() {
+ 			return $this->contentPage;
+ 		}
 
 	}
 

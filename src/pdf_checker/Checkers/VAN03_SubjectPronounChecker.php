@@ -10,12 +10,13 @@
 		/* 
 		 * Method untuk memeriksa kesalahan dalam dokumen skripsi
 		 */
-		public function errorChecking($document){
-			$array = explode(". ", $document);
+		public function errorChecking($pdf_extract){
+			$array = explode(". ", $pdf_extract->getContentPage());
 			$result;
 			foreach ($array as $row => $value) {
 				$row = $row+1;
-				if (preg_match("/saya|kamu|dia/i", $value)) {
+				$pattern = "/saya|kamu|dia/i";
+				if (preg_match($pattern, $value)) {
 					$result = [
 						"row     : $row",
 						"error   : Kalimat ini mengandung kata ganti orang",
