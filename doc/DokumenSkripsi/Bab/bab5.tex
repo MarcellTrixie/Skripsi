@@ -1,3 +1,25 @@
+\lstdefinelanguage{plaintext}{
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  identifierstyle=\color{black},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset
+{ 
+    language=plaintext,
+    basicstyle=\footnotesize,
+    numbers=left,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=1,
+    breaklines=true,
+    breakatwhitespace=false,
+    frame=leftline
+}
+
 \chapter{Implementasi dan Pengujian}
 \label{chap:implementasiDanPengujian}
 
@@ -30,3 +52,17 @@ Berikut spesifikasi perangkat keras dan perangkat lunak yang digunakan dalam pen
 		\end{itemize}	
 	
 \end{enumerate}
+
+\subsection{Hasil Implementasi}
+Hasil dari implementasi adalah sebuah aplikasi yang dibangun dengan bahasa pemrograman \textit{PHP} dan dijalankan melalui terminal. Aplikasi ini akan memeriksa dokumen skripsi dan mengeluarkan laporan kesalahan yang didapatkan. 
+
+\begin{lstlisting}[caption={Perintah untuk menjalankan aplikasi}			\label{lst:command},language=plaintext,xleftmargin=.15\textwidth] 
+D:\Skripsi\src\pdf_checker>php main.php ../res/skripsi.pdf
+\end{lstlisting}
+
+\section{Pengujian}
+Pada bagian ini akan dijelaskan mengenai pengujian yang dilakukan pada perangkat lunak. Pengujian yang dilakukan meliputi pengujian fungsional dan eksperimental.
+
+\subsection{Pengujian Fungsional}
+
+\subsection{Pengujian Eksperimental}
