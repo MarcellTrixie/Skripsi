@@ -35,7 +35,6 @@
 				else if (preg_match("/DAFTAR ISI|DAFTAR GAMBAR|DAFTAR TABEL|DAFTAR REFERENSI/", $value->getText())) {
 				//elseif ($page == 8 || $page == 10 || $page == 12) {
 					$this->listPage = trim(preg_replace('/\s+/', ' ', $value->getText()));
-					echo $this->listPage;
 				}
 				else{
 					$temp = trim(preg_replace('/\s+/', ' ', $value->getText()));

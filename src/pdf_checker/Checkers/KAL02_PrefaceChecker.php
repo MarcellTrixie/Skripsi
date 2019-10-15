@@ -13,7 +13,7 @@
 		 * Method untuk memeriksa kesalahan dalam dokumen skripsi
 		 */
 		public function errorChecking($pdf_extract){
-			$array = explode(". ", $pdf_extract->getContentPage);
+			$array = explode(". ", $pdf_extract->getContentPage());
 			foreach ($array as $row => $value) {
 				$row = $row+1;
 				$pattern = "/^[A-Z0-9][A-Za-z]/";
