@@ -11,25 +11,25 @@
 		 * Method untuk memeriksa kesalahan dalam dokumen skripsi
 		 */
 		public function errorChecking($pdf_extract){
-			$file = fopen("../../dictionary/id_iD/id_ID.dic", "r");
-			$dictionary = explode("\n", fread($myfile,filesize("id_ID.dic")));
-			$array = explode(" ", $pdf_extract->getContentPage());
-			
-			foreach ($array as $row => $value) {
-				$row = $row+1;
-				$pattern;
-				if (preg_match($pattern, $value)) {
-					$result = [
-						"row     : $row",
-						"error   : Terdapat kata yang tidak sesuai dengan KBBI",
-						"excerpt : $value"
-					];
-					echo "\n";
-					foreach ($result as $res) {
-   						echo "$res \n";
-					}
-				}	
+			$filename = __DIR__ . "/../../dictionary/id_iD/id_ID.dic";
+			$file = fopen($filename, "r");
+			$dictionary = explode("\n", fread($file,filesize($filename)));
+			$array = preg_split("/[^A-Za-z]/", $pdf_extract->getContentPage());
+			$typos = [];
+			foreach ($array as $index => $value) {
+				$row = $index+1;
+				if (!in_array(strtolower($value), $dictionary) && !in_array($value, $typos)) {
+					$typos[] = $value;
+ 				}	
+ 			}
+			$result = [];
+			if (sizeof($typos) > 0) {
+				$result[] = [
+					"error" => "Pada baris ini ditemukan penulisan kata yang tidak sesuai dengan kamus",
+					"excerpt" => implode(", ", $typos)
+				];
 			}
+			return $result;
 		}
 
 	}

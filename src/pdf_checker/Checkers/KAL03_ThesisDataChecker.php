@@ -11,22 +11,20 @@
 		 * Method untuk memeriksa kesalahan dalam dokumen skripsi
 		 */
 		public function errorChecking($pdf_extract){
+			$result = [];
 			$array = explode(". ", $pdf_extract->getCoverPage());
 			foreach ($array as $row => $value) {
 				$row = $row+1;
 				$pattern = "/SKRIPSI\/TUGAS AKHIR|Judul Bahasa Indonesia|Nama Lengkap|10 digit NPM UNPAR|MATEMATIKA\/FISIKA\/TEKNIK INFORMATIKA|tahun/i";
 				if (preg_match($pattern, $value)) {
-					$result = [
-						"row     : $row",
-						"error   : Ada data skripsi yang belum dilengkapi",
-						"excerpt : $value"
-					];
-					echo "\n";
-					foreach ($result as $res) {
-   						echo "$res \n";
-					}
+					$result[] = [
+						"row" => $row,
+						"error" => "Ada data skripsi yang belum dilengkapi",
+						"excerpt" => $value
+ 					];
 				}	
 			}
+			return $result;
 		}
 
 	}

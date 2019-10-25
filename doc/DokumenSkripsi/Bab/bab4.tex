@@ -167,7 +167,7 @@ Pada gambar \ref{fig:diagram_kelas} telah ditunjukan bahwa perangkat lunak memil
 Pada bagian ini akan dijelaskan perancangan untuk mengekstrak dokumen skripsi dan pola pengecekan kesalahan yang akan digunakan pada perangkat lunak.
  
 \subsection{Algoritma untuk Mengekstrak Dokumen}
-Dokumen skripsi yang akan diperiksa dalam perangkat lunak merupakan file yang memiliki ekstensi \textit{PDF}. Perangkat lunak memerlukan ekstraksi dari \textit{PDF} agar dapat melakukan pemeriksaan. Perangkat lunak menggunakan \textit{library PDFParser} untuk mengekstrak dokumen skripsi. Pada \textit{library} tersebut, terdapat 2 metode yang digunakan untuk mengekstrak dokumen.
+Dokumen skripsi yang akan diperiksa dalam perangkat lunak merupakan file yang memiliki ekstensi \textit{PDF}. Sebelum dilakukan pemeriksaan kesalahan, dokumen tersebut perlu diekstrak terlebih dulu. Pada skripsi ini, aplikasi akan menggunakan \textit{library PDFParser} untuk mengekstrak dokumen skripsi. Pada \textit{library} tersebut, terdapat 2 metode yang dapat digunakan untuk mengekstrak dokumen.
 	
 \begin{lstlisting}[caption={Potongan kode untuk mengesktrak seluruh halaman dokumen}	\label{lst:all_page},language=php,xleftmargin=.2\textwidth] 
 include 'vendor/autoload.php';
@@ -185,190 +185,306 @@ $parser = new \Smalot\PdfParser\Parser();
 $pdf    = $parser->parseFile('document.pdf');
 $pages  = $pdf->getPages();
 \end{lstlisting}
+\medskip
 
 Listing \ref{lst:all_page} dan listing \ref{lst:specific_page} merupakan potongan kode yang terdapat pada dokumentasi \textit{library PDF Parser}. Kode dari kedua listing tersebut hampir mirip, yang menjadi pembeda adalah pada baris ke-5. Listing \ref{lst:all_page} menggunakan \textit{method getText()} dan hasil dari ekstraknya disimpan menjadi sebuah kesatuan dari halaman awal hingga halaman akhir. Listing \ref{lst:specific_page} menggunakan \textit{method getPages()} dan hasil dari ekstraknya disimpan dalam sebuah array String sejumlah halaman yang ada pada dokumen.
 
-Pada skripsi ini akan digunakan metode yang mengesktrak halaman-halaman secara spesifik. Hasil ekstrak akan disimpan dalam beberapa bagian, berdasarkan konten-konten yang ada. Konten-konten yang dimaksud seperti, halaman cover, abstrak, daftar isi, daftar tabel, daftar gambar dan seterusnya. Ada beberapa alasan yang mendorong untuk melakukan pemisahan konten-konten tersebut, salah satunya yaitu agar pemeriksa dapat memeriksa bagian-bagian spesifik yang menjadi tanggungjawab dari pemeriksa tersebut.
+Pada skripsi ini akan digunakan metode yang mengesktrak halaman-halaman secara spesifik. Hasil ekstrak akan disimpan dalam beberapa bagian, berdasarkan konten-konten yang ada. Konten-konten yang dimaksud seperti, halaman cover, abstrak, daftar isi, daftar tabel, daftar gambar dan seterusnya. Ada beberapa alasan yang mendorong untuk melakukan pemisahan konten-konten tersebut, salah satunya yaitu agar pemeriksa dapat memeriksa bagian-bagian spesifik yang menjadi tanggungjawab dari pemeriksa tersebut. Contohnya, untuk memeriksa kelengkapan data skripsi tidak perlu memeriksa seluruh isi dari dokumen. Hal yang paling dibutuhkan adalah halaman covernya saja, sehingga proses pemeriksaan menjadi lebih efektif.
 
 \subsection{Pola Pengecekan Kesalahan}
 Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring dan akan diimplementasikan dalam perangkat lunak. Pengecekan kesalahan tersebut akan dilakukan dengan menggunakan teknik \textit{pattern matching regex}. Hasil ekstrak dari PDF skripsi akan dipotong dengan delimiter karakter titik dan spasi 1 buah ke dalam sebuah array. Hal ini dilakukan agar pemeriksaan dapat lebih mudah dilakukan apabila teks sudah dipecah menjadi sebuah kalimat utuh. Berikut adalah rincian dari hasil survei yang dipilih beserta penyelesaiannya:
 
 \begin{enumerate}
 	\item Penulisan kata (PS-01) \\
-	Untuk mendeteksi kesalahan penulisan kata, akan digunakan ekstensi kamus bahasa Indonesia \textit{LibreOffice}. Dengan digunakan kamus tersebut, kesalahan penulisan suatu kata dapat diminimalisir. Pola pengecekan yang digunakan akan dijelaskan pada tabel \ref{tab:ps01}.
+	Untuk mendeteksi kesalahan penulisan kata, akan digunakan ekstensi kamus bahasa Indonesia \textit{LibreOffice}. Dengan digunakan kamus tersebut, kesalahan penulisan suatu kata dapat diminimalisir. Pola pengecekan yang digunakan akan dijelaskan pada pseudocode \ref{alg:ps01}.
 		
-	\begin{table}[H]
-		\renewcommand{\arraystretch}{1.5}
-		\caption {Tabel rincian pengecekan survei PS-01} 
-		\label{tab:ps01}
-		\begin{center}
-			\begin{tabular}{|p{3.5cm} |p{10.5cm}|}
-			\hline 
-			Pola & / $\hat{}$ / \\ 
-			\hline 
-			Deskripsi & Pola akan mencocokan kata yang akan diperiksa dengan kamus bahasa Indonesia \textit{LibreOffice} \\ 
-			\hline 
-			Contoh & Istilah \textit{regex} berasal dari toeri matematika dan komputer sains, yang mencerminkan sifat ekspresi dalam matematika yang disebut keteraturan. \\ 
-			\hline 
-			Laporan & Pada baris ini ditemukan penulisan kata yang salah \\ 
-			\hline
-			\end{tabular}
-		\end{center}
-	\end{table}
+\begin{minipage}{1.0\linewidth}
+\begin{algorithm}[H]
+    \caption{Typo checker function}
+	\label{alg:ps01}
+	\begin{algorithmic}[1]
+    	\Function{ExtractFromPDF}{\$pdf\_exctract}
+    		\State Input: An object from the SkripsiExtract class to call the getter method
+			\State Output: An array containing error reports
+			\State $dictionary \gets$ Array for store dictionary
+			\State $array \gets$ Split PDF parsing results based on non words character
+			\State $typos \gets$ Array for store typos
+			\For{each word in $array$}
+    			\State $row \gets$ Add $index$ with 1
+        		\If{$value$ not contain in $dictionary$ and $value$ not contain in $typos$}
+                	\State Fill $typos$ with $value$
+            	\EndIf
+        	\EndFor
+			\State $result \gets$ Array for store all errors report
+    		\If{size of $typos$ greater than 0}
+                \State Add all errors report into $result$
+            \EndIf
+    		\State \textbf{return} $result$
+    	\EndFunction
+	\end{algorithmic}
+\end{algorithm}
+\end{minipage}
+\medskip
+
+	Pada pseudocode \ref{alg:ps01}, pola akan memeriksa setiap kata yang ada pada indeks array. Namun untuk pemeriksaan kata ini hanya untuk kata yang menggunakan bahasa Indonesia saja. Selain itu, kata-kata yang menggunakan imbuhan juga tidak ditangani pada masalah ini. Pola akan mencocokan kata yang akan diperiksa dengan kamus bahasa Indonesia \textit{LibreOffice}. Berikut adalah contoh dari kesalahan dan laporan yang dikeluarkan:
+	
+	\begin{itemize}
+		\item Contoh kesalahan \\
+		Istilah \textit{regex} berasal dari toeri matematika dan komputer sains, yang mencerminkan sifat ekspresi dalam matematika yang disebut keteraturan
+		\item Laporan kesalahan \\
+		Pada baris ini ditemukan penulisan kata yang tidak sesuai dengan kamus
+	\end{itemize}
 	
 	\item Pemberian spasi sebelum dan sesudah tanda baca (PS-03) \\
-	Kesalahan ini akan terdeteksi apabila tidak ada karakter spasi sebelum ataupun sesudah tanda baca. Pola pengecekan yang digunakan akan dijelaskan pada tabel \ref{tab:ps03}.
-		
-	\begin{table}[H]
-		\renewcommand{\arraystretch}{1.5}
-		\caption {Tabel rincian pengecekan survei PS-03} 
-		\label{tab:ps03}
-		\begin{center}
-			\begin{tabular}{|p{3.5cm} |p{10.5cm}|}
-			\hline 
-			Pola & /([A-Za-z0-9]*[,.!?][A-Za-z0-9])/ \\ 
-			\hline 
-			Deskripsi & Pola akan mendeteksi kesalahan apabila setelah tanda [,.!?] terdapat karakter spasi atau tidak \\ 
-			\hline 
-			Contoh & Aplikasi ini dijalankan melalui melalui terminal command Windows.laporan dari hasil kesalahan tersebut akan ditampilkan melalui terminal command Windows. \\ 
-			\hline 
-			Laporan & Perhatikan spasi sebelum atau setelah tanda baca \\ 
-			\hline
-			\end{tabular}
-		\end{center}
-	\end{table}
+	Kesalahan ini akan terdeteksi apabila tidak ada karakter spasi sebelum ataupun sesudah tanda baca. Pola pengecekan yang digunakan akan dijelaskan pada \textit{pseudocode} \ref{alg:ps03}.
+	
+\begin{minipage}{1.0\linewidth}
+\begin{algorithm}[H]
+    \caption{Space checker function}
+	\label{alg:ps03}
+	\begin{algorithmic}[1]
+    	\Function{ExtractFromPDF}{\$pdf\_exctract}
+    		\State Input: An object from the SkripsiExtract class to call the getter method
+			\State Output: An array containing error reports
+			\State $result \gets$ Array for store all errors report
+			\State $array \gets$ Split PDF parsing results based on dots and space
+    		\For{each sentence in $array$}
+    			\State $row \gets$ Add $index$ with 1
+				\State $pattern \gets$ Define regex /([A-Za-z0-9]*[,.!?][A-Za-z0-9])/
+        		\If{$pattern$ contain in $array$}
+                	\State fill $result$ with errors report
+            	\EndIf
+        	\EndFor
+    		\State \textbf{return} $result$
+    	\EndFunction
+	\end{algorithmic}
+\end{algorithm}
+\end{minipage}
+\medskip
+	
+	Pada pseudocode \ref{alg:ps03}, pola akan memeriksa setiap kalimat yang ada pada indeks array. Kesalahan akan terdeteksi apabila setelah tanda baca titik, koma, seru atau tanya tidak terdapat spasi yang memisahkan tanda baca dengan kata baru. Berikut adalah contoh dari kesalahan dan laporan yang dikeluarkan:
+	
+	\begin{itemize}
+		\item Contoh kesalahan \\
+		Aplikasi ini dijalankan melalui melalui terminal command Windows.laporan dari hasil kesalahan tersebut akan ditampilkan melalui terminal command Windows.
+		\item Laporan kesalahan \\
+		Perhatikan spasi sebelum atau setelah tanda baca.
+	\end{itemize}
 	
 	\item Awal kalimat tidak menggunakan huruf kapital (PS-05) \\
-	Kesalahan ini akan terdeteksi apabila setelah tanda baca pada akhir kalimat, karakter pertama setelah spasi menggunakan huruf kecil. Pola pengecekan yang digunakan akan dijelaskan pada tabel \ref{tab:ps05}.
-		
-	\begin{table}[H]
-		\renewcommand{\arraystretch}{1.5}
-		\caption {Tabel rincian pengecekan survei PS-05} 
-		\label{tab:ps05}
-		\begin{center}
-			\begin{tabular}{|p{3.5cm} |p{10.5cm}|}
-			\hline 
-			Pola & / $\hat{}$ ($\backslash$s[a-z][a-z0-9].*)/ \\ 
-			\hline 
-			Deskripsi & Pola akan mendeteksi karakter pertama dalam sebuah kalimat yang menggunakan huruf kecil   \\ 
-			\hline 
-			Contoh & aplikasi sederhana ini, dapat dimanfaatkan oleh mahasiswa Informatika Unpar secara mandiri \\ 
-			\hline 
-			Laporan & Huruf pertama pada kalimat ini tidak menggunakan huruf kapital \\ 
-			\hline
-			\end{tabular}
-		\end{center}
-	\end{table}
+	Kesalahan ini akan terdeteksi apabila setelah tanda baca pada akhir kalimat, karakter pertama setelah spasi menggunakan huruf kecil. Pola pengecekan yang digunakan akan dijelaskan pada \textit{pseudocode} \ref{alg:ps05}.
+
+\begin{minipage}{1.0\linewidth}
+\begin{algorithm}[H]
+    \caption{Capital letter checker function}
+	\label{alg:ps05}
+	\begin{algorithmic}[1]
+    	\Function{ExtractFromPDF}{\$pdf\_exctract}
+    		\State Input: An object from the SkripsiExtract class to call the getter method
+			\State Output: An array containing error reports
+			\State $result \gets$ Array for store all errors report
+			\State $array \gets$ Split PDF parsing results based on dots and space
+    		\For{each sentence in $array$}
+    			\State $row \gets$ Add $index$ with 1
+				\State $pattern \gets$ Define regex / $\hat{}$ ($\backslash$s[a-z][a-z0-9].*)/
+        		\If{$pattern$ contain in $array$}
+                	\State fill $result$ with errors report
+            	\EndIf
+        	\EndFor
+    		\State \textbf{return} $result$
+    	\EndFunction
+	\end{algorithmic}
+\end{algorithm}
+\end{minipage}
+\medskip
+
+	Pada pseudocode \ref{alg:ps05}, pola akan memeriksa setiap kalimat yang ada pada indeks array. Kesalahan akan terdeteksi apabila karakter pertama dalam sebuah kalimat menggunakan huruf kecil. Berikut adalah contoh dari kesalahan dan laporan yang dikeluarkan:
+	
+	\begin{itemize}
+		\item Contoh kesalahan \\ 
+		aplikasi sederhana ini, dapat dimanfaatkan oleh mahasiswa Informatika Unpar secara mandiri
+		\item Laporan kesalahan \\
+		Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
+	\end{itemize}
 	
 	\item Jumlah subbab dalam 1 bab tidak boleh hanya 1 (PS-09) \\
-	Kesalahan ini dapat diselesaikan dengan mencari jumlah subbab yang ada dalam sebuah bab. Pola pengecekan yang digunakan akan dijelaskan pada tabel \ref{tab:ps09}.
-		
-	\begin{table}[H]
-		\renewcommand{\arraystretch}{1.5}
-		\caption {Tabel rincian pengecekan survei PS-09} 
-		\label{tab:ps09}
-		\begin{center}
-			\begin{tabular}{|p{3.5cm} |p{10.5cm}|}
-			\hline 
-			Pola & / $\hat{}$ / \\ 
-			\hline 
-			Deskripsi & Pola akan memeriksa jumlah subbab yang ada pada setiap bab \\ 
-			\hline 
-			Contoh & Bab 4 \newline PERANCANGAN \newline \newline 4.1 Perancangan Kelas \\ 
-			\hline 
-			Laporan & Pada bab ini hanya terdapat 1 subbab, lebih baik tidak perlu menggunakan subbab \\ 
-			\hline
-			\end{tabular}
-		\end{center}
-	\end{table}
+	Kesalahan ini dapat diselesaikan dengan mencari jumlah subbab yang ada dalam sebuah bab. Pola pengecekan yang digunakan akan dijelaskan pada \textit{pseudocode} \ref{alg:ps09}.
+
+\begin{minipage}{1.0\linewidth}
+\begin{algorithm}[H]
+    \caption{Subchapter checker function}
+	\label{alg:ps09}
+	\begin{algorithmic}[1]
+    	\Function{ExtractFromPDF}{\$pdf\_exctract}
+    		\State Input: An object from the SkripsiExtract class to call the getter method
+			\State Output: An array containing error reports
+			\State $result \gets$ Array for store all errors report
+			\State $array \gets$ Split PDF parsing results based on dots and space
+    		\For{each sentence in $array$}
+    			\State $row \gets$ Add $index$ with 1
+				\State $pattern \gets$ Define regex / $\hat{}$ /
+        		\If{$pattern$ contain in $array$}
+                	\State fill $result$ with errors report
+            	\EndIf
+        	\EndFor
+    		\State \textbf{return} $result$
+    	\EndFunction
+	\end{algorithmic}
+\end{algorithm}
+\end{minipage}
+\medskip
+	
+	Pada pseudocode \ref{alg:ps09}, pola akan memeriksa setiap kalimat yang ada pada indeks array. Kesalahan akan terdeteksi apabila karakter pertama dalam sebuah kalimat menggunakan huruf kecil. Berikut adalah contoh dari kesalahan dan laporan yang dikeluarkan:
+	
+	\begin{itemize}
+		\item Contoh kesalahan \\
+		Bab 4 \newline PERANCANGAN \newline \newline 4.1 Perancangan Kelas
+		\item Laporan kesalahan \\
+		Pada bab ini hanya terdapat 1 subbab, lebih baik tidak perlu menggunakan subbab
+	\end{itemize}	
 	
 	\item Kalimat pengantar untuk setiap subbab (KAL-02) \\
-	Kesalahan ini dapat dideteksi dengan melihat ada atau tidaknya kalimat setelah subbab dibuat. Pola pengecekan yang digunakan akan dijelaskan pada tabel \ref{tab:kal02}.
-		
-	\begin{table}[H]
-		\renewcommand{\arraystretch}{1.5}
-		\caption {Tabel rincian pengecekan survei KAL-02} 
-		\label{tab:kal02}
-		\begin{center}
-			\begin{tabular}{|p{3.5cm} |p{10.5cm}|}
-			\hline 
-			Pola & / $\hat{}$ [A-Z0-9][A-Za-z] / \\
-			\hline 
-			Deskripsi & Pola akan memeriksa bagian setelah judul bab, untuk melihat ada atau tidaknya kata pengantar yang menjelaskan bab tersebut \\ 
-			\hline 
-			Contoh & Bab 4 \newline PERANCANGAN \newline \newline 4.1 Perancangan Kelas \newline 4.2 Perancangan Algoritma \\ 
-			\hline 
-			Laporan & Berilah kata pengantar untuk bab atau subbab \\ 
-			\hline
-			\end{tabular}
-		\end{center}
-	\end{table}
+	Kesalahan ini dapat dideteksi dengan melihat ada atau tidaknya kalimat setelah subbab dibuat. Pola pengecekan yang digunakan akan dijelaskan pada \textit{pseudocode} \ref{alg:kal02}.
+
+\begin{minipage}{1.0\linewidth}
+\begin{algorithm}[H]
+    \caption{Preface checker function}
+	\label{alg:kal02}
+	\begin{algorithmic}[1]
+    	\Function{ExtractFromPDF}{\$pdf\_exctract}
+    		\State Input: An object from the SkripsiExtract class to call the getter method
+			\State Output: An array containing error reports
+			\State $result \gets$ Array for store all errors report
+			\State $array \gets$ Split PDF parsing results based on dots and space
+    		\For{each sentence in $array$}
+    			\State $row \gets$ Add $index$ with 1
+				\State $pattern \gets$ Define regex / $\hat{}$ [A-Z0-9][A-Za-z] /
+        		\If{$pattern$ contain in $array$}
+                	\State fill $result$ with errors report
+            	\EndIf
+        	\EndFor
+    		\State \textbf{return} $result$
+    	\EndFunction
+	\end{algorithmic}
+\end{algorithm}
+\end{minipage}
+\medskip
+
+	Pada pseudocode \ref{alg:kal02}, pola akan memeriksa setiap kalimat yang ada pada indeks array. Kesalahan akan terdeteksi apabila tidak terdapat kalimat yang mengawali bab tersebut. Berikut adalah contoh dari kesalahan dan laporan yang dikeluarkan:
+	
+	\begin{itemize}
+		\item Contoh kesalahan \\
+		Bab 4 \newline PERANCANGAN \newline \newline 4.1 Perancangan Kelas \newline 4.2 Perancangan Algoritma
+		\item Laporan kesalahan \\
+		Berilah kata pengantar untuk bab atau subbab
+	\end{itemize}
 	
 	\item Kelengkapan data skripsi (KAL-03) \\
-	Kesalahan ini dapat terlihat pada halaman cover skripsi. Mahasiswa yang belum mengisi data skripsi, pada file PDFnya akan ditampilkan tulisan template pada data skripsinya.Pola pengecekan yang digunakan akan dijelaskan pada tabel \ref{tab:kal03}.
-		
-	\begin{table}[H]
-		\renewcommand{\arraystretch}{1.5}
-		\caption {Tabel rincian pengecekan survei KAL-03} 
-		\label{tab:kal03}
-		\begin{center}
-			\begin{tabular}{|p{3.5cm} |p{10.5cm}|}
-			\hline 
-			Pola & /SKRIPSI/TUGAS AKHIR | Judul Bahasa Indonesia | Nama Lengkap | 10 digit NPM UNPAR | MATEMATIKA/FISIKA/TEKNIK INFORMATIKA | tahun/ \\ 
-			\hline 
-			Deskripsi & Pola akan mencari kata-kata yang sama dengan template pada halaman cover skripsi. Hal ini berlaku untuk halaman cover bahasa Indonesia dan bahasa Inggris. \\ 
-			\hline 
-			Contoh & <<SKRIPSI/TUGAS AKHIR>> \newline <<Judul Bahasa Indonesia>> \newline Marcell Trixie Alexander \newline <<10 digit NPM UNPAR>>\\ 
-			\hline 
-			Laporan & Ada data skripsi yang belum dilengkapi, data dapat diisi pada file data.tex \\ 
-			\hline
-			\end{tabular}
-		\end{center}
-	\end{table}
+	Kesalahan ini dapat terlihat pada halaman cover skripsi. Mahasiswa yang belum mengisi data skripsi, pada file PDFnya akan ditampilkan tulisan template pada data skripsinya.Pola pengecekan yang digunakan akan dijelaskan pada \textit{pseudocode} \ref{alg:kal03}.
+	
+\begin{minipage}{1.0\linewidth}
+\begin{algorithm}[H]
+    \caption{Thesis data checker function}
+	\label{alg:kal03}
+	\begin{algorithmic}[1]
+    	\Function{ExtractFromPDF}{\$pdf\_exctract}
+    		\State Input: An object from the SkripsiExtract class to call the getter method
+			\State Output: An array containing error reports
+			\State $result \gets$ Array for store all errors report
+			\State $array \gets$ Split PDF parsing results based on dots and space
+    		\For{each sentence in $array$}
+    			\State $row \gets$ Add $index$ with 1
+				\State $pattern \gets$ Define regex /SKRIPSI/TUGAS AKHIR | Judul Bahasa Indonesia | Nama Lengkap | 10 digit NPM UNPAR | MATEMATIKA/FISIKA/TEKNIK INFORMATIKA | tahun/
+        		\If{$pattern$ contain in $array$}
+                	\State fill $result$ with errors report
+            	\EndIf
+        	\EndFor
+    		\State \textbf{return} $result$
+    	\EndFunction
+	\end{algorithmic}
+\end{algorithm}
+\end{minipage}	
+\medskip
+	
+	Pada pseudocode \ref{alg:kal03}, pola akan memeriksa halaman cover bahasa Indonesia dan bahasa Inggris. Kesalahan akan terdeteksi pada halaman cover masih terdapat kalimat yang terdapat dalam template. Berikut adalah contoh dari kesalahan dan laporan yang dikeluarkan:
+	
+	\begin{itemize}
+		\item Contoh kesalahan \\
+		<<SKRIPSI/TUGAS AKHIR>> \newline <<Judul Bahasa Indonesia>> \newline Marcell Trixie Alexander \newline <<10 digit NPM UNPAR>>
+		\item Laporan kesalahan \\
+		Ada data skripsi yang belum dilengkapi, data dapat diisi pada file data.tex
+	\end{itemize}	
 	
 	\item Penggunaan kata ganti orang (VAN-03) \\
-	Kesalahan ini dapat diatasi dengan memasukan kata-kata yang termasuk dalam kata ganti orang menjadi kata-kata yang tidak dapat digunakan. Pola pengecekan yang digunakan akan dijelaskan pada tabel \ref{tab:van03}.
-		
-	\begin{table}[H]
-		\renewcommand{\arraystretch}{1.5}
-		\caption {Tabel rincian pengecekan survei VAN-03} 
-		\label{tab:van03}
-		\begin{center}
-			\begin{tabular}{|p{3.5cm} |p{10.5cm}|}
-			\hline 
-			Pola & /saya|kamu|dia/i \\ 
-			\hline 
-			Deskripsi & Pola akan mendeteksi kata ganti orang yang sudah dimasukan \\ 
-			\hline 
-			Contoh & Saya akan membuat
-aplikasi ini menggunakan bahasa pemrograman PHP \\ 
-			\hline 
-			Laporan & Kalimat tersebut mengandung kata ganti orang \\ 
-			\hline
-			\end{tabular}
-		\end{center}
-	\end{table}
+	Kesalahan ini dapat diatasi dengan memasukan kata-kata yang termasuk dalam kata ganti orang menjadi kata-kata yang tidak dapat digunakan. Pola pengecekan yang digunakan akan dijelaskan pada \textit{pseudocode} \ref{alg:van03}.
+
+\begin{minipage}{1.0\linewidth}
+\begin{algorithm}[H]
+    \caption{Subject Pronoun checker function}
+	\label{alg:van03}
+	\begin{algorithmic}[1]
+    	\Function{ExtractFromPDF}{\$pdf\_exctract}
+    		\State Input: An object from the SkripsiExtract class to call the getter method
+			\State Output: An array containing error reports
+			\State $result \gets$ Array for store all errors report
+			\State $array \gets$ Split PDF parsing results based on dots and space
+    		\For{each sentence in $array$}
+    			\State $row \gets$ Add $index$ with 1
+				\State $pattern \gets$ Define regex /saya|kamu|dia/i
+        		\If{$pattern$ contain in $array$}
+                	\State fill $result$ with errors report
+            	\EndIf
+        	\EndFor
+    		\State \textbf{return} $result$
+    	\EndFunction
+	\end{algorithmic}
+\end{algorithm}
+\end{minipage}
+\medskip
+
+	Pada pseudocode \ref{alg:van03}, pola akan memeriksa setiap kalimat yang ada pada indeks array. Kesalahan akan terdeteksi pada kalimat terdapat kata ganti orang. Berikut adalah contoh dari kesalahan dan laporan yang dikeluarkan:
+	
+	\begin{itemize}
+		\item Contoh kesalahan \\
+		Saya akan membuat aplikasi ini menggunakan bahasa pemrograman PHP
+		\item Laporan kesalahan \\
+		Kalimat tersebut mengandung kata ganti orang
+	\end{itemize}	
 	
 	\item Penulisan daftar referensi (NAT-01) \\
-	Kesalahan dalam penulisan daftar referensi dapat dilihat dengan munculnya tanda ''[?]'', yang menandakan bahwa referensi tersebut tidak dirujuk dengan baik. Pola pengecekan yang digunakan akan dijelaskan pada tabel \ref{tab:nat01}.
-		
-	\begin{table}[H]
-		\renewcommand{\arraystretch}{1.5}
-		\caption {Tabel rincian pengecekan survei NAT-01} 
-		\label{tab:nat01}
-		\begin{center}
-			\begin{tabular}{|p{3.5cm} |p{10.5cm}|}
-			\hline 
-			Pola & /[?]/ \\ 
-			\hline 
-			Deskripsi & Pola akan mencari simbol ''[?]'' dalam kalimat \\ 
-			\hline 
-			Contoh & \textit{Regular expression} [?] adalah jenis pola teks tertentu yang dapat digunakan pada banyak aplikasi modern dan bahasa pemrograman \\ 
-			\hline 
-			Laporan & Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya\\ 
-			\hline
-			\end{tabular}
-		\end{center}
-	\end{table}
+	Kesalahan dalam penulisan daftar referensi dapat dilihat dengan munculnya tanda ''[?]'', yang menandakan bahwa referensi tersebut tidak dirujuk dengan baik. Pola pengecekan yang digunakan akan dijelaskan pada \textit{pseudocode} \ref{alg:nat01}.
+
+\begin{minipage}{1.0\linewidth}
+\begin{algorithm}[H]
+    \caption{Reference checker function}
+	\label{alg:nat01}
+	\begin{algorithmic}[1]
+    	\Function{ExtractFromPDF}{\$pdf\_exctract}
+    		\State Input: An object from the SkripsiExtract class to call the getter method
+			\State Output: An array containing error reports
+			\State $result \gets$ Array for store all errors report
+			\State $array \gets$ Split PDF parsing results based on dots and space
+    		\For{each sentence in $array$}
+    			\State $row \gets$ Add $index$ with 1
+				\State $pattern \gets$ Define regex /[?]/
+        		\If{$pattern$ contain in $array$}
+                	\State fill $result$ with errors report
+            	\EndIf
+        	\EndFor
+    		\State \textbf{return} $result$
+    	\EndFunction
+	\end{algorithmic}
+\end{algorithm}
+\end{minipage}
+\medskip
+
+	Pada pseudocode \ref{alg:nat01}, pola akan memeriksa setiap kalimat yang ada pada indeks array. Kesalahan akan terdeteksi kalimat terdapat simbol ''[?]'', yang menandakan referensi tidak dirujuk dengan baik. Berikut adalah contoh dari kesalahan dan laporan yang dikeluarkan:
+	
+	\begin{itemize}
+		\item Contoh kesalahan \\
+		\textit{Regular expression} [?] adalah jenis pola teks tertentu yang dapat digunakan pada banyak aplikasi modern dan bahasa pemrograman
+		\item Laporan kesalahan \\
+		Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
+	\end{itemize}		
 	
 \end{enumerate}

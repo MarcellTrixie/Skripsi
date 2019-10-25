@@ -11,23 +11,22 @@
 		 * Method untuk memeriksa kesalahan dalam dokumen skripsi
 		 */
 		public function errorChecking($pdf_extract){
+			$result = [];
 			$array = explode(". ", $pdf_extract->getContentPage());
-			foreach ($array as $row => $value) {
-				$row = $row+1;
+			foreach ($array as $index => $value) {
+				$row = $index+1;
 				$pattern = "/[?]/";
 				if (preg_match($pattern, $value)) {
-					$result = [
-						"row     : $row",
-						"error   : PDFLatex tidak dapat menerima referensi dengan baik",
-						"excerpt : $value"
-					];
-					echo "\n";
-					foreach ($result as $res) {
-   						echo "$res \n";
-					}
+					$result[] = [
+						"row" => $row,
+						"error" => "PDFLatex tidak dapat menerima referensi dengan baik",
+						"excerpt" => $value
+ 					];
 				}	
 			}
+			return $result;
 		}
+
 
 	}
 

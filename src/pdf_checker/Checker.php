@@ -13,14 +13,12 @@
 	 * Kelas Parent untuk seluruh checker
 	 * @author Marcell Trixie
 	 */
-	class Checker{
+	abstract class Checker{
 
 		/* 
 		 * Method untuk memeriksa kesalahan dalam dokumen skripsi
 		 */
-		public function errorChecking($pdf_extract){
-			
-		}
+		public abstract function errorChecking($pdf_extract);
 
 		/**
 		 * Mendapatkan seluruh checkers yang tersedia
