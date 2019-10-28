@@ -196,7 +196,7 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
 
 \begin{enumerate}
 	\item Penulisan kata (PS-01) \\
-	Untuk mendeteksi kesalahan penulisan kata, akan digunakan ekstensi kamus bahasa Indonesia \textit{LibreOffice}. Dengan digunakan kamus tersebut, kesalahan penulisan suatu kata dapat diminimalisir. Pola pengecekan yang digunakan akan dijelaskan pada pseudocode \ref{alg:ps01}.
+	Untuk mendeteksi kesalahan penulisan kata, akan digunakan ekstensi kamus bahasa Indonesia \textit{LibreOffice}. Dengan digunakan kamus tersebut, kesalahan penulisan suatu kata dapat diminimalisir. Pada skripsi ini, pemeriksaan kata-kata yang menggunakan imbuhan tidak ditangani pada masalah ini. Terdapat kode yang harus diterjemahkan terlebih dahulu untuk dapat mengetahui imbuhan yang dapat digunakan dalam sebuah kata. Pola pengecekan yang digunakan akan dijelaskan pada pseudocode \ref{alg:ps01}.
 		
 \begin{minipage}{1.0\linewidth}
 \begin{algorithm}[H]
@@ -205,9 +205,13 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
 	\begin{algorithmic}[1]
     	\Function{ExtractFromPDF}{\$pdf\_exctract}
     		\State Input: An object from the SkripsiExtract class to call the getter method
-			\State Output: An array containing error reports
+			\State Output: An array containing error reports		
+			\State $temp \gets$ Split dictionary based on newline
 			\State $dictionary \gets$ Array for store dictionary
-			\State $array \gets$ Split PDF parsing results based on non words character
+			\For{$i = 0$ to size of temp}
+				\State Remove affix code from each index dictionary array 
+			\EndFor
+			\State $word \gets$ Call getter from class SkripsiExtract and split with non word character
 			\State $typos \gets$ Array for store typos
 			\For{each word in $array$}
     			\State $row \gets$ Add $index$ with 1
@@ -226,7 +230,7 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
 \end{minipage}
 \medskip
 
-	Pada pseudocode \ref{alg:ps01}, pola akan memeriksa setiap kata yang ada pada indeks array. Namun untuk pemeriksaan kata ini hanya untuk kata yang menggunakan bahasa Indonesia saja. Selain itu, kata-kata yang menggunakan imbuhan juga tidak ditangani pada masalah ini. Pola akan mencocokan kata yang akan diperiksa dengan kamus bahasa Indonesia \textit{LibreOffice}. Berikut adalah contoh dari kesalahan dan laporan yang dikeluarkan:
+	Pada pseudocode \ref{alg:ps01}, pola akan memeriksa setiap kata yang ada pada indeks array. Namun untuk pemeriksaan kata ini hanya untuk kata yang menggunakan bahasa Indonesia saja. Pola akan mencocokan kata yang akan diperiksa dengan kamus bahasa Indonesia \textit{LibreOffice}. Berikut adalah contoh dari kesalahan dan laporan yang dikeluarkan:
 	
 	\begin{itemize}
 		\item Contoh kesalahan \\
@@ -247,8 +251,8 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
     		\State Input: An object from the SkripsiExtract class to call the getter method
 			\State Output: An array containing error reports
 			\State $result \gets$ Array for store all errors report
-			\State $array \gets$ Split PDF parsing results based on dots and space
-    		\For{each sentence in $array$}
+			\State $sentence \gets$ Call getter from class SkripsiExtract
+    		\For{each sentence in $sentence$}
     			\State $row \gets$ Add $index$ with 1
 				\State $pattern \gets$ Define regex /([A-Za-z0-9]*[,.!?][A-Za-z0-9])/
         		\If{$pattern$ contain in $array$}
@@ -283,8 +287,8 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
     		\State Input: An object from the SkripsiExtract class to call the getter method
 			\State Output: An array containing error reports
 			\State $result \gets$ Array for store all errors report
-			\State $array \gets$ Split PDF parsing results based on dots and space
-    		\For{each sentence in $array$}
+			\State $sentence \gets$ Call getter from class SkripsiExtract
+    		\For{each sentence in $sentence$}
     			\State $row \gets$ Add $index$ with 1
 				\State $pattern \gets$ Define regex / $\hat{}$ ($\backslash$s[a-z][a-z0-9].*)/
         		\If{$pattern$ contain in $array$}
@@ -319,8 +323,8 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
     		\State Input: An object from the SkripsiExtract class to call the getter method
 			\State Output: An array containing error reports
 			\State $result \gets$ Array for store all errors report
-			\State $array \gets$ Split PDF parsing results based on dots and space
-    		\For{each sentence in $array$}
+			\State $sentence \gets$ Call getter from class SkripsiExtract
+    		\For{each sentence in $sentence$}
     			\State $row \gets$ Add $index$ with 1
 				\State $pattern \gets$ Define regex / $\hat{}$ /
         		\If{$pattern$ contain in $array$}
@@ -355,8 +359,8 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
     		\State Input: An object from the SkripsiExtract class to call the getter method
 			\State Output: An array containing error reports
 			\State $result \gets$ Array for store all errors report
-			\State $array \gets$ Split PDF parsing results based on dots and space
-    		\For{each sentence in $array$}
+			\State $sentence \gets$ Call getter from class SkripsiExtract
+    		\For{each sentence in $sentence$}
     			\State $row \gets$ Add $index$ with 1
 				\State $pattern \gets$ Define regex / $\hat{}$ [A-Z0-9][A-Za-z] /
         		\If{$pattern$ contain in $array$}
@@ -391,10 +395,10 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
     		\State Input: An object from the SkripsiExtract class to call the getter method
 			\State Output: An array containing error reports
 			\State $result \gets$ Array for store all errors report
-			\State $array \gets$ Split PDF parsing results based on dots and space
-    		\For{each sentence in $array$}
+			\State $sentence \gets$ Call getter from class SkripsiExtract
+    		\For{each sentence in $sentence$}
     			\State $row \gets$ Add $index$ with 1
-				\State $pattern \gets$ Define regex /SKRIPSI/TUGAS AKHIR | Judul Bahasa Indonesia | Nama Lengkap | 10 digit NPM UNPAR | MATEMATIKA/FISIKA/TEKNIK INFORMATIKA | tahun/
+				\State $pattern \gets$ Define regex /JUDUL BAHASA INDONESIA|JUDUL BAHASA INGGRIS|Nama Lengkap|10 digit NPM UNPAR|tahun/
         		\If{$pattern$ contain in $array$}
                 	\State fill $result$ with errors report
             	\EndIf
@@ -427,8 +431,8 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
     		\State Input: An object from the SkripsiExtract class to call the getter method
 			\State Output: An array containing error reports
 			\State $result \gets$ Array for store all errors report
-			\State $array \gets$ Split PDF parsing results based on dots and space
-    		\For{each sentence in $array$}
+			\State $sentence \gets$ Split PDF parsing results based on dots and space
+    		\For{each sentence in $sentence$}
     			\State $row \gets$ Add $index$ with 1
 				\State $pattern \gets$ Define regex /saya|kamu|dia/i
         		\If{$pattern$ contain in $array$}
@@ -463,8 +467,8 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
     		\State Input: An object from the SkripsiExtract class to call the getter method
 			\State Output: An array containing error reports
 			\State $result \gets$ Array for store all errors report
-			\State $array \gets$ Split PDF parsing results based on dots and space
-    		\For{each sentence in $array$}
+			\State $sentence \gets$ Call getter from class SkripsiExtract
+    		\For{each sentence in $sentence$}
     			\State $row \gets$ Add $index$ with 1
 				\State $pattern \gets$ Define regex /[?]/
         		\If{$pattern$ contain in $array$}

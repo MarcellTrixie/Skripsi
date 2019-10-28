@@ -7,22 +7,20 @@
 	 */
 	class KAL03_ThesisDataChecker extends Checker{
 
-		/* 
+		/** 
 		 * Method untuk memeriksa kesalahan dalam dokumen skripsi
+		 * @param pdf_extract untuk memanggil method getter kelas Checker sesuai kebutuhan
+		 * @return result[] laporan kesalahan yang ditemukan
 		 */
 		public function errorChecking($pdf_extract){
 			$result = [];
-			$array = explode(". ", $pdf_extract->getCoverPage());
-			foreach ($array as $row => $value) {
-				$row = $row+1;
-				$pattern = "/SKRIPSI\/TUGAS AKHIR|Judul Bahasa Indonesia|Nama Lengkap|10 digit NPM UNPAR|MATEMATIKA\/FISIKA\/TEKNIK INFORMATIKA|tahun/i";
-				if (preg_match($pattern, $value)) {
-					$result[] = [
-						"row" => $row,
-						"error" => "Ada data skripsi yang belum dilengkapi",
-						"excerpt" => $value
- 					];
-				}	
+			$sentence = $pdf_extract->getCoverPage();
+			$pattern = "/JUDUL BAHASA INDONESIA|JUDUL BAHASA INGGRIS|Nama Lengkap|10 digit NPM UNPAR|tahun/";
+			if (preg_match($pattern, $sentence)) {
+				$result[] = [
+					"error" => "Ada data skripsi yang belum dilengkapi pada halaman cover",
+					"excerpt" => $sentence
+ 				];
 			}
 			return $result;
 		}

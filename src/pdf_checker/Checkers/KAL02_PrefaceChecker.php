@@ -9,13 +9,15 @@
 	 */
 	class KAL02_PrefaceChecker extends Checker{
 
-		/* 
+		/**
 		 * Method untuk memeriksa kesalahan dalam dokumen skripsi
+		 * @param pdf_extract untuk memanggil method getter kelas Checker sesuai kebutuhan
+		 * @return result[] laporan kesalahan yang ditemukan
 		 */
 		public function errorChecking($pdf_extract){
 			$result = [];
-			$array = explode(". ", $pdf_extract->getContentPage());
-			foreach ($array as $index => $value) {
+			$sentence = $pdf_extract->splitContentPage();
+			foreach ($sentence as $index => $value) {
 				$row = $index+1;
 				$pattern = "/^[A-Z0-9][A-Za-z]/";
 				if (preg_match($pattern, $value)) {

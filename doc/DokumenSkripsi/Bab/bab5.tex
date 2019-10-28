@@ -23,13 +23,13 @@
 \chapter{Implementasi dan Pengujian}
 \label{chap:implementasiDanPengujian}
 
-Pada bab ini dibahas mengenai implementasi perangkat lunak dan pengujian perangkat lunak. Bagian implementasi berisi tentang lingkungan implementasi dan hasil implementasi. Bagian pengujian berisi tentang pengujian fungsional.
+Pada bab ini dibahas mengenai implementasi perangkat lunak dan pengujian yang dilakukan terhadap perangkat lunak tersebut. Lingkungan implementasi, yang meliputi perangkat keras dan perangkat lunak, serta hasil implementasi akan dijelaskan pada bab ini. Selain Pengujian yang dilakukan pada skripsi ini, yang meliputi pengujian fungsional dan eksperimental akan dijelaskan pada bab ini.
 
 \section{Implementasi}
-Pada bagian ini akan dijelaskan mengenai lingkungan yang digunakan untuk membangun perangkat lunak.
+Pada bagian ini akan dijelaskan mengenai lingkungan yang digunakan untuk membangun perangkat lunak beserta hasil implementasinya.
 
 \subsection{Lingkungan Implementasi}
-Berikut spesifikasi perangkat keras dan perangkat lunak yang digunakan dalam pengembangan aplikasi:
+Berikut spesifikasi perangkat keras dan perangkat lunak yang digunakan dalam pembangunan pada skripsi ini:
 
 \begin{enumerate}
 	\item Spesifikasi Perangkat Keras
@@ -54,15 +54,21 @@ Berikut spesifikasi perangkat keras dan perangkat lunak yang digunakan dalam pen
 \end{enumerate}
 
 \subsection{Hasil Implementasi}
-Hasil dari implementasi adalah sebuah aplikasi yang dibangun dengan bahasa pemrograman \textit{PHP} dan dijalankan melalui terminal. Aplikasi ini akan memeriksa dokumen skripsi dan mengeluarkan laporan kesalahan yang didapatkan. 
+Perangkat lunak dikembangkan menggunakan bahasa pemrograman PHP. Perangkat lunak yang dibuat tidak menggunakan \textit{Graphical User Interface}, melainkan berbasis \textit{Command Line Interface}. Perangkat lunak akan menerima input berupa file PDF skripsi yang disimpan pada folder yang telah disediakan, dan mengeluarkan laporan kesalahan pada terminal.
 
-\begin{lstlisting}[caption={Perintah untuk menjalankan aplikasi}			\label{lst:command},language=plaintext,xleftmargin=.15\textwidth] 
-D:\Skripsi\src\pdf_checker>php main.php ../res/skripsi.pdf
-\end{lstlisting}
+\begin{figure}[H]
+	\centering	
+	\includegraphics[scale=0.6]{command.png}
+	\caption{Perintah yang digunakan untuk menjalankan perangkat lunak}	
+	\label{fig:command} 
+\end{figure}
+
+Gambar \ref{fig:command} merupakan perintah yang perlu dituliskan pada terminal, untuk menjalankan perangkat lunak. Kelas Main menjadi kelas yang digunakan untuk menjalankan seluruh proses yang berjalan dalam perangkat lunak. File PDF skripsi yang akan diperiksa harus berada di folder yang telah disediakan, yaitu pada folder Skripsi$\backslash$src$\backslash$res.
 
 \section{Pengujian}
-Pada bagian ini akan dijelaskan mengenai pengujian yang dilakukan pada perangkat lunak. Pengujian yang dilakukan meliputi pengujian fungsional dan eksperimental.
+Pada bagian ini akan dijelaskan mengenai pengujian yang dilakukan pada perangkat lunak. Akan dilakukan 2 bentuk pengujian pada skripsi ini, yaitu pengujian fungsional dan pengujian eksperimental.
 
 \subsection{Pengujian Fungsional}
+Pengujian fungsional bertujuan untuk menguji fungsionalitas perangkat lunak. Perangkat lunak memiliki 8 fitur yang telah diimplementasikan. Fitur-fitur tersebut akan diuji untuk melihat kebenaran dan kesesuaian fitur tersebut dengan yang diharapkan.
 
 \subsection{Pengujian Eksperimental}

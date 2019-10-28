@@ -7,13 +7,16 @@
 	 */
 	class PS09_SubChapterChecker extends Checker{
 
-		/* 
+		/**
 		 * Method untuk memeriksa kesalahan dalam dokumen skripsi
+		 * @param pdf_extract untuk memanggil method getter kelas Checker sesuai kebutuhan
+		 * @return result[] laporan kesalahan yang ditemukan
 		 */
 		public function errorChecking($pdf_extract){
 			$result = [];
-			$array = explode(". ", $pdf_extract->getContentPage());
-			foreach ($array as $index => $value) {
+			$temp = preg_replace('/[^0-9.]/', '', $pdf_extract->getTableOfContentPage());
+			$number = explode('/./', $temp);
+			foreach ($number as $index => $value) {
 				$row = $index+1;
 				$pattern = "/^[0-9].[0-9]\s[A-Za-z0-9]/";
 				if (preg_match($pattern, $value)) {
