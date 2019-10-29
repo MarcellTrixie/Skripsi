@@ -19,7 +19,7 @@
 			$sentence = $pdf_extract->splitContentPage();
 			foreach ($sentence as $index => $value) {
 				$row = $index+1;
-				$pattern = "/^[A-Z0-9][A-Za-z]/";
+				$pattern = "/^[A-Z]{3}[0-9]{1}.*/";
 				if (preg_match($pattern, $value)) {
 					$result[] = [
 						"row" => $row,
