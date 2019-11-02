@@ -2,6 +2,7 @@
 	
 	/* 
 	 * Sub class dari kelas Checker
+	 * Memeriksa penggunaan huruf kapital pada karakter awal kalimat
 	 * @author Marcell Trixie
 	 */
 	class PS05_CapitalLetterChecker extends Checker{
@@ -16,12 +17,13 @@
 			$sentence = $pdf_extract->splitContentPage();
 			foreach ($sentence as $index => $value) {
 				$row = $index+1;
-				$pattern = "/^(\s[a-z][a-z0-9].*)|^([a-z][a-z0-9].*)/";
+				$pattern = "/^(\s[a-z][a-z0-9].*)|^([a-z][a-z0-9].*)|[A-Z].*[.][a-z]/";
 				if (preg_match($pattern, $value)) {
 					$result[] = [
-						"row" => $row,
-						"error" => "Huruf pertama pada kalimat harus menggunakan huruf kapital",
-						"excerpt" => $value
+						"Error Code" => "PS-05",
+						"Row" => $row,
+						"Note" => "Huruf pertama pada kalimat ini tidak menggunakan huruf kapital",
+						"Excerpt" => $value									
  					];
 				}	
 			}

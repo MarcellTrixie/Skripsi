@@ -22,9 +22,10 @@
 				$pattern = "/^[A-Z]{3}[0-9]{1}.*/";
 				if (preg_match($pattern, $value)) {
 					$result[] = [
-						"row" => $row,
-						"error" => "Berilah kata pengantar pada bab atau subbab",
-						"excerpt" => $value
+						"Error Code" => "KAL-02",
+						"Row" => $row,
+						"Note" => "Berilah kata pengantar untuk bab atau subbab",
+						"Excerpt" => $value	
  					];
 				}	
 			}

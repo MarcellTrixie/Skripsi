@@ -17,6 +17,7 @@
 
 		/**
 		 * Method untuk memeriksa kesalahan dalam dokumen skripsi
+		 * @param pdf_extract untuk memanggil method getter kelas Checker sesuai kebutuhan
 		 */
 		public abstract function errorChecking($pdf_extract);
 
@@ -26,14 +27,14 @@
 		 */
 		public static function getAllCheckers() {
 			return [
-				//new PS01_TypoChecker(),
-				//new PS03_SpaceChecker(),
-				//new PS05_CapitalLetterChecker(),
-				new PS09_SubChapterChecker(),
-				//new KAL02_PrefaceChecker(),
-				//new KAL03_ThesisDataChecker(),
-				//new NAT01_ReferenceChecker(),
-				//new VAN03_SubjectPronounChecker()
+				new PS01_TypoChecker(),
+				new PS03_SpaceChecker(),
+				new PS05_CapitalLetterChecker(),
+				//new PS09_SubChapterChecker(),
+				new KAL02_PrefaceChecker(),
+				new KAL03_ThesisDataChecker(),
+				new NAT01_ReferenceChecker(),
+				new VAN03_SubjectPronounChecker()
 			];
 		}
 

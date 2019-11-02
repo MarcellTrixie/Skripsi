@@ -2,7 +2,7 @@
 	
 	/* 
 	 * Sub class dari kelas Checker
-	 * Memeriksa subbab dalam sebuah bab
+	 * Memeriksa jumlah subbab dalam sebuah bab
 	 * @author Marcell Trixie
 	 */
 	class PS09_SubChapterChecker extends Checker{
@@ -14,19 +14,18 @@
 		 */
 		public function errorChecking($pdf_extract){
 			$result = [];
-			$temp = preg_replace('/[^0-9.]/', '', $pdf_extract->getTableOfContentPage());
-			$number = explode('/./', $temp);
-			foreach ($number as $index => $value) {
-				$row = $index+1;
-				$pattern = "/^[0-9].[0-9]\s[A-Za-z0-9]/";
-				if (preg_match($pattern, $value)) {
-					$result[] = [
-						"row" => $row,
-						"error" => "Hanya terdapat 1 subbab saja, lebih baik tidak perlu dibuat subbab",
-						"excerpt" => $value
- 					];
-				}	
-			}
+			$temp = $pdf_extract->getTableOfContentPage();
+			//for ($i=sizeof($temp); $i>0; $i++) {
+			//	$curIndex;
+			//	$prevIndex;
+				//if(){
+			//		$result[] = [
+			//			"Error Code" => "PS-09",
+			//			"Note" => "Pada bab ini hanya terdapat 1 subbab, lebih baik tidak perlu menggunakan subbab",
+			//			"Excerpt" => $value									
+ 			//		];	
+				//}
+			//}
 			return $result;
 		}
 

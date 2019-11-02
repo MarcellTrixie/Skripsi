@@ -56,19 +56,27 @@ Berikut spesifikasi perangkat keras dan perangkat lunak yang digunakan dalam pem
 \subsection{Hasil Implementasi}
 Perangkat lunak dikembangkan menggunakan bahasa pemrograman PHP. Perangkat lunak yang dibuat tidak menggunakan \textit{Graphical User Interface}, melainkan berbasis \textit{Command Line Interface}. Perangkat lunak akan menerima input berupa file PDF skripsi yang disimpan pada folder yang telah disediakan, dan mengeluarkan laporan kesalahan pada terminal.
 
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.3\textwidth] 
+php main.php ../res/nama_file.pdf
+\end{lstlisting}
+\medskip
+
+Listing \ref{lst:command} merupakan perintah yang perlu dituliskan pada terminal, untuk menjalankan perangkat lunak. Kelas Main menjadi kelas yang digunakan untuk menjalankan seluruh proses yang berjalan dalam perangkat lunak. File PDF skripsi yang akan diperiksa harus berada di folder yang telah disediakan, yaitu pada folder Skripsi$\backslash$src$\backslash$res. Nama file yang digunakan pada umumnya sesuai dengan \textit{template} skripsi yang diberikan, yaitu ''skripsi.pdf''.
+
 \begin{figure}[H]
 	\centering	
-	\includegraphics[scale=0.6]{command.png}
-	\caption{Perintah yang digunakan untuk menjalankan perangkat lunak}	
-	\label{fig:command} 
+	\includegraphics[scale=0.65]{hasil-implementasi.png}
+	\caption{Laporan Kesalahan}	
+	\label{fig:error_report} 
 \end{figure}
 
-Gambar \ref{fig:command} merupakan perintah yang perlu dituliskan pada terminal, untuk menjalankan perangkat lunak. Kelas Main menjadi kelas yang digunakan untuk menjalankan seluruh proses yang berjalan dalam perangkat lunak. File PDF skripsi yang akan diperiksa harus berada di folder yang telah disediakan, yaitu pada folder Skripsi$\backslash$src$\backslash$res.
+Gambar \ref{fig:error_report} merupakan hasil laporan yang dikeluarkan oleh perangkat lunak melalui \textit{terminal windows}. Informasi yang diberikan oleh laporan tersebut yaitu, kode kesalahan, jenis kesalahan yang ditemukan dan kesalahan yang ditemukan.
 
 \section{Pengujian}
 Pada bagian ini akan dijelaskan mengenai pengujian yang dilakukan pada perangkat lunak. Akan dilakukan 2 bentuk pengujian pada skripsi ini, yaitu pengujian fungsional dan pengujian eksperimental.
 
 \subsection{Pengujian Fungsional}
-Pengujian fungsional bertujuan untuk menguji fungsionalitas perangkat lunak. Perangkat lunak memiliki 8 fitur yang telah diimplementasikan. Fitur-fitur tersebut akan diuji untuk melihat kebenaran dan kesesuaian fitur tersebut dengan yang diharapkan.
+Pengujian fungsional bertujuan untuk menguji fungsionalitas perangkat lunak. Perangkat lunak memiliki 8 fitur yang telah diimplementasikan. Fitur-fitur tersebut akan diuji untuk melihat kebenaran dan kesesuaian fitur tersebut dengan yang diharapkan. Pada pengujian fungsional, perangkat lunak akan diuji dengan 2 buah \textit{test case} dokumen skripsi. \textit{Test case} yang digunakan yaitu dokumen skripsi yang sudah disisipkan kesalahan-kesalahan dari setiap fitur yang ada, dan dokumen skripsi yang tidak disisipkan kesalahan.
 
 \subsection{Pengujian Eksperimental}
+Pada pengujian eksperimental, perangkakt lunak akan diuji dengan 5 buah \textit{test case} dokumen skripsi yang diambil dari \textit{Github} skripsi Informatika.

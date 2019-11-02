@@ -14,12 +14,13 @@
 		 */
 		public function errorChecking($pdf_extract){
 			$result = [];
-			$sentence = $pdf_extract->getCoverPage();
+			$cover = $pdf_extract->getCoverPage();
 			$pattern = "/JUDUL BAHASA INDONESIA|JUDUL BAHASA INGGRIS|Nama Lengkap|10 digit NPM UNPAR|tahun/";
-			if (preg_match($pattern, $sentence)) {
+			if (preg_match($pattern, $cover)) {
 				$result[] = [
-					"error" => "Ada data skripsi yang belum dilengkapi pada halaman cover",
-					"excerpt" => $sentence
+					"Error Code" => "KAL-03",
+					"Note" => "Ada data skripsi yang belum dilengkapi pada halaman cover",
+					"Excerpt" => $cover						
  				];
 			}
 			return $result;

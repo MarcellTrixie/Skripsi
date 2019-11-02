@@ -115,7 +115,7 @@ Pada gambar \ref{fig:diagram_kelas} telah ditunjukan bahwa perangkat lunak memil
 		\end{itemize}
 			
 	\item Kelas SkripsiExtract \\
-	Kelas ini bertanggungjawab untuk melakukan ekstak file PDF skripi. Berikut adalah atribut yang terdapat pada kelas ini:
+	Kelas ini berfungsi untuk melakukan proses ekstak dokumen PDF skripi dan disimpan menjadi beberapa bagian berdasarkan konten-konten yang pada dokumen skripsi. Kelas ini memiliki beberapa atribut yang akan dijelaskan sebagai berikut:
 	
 		\begin{itemize}
 			\item file \\
@@ -130,11 +130,14 @@ Pada gambar \ref{fig:diagram_kelas} telah ditunjukan bahwa perangkat lunak memil
 			\item abstractPage \\			
 			Atribut ini berfungsi untuk menyimpan hasil ekstrak dari halaman abstrak bahasa Indonesia dan bahasa Inggris.
 			
-			\item chapterPage \\	
+			\item tableOfContentPage \\
+			Atribut ini berfungsi untuk menyimpan hasil ekstrak dari halaman daftar isi.
+			
+			\item contentPage \\	
 			Atribut ini berfungsi untuk menyimpan hasil ekstrak mulai dari bab 1 hingga bab 6.
 			
 			\item listPage \\
-			Atribut ini berfungsi untuk menyimpan hasil ekstrak pada halaman daftar isi, daftar tabel, daftar gambar dan daftar referensi.
+			Atribut ini berfungsi untuk menyimpan hasil ekstrak pada halaman daftar tabel, daftar gambar, daftar referensi dan lampiran.
 			
 		\end{itemize}
 	
@@ -150,11 +153,17 @@ Pada gambar \ref{fig:diagram_kelas} telah ditunjukan bahwa perangkat lunak memil
 			\item getAbstractPage() \\
 			Method ini berfungsi untuk mendapatkan halaman abstrak dalam bahasa Indonesia dan bahasa Inggris.
 			
+			\item getTableOfContentPage() \\
+			Method ini berfungsi untuk mendapatkan halaman daftar isi.
+			
 			\item getListPage() \\
 			Method ini berfungsi untuk mendapatkan halaman daftar isi, daftar gambar, daftar tabel dan daftar referensi.
 			
-			\item getContent() \\
+			\item getContentPage() \\
 			Method ini berfungsi untuk mendapatkan halaman konten skripsi dari bab 1 sampai bab 6.
+			
+			\item splitContentPage() \\
+			Method ini memiliki fungsi yang hampir sama dengan method \textit{getContentPage}, yaitu untuk mendapatkan halaman konten skripsi. Namun, pada method ini ada beberapa proses pemisahan isi konten (per kalimat) ke dalam beberapa array. Fitur-fitur dalam perangkat lunak yang memerlukan pemeriksaan berdasarkan kalimat dapat langsung memanggil method ini. 
 			
 		\end{itemize}
 	
@@ -189,14 +198,14 @@ $pages  = $pdf->getPages();
 
 Listing \ref{lst:all_page} dan listing \ref{lst:specific_page} merupakan potongan kode yang terdapat pada dokumentasi \textit{library PDF Parser}. Kode dari kedua listing tersebut hampir mirip, yang menjadi pembeda adalah pada baris ke-5. Listing \ref{lst:all_page} menggunakan \textit{method getText()} dan hasil dari ekstraknya disimpan menjadi sebuah kesatuan dari halaman awal hingga halaman akhir. Listing \ref{lst:specific_page} menggunakan \textit{method getPages()} dan hasil dari ekstraknya disimpan dalam sebuah array String sejumlah halaman yang ada pada dokumen.
 
-Pada skripsi ini akan digunakan metode yang mengesktrak halaman-halaman secara spesifik. Hasil ekstrak akan disimpan dalam beberapa bagian, berdasarkan konten-konten yang ada. Konten-konten yang dimaksud seperti, halaman cover, abstrak, daftar isi, daftar tabel, daftar gambar dan seterusnya. Ada beberapa alasan yang mendorong untuk melakukan pemisahan konten-konten tersebut, salah satunya yaitu agar pemeriksa dapat memeriksa bagian-bagian spesifik yang menjadi tanggungjawab dari pemeriksa tersebut. Contohnya, untuk memeriksa kelengkapan data skripsi tidak perlu memeriksa seluruh isi dari dokumen. Hal yang paling dibutuhkan adalah halaman covernya saja, sehingga proses pemeriksaan menjadi lebih efektif.
+Pada skripsi ini akan digunakan metode yang mengesktrak halaman-halaman secara spesifik. Hasil ekstrak akan disimpan dalam berdasarkan konten-konten yang ada, seperti halaman cover, abstrak, daftar isi, daftar tabel, daftar gambar dan seterusnya. Ada beberapa alasan yang mendorong untuk melakukan pemisahan konten-konten tersebut, salah satunya yaitu agar pemeriksa dapat memeriksa bagian-bagian spesifik yang dibutuhkan. Contohnya, untuk memeriksa kelengkapan data skripsi tidak perlu memeriksa seluruh isi dari dokumen, halaman yang dibutuhkan hanya cover saja. 
 
 \subsection{Pola Pengecekan Kesalahan}
-Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring dan akan diimplementasikan dalam perangkat lunak. Pengecekan kesalahan tersebut akan dilakukan dengan menggunakan teknik \textit{pattern matching regex}. Hasil ekstrak dari PDF skripsi akan dipotong dengan delimiter karakter titik dan spasi 1 buah ke dalam sebuah array. Hal ini dilakukan agar pemeriksaan dapat lebih mudah dilakukan apabila teks sudah dipecah menjadi sebuah kalimat utuh. Berikut adalah rincian dari hasil survei yang dipilih beserta penyelesaiannya:
+Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring dan akan diimplementasikan dalam perangkat lunak. Pengecekan kesalahan tersebut akan dilakukan dengan menggunakan teknik \textit{pattern matching}. Hasil ekstrak dari PDF skripsi akan dipotong per kalimat dengan delimiter karakter titik dan spasi ke dalam sebuah array. Berikut adalah rincian dari hasil survei yang dipilih beserta penyelesaiannya:
 
 \begin{enumerate}
 	\item Penulisan kata (PS-01) \\
-	Untuk mendeteksi kesalahan penulisan kata, akan digunakan ekstensi kamus bahasa Indonesia \textit{LibreOffice}. Dengan digunakan kamus tersebut, kesalahan penulisan suatu kata dapat diminimalisir. Pada skripsi ini, pemeriksaan kata-kata yang menggunakan imbuhan tidak ditangani pada masalah ini. Terdapat kode yang harus diterjemahkan terlebih dahulu untuk dapat mengetahui imbuhan yang dapat digunakan dalam sebuah kata. Pola pengecekan yang digunakan akan dijelaskan pada pseudocode \ref{alg:ps01}.
+	Untuk mendeteksi kesalahan penulisan kata, akan digunakan ekstensi kamus bahasa Indonesia \textit{LibreOffice}. Dengan digunakan kamus tersebut, kesalahan penulisan suatu kata dapat diminimalisir. Pada skripsi ini, pemeriksaan kata-kata yang menggunakan imbuhan tidak ditangani pada masalah ini, karena keterbatasan waktu yang dimiliki. Terdapat kode yang harus diterjemahkan terlebih dahulu untuk dapat mengetahui imbuhan yang dapat digunakan dalam sebuah kata. Pola pengecekan yang digunakan akan dijelaskan pada pseudocode \ref{alg:ps01}.
 		
 \begin{minipage}{1.0\linewidth}
 \begin{algorithm}[H]
@@ -234,9 +243,9 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
 	
 	\begin{itemize}
 		\item Contoh kesalahan \\
-		Istilah \textit{regex} berasal dari toeri matematika dan komputer sains, yang mencerminkan sifat ekspresi dalam matematika yang disebut keteraturan
+		Istilah \textit{regex} berasal dari toeri matematika dan komputer sains, yang mencerminkan sifat ekspresi dalam matematika yang disebut keteraturan.
 		\item Laporan kesalahan \\
-		Pada baris ini ditemukan penulisan kata yang tidak sesuai dengan kamus
+		Ditemukan penulisan kata yang tidak sesuai dengan kamus.
 	\end{itemize}
 	
 	\item Pemberian spasi sebelum dan sesudah tanda baca (PS-03) \\
@@ -306,9 +315,9 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
 	
 	\begin{itemize}
 		\item Contoh kesalahan \\ 
-		aplikasi sederhana ini, dapat dimanfaatkan oleh mahasiswa Informatika Unpar secara mandiri
+		aplikasi sederhana ini, dapat dimanfaatkan oleh mahasiswa Informatika Unpar secara mandiri.
 		\item Laporan kesalahan \\
-		Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
+		Huruf pertama pada kalimat ini tidak menggunakan huruf kapital.
 	\end{itemize}
 	
 	\item Jumlah subbab dalam 1 bab tidak boleh hanya 1 (PS-09) \\
@@ -344,7 +353,7 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
 		\item Contoh kesalahan \\
 		Bab 4 \newline PERANCANGAN \newline \newline 4.1 Perancangan Kelas
 		\item Laporan kesalahan \\
-		Pada bab ini hanya terdapat 1 subbab, lebih baik tidak perlu menggunakan subbab
+		Pada bab ini hanya terdapat 1 subbab, lebih baik tidak perlu menggunakan subbab.
 	\end{itemize}	
 	
 	\item Kalimat pengantar untuk setiap subbab (KAL-02) \\
@@ -380,7 +389,7 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
 		\item Contoh kesalahan \\
 		Bab 4 \newline PERANCANGAN \newline \newline 4.1 Perancangan Kelas \newline 4.2 Perancangan Algoritma
 		\item Laporan kesalahan \\
-		Berilah kata pengantar untuk bab atau subbab
+		Berilah kata pengantar untuk bab atau subbab.
 	\end{itemize}
 	
 	\item Kelengkapan data skripsi (KAL-03) \\
@@ -450,9 +459,9 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
 	
 	\begin{itemize}
 		\item Contoh kesalahan \\
-		Saya akan membuat aplikasi ini menggunakan bahasa pemrograman PHP
+		Saya akan membuat aplikasi ini menggunakan bahasa pemrograman PHP.
 		\item Laporan kesalahan \\
-		Kalimat tersebut mengandung kata ganti orang
+		Kalimat ini mengandung kata ganti orang.
 	\end{itemize}	
 	
 	\item Penulisan daftar referensi (NAT-01) \\
@@ -486,9 +495,9 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
 	
 	\begin{itemize}
 		\item Contoh kesalahan \\
-		\textit{Regular expression} [?] adalah jenis pola teks tertentu yang dapat digunakan pada banyak aplikasi modern dan bahasa pemrograman
+		\textit{Regular expression} [?] adalah jenis pola teks tertentu yang dapat digunakan pada banyak aplikasi modern dan bahasa pemrograman.
 		\item Laporan kesalahan \\
-		Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
+		Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya.
 	\end{itemize}		
 	
 \end{enumerate}

@@ -34,8 +34,9 @@
 			$result = [];
 			if (sizeof($typos) > 0) {
 				$result[] = [
-					"error" => "Pada baris ini ditemukan penulisan kata yang tidak sesuai dengan kamus",
-					"excerpt" => implode(", ", $typos)
+					"Error Code" => "PS-01",
+					"Note" => "Ditemukan penulisan kata yang tidak sesuai dengan kamus",
+					"Excerpt" => implode(", ", $typos)
 				];
 			}
 			return $result;

@@ -17,14 +17,15 @@
 			$sentence = $pdf_extract->splitContentPage();
 			foreach ($sentence as $index => $value) {
 				$row = $index+1;
-				$pattern = "/[?]/";
+				$pattern = "/^[?]$/";
 				if (preg_match($pattern, $value)) {
 					$result[] = [
-						"row" => $row,
-						"error" => "PDFLatex tidak dapat menerima referensi dengan baik",
-						"excerpt" => $value
+						"Error Code" => "NAT-01",
+						"Row" => $row,
+						"Note" => "Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya",
+						"Excerpt" => $value
  					];
-				}	
+				}
 			}
 			return $result;
 		}
