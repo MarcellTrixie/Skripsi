@@ -15,17 +15,19 @@
 		public function errorChecking($pdf_extract){
 			$result = [];
 			$temp = $pdf_extract->getTableOfContentPage();
-			//for ($i=sizeof($temp); $i>0; $i++) {
-			//	$curIndex;
-			//	$prevIndex;
-				//if(){
-			//		$result[] = [
-			//			"Error Code" => "PS-09",
-			//			"Note" => "Pada bab ini hanya terdapat 1 subbab, lebih baik tidak perlu menggunakan subbab",
-			//			"Excerpt" => $value									
- 			//		];	
-				//}
-			//}
+			for ($i=sizeof($temp); $i>0; $i--) {
+				$curElement = $temp[$i];
+				$nextElement = $temp[$i+1];
+				if(preg_match('/\b1\b/', $temp[$i])){
+					if(){
+						$result[] = [
+							"Error Code" => "PS-09",
+							"Note" => "Pada bab ini hanya terdapat 1 subbab, lebih baik tidak perlu menggunakan subbab",
+							"Excerpt" => $temp[$i]									
+ 						];
+					}	
+				}
+			}
 			return $result;
 		}
 

@@ -19,13 +19,12 @@
 			
 			$dictionary = [];
 			for ($i = 0; $i < sizeof($temp); $i++) {
-    			$dictionary[$i] = preg_replace('/\/.*$/', '', $temp[$i]);
+    			$dictionary[$i] = preg_replace('/\/.+$/', '', $temp[$i]);
 			}
 
 			$word = preg_split("/[^A-Za-z]/", $pdf_extract->getContentPage());
 			$typos = [];
 			foreach ($word as $index => $value) {
-				$row = $index+1;
 				if (!in_array(strtolower($value), $dictionary) && !in_array($value, $typos)) {
 					$typos[] = $value;
  				}	

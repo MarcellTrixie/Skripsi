@@ -18,13 +18,11 @@
 			$result = [];
 			$sentence = $pdf_extract->splitContentPage();
 			foreach ($sentence as $index => $value) {
-				$row = $index+1;
-				$pattern = "/^[A-Z]{3}[0-9]{1}.*/";
+				$pattern = "/^(BAB )[0-9]{1}[\sA-Z]{1,}[0-9]+/";
 				if (preg_match($pattern, $value)) {
 					$result[] = [
 						"Error Code" => "KAL-02",
-						"Row" => $row,
-						"Note" => "Berilah kata pengantar untuk bab atau subbab",
+						"Note" => "Berilah kata pengantar untuk setiap bab",
 						"Excerpt" => $value	
  					];
 				}	

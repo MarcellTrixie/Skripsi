@@ -16,13 +16,11 @@
 			$result = [];
 			$sentence = $pdf_extract->splitContentPage();
 			foreach ($sentence as $index => $value) {
-				$row = $index+1;
-				$pattern = "/([A-Za-z]*[,.!?][A-Za-z])/";
+				$pattern = "/[0-9?A-Za-z]{2,}[,.!?][A-Za-z]+/";
 				if (preg_match($pattern, $value)) {
 					$result[] = [
 						"Error Code" => "PS-03",
-						"Row" => $row,
-						"Note" => "Perhatikan spasi sebelum atau setelah tanda baca.",
+						"Note" => "Perhatikan spasi setelah tanda baca.",
 						"Excerpt" => $value
  					];
 				}

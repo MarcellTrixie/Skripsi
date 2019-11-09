@@ -35,84 +35,45 @@ Pada bagian ini akan dijelaskan rancangan kelas yang akan digunakan pada perangk
 	\label{fig:diagram_kelas} 
 \end{figure}
 
-Pada gambar \ref{fig:diagram_kelas} telah ditunjukan bahwa perangkat lunak memiliki sebelas kelas dan sebuah \textit{library PDF Parser}. Rincian dari setiap kelas tersebut akan dijelaskan sebagai berikut:
+Gambar \ref{fig:diagram_kelas} merupakan diagram kelas untuk perangkat lunak yang akan dibuat. Pada diagram kelas tersebut, ditunjukan bahwa perangkat lunak memiliki sebelas kelas dan sebuah package \textit{library PDF Parser}. Rincian dari setiap kelas tersebut akan dijelaskan sebagai berikut.
 
 \begin{enumerate}
 
 	\item Kelas Checker \\
-	Kelas ini merupakan kelas \textit{Parent} dari semua \textit{checker} yang akan diimplementasi pada perangkat lunak. Berikut adalah \textit{method} yang terdapat pada kelas ini:
+	Kelas ini merupakan kelas \textit{Parent} dari semua \textit{checker} yang akan diimplementasi pada perangkat lunak. Kelas ini memiliki sebuah \textit{method} abstrak dan sebuah \textit{method getter}. Berikut ini adalah \textit{method} yang terdapat pada kelas \textit{Checker}.
 	
 		\begin{itemize}
 			\item errorChecking(\$pdf\_extract) \\
 			Method ini merupakan method abstrak, yang akan diturunkan kepada seluruh anak kelasnya. Method ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi sesuai dengan peran yang diberikan pada kelas tersebut. Method ini menerima masukan pdf\_extract dengan tipe data kelas \textit{SkripsiExtract}. Parameter tersebut dapat digunakan oleh masing-masing kelas \textit{Checker} untuk memanggil \textit{method getter} yang diperlukan. Tidak semua pemeriksa memerlukan seluruh isi halaman dari dokumen skripsi.			
 			
 			\item getAllChecker() \\
-			Method ini berfungsi untuk melakukan instansiasi seluruh anak kelas \textit{Checker}. Method ini mengembalikan hasil instansiasi anak kelas \textit{Checker}.
+			Method ini berfungsi untuk melakukan instansiasi seluruh anak kelas \textit{Checker}. Method ini mengembalikan hasil instansiasi dari anak kelas \textit{Checker}.
 		\end{itemize}
 	
 	\item Kelas KAL02\_PrefaceChecker \\
-	Kelas ini bertanggungjawab untuk memeriksa ada atau tidaknya kata pengantar sebelum memulai bab atau subbab. Berikut adalah \textit{method} yang terdapat pada kelas ini:
-	
-		\begin{itemize}
-			\item errorChecking(\$pdf\_extract) \\
-			Method ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan pdf\_extract dengan tipe data kelas \textit{SkripsiExtract}. Bagian yang diperiksa pada \textit{checker} ini hanya bab 1 hingga 6.
-		\end{itemize}
+	Kelas ini bertanggungjawab untuk memeriksa ada atau tidaknya kata pengantar sebelum memulai bab. Kelas ini memiliki sebuah method, yaitu errorChecking(\$pdf\_extract). Method ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan pdf\_extract dengan tipe data kelas \textit{SkripsiExtract}. Bagian yang diperiksa pada \textit{checker} ini hanya bab 1 hingga 6.
 	
 	\item Kelas KAL03\_ThesisDataChecker \\
-	Kelas ini bertanggungjawab untuk memeriksa kelengkapan data skripsi yang ditulis dalam bahasa Indonesia maupun bahasa Inggris. Berikut adalah \textit{method} yang terdapat pada kelas ini:
-			
-		\begin{itemize}
-			\item errorChecking(\$pdf\_extract) \\
-			Method ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan pdf\_extract dengan tipe data kelas \textit{SkripsiExtract}. Bagian yang diperiksa pada \textit{checker} ini adalah halaman cover bahasa Indonesia dan bahasa Inggris.
-		\end{itemize}
+	Kelas ini bertanggungjawab untuk memeriksa kelengkapan data skripsi yang ditulis dalam bahasa Indonesia maupun bahasa Inggris. elas ini memiliki sebuah \textit{method}, yaitu errorChecking(\$pdf\_extract). \textit{Method} ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan pdf\_extract dengan tipe data kelas \textit{SkripsiExtract}. Bagian yang diperiksa pada \textit{checker} ini adalah halaman cover bahasa Indonesia dan bahasa Inggris.
 		
 	\item Kelas NAT01\_ReferenceChecker \\
-	Kelas ini bertanggungjawab untuk memeriksa referensi yang akan dirujuk dalam dokumen. Berikut adalah \textit{method} yang terdapat pada kelas ini:
-	
-		\begin{itemize}
-			\item errorChecking(\$pdf\_extract) \\
-			Method ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan pdf\_extract dengan tipe data kelas \textit{SkripsiExtract}. Bagian yang diperiksa pada \textit{checker} ini adalah bab 1 hingga 6.
-		\end{itemize}
-			
+	Kelas ini bertanggungjawab untuk memeriksa referensi yang akan dirujuk dalam dokumen. elas ini memiliki sebuah \textit{method}, yaitu errorChecking(\$pdf\_extract). \textit{Method} ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan pdf\_extract dengan tipe data kelas \textit{SkripsiExtract}. Bagian yang diperiksa pada \textit{checker} ini adalah bab 1 hingga 6.
+		
 	\item Kelas PS01\_TypoChecker \\
-	Kelas ini bertanggungjawab untuk memeriksa kesalahan penulisan kata. Berikut adalah \textit{method} yang terdapat pada kelas ini:
-	
-		\begin{itemize}
-			\item errorChecking(\$pdf\_extract) \\
-			\textit{Method} ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan pdf\_extract dengan tipe data kelas \textit{SkripsiExtract}. Bagian yang diperiksa pada \textit{checker} ini adalah bab 1 hingga 6.
-		\end{itemize}
+	Kelas ini bertanggungjawab untuk memeriksa kesalahan penulisan kata. Kelas ini memiliki sebuah method, yaitu errorChecking(\$pdf\_extract). \textit{Method} ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan pdf\_extract dengan tipe data kelas \textit{SkripsiExtract}. Bagian yang diperiksa pada \textit{checker} ini adalah bab 1 hingga 6.
 			
 	\item Kelas PS03\_SpaceChecker \\
-	Kelas ini bertanggungjawab untuk memeriksa penggunaan spasi sebelum dan setelah tanda baca. Berikut adalah \textit{method} yang terdapat pada kelas ini:	
-	
-		\begin{itemize}
-			\item errorChecking(\$pdf\_extract) \\
-			\textit{Method} ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan pdf\_extract dengan tipe data kelas \textit{SkripsiExtract}. Bagian yang diperiksa pada \textit{checker} ini adalah bab 1 hingga 6.
-		\end{itemize}
+	Kelas ini bertanggungjawab untuk memeriksa penggunaan spasi sebelum dan setelah tanda baca. Kelas ini memiliki sebuah method, yaitu errorChecking(\$pdf\_extract).
+\textit{Method} ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan pdf\_extract dengan tipe data kelas \textit{SkripsiExtract}. Bagian yang diperiksa pada \textit{checker} ini adalah bab 1 hingga 6.
 			
 	\item Kelas PS05\_CapitalLetterChecker \\
-	Kelas ini bertanggungjawab untuk memeriksa penggunaan huruf kapital pada awal kalimat. Berikut adalah \textit{method} yang terdapat pada kelas ini:
-		
-		\begin{itemize}
-			\item errorChecking(\$pdf\_extract) \\
-			\textit{Method} ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan pdf\_extract dengan tipe data kelas \textit{SkripsiExtract}. Bagian yang diperiksa pada \textit{checker} ini adalah bab 1 hingga 6.
-		\end{itemize}
+	Kelas ini bertanggungjawab untuk memeriksa penggunaan huruf kapital pada awal kalimat. Kelas ini memiliki sebuah method, yaitu errorChecking(\$pdf\_extract). \textit{Method} ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan pdf\_extract dengan tipe data kelas \textit{SkripsiExtract}. Bagian yang diperiksa pada \textit{checker} ini adalah bab 1 hingga 6.
 			
 	\item Kelas PS09\_SubChapterChecker \\
-	Kelas ini bertanggungjawab untuk memeriksa subbab yang ada dalam sebuah bab. Berikut adalah \textit{method} yang terdapat pada kelas ini:
-			
-		\begin{itemize}
-			\item errorChecking(\$pdf\_extract) \\
-			Method ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan pdf\_extract dengan tipe data kelas \textit{SkripsiExtract}. Bagian yang diperiksa pada \textit{checker} ini adalah bab 1 hingga 6.
-		\end{itemize}
+	Kelas ini bertanggungjawab untuk memeriksa subbab yang ada dalam sebuah bab. Kelas ini memiliki sebuah method, yaitu errorChecking(\$pdf\_extract). \textit{Method} ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan pdf\_extract dengan tipe data kelas \textit{SkripsiExtract}. Bagian yang diperiksa pada \textit{checker} ini adalah bab 1 hingga 6.
 			
 	\item Kelas VAN03\_SubjectProunounChecker \\
-	Kelas ini bertanggungjawab untuk memeriksa penggunaan kata ganti orang pada dokumen skripsi. Berikut adalah \textit{method} yang terdapat pada kelas ini:
-	
-		\begin{itemize}
-			\item errorChecking(\$pdf\_extract) \\
-			Method ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan pdf\_extract dengan tipe data kelas \textit{SkripsiExtract}. Bagian yang diperiksa pada \textit{checker} ini adalah bab 1 hingga 6.
-		\end{itemize}
+	Kelas ini bertanggungjawab untuk memeriksa penggunaan kata ganti orang pada dokumen skripsi. Kelas ini memiliki sebuah method, yaitu errorChecking(\$pdf\_extract). \textit{Method} ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan pdf\_extract dengan tipe data kelas \textit{SkripsiExtract}. Bagian yang diperiksa pada \textit{checker} ini adalah bab 1 hingga 6.
 			
 	\item Kelas SkripsiExtract \\
 	Kelas ini berfungsi untuk melakukan proses ekstak dokumen PDF skripi dan disimpan menjadi beberapa bagian berdasarkan konten-konten yang pada dokumen skripsi. Kelas ini memiliki beberapa atribut yang akan dijelaskan sebagai berikut:
@@ -212,7 +173,7 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
     \caption{Typo checker function}
 	\label{alg:ps01}
 	\begin{algorithmic}[1]
-    	\Function{ExtractFromPDF}{\$pdf\_exctract}
+    	\Function{ErrorChecking}{\$pdf\_exctract}
     		\State Input: An object from the SkripsiExtract class to call the getter method
 			\State Output: An array containing error reports		
 			\State $temp \gets$ Split dictionary based on newline
@@ -223,14 +184,13 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
 			\State $word \gets$ Call getter from class SkripsiExtract and split with non word character
 			\State $typos \gets$ Array for store typos
 			\For{each word in $array$}
-    			\State $row \gets$ Add $index$ with 1
         		\If{$value$ not contain in $dictionary$ and $value$ not contain in $typos$}
                 	\State Fill $typos$ with $value$
             	\EndIf
         	\EndFor
 			\State $result \gets$ Array for store all errors report
     		\If{size of $typos$ greater than 0}
-                \State Add all errors report into $result$
+                \State $result \gets$ Add all errors report into $result$
             \EndIf
     		\State \textbf{return} $result$
     	\EndFunction
@@ -262,10 +222,9 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
 			\State $result \gets$ Array for store all errors report
 			\State $sentence \gets$ Call getter from class SkripsiExtract
     		\For{each sentence in $sentence$}
-    			\State $row \gets$ Add $index$ with 1
-				\State $pattern \gets$ Define regex /([A-Za-z0-9]*[,.!?][A-Za-z0-9])/
+				\State $pattern \gets$ Define regex /([A-Za-z]+[,.!?][A-Za-z]+)/
         		\If{$pattern$ contain in $array$}
-                	\State fill $result$ with errors report
+                	\State $result \gets$ Fill with errors report
             	\EndIf
         	\EndFor
     		\State \textbf{return} $result$
@@ -298,10 +257,9 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
 			\State $result \gets$ Array for store all errors report
 			\State $sentence \gets$ Call getter from class SkripsiExtract
     		\For{each sentence in $sentence$}
-    			\State $row \gets$ Add $index$ with 1
 				\State $pattern \gets$ Define regex / $\hat{}$ ($\backslash$s[a-z][a-z0-9].*)/
         		\If{$pattern$ contain in $array$}
-                	\State fill $result$ with errors report
+                	\State $result \gets$ Fill with errors report
             	\EndIf
         	\EndFor
     		\State \textbf{return} $result$

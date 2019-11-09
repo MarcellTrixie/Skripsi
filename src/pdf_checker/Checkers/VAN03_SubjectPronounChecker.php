@@ -16,12 +16,10 @@
 			$result = [];
 			$sentence = $pdf_extract->splitContentPage();
 			foreach ($sentence as $index => $value) {
-				$row = $index+1;
-				$pattern = "/^saya$|^kamu$|^dia$/i";
+				$pattern = "/\bsaya\b | \bkamu\b | \bdia\b/i";
 				if (preg_match($pattern, $value)) {
 					$result[] = [
 						"Error Code" => "VAN-03",
-						"Row" => $row,
 						"Note" => "Kalimat ini mengandung kata ganti orang",
 						"Excerpt" => $value									
  					];

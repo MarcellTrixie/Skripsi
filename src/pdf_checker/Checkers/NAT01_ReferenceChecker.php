@@ -16,12 +16,10 @@
 			$result = [];
 			$sentence = $pdf_extract->splitContentPage();
 			foreach ($sentence as $index => $value) {
-				$row = $index+1;
-				$pattern = "/^[?]$/";
+				$pattern = "/\B\[?\]\B/";
 				if (preg_match($pattern, $value)) {
 					$result[] = [
 						"Error Code" => "NAT-01",
-						"Row" => $row,
 						"Note" => "Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya",
 						"Excerpt" => $value
  					];
