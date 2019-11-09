@@ -67,6 +67,12 @@
  					$array[$i] = "";
  				}
  			}
+
+ 			foreach ($array as $key => $value) {
+				if(empty($array[$key])){
+					unset($array[$key]);
+				}
+			}
 			return $array;
  		}
 
