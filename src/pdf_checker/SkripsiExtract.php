@@ -69,10 +69,10 @@
  			}
 
  			foreach ($array as $key => $value) {
-				if(empty($array[$key])){
-					unset($array[$key]);
-				}
-			}
+ 				if(empty($array[$key])){
+ 					unset($array[$key]);
+ 				}
+ 			}
 			return $array;
  		}
 

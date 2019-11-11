@@ -16,7 +16,7 @@
 			$result = [];
 			$sentence = $pdf_extract->splitContentPage();
 			foreach ($sentence as $index => $value) {
-				$pattern = "/[0-9?A-Za-z]{2,}[,.!?][A-Za-z]+/";
+				$pattern = "/[A-Za-z]{4,}[,.!?][A-Za-z]+/";
 				if (preg_match($pattern, $value)) {
 					$result[] = [
 						"Error Code" => "PS-03",

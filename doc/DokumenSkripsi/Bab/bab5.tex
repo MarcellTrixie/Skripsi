@@ -65,7 +65,7 @@ Listing \ref{lst:command} merupakan perintah yang perlu dituliskan pada terminal
 
 \begin{figure}[H]
 	\centering	
-	\includegraphics[scale=0.65]{hasil-implementasi.png}
+	\includegraphics[scale=0.6]{hasil-implementasi.png}
 	\caption{Laporan Kesalahan}	
 	\label{fig:error_report} 
 \end{figure}
@@ -73,11 +73,10 @@ Listing \ref{lst:command} merupakan perintah yang perlu dituliskan pada terminal
 
 Gambar \ref{fig:error_report} merupakan hasil laporan yang dikeluarkan oleh perangkat lunak melalui \textit{terminal windows}. Informasi yang diberikan oleh laporan tersebut yaitu, kode kesalahan, jenis kesalahan yang ditemukan dan kesalahan yang ditemukan. Laporan kesalahan yang dikeluarkan sudah diurutkan dari fitur pertama hingga terakhir, yaitu dari fitur PS-01 hingga NAT-03.
 
-\section{Pengujian}
-Pada bagian ini akan dijelaskan mengenai pengujian yang dilakukan pada perangkat lunak. Akan dilakukan 2 bentuk pengujian pada skripsi ini, yaitu pengujian fungsional dan pengujian eksperimental.
+\section{Pengujian Fungsional}
+Pengujian fungsional bertujuan untuk menguji fungsionalitas perangkat lunak. Perangkat lunak memiliki 8 fitur yang telah diimplementasikan. Fitur-fitur tersebut akan diuji untuk melihat kebenaran dan kesesuaian fitur tersebut dengan yang diharapkan. Untuk melakukan pengujian ini, perangkat lunak akan dijalankan sebanyak jumlah fitur yang ada. Setiap pengujian yang dilakukan, fitur yang diaktifkan hanya 1 saja secara bergantian. Hal ini dilakukan hingga seluruh fitur telah diuji.
 
-\subsection{Pengujian Fungsional}
-Pengujian fungsional bertujuan untuk menguji fungsionalitas perangkat lunak. Perangkat lunak memiliki 8 fitur yang telah diimplementasikan. Fitur-fitur tersebut akan diuji untuk melihat kebenaran dan kesesuaian fitur tersebut dengan yang diharapkan. Pada pengujian ini, perangkat lunak akan diuji dengan 2 buah \textit{test case} dokumen skripsi Informatika Unpar dengan mode sidang akhir. Kedua \textit{test case} yang digunakan yaitu, ''TC\_PF\_01.pdf'' dan ''TC\_PF\_02.pdf''. Isi dari ke-2 file tersebut sama, namun pada file ''TC\_PF\_02.pdf'' sudah disisipkan kesalahan-kesalahan yang dapat dideteksi oleh setiap fitur yang ada. Berikut ini adalah rincian dari kesalahan-kesalahan yang dimasukan ke dalam \textit{test case} tersebut.
+Pada pengujian ini, perangkat lunak akan diuji dengan 2 buah \textit{test case} dokumen skripsi Informatika Unpar dengan mode sidang akhir. Kedua \textit{test case} yang digunakan yaitu, ''TC\_PF\_01.pdf'' dan ''TC\_PF\_02.pdf''. Isi dari ke-2 file tersebut sama, namun pada file ''TC\_PF\_02.pdf'' sudah disisipkan kesalahan-kesalahan yang dapat dideteksi oleh setiap fitur yang ada. Berikut ini adalah rincian dari kesalahan-kesalahan yang dimasukan ke dalam \textit{test case} tersebut.
 
 \begin{enumerate}
 	\item Pada halaman cover bahasa Indonesia dan bahasa Inggris, data yang meliputi judul, nama mahasiswa, npm mahasiswa, dan yang lainnya tidak diisi. Hal ini dilakukan untuk menguji fitur pemeriksa kelengkapan data skripsi (KAL-03).
@@ -90,49 +89,106 @@ Pengujian fungsional bertujuan untuk menguji fungsionalitas perangkat lunak. Per
 	
 	\item Pada bab 4, terdapat beberapa kata yang tidak diberikan karakter spasi sebelum ataupun setelah tanda baca. Hal ini dilakukan untuk menguji fitur pemeriksa karakter spasi sebelumm atau setelah tanda baca (PS-03).	
 
-		\item Pada bab 5, hanya terdapat 1 sub sub bab dalam sebuah sub bab. Hal ini dilakukan untuk menguji fitur pemeriksa jumlah subbab (PS-09).	
+	\item Untuk menguji fitur pemeriksa jumlah sub bab atau sub sub bab (PS-09), pada beberapa bab hanya memiliki sebuah sub bab atau sebuah sub sub bab.
 		
-	\item Untuk menguji fitur pemeriksa kata ganti orang (VAN-03), pada setiap bab disisipkan kata ganti orang.
+	\item Pada bab 6, terdapat kalimat yang disisipkan kata ganti orang , untuk menguji fitur pemeriksa kata ganti orang (VAN-03).
 \end{enumerate}
 
-\textit{Test case} yang dipakai menggunakan template dokumen skripsi . Hasil dari pengujian tersebut akan dijelaskan pada tabel \ref{tab:pengujian_fungsional}.
+\subsection{Menguji fitur PS-01}
+Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan kata-kata yang tidak terdapat pada kamus bahasa Indonesia \textit{LibreOffice}. Laporan kesalahan yang ditemukan pada \textit{test case} ''TC\_PF\_02.pdf'' dapat dilihat pada gambar \ref{fig:ujips01}.
 
-\begin{table}[H]
-	\renewcommand{\arraystretch}{1.5}
-	\caption {Tabel Pengujian Fungsional} 	
-	\label{tab:pengujian_fungsional}
-	\begin{center}
-		\begin{tabular}{|p{2.5 cm}|>{\raggedright} p{6.0 cm}| p{6.0 cm}|}
-		\hline
-		Kasus Uji & Hasil yang diharapkan & Hasil pengujian \\ 
-		\hline
-		Fitur PS-01 & Program berhasil menemukan kata-kata yang tidak terdapat pada kamus & Sesuai \\ 
-		\hline
-		Fitur PS-03 & Program berhasil kata-kata yang tidak diberi spasi setelah tanda baca & Sesuai \\ 
-		\hline 
-		Fitur PS-05 & Program berhasil menemukan karakter pertama pada kalimat yang tidak menggunakan huruf kapital & Sesuai \\ 
-		\hline 
-		Fitur PS-09 & Program berhasil menemukan bab yang hanya memiliki satu subbab & Sesuai \\ 
-		\hline
-		Fitur KAL-02 & Program berhasil menemukan bab atau subbab yang tidak diberi kata pengantar & Sesuai \\
-		\hline
-		Fitur KAL-03 & Program berhasil menemukan data skripsi yang belum diisi  & Sesuai \\
-		\hline
-		Fitur NAT-01 & Program berhasil menemukan referensi yang tidak dirujuk dengan baik & Sesuai \\
-		\hline
-		Fitur VAN-03 & Program berhasil menemukan kata ganti orang pada kalimat & Sesuai \\ 
-		\hline
-		\end{tabular}
-	\end{center}
-\end{table}
+\begin{figure}[H]
+	\centering	
+	\includegraphics[scale=0.63]{uji_ps01.png}
+	\caption{Laporan kesalahan fitur PS-01}	
+	\label{fig:ujips01} 
+\end{figure}
 
-\subsection{Pengujian Eksperimental}
+Laporan yang ditunjukan pada gambar \ref{fig:ujips01} sudah sesuai dengan yang diharapkan. Fitur ini melakukan pengecekan pada setiap kata yang ada pada dokumen. Namun fitur ini belum dapat membedakan kata yang termasuk nama orang, nama tempat, nama barang, kata yang berimbuhan dan kata yang menggunakan bahasa asing.
+
+\subsection{Menguji fitur PS-03}
+Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan kata-kata yang tidak diberi spasi setelah tanda baca. Laporan kesalahan yang ditemukan pada \textit{test case} ''TC\_PF\_02.pdf'' dapat dilihat pada gambar \ref{fig:ujips03}.
+
+\begin{figure}[H]
+	\centering	
+	\includegraphics[scale=0.63]{uji_ps03.png}
+	\caption{Laporan kesalahan fitur PS-03}	
+	\label{fig:ujips03} 
+\end{figure}
+
+Laporan yang ditunjukan pada gambar \ref{fig:ujips03} sudah sesuai dengan yang diharapkan. Fitur ini masih belum bisa membedakan penggunaan tanda titik pada gelar pendidikan, perangkat lunak mendeteksi hal tersebut menjadi sebuah kesalahan dalam fitur ini.
+
+\subsection{Menguji fitur PS-05}
+Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan karakter pertama yang tidak menggunakan huruf kapital pada sebuah kalimat. Laporan kesalahan yang ditemukan pada \textit{test case} ''TC\_PF\_02.pdf'' dapat dilihat pada gambar \ref{fig:ujips05}.
+
+\begin{figure}[H]
+	\centering	
+	\includegraphics[scale=0.63]{uji_ps05.png}
+	\caption{Laporan kesalahan fitur PS-05}	
+	\label{fig:ujips05} 
+\end{figure}
+
+Laporan yang ditunjukan pada gambar \ref{fig:ujips05} sudah sesuai dengan yang diharapkan.
+
+\subsection{Menguji fitur PS-09}
+Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan bab atau sub bab yang hanya memiliki satu sub bab atau sub sub bab. Laporan kesalahan yang ditemukan pada \textit{test case} ''TC\_PF\_02.pdf'' dapat dilihat pada gambar \ref{fig:ujips09}.
+
+\begin{figure}[H]
+	\centering	
+	\includegraphics[scale=0.63]{uji_ps09.png}
+	\caption{Laporan kesalahan fitur PS-09}	
+	\label{fig:ujips09} 
+\end{figure}
+
+Laporan yang ditunjukan pada gambar \ref{fig:ujips09} sudah sesuai dengan yang diharapkan.
+
+\subsection{Menguji fitur KAL-02}
+Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan bab yang tidak diberikan kata pengantar. Laporan kesalahan yang ditemukan pada \textit{test case} ''TC\_PF\_02.pdf'' dapat dilihat pada gambar \ref{fig:ujikal02}.
+
+\begin{figure}[H]
+	\centering	
+	\includegraphics[scale=0.63]{uji_kal02.png}
+	\caption{Laporan kesalahan fitur KAL-02}	
+	\label{fig:ujikal02} 
+\end{figure}
+
+Laporan yang ditunjukan pada gambar \ref{fig:ujikal02} sudah sesuai dengan yang diharapkan.
+
+\subsection{Menguji fitur KAL-03}
+Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan data skripsi yang belum diisi. Laporan kesalahan yang ditemukan pada \textit{test case} ''TC\_PF\_02.pdf'' dapat dilihat pada gambar \ref{fig:ujikal03}.
+
+\begin{figure}[H]
+	\centering	
+	\includegraphics[scale=0.63]{uji_kal03.png}
+	\caption{Laporan kesalahan fitur KAL-03}	
+	\label{fig:ujikal03} 
+\end{figure}
+
+Laporan yang ditunjukan pada gambar \ref{fig:ujikal03} sudah sesuai dengan yang diharapkan.
+
+\subsection{Menguji fitur NAT-01}
+Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan referensi yang tidak dirujuk dengan baik. Laporan kesalahan yang ditemukan pada \textit{test case} ''TC\_PF\_02.pdf'' dapat dilihat pada gambar \ref{fig:ujinat01}.
+
+\begin{figure}[H]
+	\centering	
+	\includegraphics[scale=0.63]{uji_nat01.png}
+	\caption{Laporan kesalahan fitur NAT-01}	
+	\label{fig:ujinat01} 
+\end{figure}
+
+Laporan yang ditunjukan pada gambar \ref{fig:ujinat01} sudah sesuai dengan yang diharapkan.
+
+\subsection{Menguji fitur VAN-03}
+Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan kata ganti orang pada kalimat. Laporan kesalahan yang ditemukan pada \textit{test case} ''TC\_PF\_02.pdf'' dapat dilihat pada gambar \ref{fig:ujivan03}.
+
+\begin{figure}[H]
+	\centering	
+	\includegraphics[scale=0.63]{uji_van03.png}
+	\caption{Laporan kesalahan fitur VAN-03}	
+	\label{fig:ujivan03} 
+\end{figure}
+
+Laporan yang ditunjukan pada gambar \ref{fig:ujivan03} sudah sesuai dengan yang diharapkan.
+
+\section{Pengujian Eksperimental}
 Pada pengujian eksperimental, perangkat lunak akan diuji dengan 5 buah \textit{test case} dokumen skripsi yang diambil dari \textit{Github} skripsi Informatika.
-
-\begin{itemize}
-	\item TC\_PE\_01.pdf~\cite{pe01}
-	\item TC\_PE\_02.pdf~\cite{pe02}
-	\item TC\_PE\_03.pdf~\cite{pe03}
-	\item TC\_PE\_04.pdf~\cite{pe04}
-	\item TC\_PE\_05.pdf~\cite{pe05}
-\end{itemize}

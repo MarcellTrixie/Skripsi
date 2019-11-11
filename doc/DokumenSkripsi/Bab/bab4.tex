@@ -91,6 +91,9 @@ Gambar \ref{fig:diagram_kelas} merupakan diagram kelas untuk perangkat lunak yan
 			\item abstractPage \\			
 			Atribut ini berfungsi untuk menyimpan hasil ekstrak dari halaman abstrak bahasa Indonesia dan bahasa Inggris.
 			
+			\item otherPage \\
+			Atribut ini berfungsi untuk menyimpan hasil ekstrak dari halaman lembar pengesahan, pernyataan dan kata pengantar.
+			
 			\item tableOfContentPage \\
 			Atribut ini berfungsi untuk menyimpan hasil ekstrak dari halaman daftar isi.
 			
@@ -114,14 +117,17 @@ Gambar \ref{fig:diagram_kelas} merupakan diagram kelas untuk perangkat lunak yan
 			\item getAbstractPage() \\
 			Method ini berfungsi untuk mendapatkan halaman abstrak dalam bahasa Indonesia dan bahasa Inggris.
 			
+			\item getOtherPage() \\
+			Method ini berfungsi untuk mendapatkan halaman lembar pengesahan, pernyataan dan kata pengantar.
+			
 			\item getTableOfContentPage() \\
-			Method ini berfungsi untuk mendapatkan halaman daftar isi.
+			Method ini berfungsi untuk mendapatkan halaman daftar isi. Method ini akan menyaring sub bab dan sub sub bab yang terdapat pada daftar isi.
 			
 			\item getListPage() \\
-			Method ini berfungsi untuk mendapatkan halaman daftar isi, daftar gambar, daftar tabel dan daftar referensi.
+			Method ini berfungsi untuk mendapatkan halaman daftar gambar, daftar tabel dan daftar referensi.
 			
 			\item getContentPage() \\
-			Method ini berfungsi untuk mendapatkan halaman konten skripsi dari bab 1 sampai bab 6.
+			Method ini berfungsi untuk mendapatkan halaman konten skripsi dari bab 1 sampai 6.
 			
 			\item splitContentPage() \\
 			Method ini memiliki fungsi yang hampir sama dengan method \textit{getContentPage}, yaitu untuk mendapatkan halaman konten skripsi. Namun, pada method ini ada beberapa proses pemisahan isi konten (per kalimat) ke dalam beberapa array. Fitur-fitur dalam perangkat lunak yang memerlukan pemeriksaan berdasarkan kalimat dapat langsung memanggil method ini. 
@@ -137,7 +143,7 @@ Gambar \ref{fig:diagram_kelas} merupakan diagram kelas untuk perangkat lunak yan
 Pada bagian ini akan dijelaskan perancangan untuk mengekstrak dokumen skripsi dan pola pengecekan kesalahan yang akan digunakan pada perangkat lunak.
  
 \subsection{Algoritma untuk Mengekstrak Dokumen}
-Dokumen skripsi yang akan diperiksa dalam perangkat lunak merupakan file yang memiliki ekstensi \textit{PDF}. Sebelum dilakukan pemeriksaan kesalahan, dokumen tersebut perlu diekstrak terlebih dulu. Pada skripsi ini, aplikasi akan menggunakan \textit{library PDFParser} untuk mengekstrak dokumen skripsi. Pada \textit{library} tersebut, terdapat 2 metode yang dapat digunakan untuk mengekstrak dokumen.
+Dokumen skripsi yang dapat diperiksa dalam perangkat lunak merupakan dokumen skripsi Teknik Informatika Unpar, yang memiliki ekstensi \textit{PDF}. Sebelum dilakukan pemeriksaan kesalahan, dokumen tersebut perlu diekstrak terlebih dulu. Pada skripsi ini, aplikasi akan menggunakan \textit{library PDFParser} untuk mengekstrak dokumen skripsi. Pada \textit{library} tersebut, terdapat 2 metode yang dapat digunakan untuk mengekstrak dokumen. Penjelasan dari ke-2 metode tersebut akan diuraikan pada sebagai berikut.
 	
 \begin{lstlisting}[caption={Potongan kode untuk mengesktrak seluruh halaman dokumen}	\label{lst:all_page},language=php,xleftmargin=.2\textwidth] 
 include 'vendor/autoload.php';
@@ -159,7 +165,7 @@ $pages  = $pdf->getPages();
 
 Listing \ref{lst:all_page} dan listing \ref{lst:specific_page} merupakan potongan kode yang terdapat pada dokumentasi \textit{library PDF Parser}. Kode dari kedua listing tersebut hampir mirip, yang menjadi pembeda adalah pada baris ke-5. Listing \ref{lst:all_page} menggunakan \textit{method getText()} dan hasil dari ekstraknya disimpan menjadi sebuah kesatuan dari halaman awal hingga halaman akhir. Listing \ref{lst:specific_page} menggunakan \textit{method getPages()} dan hasil dari ekstraknya disimpan dalam sebuah array String sejumlah halaman yang ada pada dokumen.
 
-Pada skripsi ini akan digunakan metode yang mengesktrak halaman-halaman secara spesifik. Hasil ekstrak akan disimpan dalam berdasarkan konten-konten yang ada, seperti halaman cover, abstrak, daftar isi, daftar tabel, daftar gambar dan seterusnya. Ada beberapa alasan yang mendorong untuk melakukan pemisahan konten-konten tersebut, salah satunya yaitu agar pemeriksa dapat memeriksa bagian-bagian spesifik yang dibutuhkan. Contohnya, untuk memeriksa kelengkapan data skripsi tidak perlu memeriksa seluruh isi dari dokumen, halaman yang dibutuhkan hanya cover saja. 
+Pada skripsi ini akan digunakan metode yang mengesktrak halaman-halaman secara spesifik. Hasil ekstrak akan disimpan dalam berdasarkan konten-konten yang ada, seperti halaman cover, abstrak, daftar isi, daftar tabel, daftar gambar dan seterusnya. Ada beberapa alasan yang mendorong untuk melakukan pemisahan konten-konten tersebut, salah satunya yaitu agar pemeriksa dapat memeriksa bagian-bagian spesifik yang dibutuhkan. Contohnya, untuk memeriksa kelengkapan data skripsi tidak perlu memeriksa seluruh isi dari dokumen, halaman yang dibutuhkan hanya cover saja. Dengan demikian, proses pemeriksaan menjadi lebih efektif karena tidak perlu memeriksa seluruh halaman yang ada pada dokumen.
 
 \subsection{Pola Pengecekan Kesalahan}
 Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring dan akan diimplementasikan dalam perangkat lunak. Pengecekan kesalahan tersebut akan dilakukan dengan menggunakan teknik \textit{pattern matching}. Hasil ekstrak dari PDF skripsi akan dipotong per kalimat dengan delimiter karakter titik dan spasi ke dalam sebuah array. Berikut adalah rincian dari hasil survei yang dipilih beserta penyelesaiannya:
@@ -176,7 +182,7 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
     	\Function{ErrorChecking}{\$pdf\_exctract}
     		\State Input: An object from the SkripsiExtract class to call the getter method
 			\State Output: An array containing error reports		
-			\State $temp \gets$ Split dictionary based on newline
+			\State $temp \gets$ Explode dictionary based on newline
 			\State $dictionary \gets$ Array for store dictionary
 			\For{$i = 0$ to size of temp}
 				\State Remove affix code from each index dictionary array 
@@ -216,7 +222,7 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
     \caption{Space checker function}
 	\label{alg:ps03}
 	\begin{algorithmic}[1]
-    	\Function{ExtractFromPDF}{\$pdf\_exctract}
+    	\Function{ErrorChecking}{\$pdf\_exctract}
     		\State Input: An object from the SkripsiExtract class to call the getter method
 			\State Output: An array containing error reports
 			\State $result \gets$ Array for store all errors report
@@ -251,7 +257,7 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
     \caption{Capital letter checker function}
 	\label{alg:ps05}
 	\begin{algorithmic}[1]
-    	\Function{ExtractFromPDF}{\$pdf\_exctract}
+    	\Function{ErrorChecking}{\$pdf\_exctract}
     		\State Input: An object from the SkripsiExtract class to call the getter method
 			\State Output: An array containing error reports
 			\State $result \gets$ Array for store all errors report
@@ -286,13 +292,12 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
     \caption{Subchapter checker function}
 	\label{alg:ps09}
 	\begin{algorithmic}[1]
-    	\Function{ExtractFromPDF}{\$pdf\_exctract}
+    	\Function{ErrorChecking}{\$pdf\_exctract}
     		\State Input: An object from the SkripsiExtract class to call the getter method
 			\State Output: An array containing error reports
 			\State $result \gets$ Array for store all errors report
 			\State $sentence \gets$ Call getter from class SkripsiExtract
     		\For{each sentence in $sentence$}
-    			\State $row \gets$ Add $index$ with 1
 				\State $pattern \gets$ Define regex / $\hat{}$ /
         		\If{$pattern$ contain in $array$}
                 	\State fill $result$ with errors report
@@ -322,13 +327,12 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
     \caption{Preface checker function}
 	\label{alg:kal02}
 	\begin{algorithmic}[1]
-    	\Function{ExtractFromPDF}{\$pdf\_exctract}
+    	\Function{ErrorChecking}{\$pdf\_exctract}
     		\State Input: An object from the SkripsiExtract class to call the getter method
 			\State Output: An array containing error reports
 			\State $result \gets$ Array for store all errors report
 			\State $sentence \gets$ Call getter from class SkripsiExtract
     		\For{each sentence in $sentence$}
-    			\State $row \gets$ Add $index$ with 1
 				\State $pattern \gets$ Define regex / $\hat{}$ [A-Z0-9][A-Za-z] /
         		\If{$pattern$ contain in $array$}
                 	\State fill $result$ with errors report
@@ -358,13 +362,12 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
     \caption{Thesis data checker function}
 	\label{alg:kal03}
 	\begin{algorithmic}[1]
-    	\Function{ExtractFromPDF}{\$pdf\_exctract}
+    	\Function{ErrorChecking}{\$pdf\_exctract}
     		\State Input: An object from the SkripsiExtract class to call the getter method
 			\State Output: An array containing error reports
 			\State $result \gets$ Array for store all errors report
 			\State $sentence \gets$ Call getter from class SkripsiExtract
     		\For{each sentence in $sentence$}
-    			\State $row \gets$ Add $index$ with 1
 				\State $pattern \gets$ Define regex /JUDUL BAHASA INDONESIA|JUDUL BAHASA INGGRIS|Nama Lengkap|10 digit NPM UNPAR|tahun/
         		\If{$pattern$ contain in $array$}
                 	\State fill $result$ with errors report
@@ -394,13 +397,12 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
     \caption{Subject Pronoun checker function}
 	\label{alg:van03}
 	\begin{algorithmic}[1]
-    	\Function{ExtractFromPDF}{\$pdf\_exctract}
+    	\Function{ErrorChecking}{\$pdf\_exctract}
     		\State Input: An object from the SkripsiExtract class to call the getter method
 			\State Output: An array containing error reports
 			\State $result \gets$ Array for store all errors report
 			\State $sentence \gets$ Split PDF parsing results based on dots and space
     		\For{each sentence in $sentence$}
-    			\State $row \gets$ Add $index$ with 1
 				\State $pattern \gets$ Define regex /saya|kamu|dia/i
         		\If{$pattern$ contain in $array$}
                 	\State fill $result$ with errors report
@@ -430,13 +432,12 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
     \caption{Reference checker function}
 	\label{alg:nat01}
 	\begin{algorithmic}[1]
-    	\Function{ExtractFromPDF}{\$pdf\_exctract}
+    	\Function{ErrorChecking}{\$pdf\_exctract}
     		\State Input: An object from the SkripsiExtract class to call the getter method
 			\State Output: An array containing error reports
 			\State $result \gets$ Array for store all errors report
 			\State $sentence \gets$ Call getter from class SkripsiExtract
     		\For{each sentence in $sentence$}
-    			\State $row \gets$ Add $index$ with 1
 				\State $pattern \gets$ Define regex /[?]/
         		\If{$pattern$ contain in $array$}
                 	\State fill $result$ with errors report
