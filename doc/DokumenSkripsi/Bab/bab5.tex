@@ -63,29 +63,42 @@ php main.php ../res/nama_file.pdf
 
 Listing \ref{lst:command} merupakan perintah yang perlu dituliskan pada terminal, untuk menjalankan perangkat lunak. Kelas Main menjadi kelas yang digunakan untuk menjalankan seluruh proses yang berjalan dalam perangkat lunak. File PDF skripsi yang akan diperiksa harus berada di folder yang telah disediakan, yaitu pada folder Skripsi$\backslash$src$\backslash$res. Nama file yang digunakan pada umumnya sesuai dengan \textit{template} skripsi yang diberikan, yaitu ''skripsi.pdf''. Namun pengguna juga dapat menggunakan nama yang berbeda, yang paling utama file tersebut memiliki ekstensi PDF.
 
-\begin{figure}[H]
-	\centering	
-	\includegraphics[scale=0.6]{hasil-implementasi.png}
-	\caption{Laporan Kesalahan}	
-	\label{fig:error_report} 
-\end{figure}
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:error_report},language=php,xleftmargin=.05\textwidth] 
+ERROR 1
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Namun dalam penulisannya, peserta skripsi sering melakukan kesalahan kecil yang tidak dapat diabaikan.kesalahan sering terjadi dalam penggunaan imbuhan, kata keterangan, penulisan kata dan sebagainya
+
+ERROR 2
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Regex biasanya dimanfaatkan untuk memverifikasi kecocokan antara input dengan pola teks,untuk menemukan teks yang cocok dengan pola dalam teks yang lebih besar, untuk mengganti teks yang cocok dengan pola dengan teks lain atau menyusun ulang bit dari teks yang cocok dan untuk membagi sebuah blok teks menjadi beberapa subteks
+
+ERROR 3
+==================
+Error Code: PS-05
+Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
+Excerpt: Namun dalam penulisannya, peserta skripsi sering melakukan kesalahan kecil yang tidak dapat diabaikan.kesalahan sering terjadi dalam penggunaan imbuhan, kata keterangan, penulisan kata dan sebagainya
+\end{lstlisting}
 \medskip
 
-Gambar \ref{fig:error_report} merupakan hasil laporan yang dikeluarkan oleh perangkat lunak melalui \textit{terminal windows}. Informasi yang diberikan oleh laporan tersebut yaitu, kode kesalahan, jenis kesalahan yang ditemukan dan kesalahan yang ditemukan. Laporan kesalahan yang dikeluarkan sudah diurutkan dari fitur pertama hingga terakhir, yaitu dari fitur PS-01 hingga NAT-03.
+Listing \ref{lst:error_report} merupakan hasil laporan yang dikeluarkan oleh perangkat lunak melalui \textit{terminal windows}. Informasi yang diberikan oleh laporan tersebut yaitu, kode kesalahan, jenis kesalahan yang ditemukan dan kesalahan yang ditemukan. Laporan kesalahan yang dikeluarkan sudah diurutkan dari fitur pertama hingga terakhir, yaitu dari fitur PS-01 hingga NAT-03.
 
 \section{Pengujian Fungsional}
 Pengujian fungsional bertujuan untuk menguji fungsionalitas perangkat lunak. Perangkat lunak memiliki 8 fitur yang telah diimplementasikan. Fitur-fitur tersebut akan diuji untuk melihat kebenaran dan kesesuaian fitur tersebut dengan yang diharapkan. Untuk melakukan pengujian ini, perangkat lunak akan dijalankan sebanyak jumlah fitur yang ada. Setiap pengujian yang dilakukan, fitur yang diaktifkan hanya 1 saja secara bergantian. Hal ini dilakukan hingga seluruh fitur telah diuji.
 
-Pada pengujian ini, perangkat lunak akan diuji dengan 2 buah \textit{test case} dokumen skripsi Informatika Unpar dengan mode sidang akhir. Kedua \textit{test case} yang digunakan yaitu, ''TC\_PF\_01.pdf'' dan ''TC\_PF\_02.pdf''. Isi dari ke-2 file tersebut sama, namun pada file ''TC\_PF\_02.pdf'' sudah disisipkan kesalahan-kesalahan yang dapat dideteksi oleh setiap fitur yang ada. Berikut ini adalah rincian dari kesalahan-kesalahan yang dimasukan ke dalam \textit{test case} tersebut.
+Pada pengujian ini, perangkat lunak akan diuji dengan 2 buah \textit{test case}. Kedua \textit{test case} tersebut menggunakan \textit{template} dokumen skripsi Informatika Unpar. Mode dokumen yang digunakan adalah mode \textit{final}. Kedua \textit{test case} tersebut diberi nama 'TC\_PF\_01.pdf'' dan ''TC\_PF\_02.pdf''. Isi dari kedua file tersebut serupa, namun pada file ''TC\_PF\_02.pdf'' sudah disisipkan kesalahan-kesalahan yang dapat dideteksi oleh setiap fitur yang ada. Berikut ini adalah rincian dari kesalahan-kesalahan yang dimasukan ke dalam \textit{test case} tersebut.
 
 \begin{enumerate}
 	\item Pada halaman cover bahasa Indonesia dan bahasa Inggris, data yang meliputi judul, nama mahasiswa, npm mahasiswa, dan yang lainnya tidak diisi. Hal ini dilakukan untuk menguji fitur pemeriksa kelengkapan data skripsi (KAL-03).
 	
-	\item Pada bab 1, hampir seluruh karakter pertama dalam kalimat menggunakan huruf kecil. Hal ini dilakukan untuk menguji fitur pemeriksa huruf kapital (PS-05).
+	\item Pada bab 1, beberapa karakter pertama dalam awal kalimat menggunakan huruf kecil. Hal ini dilakukan untuk menguji fitur pemeriksa huruf kapital (PS-05).
 	
-	\item Pada bab 2, terdapat 2 buah teori yang referensinya tidak dirujuk dengan baik. Hal ini dilakukan untuk menguji fitur pemeriksa referensi (NAT-01).
+	\item Pada bab 2, terdapat teori yang referensinya tidak dirujuk dengan baik. File referensi.bib tidak diikutsertakan pada saat file latex dieksekusi. Hal ini dilakukan untuk menguji fitur pemeriksa referensi (NAT-01).
 	
-	\item Pada bab 3, terdapat beberapa kata yang diketik tidak sesuai dengan kamus. Hal ini dilakukan untuk menguji fitur pemeriksa kata (PS-01). Selain itu pada bab ini tidak diberikan kata pengantar sebelum memulai subbab, untuk menguji fitur pemeriksa kata pengantar pada bab (KAL-02).
+	\item Pada bab 3, terdapat beberapa kata yang diketik tidak sesuai dengan kamus bahasa Indonesia. Hal ini dilakukan untuk menguji fitur pemeriksa kata (PS-01). Selain itu pada bab ini tidak diberikan kata pengantar sebelum memulai subbab, untuk menguji fitur pemeriksa kata pengantar pada bab (KAL-02).
 	
 	\item Pada bab 4, terdapat beberapa kata yang tidak diberikan karakter spasi sebelum ataupun setelah tanda baca. Hal ini dilakukan untuk menguji fitur pemeriksa karakter spasi sebelumm atau setelah tanda baca (PS-03).	
 
@@ -95,100 +108,452 @@ Pada pengujian ini, perangkat lunak akan diuji dengan 2 buah \textit{test case} 
 \end{enumerate}
 
 \subsection{Menguji fitur PS-01}
-Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan kata-kata yang tidak terdapat pada kamus bahasa Indonesia \textit{LibreOffice}. Laporan kesalahan yang ditemukan pada \textit{test case} ''TC\_PF\_02.pdf'' dapat dilihat pada gambar \ref{fig:ujips01}.
+Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan kata-kata yang tidak terdapat pada kamus bahasa Indonesia \textit{LibreOffice}. Berikut ini adalah hasil dari pengujian yang telah dilakukan:
 
-\begin{figure}[H]
-	\centering	
-	\includegraphics[scale=0.63]{uji_ps01.png}
-	\caption{Laporan kesalahan fitur PS-01}	
-	\label{fig:ujips01} 
-\end{figure}
+\begin{enumerate}
 
-Laporan yang ditunjukan pada gambar \ref{fig:ujips01} sudah sesuai dengan yang diharapkan. Fitur ini melakukan pengecekan pada setiap kata yang ada pada dokumen. Namun fitur ini belum dapat membedakan kata yang termasuk nama orang, nama tempat, nama barang, kata yang berimbuhan dan kata yang menggunakan bahasa asing.
+	\item \textit{Test case} TC\_PF\_01.pdf
+	
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.0\textwidth]
+ERROR 1
+==================
+Error Code: PS-01
+Note: Ditemukan penulisan kata yang tidak sesuai dengan kamus
+Excerpt: 
+
+PENDAHULUANPada, dijelaskan, mengenai, penulisan, rumusan, tujuan, batasan, penelitian, merupakan, karangan, ditulis, sebagai, bagian, persya, ratan, pendidikan, akademiknya, penulisannya, peserta, melakukan, kesalahan, diabaikan, Kesalahan, terjadi, penggunaan, imbuhan, keterangan, sebagainya, seharusnya, diperiksa, diminimalisir, bimbingan, pembimbing, dimanfaatkan, membahas, konten, dibanding, memeriksa, tersebut, dibuat, sebuah, pemeriksaan, berasal, dilakukan, Unpar, diseleksi, diimplementasikan, secara, dijalankan, melalui, command, Windows, menerima, masukan, berupa, le, PDF, menampilkan, laporan, berisi, ditemukan, Rumusan, Berdasarkan, dirumuskan, berikut, membuat, Tujuan, adalah, membangun, LANDASAN, TEORIPada, dibahas, landasan, expression, library, LibreO, Expression, regex, tertentu, digunakan, pemrograman, Regex, biasanya, memveri, kecocokan, input, menemukan, mengganti, menyusun, membagi, menjadi, subteks, pencocokan, misalnya, validasi, string, username, password, mail, IP, Pemanfaatan, menyederhanakan, pemrosesan, kehidupan, sehari, mencerminkan, disebut, keteraturan, menggunakan, Deterministic, Finite, DFA, nite, state, machineyang, backtracking, berbagai, satunya, Perl, Compa, tible, PCRE, serangkaian, menerapkan, sintaks, perbedaan, Perlversi, Metakarakter, dibedakan, berdasarkan, posisinya, metakarakter, outside, square, brackets, fungsinya, berbeda, terdapat, sedangkan, inside, bracketsterdapat, Karakter, karakter, memiliki, spesi, k, dikelompokan, setiap, didalam, bracket, mendukung, POSIX, penggunaannya, diantara, Sebagai, alnum, keputusan, UmumPada, mengumpulkan, dibutuhkan, pengembangan, dicari, dipilih, pelaksanaannya, dibagi, pengamatan, Pengamatan, berlangsung, Mei, diamati, melainkan, diambil, pertimbangan, diuji, menghadiri, disajikan, Penguji, Osfaldo, Mickael, Oktavianus, Naibaho, Penjualan, Vania, Natali, S, M, T, Elisati, Ricky, Wahyudi, Menggunakan, Fitur, Surf, Dr, rer, nat, Cecilia, Esti, Nugraheni, ST, MT, Ir, Veronica, Moer, tini, selanjutnya, diminta, PERANCANGANPada, perancangan, dibangun, meliputi, algoritma, pengecekan, Perancangan, rancangan, Rancangan, ditunjukan, Pemeriksa, PENGUJIANPada, pengujian, terhadap, Lingkungan, Pengujian, lingkungan, beserta, implementasinya, Berikut, pembangunan, Spesi, Processor, AMD, Bristol, Ridge, Quad, Core, FX, P, GHz, GB, GPU, Radeon, RX, Storage, Harddisk, TB, PHP, cli, Composer, Sublime, Text, PdfParser, Graphical, User, Interface, kegiatan, disimpan, disediakan, mengeluarkan, Listing, menjalankan, phpmain, php, r, s, n, m, f, i, l, p, d, KESIMPULAN, SARANPada, kesimpulan, Kesimpulan
+\end{lstlisting}
+	
+	\item \textit{Test case} TC\_PF\_02.pdf
+
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.0\textwidth]
+ERROR 1
+==================
+Error Code: PS-01
+Note: Ditemukan penulisan kata yang tidak sesuai dengan kamus
+Excerpt: 
+
+PENDAHULUANpada, dijelaskan, mengenai, penulisan, rumusan, tujuan, batasan, penelitian, merupakan, karangan, ditulis, sebagai, bagian, persya, ratan, pendidikan, akademiknya, penulisannya, peserta, melakukan, kesalahan, diabaikan, terjadi, penggunaan, imbuhan, keterangan, sebagainya, seharusnya, diperiksa, diminimalisir, bimbingan, pembimbing, dimanfaatkan, membahas, konten, dibanding, memeriksa, tersebut, dibuat, sebuah, pemeriksaan, berasal, dilakukan, Unpar, diseleksi, diimplementasikan, secara, dijalankan, melalui, command, Windows, menerima, masukan, berupa, le, PDF, menampilkan, laporan, berisi, ditemukan, Rumusan, Berdasarkan, dirumuskan, berikut, membuat, Tujuan, adalah, membangun, LANDASAN, TEORIPada, dibahas, landasan, expression, library, LibreO, Expression, regex, tertentu, digunakan, pemrograman, Regex, biasanya, memveri, kecocokan, input, menemukan, mengganti, menyusun, membagi, menjadi, subteks, pencocokan, misalnya, validasi, string, username, password, mail, IP, Pemanfaatan, menyederhanakan, pemrosesan, kehidupan, sehari, mencerminkan, disebut, keteraturan, menggunakan, Deterministic, Finite, DFA, nite, state, machineyang, backtracking, berbagai, satunya, Perl, Compa, tible, PCRE, serangkaian, menerapkan, sintaks, perbedaan, Perlversi, Metakarakter, dibedakan, berdasarkan, posisinya, metakarakter, outside, square, brackets, fungsinya, berbeda, terdapat, sedangkan, inside, bracketsterdapat, Kesalahan, UmumPda, baggian, mengumpulkan, dibutuhkan, pengembangan, Infrmasi, yng, dicari, ksalahan, umumm, yaang, serring, terjaadi, paada, metod, ang, dipilih, pelaksanaannya, dibagi, menjhadi, pengamatan, Pengamatan, berlangsung, Mei, diamati, melainkan, diambil, pertimbangan, diuji, menghadiri, disajikan, Penguji, Osfaldo, Mickael, Oktavianus, Naibaho, Penjualan, Vania, Natali, S, M, T, Elisati, Ricky, Wahyudi, Menggunakan, Fitur, Surf, Dr, rer, nat, Cecilia, Esti, Nugraheni, ST, MT, Ir, Veronica, Moer, tini, PERANCANGANPada, perancangan, dibangun, meliputi, algoritma, pengecekan, Perancangan, rancangan, Rancangan, ditunjukan, Pemeriksa, PENGUJIANPada, pengujian, terhadap, Lingkungan, Pengujian, lingkungan, beserta, implementasinya, Berikut, spesi, pembangunan, Spesi, Processor, AMD, Bristol, Ridge, Quad, Core, FX, P, GHz, GB, GPU, Radeon, RX, Storage, Harddisk, TB, PHP, cli, Composer, Sublime, Text, KESIMPULAN, SARANPada, kesimpulan, Kesimpulan, berikan
+\end{lstlisting}
+\end{enumerate}
+
+Laporan yang ditunjukan pada listing sudah sesuai dengan yang diharapkan. Fitur ini melakukan pengecekan pada setiap kata yang ada pada dokumen. Namun fitur ini belum dapat membedakan kata yang termasuk nama orang, nama tempat, nama barang, kata yang berimbuhan dan kata yang menggunakan bahasa asing.
 
 \subsection{Menguji fitur PS-03}
-Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan kata-kata yang tidak diberi spasi setelah tanda baca. Laporan kesalahan yang ditemukan pada \textit{test case} ''TC\_PF\_02.pdf'' dapat dilihat pada gambar \ref{fig:ujips03}.
+Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan kata-kata yang tidak diberi spasi setelah tanda baca. Berikut ini adalah hasil dari pengujian yang telah dilakukan:
 
-\begin{figure}[H]
-	\centering	
-	\includegraphics[scale=0.63]{uji_ps03.png}
-	\caption{Laporan kesalahan fitur PS-03}	
-	\label{fig:ujips03} 
-\end{figure}
+\begin{enumerate}
+	\item \textit{Test case} TC\_PF\_01.pdf
+	
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.0\textwidth]
+ERROR 1
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Listing 5.1: Perintah yang digunakan untuk menjalankan perangkat lunak 1phpmain.php
+\end{lstlisting}
+	
+	\item \textit{Test case} TC\_PF\_02.pdf
+	
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.0\textwidth]
+ERROR 1
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Namun dalam penulisannya, peserta skripsi sering melakukan kesalahan kecil yang tidak dapat diabaikan.kesalahan sering terjadi dalam penggunaan imbuhan, kata keterangan, penulisan kata dan sebagainya
+
+ERROR 2
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Regex biasanya dimanfaatkan untuk memverifikasi kecocokan antara input dengan pola teks,untuk menemukan teks yang cocok dengan pola dalam teks yang lebih besar, untuk mengganti teks yang cocok dengan pola dengan teks lain atau menyusun ulang bit dari teks yang cocok dan untuk membagi sebuah blok teks menjadi beberapa subteks
+\end{lstlisting}
+\end{enumerate}
 
 Laporan yang ditunjukan pada gambar \ref{fig:ujips03} sudah sesuai dengan yang diharapkan. Fitur ini masih belum bisa membedakan penggunaan tanda titik pada gelar pendidikan, perangkat lunak mendeteksi hal tersebut menjadi sebuah kesalahan dalam fitur ini.
 
 \subsection{Menguji fitur PS-05}
-Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan karakter pertama yang tidak menggunakan huruf kapital pada sebuah kalimat. Laporan kesalahan yang ditemukan pada \textit{test case} ''TC\_PF\_02.pdf'' dapat dilihat pada gambar \ref{fig:ujips05}.
+Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan karakter pertama yang tidak menggunakan huruf kapital pada sebuah kalimat. Berikut ini adalah hasil dari pengujian yang telah dilakukan:
 
-\begin{figure}[H]
-	\centering	
-	\includegraphics[scale=0.63]{uji_ps05.png}
-	\caption{Laporan kesalahan fitur PS-05}	
-	\label{fig:ujips05} 
-\end{figure}
+\begin{enumerate}
+	\item \textit{Test case} TC\_PF\_01.pdf
+	Pada \textit{test case} ini, perangkat lunak tidak menemukan kesalahan dalam dokumen skripsi.
+	
+	\item \textit{Test case} TC\_PF\_02.pdf
+	
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.0\textwidth]
+ERROR 1
+==================
+Error Code: PS-05
+Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
+Excerpt: Namun dalam penulisannya, peserta skripsi sering melakukan kesalahan kecil yang tidak dapat diabaikan.kesalahan sering terjadi dalam penggunaan imbuhan, kata keterangan, penulisan kata dan sebagainya
+
+ERROR 2
+==================
+Error Code: PS-05
+Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
+Excerpt: pada saat bimbingan, waktu dosen pembimbing lebih baik dimanfaatkan untuk membahas konten dibanding memeriksa kesalahan-kesalahan tersebut
+
+ERROR 3
+==================
+Error Code: PS-05
+Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
+Excerpt: dari masalah tersebut dapat dibuat sebuah aplikasi untuk melakukan pemeriksaan pada dokumen skripsi
+
+ERROR 4
+==================
+Error Code: PS-05
+Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
+Excerpt: kesalahan yang akan diperiksa berasal dari survei yang dilakukan kepada dosen-dosen Informatika Unpar
+
+ERROR 5
+==================
+Error Code: PS-05
+Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
+Excerpt: hasil dari survei tersebut akan diseleksi untuk diimplementasikan ke dalam aplikasi
+
+ERROR 6
+==================
+Error Code: PS-05
+Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
+Excerpt: aplikasi sederhana ini dapat dimanfaatkan oleh mahasiswa Informatika Unpar secara mandiri
+
+ERROR 7
+==================
+Error Code: PS-05
+Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
+Excerpt: aplikasi ini dijalankan melalui melalui terminal command Windows 
+
+ERROR 8
+==================
+Error Code: PS-05
+Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
+Excerpt: aplikasi menerima masukan berupa file PDF skripsi dan menampilkan laporan yang berisi kesalahan-kesalahan yang ditemukan pada dokumen skripsi
+\end{lstlisting}
+\end{enumerate}
 
 Laporan yang ditunjukan pada gambar \ref{fig:ujips05} sudah sesuai dengan yang diharapkan.
 
 \subsection{Menguji fitur PS-09}
-Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan bab atau sub bab yang hanya memiliki satu sub bab atau sub sub bab. Laporan kesalahan yang ditemukan pada \textit{test case} ''TC\_PF\_02.pdf'' dapat dilihat pada gambar \ref{fig:ujips09}.
+Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan bab atau sub bab yang hanya memiliki satu sub bab atau sub sub bab. Berikut ini adalah hasil dari pengujian yang telah dilakukan:
 
-\begin{figure}[H]
-	\centering	
-	\includegraphics[scale=0.63]{uji_ps09.png}
-	\caption{Laporan kesalahan fitur PS-09}	
-	\label{fig:ujips09} 
-\end{figure}
+\begin{enumerate}
+	\item \textit{Test case} TC\_PF\_01.pdf
+	Pada \textit{test case} ini, perangkat lunak tidak menemukan kesalahan dalam dokumen skripsi.
+	
+	\item \textit{Test case} TC\_PF\_02.pdf
+	
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.0\textwidth]
+ERROR 1
+==================
+Error Code: PS-09
+Note: Bab/Subbab 2.1 ini hanya terdapat 1 sub bab/sub sub bab
+
+ERROR 2
+==================
+Error Code: PS-09
+Note: Bab/Subbab 2.1.1 ini hanya terdapat 1 sub bab/sub sub bab
+
+ERROR 3
+==================
+Error Code: PS-09
+Note: Bab/Subbab 3.1 ini hanya terdapat 1 sub bab/sub sub bab
+
+ERROR 4
+==================
+Error Code: PS-09
+Note: Bab/Subbab 3.1.1 ini hanya terdapat 1 sub bab/sub sub bab
+
+ERROR 5
+==================
+Error Code: PS-09
+Note: Bab/Subbab 4.1 ini hanya terdapat 1 sub bab/sub sub bab
+
+ERROR 6
+==================
+Error Code: PS-09
+Note: Bab/Subbab 5.1 ini hanya terdapat 1 sub bab/sub sub bab
+
+ERROR 7
+==================
+Error Code: PS-09
+Note: Bab/Subbab 5.1.1 ini hanya terdapat 1 sub bab/sub sub bab
+\end{lstlisting}
+\end{enumerate}
 
 Laporan yang ditunjukan pada gambar \ref{fig:ujips09} sudah sesuai dengan yang diharapkan.
 
 \subsection{Menguji fitur KAL-02}
-Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan bab yang tidak diberikan kata pengantar. Laporan kesalahan yang ditemukan pada \textit{test case} ''TC\_PF\_02.pdf'' dapat dilihat pada gambar \ref{fig:ujikal02}.
+Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan bab yang tidak diberikan kata pengantar. Berikut ini adalah hasil dari pengujian yang telah dilakukan:
 
-\begin{figure}[H]
-	\centering	
-	\includegraphics[scale=0.63]{uji_kal02.png}
-	\caption{Laporan kesalahan fitur KAL-02}	
-	\label{fig:ujikal02} 
-\end{figure}
+\begin{enumerate}
+	\item \textit{Test case} TC\_PF\_01.pdf
+	Pada \textit{test case} ini, perangkat lunak tidak menemukan kesalahan dalam dokumen skripsi.
+	
+	\item \textit{Test case} TC\_PF\_02.pdf
+	
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.0\textwidth]
+ERROR 1
+==================
+Error Code: KAL-02
+Note: Berilah kata pengantar untuk setiap bab
+Excerpt: BAB 3 ANALISIS MASALAH 3.1Survei Kesalahan UmumPda baggian ini akan dijelaskan tentang survei yang dilakukan untuk mengumpulkan informasi yang dibutuhkan dalam pengembangan perangkat lunak
+\end{lstlisting}
+\end{enumerate}
 
 Laporan yang ditunjukan pada gambar \ref{fig:ujikal02} sudah sesuai dengan yang diharapkan.
 
 \subsection{Menguji fitur KAL-03}
-Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan data skripsi yang belum diisi. Laporan kesalahan yang ditemukan pada \textit{test case} ''TC\_PF\_02.pdf'' dapat dilihat pada gambar \ref{fig:ujikal03}.
+Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan data skripsi yang belum diisi. Berikut ini adalah hasil dari pengujian yang telah dilakukan:
 
-\begin{figure}[H]
-	\centering	
-	\includegraphics[scale=0.63]{uji_kal03.png}
-	\caption{Laporan kesalahan fitur KAL-03}	
-	\label{fig:ujikal03} 
-\end{figure}
+\begin{enumerate}
+	\item \textit{Test case} TC\_PF\_01.pdf
+	Pada \textit{test case} ini, perangkat lunak tidak menemukan kesalahan dalam dokumen skripsi.
+	
+	\item \textit{Test case} TC\_PF\_02.pdf
+	
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.0\textwidth]
+ERROR 1
+==================
+Error Code: KAL-03
+Note: Ada data skripsi yang belum dilengkapi pada halaman cover
+Excerpt: SKRIPSI/TUGAS AKHIR JUDUL BAHASA INDONESIA Nama Lengkap NPM: 10 digit NPM UNPAR PROGRAM STUDI MATEMATIKA/FISIKA/TEKNIK INFORMATIKA FAKULTAS TEKNOLOGI INFORMASI DAN SAINS UNIVERSITAS KATOLIK PARAHYANGAN tahun FINAL PROJECT/UNDERGRADUATE THESIS JUDUL BAHASA INGGRIS Nama Lengkap NPM: 10 digit NPM UNPAR DEPARTMENT OF MATHEMATICS/PHYSICS/INFORMATICS FACULTY OF INFORMATION TECHNOLOGY AND SCIENCES PARAHYANGAN CATHOLIC UNIVERSITY tahun 
+\end{lstlisting}
+\end{enumerate}
 
 Laporan yang ditunjukan pada gambar \ref{fig:ujikal03} sudah sesuai dengan yang diharapkan.
 
 \subsection{Menguji fitur NAT-01}
-Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan referensi yang tidak dirujuk dengan baik. Laporan kesalahan yang ditemukan pada \textit{test case} ''TC\_PF\_02.pdf'' dapat dilihat pada gambar \ref{fig:ujinat01}.
+Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan referensi yang tidak dirujuk dengan baik. Berikut ini adalah hasil dari pengujian yang telah dilakukan:
 
-\begin{figure}[H]
-	\centering	
-	\includegraphics[scale=0.63]{uji_nat01.png}
-	\caption{Laporan kesalahan fitur NAT-01}	
-	\label{fig:ujinat01} 
-\end{figure}
+\begin{enumerate}
+	\item \textit{Test case} TC\_PF\_01.pdf
+	Pada \textit{test case} ini, perangkat lunak tidak menemukan kesalahan dalam dokumen skripsi.
+	
+	\item \textit{Test case} TC\_PF\_02.pdf
+	
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.0\textwidth]
+ERROR 1
+==================
+Error Code: NAT-01
+Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
+Excerpt: 2.1 Regular Expression Regular expression (regex ) [ ?] adalah jenis pola teks tertentu yang dapat digunakan pada banyak aplikasi modern dan bahasa pemrograman
+
+
+ERROR 2
+==================
+Error Code: NAT-01
+Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
+Excerpt: PCRE [ ?] adalah serangkaian fungsi yang menerapkan pencocokan pola regex dengan menggunakan sintaks dan semantik yang sama dengan bahasa pemrograman Perl 5 , meskipun ada beberapa sedikit perbedaan
+\end{lstlisting}
+\end{enumerate}
 
 Laporan yang ditunjukan pada gambar \ref{fig:ujinat01} sudah sesuai dengan yang diharapkan.
 
 \subsection{Menguji fitur VAN-03}
-Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan kata ganti orang pada kalimat. Laporan kesalahan yang ditemukan pada \textit{test case} ''TC\_PF\_02.pdf'' dapat dilihat pada gambar \ref{fig:ujivan03}.
+Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan kata ganti orang pada kalimat. Berikut ini adalah hasil dari pengujian yang telah dilakukan:
 
-\begin{figure}[H]
-	\centering	
-	\includegraphics[scale=0.63]{uji_van03.png}
-	\caption{Laporan kesalahan fitur VAN-03}	
-	\label{fig:ujivan03} 
-\end{figure}
+\begin{enumerate}
+	\item \textit{Test case} TC\_PF\_01.pdf
+	Pada \textit{test case} ini, perangkat lunak tidak menemukan kesalahan dalam dokumen skripsi.
+	
+	\item \textit{Test case} TC\_PF\_02.pdf
+	
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.0\textwidth]
+ERROR 1
+==================
+Error Code: VAN-03
+Note: Kalimat ini mengandung kata ganti orang
+Excerpt: 6.1Kesimpulan Kesimpulan yang saya dapat dari pengembangan perangkat lunak ini adalah sebagai berikut
+
+ERROR 2
+==================
+Error Code: VAN-03
+Note: Kalimat ini mengandung kata ganti orang
+Excerpt: 6.2Saran Saran yang saya berikan untuk pengembangan perangkat lunak ini adalah sebagai berikut
+\end{lstlisting}
+\end{enumerate}
 
 Laporan yang ditunjukan pada gambar \ref{fig:ujivan03} sudah sesuai dengan yang diharapkan.
 
 \section{Pengujian Eksperimental}
-Pada pengujian eksperimental, perangkat lunak akan diuji dengan 5 buah \textit{test case} dokumen skripsi yang diambil dari \textit{Github} skripsi Informatika.
+Pada pengujian eksperimental, perangkat lunak akan diuji dengan 5 buah \textit{test case} dokumen skripsi yang diambil dari \textit{Github} FTIS Unpar \footnote{https://github.com/ftisunpar/Skripsi}. Dokumen yang digunakan sebagai pengujian, yaitu:
+
+\begin{enumerate}
+	\item TC\_PE\_01.pdf
+	\item TC\_PE\_02.pdf
+	\item TC\_PE\_03.pdf
+	\item TC\_PE\_04.pdf
+	\item TC\_PE\_05.pdf 
+\end{enumerate}
+
+Pada pengujian ini, ke-5 \textit{test case} tersebut akan dijalankan pada perangkat lunak. Berikut adalah hasil yang dikeluarkan oleh perangkat lunak dari setiap \textit{test case} yang digunakan:
+
+\begin{enumerate}
+	\item TC\_PE\_01.pdf
+	
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.0\textwidth]
+Fatal error: Uncaught Exception: Object list not found. Possible secured file. in D:\Skripsi\src\vendor\smalot\pdfparser\src\Smalot\PdfParser\Parser.php:105
+Stack trace:
+#0 D:\Skripsi\src\vendor\smalot\pdfparser\src\Smalot\PdfParser\Parser.php(81): Smalot\PdfParser\Parser->parseContent('%PDF-1.5\n%\xD0\xD4\xC5\xD8\n...')
+#1 D:\Skripsi\src\pdf_checker\SkripsiExtract.php(26): Smalot\PdfParser\Parser->parseFile('D:\\Skripsi\\src\\...')
+#2 D:\Skripsi\src\pdf_checker\Main.php(9): SkripsiExtract->extractFromPDF('../res/TC_PE_01...')
+#3 {main}
+  thrown in D:\Skripsi\src\vendor\smalot\pdfparser\src\Smalot\PdfParser\Parser.php on line 105
+\end{lstlisting}
+
+	Pada \textit{test case} ini, perangkat lunak mendeteksi bahwa file ini merupakan file yang \textit{secured}. Hal ini sudah dijelaskan pada sub bab \ref{sec:pdfparser}, bahwa \textit{library} ini tidak dapat melakukan ekstrak dokumen yang \textit{secured}.
+	
+	\item TC\_PE\_02.pdf \newline
+	Perangkat lunak tidak mengeluarkan laporan kesalahan yang ditemukan pada dokumen. Pada terminal juga tidak diberikan pesan error yang menandakan bahwa terdapat kesalahan pada perangkat lunak.	
+	
+	\item TC\_PE\_03.pdf \newline
+	Perangkat lunak tidak mengeluarkan laporan kesalahan yang ditemukan pada dokumen. Pada terminal juga tidak diberikan pesan error yang menandakan bahwa terdapat kesalahan pada perangkat lunak.	
+	
+	\item TC\_PE\_04.pdf
+
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.0\textwidth]
+Fatal error: Uncaught Exception: Object list not found. Possible secured file. in D:\Skripsi\src\vendor\smalot\pdfparser\src\Smalot\PdfParser\Parser.php:105
+Stack trace:
+#0 D:\Skripsi\src\vendor\smalot\pdfparser\src\Smalot\PdfParser\Parser.php(81): Smalot\PdfParser\Parser->parseContent('%PDF-1.5\n%\xD0\xD4\xC5\xD8\n...')
+#1 D:\Skripsi\src\pdf_checker\SkripsiExtract.php(26): Smalot\PdfParser\Parser->parseFile('D:\\Skripsi\\src\\...')
+#2 D:\Skripsi\src\pdf_checker\Main.php(9): SkripsiExtract->extractFromPDF('../res/TC_PE_04...')
+#3 {main}
+  thrown in D:\Skripsi\src\vendor\smalot\pdfparser\src\Smalot\PdfParser\Parser.php on line 105
+\end{lstlisting}
+
+	Pada \textit{test case} ini, perangkat lunak mendeteksi bahwa file ini merupakan file yang \textit{secured}. Hal ini sama dengan yang terjadi pada \textit{test case} TC\_PE\_01.pdf.
+	
+	\item TC\_PE\_05.pdf \newline
+	Perangkat lunak tidak mengeluarkan laporan kesalahan yang ditemukan pada dokumen. Pada terminal juga tidak diberikan pesan error yang menandakan bahwa terdapat kesalahan pada perangkat lunak.
+	
+\end{enumerate}
+
+\subsection{Pengujian terhadap PDF yang tidak mengeluarkan laporan}
+Hipotesis yang didapatkan dari laporan yang dikeluarkan saat perangkat lunak menggunakan \textit{test case} TC\_PF\_02.pdf, TC\_PF\_03.pdf dan TC\_PF\_05.pdf adalah ada kesalahan yang perlu ditelusuri pada \textit{library PdfParser}.
+
+\begin{enumerate}
+	\item Pertama melakukan pengecekan terhadap method extractFromPDF(\$input) yang ada pada kelas SkripsiExtract. Langkah yang dilakukan untuk mencari kesalahan tersebut adalah dengan menambahkan kode print start dan stop di dalam method tersebut pada awal dan akhir sebelum \textit{return value}. Kode print stop akan bergeser ke atas hingga bertemu dengan sumber masalah. 
+	
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:checkKode},language=php,xleftmargin=.0\textwidth]
+$directory = getcwd();
+$this->parser = new \Smalot\PdfParser\Parser();
+$this->file = $directory . '/' . $input;
+echo "start";
+$pdf = $this->parser->parseFile($this->file);
+echo "stop";
+$pages  = $pdf->getPages();
+\end{lstlisting}
+
+Pada saat perangkat lunak dijalankan, hasil yang dikeluarkan hanya tulisan \textit{start} saja. Pada listing \ref{lst:checkKode}, sumber masalah ditemukan pada baris ke-5 (baris ke-26 pada \textit{source code}). Setelah sumber ditemukan, masalah yang ditemui berasal dari \textit{library PdfParser}.
+	
+	\item Langkah ke-2 yaitu menelusuri kelas Parser dari \textit{library PdfParser}. Langkah yang dilakukan sama dengan langkah yang pertama. Pada kelas tersebut sumber masalah berada pada \textit{method parseContent()}.
+	
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:checkKode2},language=php,xleftmargin=.0\textwidth]
+ob_start();
+echo "start";
+@$parser = new \TCPDF_PARSER(ltrim($content));
+echo "stop";
+list($xref, $data) = $parser->getParsedData();
+unset($parser);
+ob_end_clean();
+\end{lstlisting}
+	
+	Pada listing \ref{lst:checkKode2}, sumber masalah berada pada baris ke-3 (baris ke-93 pada \textit{source code}). Baris tersebut merujuk pada kelas TCPDF\_Parser.	
+	
+	\item Langkah ke-3 yaitu menelusuri kelas TCPDF\_Parser. Pada kelas ini terdapat beberapa \textit{method}, sehingga \textit{method} yang pertama kali dicek adalah konstruktornya.
+	
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:checkKode3},language=php,xleftmargin=.0\textwidth]
+foreach ($this->xref['xref'] as $obj => $offset) {
+	if (!isset($this->objects[$obj]) AND ($offset > 0)) {
+		// decode objects with positive offset
+		echo "start";
+		$this->objects[$obj] = $this->getIndirectObject($obj, $offset, true);
+		echo "stop";
+	}
+}
+\end{lstlisting}
+
+	Pada listing \ref{lst:checkKode3}, sumber masalah berada pada baris ke-5 (baris ke-123 pada \textit{source code}). Baris tersebut merujuk pada method \textit{getIndirectObject()} yang ada pada kelas yang sama.
+	
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:checkKode4},language=php,xleftmargin=.0\textwidth]
+if ($decoding AND ($element[0] == 'stream') AND (isset($objdata[($i - 1)][0])) AND ($objdata[($i - 1)][0] == '<<')) {
+	echo "start";	
+	$element[3] = $this->decodeStream($objdata[($i - 1)][1], $element[1]);
+	echo "stop";
+}
+\end{lstlisting}
+
+	Pada listing \ref{lst:checkKode4}, sumber masalah berada pada baris ke-4 (baris ke-702 pada \textit{source code}). Baris tersebut merujuk pada \textit{method decodeStream()} yang ada pada kelas yang sama.
+	
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:checkKode5},language=php,xleftmargin=.0\textwidth]
+try {
+	echo "start";
+	$stream = TCPDF_FILTERS::decodeFilter($filter, $stream);
+	echo "stop";
+} catch (Exception $e) {
+	$emsg = $e->getMessage();
+	if ((($emsg[0] == '~') AND !$this >cfg['ignore_missing_filter_decoders']) OR (($emsg[0] != '~') AND !$this->cfg['ignore_filter_decoding_errors'])) {
+		$this->Error($e->getMessage());
+	}
+}
+\end{lstlisting}
+	
+	Pada listing \ref{lst:checkKode5}, sumber masalah berada pada baris ke-3 (baris ke-781 pada \textit{source code}). Baris tersebut merujuk pada kelas TCPDF\_Filters.
+	
+	\item Langkah terakhir yaitu melakukan pengecekan pada kelas TCPDF\_Filters. Pada kelas ini, \textit{method} yang diperiksa adalah \textit{decodeFilter()}.
+	
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:checkKode6},language=php,xleftmargin=.0\textwidth]
+case 'FlateDecode': {
+	return self::decodeFilterFlateDecode($data);
+	break;
+}
+\end{lstlisting}
+	
+	Pada listing \ref{lst:checkKode6}, sumber masalah ada pada baris ke-2 (baris ke-94 pada \textit{source code}). Baris tersebut merujuk pada method \textit{decodeFilterFlateCode()}.
+	
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:checkKode7},language=php,xleftmargin=.0\textwidth]
+// initialize string to return
+echo "start";
+$decoded = @gzuncompress($data);
+echo "stop";
+if ($decoded === false) {
+	self::Error('decodeFilterFlateDecode: invalid code');
+}
+return $decoded;
+\end{lstlisting}
+
+	Pada listing \ref{lst:checkKode7}, sumber dari masalah utamanya berada pada baris ke-2 (baris ke-357 pada \textit{source code}). Dari hasil pengujian yang dilakukan, alasan bahwa perangkat lunak tidak mengeluarkan pesan kesalahan karena pada baris ke-2, terdapat karakter ''@'' sebelum method \textit{gzuncompress()}. Fungsi karakter tersebut adalah untuk membungkam seluruh pesan kesalahan, sehingga pengguna tidak mengetahui kesalahan yang ada. Untuk melihat pesan kesalahan, karakter ''@'' dihapuskan dan menambahkan sebuah kode untuk melaporkan kesalahan.
+	
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:checkKode8},language=php,xleftmargin=.0\textwidth]
+// initialize string to return
+error_reporting(E_ALL);
+$decoded = gzuncompress($data);
+if ($decoded === false) {
+	self::Error('decodeFilterFlateDecode: invalid code');
+}
+return $decoded;
+\end{lstlisting}
+
+	Dengan menggunakan kode pada baris ke-2 di listing\ref{lst:checkKode9}, perangkat lunak berhasil mengeluarkan laporan kesalahan.
+	
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:checkKode9},language=php,xleftmargin=.0\textwidth]
+Fatal error: Allowed memory size of 134217728 bytes exhausted (tried to allocate .......(size tergantung file) bytes) in D:\Skripsi\src\vendor\tecnickcom\tcpdf\include\tcpdf_filters.php on line 357
+\end{lstlisting}
+	
+	\item Untuk mengatasi masalah yang ada pada listing \ref{lst:checkKode9}, maka ada beberapa hal yang perlu ditambahkan pada perintah \ref{lst:command} untuk menjalankan perangkat lunak.
+
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:checkKode10},language=php,xleftmargin=.1\textwidth]
+php -d memory_limit=(ukuran sesuai kebutuhan)M main.php ../res/nama_file.pdf
+\end{lstlisting}
+
+	Dengan menggunakan perintah pada \ref{lst:checkKode10}, perangkat lunak dapat mengeluarkan pesan kesalahan dalam dokumen skripsi. Proses untuk menyelesaikan masalah, bahwa perangkat lunak tidak mengeluarkan pesan pun telah berhasil diselesaikan.
+
+\end{enumerate}
+
+\subsection{Pengujian terhadap Secured PDF}
+Pada beberapa \textit{test case}, perangkat lunak mengeluarkan kesalahan yang mengatakan bahwa file yang digunakan termasuk \textit{secured PDF}. File yang terkait yaitu ''TC\_PE\_01.pdf'' dan ''TC\_PE\_04.pdf''. Hipotesis yang didapatkan dari laporan adalah kemungkinan bahwa file yang diunggah ke \textit{Github} akan menjadi \textit{secured file}.
+
+Berdasarkan hipotesis yang telah disampaikan, ada sebuah percobaan yang dilakukan pada \textit{test case} yang terkait. Hal yang dilakukan adalah mengunduh seluruh data skripsi dari file yang terkait. Setelah itu dilakukan proses \textit{compile} ulang, untuk mendapatkan PDF dokumen skripsi yang baru. Dokumen hasil \textit{compile} ulang diberi nama TC\_PE\_01\_v2.pdf dan TC\_PE\_04\_v2.pdf. 
+
+Pengujian file yang sebelumnya bermasalah dilakukan dengan menggunakan file hasil \textit{compile} ulang. Perangkat lunak berhasil mengeluarkan laporan kesalahan yang ada pada dokumen skripsi. Permasalahan yang berkaitan dengan \textit{secured} PDF berhasil diatasi.

@@ -16,7 +16,7 @@
 			$result = [];
 			$sentence = $pdf_extract->splitContentPage();
 			foreach ($sentence as $index => $value) {
-				$pattern = "/\B\[?\]\B/";
+				$pattern = "/\B\[ \?]\B/";
 				if (preg_match($pattern, $value)) {
 					$result[] = [
 						"Error Code" => "NAT-01",

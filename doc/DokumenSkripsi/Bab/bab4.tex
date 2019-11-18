@@ -35,12 +35,12 @@ Pada bagian ini akan dijelaskan rancangan kelas yang akan digunakan pada perangk
 	\label{fig:diagram_kelas} 
 \end{figure}
 
-Gambar \ref{fig:diagram_kelas} merupakan diagram kelas untuk perangkat lunak yang akan dibuat. Pada diagram kelas tersebut, ditunjukan bahwa perangkat lunak memiliki sebelas kelas dan sebuah package \textit{library PDF Parser}. Rincian dari setiap kelas tersebut akan dijelaskan sebagai berikut.
+Gambar \ref{fig:diagram_kelas} merupakan diagram kelas untuk perangkat lunak yang akan dibuat. Pada diagram kelas tersebut, ditunjukan bahwa perangkat lunak memiliki sebelas kelas dan sebuah package \textit{library PDF Parser}. Perangkat lunak akan menggunakan paradigma \textit{Object Oriented Programming} dalam pengembangannya. Rincian dari setiap kelas tersebut akan dijelaskan sebagai berikut.
 
 \begin{enumerate}
 
 	\item Kelas Checker \\
-	Kelas ini merupakan kelas \textit{Parent} dari semua \textit{checker} yang akan diimplementasi pada perangkat lunak. Kelas ini memiliki sebuah \textit{method} abstrak dan sebuah \textit{method getter}. Berikut ini adalah \textit{method} yang terdapat pada kelas \textit{Checker}.
+	Kelas ini merupakan kelas \textit{Parent} dari semua \textit{checker} yang akan diimplementasi pada perangkat lunak. Kelas ini memiliki sebuah \textit{method} abstrak dan sebuah \textit{method getter}. Semua anak kelas \textit{Checker} akan mengadopsi method yang ada pada kelas ini. Berikut ini adalah \textit{method} yang terdapat pada kelas \textit{Checker}.
 	
 		\begin{itemize}
 			\item errorChecking(\$pdf\_extract) \\
@@ -70,20 +70,20 @@ Gambar \ref{fig:diagram_kelas} merupakan diagram kelas untuk perangkat lunak yan
 	Kelas ini bertanggungjawab untuk memeriksa penggunaan huruf kapital pada awal kalimat. Kelas ini memiliki sebuah method, yaitu errorChecking(\$pdf\_extract). \textit{Method} ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan pdf\_extract dengan tipe data kelas \textit{SkripsiExtract}. Bagian yang diperiksa pada \textit{checker} ini adalah bab 1 hingga 6.
 			
 	\item Kelas PS09\_SubChapterChecker \\
-	Kelas ini bertanggungjawab untuk memeriksa subbab yang ada dalam sebuah bab. Kelas ini memiliki sebuah method, yaitu errorChecking(\$pdf\_extract). \textit{Method} ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan pdf\_extract dengan tipe data kelas \textit{SkripsiExtract}. Bagian yang diperiksa pada \textit{checker} ini adalah bab 1 hingga 6.
+	Kelas ini bertanggungjawab untuk memeriksa jumlah sub bab atau sub sub bab yang ada dalam sebuah bab atau sub bab. Kelas ini memiliki sebuah method, yaitu errorChecking(\$pdf\_extract). \textit{Method} ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan pdf\_extract dengan tipe data kelas \textit{SkripsiExtract}. Bagian yang diperiksa pada \textit{checker} ini adalah halaman daftar isi.
 			
 	\item Kelas VAN03\_SubjectProunounChecker \\
 	Kelas ini bertanggungjawab untuk memeriksa penggunaan kata ganti orang pada dokumen skripsi. Kelas ini memiliki sebuah method, yaitu errorChecking(\$pdf\_extract). \textit{Method} ini berfungsi untuk memeriksa kesalahan pada dokumen skripsi. Method ini menerima masukan pdf\_extract dengan tipe data kelas \textit{SkripsiExtract}. Bagian yang diperiksa pada \textit{checker} ini adalah bab 1 hingga 6.
 			
 	\item Kelas SkripsiExtract \\
-	Kelas ini berfungsi untuk melakukan proses ekstak dokumen PDF skripi dan disimpan menjadi beberapa bagian berdasarkan konten-konten yang pada dokumen skripsi. Kelas ini memiliki beberapa atribut yang akan dijelaskan sebagai berikut:
+	Kelas ini berfungsi untuk melakukan proses ekstak dokumen PDF skripsi, dengan menggunakan \textit{library PdfParser}. Hasil dari ekstrak tersebut akan disimpan menjadi beberapa bagian, berdasarkan konten-konten yang ada pada dokumen skripsi. Kelas ini memiliki beberapa atribut yang akan dijelaskan sebagai berikut:
 	
 		\begin{itemize}
 			\item file \\
-			Atribut ini berfungsi untuk menyimpan nama file dari dokumen skripsi.
+			Atribut ini berfungsi untuk menyimpan lokasi dokumen skripsi beserta nama dari dokumen tersebut.
 			
 			\item parser \\			
-			Atribut ini berfungsi sebagai instansiasi kelas Parser dari \textit{Library PDF Parser}.
+			Atribut ini berfungsi sebagai instansiasi kelas Parser dari \textit{Library PDF Parser}, untuk memanggil method yang dibutuhkan dalam proses ekstrak dokumen.
 			
 			\item cover \\
 			Atribut ini berfungsi untuk menyimpan hasil ekstrak dari halaman cover bahasa Indonesia dan bahasa Inggris.
@@ -152,6 +152,7 @@ $parser = new \Smalot\PdfParser\Parser();
 $pdf    = $parser->parseFile('document.pdf');
 $text   = $pdf->getText();
 \end{lstlisting}
+\medskip
 	
 \begin{lstlisting}[caption={Potongan kode untuk mengesktrak halaman dokumen secara spesifik}
 \label{lst:specific_page},language=php,xleftmargin=.2\textwidth] 
@@ -163,16 +164,16 @@ $pages  = $pdf->getPages();
 \end{lstlisting}
 \medskip
 
-Listing \ref{lst:all_page} dan listing \ref{lst:specific_page} merupakan potongan kode yang terdapat pada dokumentasi \textit{library PDF Parser}. Kode dari kedua listing tersebut hampir mirip, yang menjadi pembeda adalah pada baris ke-5. Listing \ref{lst:all_page} menggunakan \textit{method getText()} dan hasil dari ekstraknya disimpan menjadi sebuah kesatuan dari halaman awal hingga halaman akhir. Listing \ref{lst:specific_page} menggunakan \textit{method getPages()} dan hasil dari ekstraknya disimpan dalam sebuah array String sejumlah halaman yang ada pada dokumen.
+Listing \ref{lst:all_page} dan listing \ref{lst:specific_page} merupakan potongan kode yang terdapat pada dokumentasi \textit{library PDF Parser}, yang digunakan untuk mengekstrak isi dokumen. Kode dari kedua listing tersebut hampir mirip, yang menjadi pembeda adalah pada baris ke-5. Listing \ref{lst:all_page} menggunakan \textit{method getText()} dan hasil dari ekstraknya disimpan menjadi sebuah kesatuan dari halaman awal hingga halaman akhir. Listing \ref{lst:specific_page} menggunakan \textit{method getPages()} dan hasil dari ekstraknya disimpan dalam sebuah array String sejumlah halaman yang ada pada dokumen. Pengguna dapat menentukan secara spesifik halaman apa saja yang ingin diekstrak.
 
 Pada skripsi ini akan digunakan metode yang mengesktrak halaman-halaman secara spesifik. Hasil ekstrak akan disimpan dalam berdasarkan konten-konten yang ada, seperti halaman cover, abstrak, daftar isi, daftar tabel, daftar gambar dan seterusnya. Ada beberapa alasan yang mendorong untuk melakukan pemisahan konten-konten tersebut, salah satunya yaitu agar pemeriksa dapat memeriksa bagian-bagian spesifik yang dibutuhkan. Contohnya, untuk memeriksa kelengkapan data skripsi tidak perlu memeriksa seluruh isi dari dokumen, halaman yang dibutuhkan hanya cover saja. Dengan demikian, proses pemeriksaan menjadi lebih efektif karena tidak perlu memeriksa seluruh halaman yang ada pada dokumen.
 
 \subsection{Pola Pengecekan Kesalahan}
-Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring dan akan diimplementasikan dalam perangkat lunak. Pengecekan kesalahan tersebut akan dilakukan dengan menggunakan teknik \textit{pattern matching}. Hasil ekstrak dari PDF skripsi akan dipotong per kalimat dengan delimiter karakter titik dan spasi ke dalam sebuah array. Berikut adalah rincian dari hasil survei yang dipilih beserta penyelesaiannya:
+Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring dan akan diimplementasikan dalam perangkat lunak. Pengecekan kesalahan tersebut akan dilakukan dengan menggunakan teknik \textit{pattern matching}. Hasil ekstrak dari PDF skripsi akan dipotong per kalimat dengan \textit{delimiter} karakter titik dan spasi ke dalam sebuah array. Berikut adalah rincian dari hasil survei yang dipilih beserta penyelesaiannya:
 
 \begin{enumerate}
 	\item Penulisan kata (PS-01) \\
-	Untuk mendeteksi kesalahan penulisan kata, akan digunakan ekstensi kamus bahasa Indonesia \textit{LibreOffice}. Dengan digunakan kamus tersebut, kesalahan penulisan suatu kata dapat diminimalisir. Pada skripsi ini, pemeriksaan kata-kata yang menggunakan imbuhan tidak ditangani pada masalah ini, karena keterbatasan waktu yang dimiliki. Terdapat kode yang harus diterjemahkan terlebih dahulu untuk dapat mengetahui imbuhan yang dapat digunakan dalam sebuah kata. Pola pengecekan yang digunakan akan dijelaskan pada pseudocode \ref{alg:ps01}.
+	Untuk mendeteksi kesalahan penulisan kata, akan digunakan ekstensi kamus bahasa Indonesia \textit{LibreOffice}. Dengan digunakannya kamus tersebut, kesalahan penulisan suatu kata dapat diminimalisir. Pada skripsi ini, pemeriksaan kata-kata yang menggunakan imbuhan tidak ditangani pada masalah ini, karena keterbatasan waktu yang dimiliki. Terdapat kode yang harus diterjemahkan terlebih dahulu untuk dapat mengetahui imbuhan yang dapat digunakan dalam sebuah kata, seperti yang sudah dijelaskan pada sub bab \ref{sec:kamusindo}. Pola pengecekan yang digunakan akan dijelaskan pada pseudocode \ref{alg:ps01}.
 		
 \begin{minipage}{1.0\linewidth}
 \begin{algorithm}[H]
@@ -211,11 +212,11 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
 		\item Contoh kesalahan \\
 		Istilah \textit{regex} berasal dari toeri matematika dan komputer sains, yang mencerminkan sifat ekspresi dalam matematika yang disebut keteraturan.
 		\item Laporan kesalahan \\
-		Ditemukan penulisan kata yang tidak sesuai dengan kamus.
+		Pada fitur ini, setiap menemukan kesalahan penulisan kata akan ditampung terlebih dahulu sampai seluruh kata selesai diperiksa. Pada akhirnya seluruh kesalahan yang ditemukan akan dikeluarkan.
 	\end{itemize}
 	
-	\item Pemberian spasi sebelum dan sesudah tanda baca (PS-03) \\
-	Kesalahan ini akan terdeteksi apabila tidak ada karakter spasi sebelum ataupun sesudah tanda baca. Pola pengecekan yang digunakan akan dijelaskan pada \textit{pseudocode} \ref{alg:ps03}.
+	\item Pemberian spasi sesudah tanda baca (PS-03) \\
+	Kesalahan ini akan terdeteksi apabila tidak ada karakter spasi sesudah tanda baca. Pola pengecekan yang digunakan akan dijelaskan pada \textit{pseudocode} \ref{alg:ps03}.
 	
 \begin{minipage}{1.0\linewidth}
 \begin{algorithm}[H]
@@ -228,7 +229,7 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
 			\State $result \gets$ Array for store all errors report
 			\State $sentence \gets$ Call getter from class SkripsiExtract
     		\For{each sentence in $sentence$}
-				\State $pattern \gets$ Define regex /([A-Za-z]+[,.!?][A-Za-z]+)/
+				\State $pattern \gets$ Define regex /([A-Za-z]{2,}[,.!?][A-Za-z]+)/
         		\If{$pattern$ contain in $array$}
                 	\State $result \gets$ Fill with errors report
             	\EndIf
@@ -240,13 +241,13 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
 \end{minipage}
 \medskip
 	
-	Pada pseudocode \ref{alg:ps03}, pola akan memeriksa setiap kalimat yang ada pada indeks array. Kesalahan akan terdeteksi apabila setelah tanda baca titik, koma, seru atau tanya tidak terdapat spasi yang memisahkan tanda baca dengan kata baru. Berikut adalah contoh dari kesalahan dan laporan yang dikeluarkan:
+	Pada pseudocode \ref{alg:ps03}, pola akan memeriksa setiap kalimat yang ada pada indeks array. Pola \textit{regex} yang telah didefinisikan akan mencari pola yang apabila setelah tanda baca titik, koma, seru atau tanya tidak terdapat spasi yang memisahkan tanda baca dengan kata setelah tanda baca. Berikut adalah contoh dari kesalahan dan laporan yang dikeluarkan:
 	
 	\begin{itemize}
 		\item Contoh kesalahan \\
 		Aplikasi ini dijalankan melalui melalui terminal command Windows.laporan dari hasil kesalahan tersebut akan ditampilkan melalui terminal command Windows.
 		\item Laporan kesalahan \\
-		Perhatikan spasi sebelum atau setelah tanda baca.
+		Perhatikan spasi setelah tanda baca.
 	\end{itemize}
 	
 	\item Awal kalimat tidak menggunakan huruf kapital (PS-05) \\
@@ -263,9 +264,13 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
 			\State $result \gets$ Array for store all errors report
 			\State $sentence \gets$ Call getter from class SkripsiExtract
     		\For{each sentence in $sentence$}
-				\State $pattern \gets$ Define regex / $\hat{}$ ($\backslash$s[a-z][a-z0-9].*)/
+				\State $pattern \gets$ Define regex / $\hat{}$ [a-z]+ | [a-z]+\.[a-z] /
         		\If{$pattern$ contain in $array$}
-                	\State $result \gets$ Fill with errors report
+        			\If{first character in a sentence is a non word character}
+        				\State Continue
+        			\EndIf{}
+        			\Else
+                		\State $result \gets$ Fill with errors report
             	\EndIf
         	\EndFor
     		\State \textbf{return} $result$
@@ -275,13 +280,13 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
 \end{minipage}
 \medskip
 
-	Pada pseudocode \ref{alg:ps05}, pola akan memeriksa setiap kalimat yang ada pada indeks array. Kesalahan akan terdeteksi apabila karakter pertama dalam sebuah kalimat menggunakan huruf kecil. Berikut adalah contoh dari kesalahan dan laporan yang dikeluarkan:
+	Pada pseudocode \ref{alg:ps05}, pola akan memeriksa setiap kalimat yang ada pada indeks array. Pola \textit{regex} yang telah didefinisikan akan mencari pola dimana karakter pertama dalam sebuah kalimat menggunakan huruf kecil. Namun perlu dipastikan bahwa karakter pertama tersebut adalah karakter \textit{word}.Berikut adalah contoh dari kesalahan dan laporan yang dikeluarkan:
 	
 	\begin{itemize}
 		\item Contoh kesalahan \\ 
 		aplikasi sederhana ini, dapat dimanfaatkan oleh mahasiswa Informatika Unpar secara mandiri.
 		\item Laporan kesalahan \\
-		Huruf pertama pada kalimat ini tidak menggunakan huruf kapital.
+		Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
 	\end{itemize}
 	
 	\item Jumlah subbab dalam 1 bab tidak boleh hanya 1 (PS-09) \\
@@ -316,7 +321,7 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
 		\item Contoh kesalahan \\
 		Bab 4 \newline PERANCANGAN \newline \newline 4.1 Perancangan Kelas
 		\item Laporan kesalahan \\
-		Pada bab ini hanya terdapat 1 subbab, lebih baik tidak perlu menggunakan subbab.
+		Bab/Sub bab .... ini hanya terdapat 1 sub bab/sub sub bab.
 	\end{itemize}	
 	
 	\item Kalimat pengantar untuk setiap subbab (KAL-02) \\
@@ -351,11 +356,11 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
 		\item Contoh kesalahan \\
 		Bab 4 \newline PERANCANGAN \newline \newline 4.1 Perancangan Kelas \newline 4.2 Perancangan Algoritma
 		\item Laporan kesalahan \\
-		Berilah kata pengantar untuk bab atau subbab.
+		Berilah kata pengantar untuk setiap bab.
 	\end{itemize}
 	
 	\item Kelengkapan data skripsi (KAL-03) \\
-	Kesalahan ini dapat terlihat pada halaman cover skripsi. Mahasiswa yang belum mengisi data skripsi, pada file PDFnya akan ditampilkan tulisan template pada data skripsinya.Pola pengecekan yang digunakan akan dijelaskan pada \textit{pseudocode} \ref{alg:kal03}.
+	Kesalahan ini dapat terlihat pada halaman cover skripsi. Pada halaman cover bahasa Inggris dan bahasa Indonesia akan ditemukan tulisan \textit{template}, apabila mahasiswa belum mengisi data skripsi. Data tersebut diisi pada file ''Data.tex''. Pola pengecekan yang digunakan akan dijelaskan pada \textit{pseudocode} \ref{alg:kal03}.
 	
 \begin{minipage}{1.0\linewidth}
 \begin{algorithm}[H]
@@ -386,7 +391,7 @@ Hasil survei kesalahan-kesalahan dalam penulisan dokumen skripsi sudah disaring 
 		\item Contoh kesalahan \\
 		<<SKRIPSI/TUGAS AKHIR>> \newline <<Judul Bahasa Indonesia>> \newline Marcell Trixie Alexander \newline <<10 digit NPM UNPAR>>
 		\item Laporan kesalahan \\
-		Ada data skripsi yang belum dilengkapi, data dapat diisi pada file data.tex
+		Ada data skripsi yang belum dilengkapi pada halaman cover.
 	\end{itemize}	
 	
 	\item Penggunaan kata ganti orang (VAN-03) \\

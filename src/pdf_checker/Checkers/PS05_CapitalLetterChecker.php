@@ -18,11 +18,16 @@
 			foreach ($sentence as $index => $value) {
 				$pattern = "/^[a-z]+ | [a-z]+\.[a-z]/";
 				if (preg_match($pattern, $value)) {
-					$result[] = [
-						"Error Code" => "PS-05",
-						"Note" => "Huruf pertama pada kalimat ini tidak menggunakan huruf kapital",
-						"Excerpt" => $value									
- 					];
+					if(preg_match("/^\W/", $value)){
+						continue;
+					}
+					else{
+						$result[] = [
+							"Error Code" => "PS-05",
+							"Note" => "Huruf pertama pada kalimat ini tidak menggunakan huruf kapital",
+							"Excerpt" => $value									
+ 						];
+ 					}
 				}	
 			}
 			return $result;
