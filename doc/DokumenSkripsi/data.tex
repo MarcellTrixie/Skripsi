@@ -215,7 +215,7 @@
 % - judul TIDAK ditulis dengan menggunakan huruf besar seluruhnya !!
 %=============================================================================
 \judulINA{Aplikasi Pemeriksa Kesalahan Dokumen Skripsi Informatika UNPAR}
-\judulENG{General Error Checker Application for Informatics Engineering UNPAR Thesis Document}
+\judulENG{General Error Checker Application for Informatics UNPAR Thesis Document}
 %_____________________________________________________________________________
 %=============================================================================
 % 								BAGIAN X
@@ -227,8 +227,26 @@
 % - hilangkan tanda << & >>, dan isi sesuai dengan data anda
 % - langsung mulai setelah '{' awal, jangan mulai menulis di baris bawahnya
 %=============================================================================
-\abstrakINA{<<Tuliskan abstrak anda di sini, dalam bahasa Indonesia>>}
-\abstrakENG{<<Tuliskan abstrak anda di sini, dalam bahasa Inggris>>} 
+\abstrakINA{Skripsi merupakan karangan ilmiah yang wajib ditulis oleh mahasiswa sebagai bagian dari persyaratan akhir pendidikan akademiknya di Perguruan Tinggi. Namun dalam penulisannya, mahasiswa sering melakukan kesalahan kecil yang tidak dapat diabaikan. Mahasiswa
+seharusnya dapat memeriksa dan meminimalisir kesalahan sendiri, sehingga waktu bimbingan dapat dimanfaatkan untuk membahas konten skripsi. Pada skripsi ini akan dikembangkan sebuah perangkat lunak yang dapat memeriksa kesalahan dokumen skripsi.
+
+Perangkat lunak ini hanya dapat digunakan untuk memeriksa dokumen skripsi Informatika Unpar. Perangkat lunak menerima sebuah masukan berupa lokasi dan nama dokumen skripsi. Perangkat lunak akan mengeluarkan sebuah laporan kesalahan yang ditemukan di dokumen skripsi. Perangkat lunak tidak menggunakan Graphical Unit Interface, sehingga
+masukan dan keluaran akan ditampilkan pada terminal.
+
+Dokumen skripsi diekstrak menggunakan Library PdfParser, yang akan dipotong menjadi kalimat-kalimat. Kalimat tersebut akan diperiksa menggunakan metode pencocokan pola. Pola dibuat dengan Regular Expression. Kesalahan yang dapat diperiksa yaitu kesalahan yang
+bersifat tekstual.
+
+Perangkat lunak telah diuji fungsionalitasnya dengan menggunakan sejumlah kasus uji yang dibuat menggunakan template skripsi yang digunakan Fakultas Teknologi Informasi dan Sains. Pengujian dengan cara menggunakan kasus uji sebagai masukan dan membandingkan laporan
+kesalahan yang dikeluarkan dengan hasil yang diharapkan.}
+
+\abstrakENG{Thesis is a scientific essay that must be written by students as part of the final requirements of academic education in Higher Education. But in writing, students often make small mistakes that cannot be ignored. College student should be able to check and minimize their own mistakes, so that the guidance time can be used to discuss the content of the thesis. This thesis will develop a software that can check thesis document errors.
+
+This software can only be used to check the Unpar Informatics thesis document. The software receives an input of location and name of thesis document. The software will issue an error report found in the thesis document. The software does not use the Graphical Unit Interface, so the input and output will be displayed on the terminal.
+
+The thesis document is extracted using PdfParser Library, which will be split into sentences. The sentence will be check using the pattern matching method. Patterns are made with regular expressions.
+Errors that can be checked are errors that are textual.
+
+The software has been tested for functionality by using a number of test cases created using a thesis template used by the Faculty of Information Technology and Science. Testing by using a test case as input and comparing the error report issued with the expected results.} 
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -240,8 +258,8 @@
 % - kunciENG: keywords in english
 % Petunjuk: hilangkan tanda << & >>, dan isi sesuai dengan data anda.
 %=============================================================================
-\kunciINA{<<Tuliskan di sini kata-kata kunci yang anda gunakan, dalam bahasa Indonesia>>}
-\kunciENG{<<Tuliskan di sini kata-kata kunci yang anda gunakan, dalam bahasa Inggris>>}
+\kunciINA{Pemeriksa dokumen, \textit{PdfParser}, \textit{Regular Expression}, Informatika Unpar}
+\kunciENG{Document checker, \textit{PdfParser}, \textit{Regular Expression}, Informatics Unpar}
 %=============================================================================
 
 %_____________________________________________________________________________
