@@ -229,12 +229,9 @@ Kelas karakter adalah karakter yang memiliki atribut yang spesifik yang dikelomp
 	\item Menangani \textit{encoding} heksa dan oktal pada teks
 \end{itemize}
 
-Dari fitur yang sudah ada, masih ada yang belum bisa ditangani oleh \textit{library} ini. \textit{PdfParser} belum dapat mengekstrak dokumen yang diamankan. Selain itu, \textit{library} ini tidak dapat mendeteksi jenis teks yang dicetak miring, tebal dan bergaris bawah. Hingga saat ini, pengembangan \textit{library PdfParser} masih terus berjalan. \textit{PdfParser} memiliki beberapa kelas yang menjalankan fungsional dari \textit{library ini}. Pada subbab berikut akan dijelaskan beberapa kelas dari \textit{library PdfParser}.
+Dari fitur yang sudah ada, masih ada yang belum bisa ditangani oleh \textit{library} ini. \textit{PdfParser} belum dapat mengekstrak dokumen yang diamankan. Selain itu, \textit{library} ini tidak dapat mendeteksi jenis teks yang dicetak miring, tebal dan bergaris bawah. Hingga saat ini, pengembangan \textit{library PdfParser} masih terus berjalan. \textit{PdfParser} memiliki beberapa kelas yang menjalankan fungsional dari \textit{library ini}, salah satunya kelas \textit{Parser}. Kelas \textit{Parser} berfungsi untuk mengatur ekstraksi file PDF. \textit{Method-method} yang terdapat pada kelas ini adalah sebagai berikut:
 
-\subsection{Kelas Parser}
-Kelas ini berfungsi untuk mengatur ekstraksi file PDF. \textit{Method-method} yang terdapat pada kelas ini adalah sebagai berikut:
-
-\begin{itemize}
+\begin{enumerate}
 	\item \$object \\
 	Atribut ini adalah sebuah array, yang akan menyimpan objek-objek dari file PDF yang akan diekstrak.
 
@@ -252,8 +249,8 @@ Kelas ini berfungsi untuk mengatur ekstraksi file PDF. \textit{Method-method} ya
 	Kembalian: dokumen yang akan diekstrak.
 	
 	\item protected function parseTrailer(\$structure, \$document) \\
-	Method ini berfungsi untuk Parameter: struktur dan dokumen. \newline
-	Parameter: struktur dan dokumen \newline
+	Method ini berfungsi untuk \newline
+	Parameter: struktur dan dokumen. \newline
 	Kembalian: header dengan parameter trailer dan dokumen.
 	
 	\item protected function parseObject(\$id, \$structure, \$document) \\
@@ -268,8 +265,9 @@ Kelas ini berfungsi untuk mengatur ekstraksi file PDF. \textit{Method-method} ya
 	\item protected function parseHeaderElement(\$type, \$value, \$document) \\
 	Method ini berfungsi untuk mengekstrak elemen-elemen yang ada pada header. \newline
 	Parameter: tipe, value dan dokumen
-\end{itemize}
+\end{enumerate}
 
+\begin{comment}
 \subsection{Page}
 Kelas ini merepresentasikan halaman-halaman yang ada pada dokumen PDF. \textit{Method-method} yang terdapat pada kelas ini adalah sebagai berikut:
 
@@ -303,6 +301,7 @@ Kelas ini merepresentasikan halaman-halaman yang ada pada dokumen PDF. \textit{M
 	Kembalian: mengembalikan isi teks dalam sebuah array.
 	
 \end{itemize}
+\end{comment}
 
 \section{Kamus Indonesia \textit{LibreOffice}}
 \label{sec:kamusindo}
@@ -329,14 +328,13 @@ abadiah
 abah/DkMk
 abah-abah
 	\end{lstlisting}
+\medskip
 	
-	
-	
-Pada listing \ref{lst:idDic}, baris pertama pada file ini menyatakan banyaknya kata yang ada pada kamus. Kata yang ada dalam kamus tersebut berjumlah 31128 buah. Baris ke-2 hingga ke-31128 merupakan kata-kata yang ada pada kamus. Namun ada beberapa kata tersebut ada yang terlihat berbeda, seperti pada baris 6, 7 dan 9. Di sebelah kiri dari kata tersebut terdapat garis miring yang disertai sebuah kode. Kode tersebut berarti bahwa kata tersebut dapat ditambahkan oleh imbuhan tertentu. Bagian ini akan dijelaskan lebih lanjut pada pembahasan file \textit{id\_ID.aff}.
+Pada listing \ref{lst:idDic}, baris pertama pada file ini menyatakan banyaknya kata yang ada pada kamus. Kata yang ada dalam kamus tersebut berjumlah 31128 buah. Baris ke-2 hingga ke-31128 merupakan kata-kata yang ada pada kamus. Dalam kamus ini belum dapat pengelompokan kata berdasarkan jenisnya, misalkan kata benda, kata sifat, dan sebagainya. Namun ada beberapa kata tersebut ada yang terlihat berbeda, seperti pada baris 6, 7 dan 9. Di sebelah kiri dari kata tersebut terdapat garis miring yang disertai sebuah kode. Kode tersebut berarti bahwa kata tersebut dapat ditambahkan oleh imbuhan tertentu. Penjelasan tentang kode tersebut akan diuraikan lebih lanjut pada pembahasan file \textit{id\_ID.aff}. 
 
 \subsection{File \textit{id\_ID.aff}}
 
-File ini berisi daftar awalan dan akhiran untuk kamus Indonesia. Awalan akan disimbolkan dengan huruf kapital, sedangkan akhiran akan disimbolkan dengan huruf kecil. Selain ke-2 hal tesebut, ada juga yang merupakan gabungan dari awalan dan akhiran. Berikut adalah penjelasan dari awalan dan akhiran:
+File ini berisi daftar awalan dan akhiran untuk kamus Indonesia. Awalan akan disimbolkan dengan huruf kapital, sedangkan akhiran akan disimbolkan dengan huruf kecil. Selain ke-2 hal tesebut, ada juga yang merupakan gabungan dari awalan dan akhiran. Setiap imbuhan memiliki kodenya masing-masing, dan sebuah kata dapat memiliki lebih dari 1 kombinasi imbuhan. Berikut adalah penjelasan dari imbuhan yang telah disebutkan:
 
 \begin{enumerate}
 	\item \textit{Prefiks} \\
@@ -347,6 +345,7 @@ PFX B0 Y 2	# ber-
 PFX B0 0 ber  	[^r]
 PFX B0 0 be    	r
 	\end{lstlisting}
+\medskip
 	
 	Listing \ref{lst:prefiks} merupakan salah satu contoh dari awalan yang terdapat pada kamus bahasa Indonesia. Berikut ini adalah penjelasan dari baris kode tersebut:	
 
@@ -372,6 +371,7 @@ SFX k0 0  kan    .
 SFX k0 0  kanlah
 SFX k0 0  kankah
 	\end{lstlisting}
+\medskip
 	
 	 Listing \ref{lst:sufiks} merupakan salah satu contoh dari akhiran yang terdapat pada kamus bahasa Indonesia. Berikut ini adalah penjelasan dari baris kode tersebut:
 	
