@@ -1,0 +1,16 @@
+
+ERROR 1
+==================
+Error Code: PS-01
+Note: Ditemukan penulisan kata yang tidak sesuai dengan kamus
+Excerpt: 
+
+PENDAHULUANPada, dijelaskan, mengenai, penulisan, rumusan, tujuan, batasan, penelitian, merupakan, karangan, ditulis, sebagai, bagian, persya, ratan, pendidikan, akademiknya, penulisannya, peserta, melakukan, kesalahan, diabaikan, Kesalahan, terjadi, penggunaan, imbuhan, keterangan, sebagainya, seharusnya, diperiksa, diminimalisir, bimbingan, pembimbing, dimanfaatkan, membahas, konten, dibanding, memeriksa, tersebut, dibuat, sebuah, pemeriksaan, berasal, dilakukan, Unpar, diseleksi, diimplementasikan, secara, dijalankan, melalui, command, Windows, menerima, masukan, berupa, le, PDF, menampilkan, laporan, berisi, ditemukan, Rumusan, Berdasarkan, dirumuskan, berikut, membuat, Tujuan, adalah, membangun, LANDASAN, TEORIPada, dibahas, landasan, expression, library, LibreO, Expression, regex, tertentu, digunakan, pemrograman, Regex, biasanya, memveri, kecocokan, input, menemukan, mengganti, menyusun, membagi, menjadi, subteks, pencocokan, misalnya, validasi, string, username, password, mail, IP, Pemanfaatan, menyederhanakan, pemrosesan, kehidupan, sehari, mencerminkan, disebut, keteraturan, menggunakan, Deterministic, Finite, DFA, nite, state, machineyang, backtracking, berbagai, satunya, Perl, Compa, tible, PCRE, serangkaian, menerapkan, sintaks, perbedaan, Perlversi, Metakarakter, dibedakan, berdasarkan, posisinya, metakarakter, outside, square, brackets, fungsinya, berbeda, terdapat, sedangkan, inside, bracketsterdapat, Karakter, karakter, memiliki, spesi, k, dikelompokan, setiap, didalam, bracket, mendukung, POSIX, penggunaannya, diantara, Sebagai, alnum, keputusan, UmumPada, mengumpulkan, dibutuhkan, pengembangan, dicari, dipilih, pelaksanaannya, dibagi, pengamatan, Pengamatan, berlangsung, Mei, diamati, melainkan, diambil, pertimbangan, diuji, menghadiri, disajikan, Penguji, Osfaldo, Mickael, Oktavianus, Naibaho, Penjualan, Vania, Natali, S, M, T, Elisati, Ricky, Wahyudi, Menggunakan, Fitur, Surf, Dr, rer, nat, Cecilia, Esti, Nugraheni, ST, MT, Ir, Veronica, Moer, tini, selanjutnya, diminta, PERANCANGANPada, perancangan, dibangun, meliputi, algoritma, pengecekan, Perancangan, rancangan, Rancangan, ditunjukan, Pemeriksa, PENGUJIANPada, pengujian, terhadap, Lingkungan, Pengujian, lingkungan, beserta, implementasinya, Berikut, pembangunan, Spesi, Processor, AMD, Bristol, Ridge, Quad, Core, FX, P, GHz, GB, GPU, Radeon, RX, Storage, Harddisk, TB, PHP, cli, Composer, Sublime, Text, PdfParser, Graphical, User, Interface, kegiatan, disimpan, disediakan, mengeluarkan, Listing, menjalankan, phpmain, php, r, s, n, m, f, i, l, p, d, KESIMPULAN, SARANPada, kesimpulan, Kesimpulan
+
+
+ERROR 2
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Listing 5.1: Perintah yang digunakan untuk menjalankan perangkat lunak 1phpmain.php
+

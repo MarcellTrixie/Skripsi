@@ -1,0 +1,64 @@
+
+ERROR 1
+==================
+Error Code: PS-01
+Note: Ditemukan penulisan kata yang tidak sesuai dengan kamus
+Excerpt: 
+
+PENDAHULUAN, BelakangOnline, judge, merupakan, sebuah, online, dirancang, mengevaluasi, algoritma, dikumpulkan, pengguna, mengcompile, mengeksekusi, mengujinya, lingkungan, menggunakan, disediakan, dijalankan, batasan, time, memory, keamanan, sebagainya, Penggunaan, ditemukan, pemrograman, Sharif, Judge, adalah, C, Java, Python, diciptakan, Mohammad, Javad, Naderi, bersifat, source, ditulis, PHP, framework, CodeIgniter, danbackend, BASH, menilai, jawaban, peserta, secara, penilaian, dimulai, membuat, assignment, dibutuhkan, mulai, berhenti, tambahan, mengunduh, mengerjakan, tersebut, Peserta, mengumpulkan, menjalankan, membandingkan, Setelah, menyesuaikan, keluaran, digunakan, Parahyangan, Algoritma, membantu, memanfaatkan, memberikan, ujian, melihat, setelah, memperbaiki, dikerjakan, melewati, pengumpulan, prakteknya, terkini, pengembangan, Pengembangan, memiliki, kebutuhan, spesi, k, Kebutuhan, login, terintegrasi, server, membatasi, pengaksesan, lainnya, terakhir, dicommit, GitHub, Juli, bug, diperbaiki, menyebabkan, memenuhi, dikemnbangkan, sebutkan, disebutkan, diimplementasikan, pengimplementasian, diharapkan, terpenuhi, LANDASAN, TEORIBab, membahas, landasan, Landasan, diambil, Documentation, British, Columbia, Institute, of, Technology, membangun, web, Tujuan, utamanya, memungkinkan, mengembangkan, menjadi, dibandingkan, menulis, Framework, library, diperlukan, mengakses, meminimalkan, keunggulan, CodeIgniteryaitu, membutuhkan, berbeda, resource, Library, dimuat, permintaan, berjalan, Menggunakan, M, V, pendekatan, View, Control, ler, pemisahan, Pendekatan, dibahas, sub, Menghasilkan, Clean, URLs, menghasilkan, search, engine, friendly, bertujuan, mempermudah, membaca, URL, perbandingan, s, example, com, index, php, page, news, ews, Memiliki, bantuan, dilengkapi, umumnya, database, mengirim, memvalidasi, form, menjaga, session, memanipulasi, diperluas, menambahkan, helper, Flow, Chart, menunjukan, mengalir, ANALISISBab, ditawarkan, didapat, issue, repository, dicatat, Google, Sheets, didiskusikan, pembimbing, dilakukan, menganalisis, setiap, terbuka, terdapat, diikuti, urutan, dibuat, analisa, didapatkan, pertanyaan, usulan, Bebera, dijadikan, pertimbangan, melalui, diwawancarai, Husnul, Claudio, Franciscus, Vania, Natali, Luciana, Abednego, Joanna, Helga, PERANCANGANBab, perancangan, diimplementasi, Mengganti, Method, shel, l, exec, rm, Menjadiunlink, menghapus, le, control, Assignment, diubah, method, unlink, Listing, perubahan, syntax, Perubahan, classAssignmentsextendsCI, Controller, Upload, Tests, zip, file, shell, f, assignments, root, config, array, upload, path, allowed, types, else, foreach, old, pdf, files, name, this, messages, type, success, text, PDF, uploaded, successfully, Menambahkan, Rekoneksi, Database, rekoneksi, ditambahkan, Queueprocess, db, reconnect, menghindari, connection, times, out, pengujian, memakan, diQueueprocess, GNU, Operating, System, Comparing, and, Merging, Files, Mei, https, www, gnu, org, software, utils, html, Detailed, ed, PENGUJIANBab, berdasarkan, rancangan, Lingkungan, Pengujian, Terdapat, melakukan, SharIF, kedua, menguji, Berikut, PertamaParameter, Processor, Core, i, u, Graphics, Processing, GPU, HD, danNvidia, GeForce, Random, Access, Memory, GB, DDR, Storage, SSDdan, TB, Harddisk, Windows, Education, Pemrograman, JavaScript, CSS, HTML, Text, pendukung, XAMPP, v, Chrome, Version, O, cial, Build, Firefox, Quantum, Microsoft, Excel, Kedua, KESIMPULAN, SARANBab, kesimpulan, selanjutnya, Kesimpulan, Berdasarkan, diperoleh, sebagai, berikut, dikembangkan, mengimplementasi, dilihat, padaTabel, Membatasi, Mensupport, ledengan, TXT, Display, Name, pendaftaran, Lock, Student, Archived, Logs, Fame, loginkeserver, Branding, Mengubah, PHPExcel, menjadilibrary, PHPSpreadsheet, menjadiunlink, methodrekoneksi, berhasil, ditentukan, Fitur, JAR, dikarenakan, keterbatasan, pembaruan, Mengimplementasi, multi, class, masukan, padasub, Round, Robin, menggunakanCactiuntuk
+
+
+ERROR 2
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Contoh perbandingan URL biasa dengan Clean URL s: URL biasa: \example.com\index.php?page=news ,Clean URLs :\ example.com ews 
+
+
+ERROR 3
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: 4.1Mengganti Method shel l_exec("rm ...")Menjadiunlink() Method shel l_exec("rm ...") yang memiliki fungsi untuk menghapus sebuah le terdapat pada kelas control ler Assignment.php 
+
+
+ERROR 4
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Listing 4.1: Perubahan kode program pada Assignment.php@@-433,8+433,7@@classAssignmentsextendsCI_Controller // Upload Tests (zip file) -shell_exec('rm-f'.$assignments_root.'/*.zip'); +unlink($assignments_root.'/*.zip'); $config = array( 'upload_path' => $assignments_root, 'allowed_types' => 'zip', @@-482,7+481,7@@classAssignmentsextendsCI_Controller else { foreach($old_pdf_files as $old_name) -shell_exec("rm-f$old_name"); +unlink($old_name); $this->messages[] = array( 'type' => 'success', 'text' => 'PDF file uploaded successfully.' 4.2Menambahkan Method Rekoneksi ke Database Method rekoneksi ke database ditambahkan pada kelas control ler Queueprocess.php .Method yang digunakan yaitu $this->db->reconnect() 
+
+
+ERROR 5
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Listing4.2menunjukan perubahan kode program yang dilakukan diQueueprocess.php Listing 4.2: Perubahan kode program pada Queueprocess.php1 GNU Operating System, "Comparing and Merging Files" terakhir diubah 6 Mei 2017
+
+
+ERROR 6
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: https://www.gnu.org/software/diutils/manual/diutils.html#Detailed-Unied BAB 5 IMPLEMENTASI DAN PENGUJIANBab ini membahas tentang implementasi dan pengujian perangkat lunak berdasarkan rancangan yang sudah dibuat
+
+
+ERROR 7
+==================
+Error Code: PS-05
+Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
+Excerpt: Contoh perbandingan URL biasa dengan Clean URL s: URL biasa: \example.com\index.php?page=news ,Clean URLs :\ example.com ews 
+
+
+ERROR 8
+==================
+Error Code: PS-09
+Note: Bab/Subbab 3.1 ini hanya terdapat 1 sub bab/sub sub bab
+
+
+ERROR 9
+==================
+Error Code: KAL-02
+Note: Berilah kata pengantar untuk setiap bab
+Excerpt: BAB 1 PENDAHULUAN 1.1Latar BelakangOnline judge merupakan sebuah sistem online yang dirancang untuk mengevaluasi kode algoritma yang dikumpulkan oleh pengguna
+

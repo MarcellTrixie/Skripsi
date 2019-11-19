@@ -1,0 +1,72 @@
+
+ERROR 1
+==================
+Error Code: PS-01
+Note: Ditemukan penulisan kata yang tidak sesuai dengan kamus
+Excerpt: 
+
+PENDAHULUAN, BelakangSnake, merupakan, sebuah, permainan, dibuat, Peter, Trefonas, Snake, berasal, Blockade, Awalnya, dimainkan, Nokia, bermain, adalah, pemain, menggerakan, tersebut, mendapatkan, makanan, sebanyak, banyaknya, menabrak, Setiap, memakan, memanjang, semakin, meng, gerakan, menutupi, HTML, Hyper, Text, Markup, Language, digunakan, membuat, web, penerus, XHTML, memiliki, satunya, Canvas, menggambar, pixel, ditulis, gunakan, pemrograman, JavaScript, Javascript, menjadi, jQuery, library, traversal, penanganan, event, Ajax, de, ngan, Application, Programming, Interface, GitHub, layanan, hosting, bersama, pengembangan, menggunakan, version, control, Git, adanya, programmer, etahui, perubahan, repository, l, request, sebagai, pemilik, owner, diajukan, digabungkan, merasa, umumnya, pergerakan, peneliti, ularnya, bergerak, menambahkan, keinginanya, disediakan, Rumusan, dibahas, berikut, membangun, Snakemenggunakan, menyimpan, leeksternal, https, wikipedia, org, wiki, game, LANDASAN, GameSnake, Game, mengendalikan, terdapat, bertambah, termakan, ditempatkan, secara, Permainan, berakhir, tubuhnya, singleplayer, multiplayer, Singleplayer, Multiplayer, dilihat, Slither, io, smartphonedanweb, NokiaGambar, iopadaAndroid, play, google, com, store, apps, details, hypah, slither, Snakeyang, AdaPermainan, dianalisis, bermainya, setiap, berkompetisi, terbaik, Pemain, Makanan, dibentuk, sekumpulan, lingkaran, berdempetan, Bagian, ditandai, sepasang, bagian, memulai, ditentukan, berbentuk, berukuran, tersebar, jumlahnya, warnanya, bermacam, menambah, Silther, PERANCANGANPada, mengenai, perancangan, dibangun, Perancangan, dilakukan, meliputi, sequence, state, tampilan, Rancangan, Sequence, ditunjukan, dijelaskan, Source, sequenceyang, memuat, sequenceuntuk, memilih, Berikut, penjelasan, menerima, input, mencari, le, Filelabirin, ditemukan, memanggil, method, Maze, lelabirin, Setelah, DrawingObject, digambar, PENGUJIANPada, pengujian, linkini, generaldevilx, github, lingkungan, Lingkungan, pembangunan, Processor, Core, i, U, GHz, GB, Card, GeForce, MX, Storage, TB, mobile, berbasis, Android, desktop, SM, J, G, Exynos, Octa, MHz, Cortex, KESIMPULAN, SARANPada, berisi, kesimpulan, Kesimpulan, diambil, diantaranya, Pembangunan, berhasil, berbelok, smartphone, diharapkan, menekan, Play, Menambahkan, berdasarkan, penguji, buatan, Menyimpan, disimpan, dimuat, Berdasarkan, dipaparkan, mengurangi, kesalahan, pembuatan, terutama, memposisikan, Seharusnya, melainkan, dituliskan, Sebelum, sebaiknya, preview, terlebih, melihat, dipilih
+
+
+ERROR 2
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: 1.2Rumusan Masalah Rumusan dari masalah yang akan dibahas pada skripsi ini adalah sebagai berikut: Bagaimana membangun permainan Snakemenggunakan HTML5 Canvas?  Bagaimana cara menyimpan labirin pada leeksternal? 1 https://en.wikipedia.org/wiki/Snake_(video_ game_ genre) BAB 2 LANDASAN TEORI 2.1 Snake GameSnake Game merupakan permainan mengendalikan ular untuk mendapatkan makanan yang terdapat pada labirin
+
+
+ERROR 3
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Contoh singleplayer game Snake adalah Snake pada telepon genggam Nokia yang dapat dilihat pada Gambar2.1 1dan contoh multiplayer game Snake adalah Slither.io yang dapat dilihat Gambar2.2 2 
+
+
+ERROR 4
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Gambar 2.1: Permainan Snake pada telepon genggam NokiaGambar 2.2: Permainan Slither.iopadaAndroid 1 https://en.wikipedia.org/wiki/Snake_(video_game_genre) 2 https://play.google.com/store/apps/details?id=air.com.hypah.io.slither BAB 3 ANALISIS 3.1Analisis Permainan Snakeyang Sudah AdaPermainan Snake yang akan dianalisis adalah Slither.io dan Snake pada telepon genggam Nokia 
+
+
+ERROR 5
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Slither.io adalah permainan web yang dapat dimainkan oleh lebih dari 1 pemain( multiplayer )
+
+
+ERROR 6
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: 3.1.1Ular dan Makanan Ular pada Slither.io dibentuk dengan menggunakan sekumpulan lingkaran yang saling berdempetan satu sama lain seperti pada Gambar3.1
+
+
+ERROR 7
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Makanan pada Slither.io berbentuk lingkaran
+
+
+ERROR 8
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Gambar 3.1: Ular pada Silther.io BAB 4 PERANCANGANPada bab ini akan dibahas mengenai perancangan permainan yang dibangun
+
+
+ERROR 9
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Permainan ini dapat dimainkan pada linkini : https://generaldevilx.github.io/Snake360/ 5.1Implementasi Pada bagian ini akan dijelaskan mengenai lingkungan yang digunakan untuk membangun dan implementasi antarmuka dari Open Source Snake 360
+
+
+ERROR 10
+==================
+Error Code: KAL-02
+Note: Berilah kata pengantar untuk setiap bab
+Excerpt: BAB 1 PENDAHULUAN 1.1Latar BelakangSnake merupakan sebuah permainan yang pertama kali dibuat oleh Peter Trefonas pada tahun 1978
+

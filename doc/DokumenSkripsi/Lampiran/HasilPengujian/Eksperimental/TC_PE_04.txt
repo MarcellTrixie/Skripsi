@@ -1,0 +1,8 @@
+
+Fatal error: Uncaught Exception: Object list not found. Possible secured file. in D:\Skripsi\src\vendor\smalot\pdfparser\src\Smalot\PdfParser\Parser.php:105
+Stack trace:
+#0 D:\Skripsi\src\vendor\smalot\pdfparser\src\Smalot\PdfParser\Parser.php(81): Smalot\PdfParser\Parser->parseContent('%PDF-1.5\n%\xD0\xD4\xC5\xD8\n...')
+#1 D:\Skripsi\src\pdf_checker\SkripsiExtract.php(26): Smalot\PdfParser\Parser->parseFile('D:\\Skripsi\\src\\...')
+#2 D:\Skripsi\src\pdf_checker\Main.php(9): SkripsiExtract->extractFromPDF('../res/TC_PE_04...')
+#3 {main}
+  thrown in D:\Skripsi\src\vendor\smalot\pdfparser\src\Smalot\PdfParser\Parser.php on line 105

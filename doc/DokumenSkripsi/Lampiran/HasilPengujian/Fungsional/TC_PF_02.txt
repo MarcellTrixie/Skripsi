@@ -1,0 +1,163 @@
+
+ERROR 1
+==================
+Error Code: PS-01
+Note: Ditemukan penulisan kata yang tidak sesuai dengan kamus
+Excerpt: 
+
+PENDAHULUANpada, dijelaskan, mengenai, penulisan, rumusan, tujuan, batasan, penelitian, merupakan, karangan, ditulis, sebagai, bagian, persya, ratan, pendidikan, akademiknya, penulisannya, peserta, melakukan, kesalahan, diabaikan, terjadi, penggunaan, imbuhan, keterangan, sebagainya, seharusnya, diperiksa, diminimalisir, bimbingan, pembimbing, dimanfaatkan, membahas, konten, dibanding, memeriksa, tersebut, dibuat, sebuah, pemeriksaan, berasal, dilakukan, Unpar, diseleksi, diimplementasikan, secara, dijalankan, melalui, command, Windows, menerima, masukan, berupa, le, PDF, menampilkan, laporan, berisi, ditemukan, Rumusan, Berdasarkan, dirumuskan, berikut, membuat, Tujuan, adalah, membangun, LANDASAN, TEORIPada, dibahas, landasan, expression, library, LibreO, Expression, regex, tertentu, digunakan, pemrograman, Regex, biasanya, memveri, kecocokan, input, menemukan, mengganti, menyusun, membagi, menjadi, subteks, pencocokan, misalnya, validasi, string, username, password, mail, IP, Pemanfaatan, menyederhanakan, pemrosesan, kehidupan, sehari, mencerminkan, disebut, keteraturan, menggunakan, Deterministic, Finite, DFA, nite, state, machineyang, backtracking, berbagai, satunya, Perl, Compa, tible, PCRE, serangkaian, menerapkan, sintaks, perbedaan, Perlversi, Metakarakter, dibedakan, berdasarkan, posisinya, metakarakter, outside, square, brackets, fungsinya, berbeda, terdapat, sedangkan, inside, bracketsterdapat, Kesalahan, UmumPda, baggian, mengumpulkan, dibutuhkan, pengembangan, Infrmasi, yng, dicari, ksalahan, umumm, yaang, serring, terjaadi, paada, metod, ang, dipilih, pelaksanaannya, dibagi, menjhadi, pengamatan, Pengamatan, berlangsung, Mei, diamati, melainkan, diambil, pertimbangan, diuji, menghadiri, disajikan, Penguji, Osfaldo, Mickael, Oktavianus, Naibaho, Penjualan, Vania, Natali, S, M, T, Elisati, Ricky, Wahyudi, Menggunakan, Fitur, Surf, Dr, rer, nat, Cecilia, Esti, Nugraheni, ST, MT, Ir, Veronica, Moer, tini, PERANCANGANPada, perancangan, dibangun, meliputi, algoritma, pengecekan, Perancangan, rancangan, Rancangan, ditunjukan, Pemeriksa, PENGUJIANPada, pengujian, terhadap, Lingkungan, Pengujian, lingkungan, beserta, implementasinya, Berikut, spesi, pembangunan, Spesi, Processor, AMD, Bristol, Ridge, Quad, Core, FX, P, GHz, GB, GPU, Radeon, RX, Storage, Harddisk, TB, PHP, cli, Composer, Sublime, Text, KESIMPULAN, SARANPada, kesimpulan, Kesimpulan, berikan
+
+
+ERROR 2
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Namun dalam penulisannya, peserta skripsi sering melakukan kesalahan kecil yang tidak dapat diabaikan.kesalahan sering terjadi dalam penggunaan imbuhan, kata keterangan, penulisan kata dan sebagainya
+
+
+ERROR 3
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Regex biasanya dimanfaatkan untuk memverikasi kecocokan antara input dengan pola teks,untuk menemukan teks yang cocok dengan pola dalam teks yang lebih besar, untuk mengganti teks yang cocok dengan pola dengan teks lain atau menyusun ulang bit dari teks yang cocok dan untuk membagi sebuah blok teks menjadi beberapa subteks
+
+
+ERROR 4
+==================
+Error Code: PS-05
+Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
+Excerpt: Namun dalam penulisannya, peserta skripsi sering melakukan kesalahan kecil yang tidak dapat diabaikan.kesalahan sering terjadi dalam penggunaan imbuhan, kata keterangan, penulisan kata dan sebagainya
+
+
+ERROR 5
+==================
+Error Code: PS-05
+Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
+Excerpt: pada saat bimbingan, waktu dosen pembimbing lebih baik dimanfaatkan untuk membahas konten dibanding memeriksa kesalahan-kesalahan tersebut
+
+
+ERROR 6
+==================
+Error Code: PS-05
+Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
+Excerpt: dari masalah tersebut dapat dibuat sebuah aplikasi untuk melakukan pemeriksaan pada dokumen skripsi
+
+
+ERROR 7
+==================
+Error Code: PS-05
+Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
+Excerpt: kesalahan yang akan diperiksa berasal dari survei yang dilakukan kepada dosen-dosen Informatika Unpar
+
+
+ERROR 8
+==================
+Error Code: PS-05
+Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
+Excerpt: hasil dari survei tersebut akan diseleksi untuk diimplementasikan ke dalam aplikasi
+
+
+ERROR 9
+==================
+Error Code: PS-05
+Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
+Excerpt: aplikasi sederhana ini dapat dimanfaatkan oleh mahasiswa Informatika Unpar secara mandiri
+
+
+ERROR 10
+==================
+Error Code: PS-05
+Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
+Excerpt: aplikasi ini dijalankan melalui melalui terminal command Windows 
+
+
+ERROR 11
+==================
+Error Code: PS-05
+Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
+Excerpt: aplikasi menerima masukan berupa le PDF skripsi dan menampilkan laporan yang berisi kesalahan-kesalahan yang ditemukan pada dokumen skripsi
+
+
+ERROR 12
+==================
+Error Code: PS-09
+Note: Bab/Subbab 2.1 ini hanya terdapat 1 sub bab/sub sub bab
+
+
+ERROR 13
+==================
+Error Code: PS-09
+Note: Bab/Subbab 2.1.1 ini hanya terdapat 1 sub bab/sub sub bab
+
+
+ERROR 14
+==================
+Error Code: PS-09
+Note: Bab/Subbab 3.1 ini hanya terdapat 1 sub bab/sub sub bab
+
+
+ERROR 15
+==================
+Error Code: PS-09
+Note: Bab/Subbab 3.1.1 ini hanya terdapat 1 sub bab/sub sub bab
+
+
+ERROR 16
+==================
+Error Code: PS-09
+Note: Bab/Subbab 4.1 ini hanya terdapat 1 sub bab/sub sub bab
+
+
+ERROR 17
+==================
+Error Code: PS-09
+Note: Bab/Subbab 5.1 ini hanya terdapat 1 sub bab/sub sub bab
+
+
+ERROR 18
+==================
+Error Code: PS-09
+Note: Bab/Subbab 5.1.1 ini hanya terdapat 1 sub bab/sub sub bab
+
+
+ERROR 19
+==================
+Error Code: KAL-02
+Note: Berilah kata pengantar untuk setiap bab
+Excerpt: BAB 3 ANALISIS MASALAH 3.1Survei Kesalahan UmumPda baggian ini akan dijelaskan tentang survei yang dilakukan untuk mengumpulkan informasi yang dibutuhkan dalam pengembangan perangkat lunak
+
+
+ERROR 20
+==================
+Error Code: KAL-03
+Note: Ada data skripsi yang belum dilengkapi pada halaman cover
+Excerpt: SKRIPSI/TUGAS AKHIR JUDUL BAHASA INDONESIA Nama Lengkap NPM: 10 digit NPM UNPAR PROGRAM STUDI MATEMATIKA/FISIKA/TEKNIK INFORMATIKA FAKULTAS TEKNOLOGI INFORMASI DAN SAINS UNIVERSITAS KATOLIK PARAHYANGAN tahun FINAL PROJECT/UNDERGRADUATE THESIS JUDUL BAHASA INGGRIS Nama Lengkap NPM: 10 digit NPM UNPAR DEPARTMENT OF MATHEMATICS/PHYSICS/INFORMATICS FACULTY OF INFORMATION TECHNOLOGY AND SCIENCES PARAHYANGAN CATHOLIC UNIVERSITY tahun 
+
+
+ERROR 21
+==================
+Error Code: NAT-01
+Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
+Excerpt: 2.1 Regular Expression Regular expression (regex ) [ ?] adalah jenis pola teks tertentu yang dapat digunakan pada banyak aplikasi modern dan bahasa pemrograman
+
+
+ERROR 22
+==================
+Error Code: NAT-01
+Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
+Excerpt: PCRE [ ?] adalah serangkaian fungsi yang menerapkan pencocokan pola regex dengan menggunakan sintaks dan semantik yang sama dengan bahasa pemrograman Perl 5 , meskipun ada beberapa sedikit perbedaan
+
+
+ERROR 23
+==================
+Error Code: VAN-03
+Note: Kalimat ini mengandung kata ganti orang
+Excerpt: 6.1Kesimpulan Kesimpulan yang saya dapat dari pengembangan perangkat lunak ini adalah sebagai berikut
+
+
+ERROR 24
+==================
+Error Code: VAN-03
+Note: Kalimat ini mengandung kata ganti orang
+Excerpt: 6.2Saran Saran yang saya berikan untuk pengembangan perangkat lunak ini adalah sebagai berikut
+

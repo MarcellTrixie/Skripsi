@@ -1,0 +1,106 @@
+
+Notice: Undefined offset: 36 in D:\Skripsi\src\pdf_checker\Checkers\PS09_SubChapterChecker.php on line 21
+
+ERROR 1
+==================
+Error Code: PS-01
+Note: Ditemukan penulisan kata yang tidak sesuai dengan kamus
+Excerpt: 
+
+PENDAHULUAN, BelakangPengumuman, jurusan, UNPAR, umumnya, dilakukan, Pengumuman, pengumuman, dijamin, dituju, setelah, dikirim, layanan, memiliki, terorganisir, Berbagai, tercampur, menyulitkan, pemilik, mencari, mengakibatkan, terbaca, secara, Penelitian, membuat, kekurangan, tersebut, BlueTape, adalah, berfungsi, membantu, urusan, paper, based, FTIS, menjadi, paperless, Fitur, mengumpulkan, berisi, menampilkannya, penerima, memanfaatkan, LINE, Line, Corporation, memungkinkan, disebut, mengirim, pengikut, bersamaan, Penerima, diminta, mengikuti, menerima, noti, diakses, melalui, internet, Heroku, cloud, ketiga, penggunanya, membangun, menjalankan, mengoperasikan, Rumusan, memodi, berjalan, mengimplementasikan, menguji, Tujuan, Mempelajari, Memodi, Mengimplementasikan, Menguji, LANDASAN, landasan, dipakai, menjalan, mendukung, pemrograman, meliputi, Ruby, Node, js, Java, Python, Clojure, Scala, Go, PHP, menyebarkan, mengelola, ditulis, didukung, mende, nisikan, sebagai, gabungan, source, code, dependencyyang, leProc, le, Dependency, dibangun, dijalankan, membutuhkan, dependency, Aturan, peletakkan, berbeda, menuliskan, lepackage, json, Dyno, berbasis, Unix, web, dyno, disebar, dikelompokkan, Web, process, type, satunya, HTTP, routerHeroku, Worker, merujuk, disebutkan, Proc, biasanya, digunakan, pekerjaan, antrian, berjangka, tertentu, One, o, bersifat, dituliskan, menjalankannya, melainkan, menggunakan, command, shel, l, penggunaan, one, Pengumpulan, Tampilan, BlueTapeBlueTape, framework, CodeIgniter, ZURB, Foundation, OAuth, Google, autentikasi, pengguna, Request, Manage, Perubahan, perekam, Layanan, memberikan, melakukan, permohonan, pencetakan, perubahan, menyimpan, menampilkan, dibuat, https, bluetape, azurewebsites, dipelajari, diubah, siapapun, tujuan, apapun, github, com, ftisunpar, pengembangan, MVC, View, Control, ler, sebuah, PERANCANGANBab, membahas, perancangan, Pembahasan, dibagi, bagian, Perancangan, Class, merupakan, pembangunan, Penjelasan, diberikan, control, view, PENGUJIAN, pengujian, ImplementasiBagian, terlebih, deploy, dalamnya, diberi, Shadowtape, shadowtape, herokuapp, Setelah, dimodi, peneliti, Gmail, shadowbluetape, gmail, bernama, Lingkungan, Pengembangan, Berikut, spesi, Spesi, Processor, R, Celeron, CPU, U, GHz, x, Graphics, Ivybridge, Mobile, GB, Harddisk, SATA, Ubuntu, LTS, Code, version, apache, v, cli, Composer, pgAdmin, Application, Desktop, psql, PostgreSQL, heroku, linux, node, KESIMPULAN, Kesimpulan, kesimpulan, diambil, penelitian, comsetiap, diidenti, ditampilkan, memunculkan, teruji, Mengadaptasi, kon, gurasi, O, cial, Account, Meneliti, loginyang, ditemukan, Meningkatkan, usabilitas, menggunakannya
+
+
+ERROR 2
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Heroku mendukung beberapa bahasa pemrograman, meliputi: Ruby, Node.js, Java, Python, Clojure, Scala, Go, dan PHP
+
+
+ERROR 3
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Contoh: Aplikasi dengan bahasa Node.js menuliskan deskripsi dependency padalepackage.json 
+
+
+ERROR 4
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: azurewebsites.net/ (Gambar3.1)
+
+
+ERROR 5
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Kode program ini dapat diakses di https://github.com/ftisunpar/BlueTape 
+
+
+ERROR 6
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: MVC (Model-View-Control ler ) adalah sebuah metode untuk membuat perangkat lunak menjadi tiga1 https://github.com/ftisunpar/BlueTape BAB 4 PERANCANGANBab ini membahas perancangan tur kolektor pengumuman
+
+
+ERROR 7
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Aplikasi web tersebut diberi nama Shadowtape dan dapat diakses di https://shadowtape.herokuapp.com/ 
+
+
+ERROR 8
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Akun email baru menggunakan layanan email Gmail dengan alamat shadowbluetape@gmail.com
+
+
+ERROR 9
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: BlueTape versi skripsi ini diberi nama shadowtape dan dapat diakses di https://shadowtape.herokuapp.com/
+
+
+ERROR 10
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Fitur ini dapat melakukan sinkronisasi kotak masuk untuk alamat email shadowbluetape@gmail.comsetiap jam
+
+
+ERROR 11
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Email yang diidentikasi sebagai pengumuman dapat ditampilkan di https://shadowtape.herokuapp
+
+
+ERROR 12
+==================
+Error Code: PS-09
+Note: Bab/Subbab 2.1 ini hanya terdapat 1 sub bab/sub sub bab
+
+
+ERROR 13
+==================
+Error Code: PS-09
+Note: Bab/Subbab 3.1 ini hanya terdapat 1 sub bab/sub sub bab
+
+
+ERROR 14
+==================
+Error Code: PS-09
+Note: Bab/Subbab 3.1.1 ini hanya terdapat 1 sub bab/sub sub bab
+
+
+ERROR 15
+==================
+Error Code: KAL-02
+Note: Berilah kata pengantar untuk setiap bab
+Excerpt: BAB 1 PENDAHULUAN 1.1Latar BelakangPengumuman di jurusan Teknik Informatika UNPAR pada umumnya dilakukan lewat email 
+

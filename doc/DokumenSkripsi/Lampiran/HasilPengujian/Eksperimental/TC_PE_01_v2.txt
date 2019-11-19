@@ -1,0 +1,72 @@
+
+ERROR 1
+==================
+Error Code: PS-01
+Note: Ditemukan penulisan kata yang tidak sesuai dengan kamus
+Excerpt: 
+
+PENDAHULUAN, BelakangPengelompokan, clustering, merupakan, mencari, kumpulan, melibatkan, pemilihan, cluster, dibandingkan, berada, Clustering, berguna, mereduksi, karakteristik, tertentu, mengembangkan, klasi, dikenal, sebagai, memberikan, masukkan, dukungan, terhadap, mengenai, pembelajaran, terarah, unsupervised, learning, Pembagian, berdasarkan, diketahui, sebelumnya, melainkan, kesamaan, menurut, ukuran, Document, pengelompokan, lakukan, Pengelompokan, diterapkan, penambangan, web, pencari, search, engine, information, retrieval, dilakukan, adalah, mengukur, kemiripan, similarity, mengelompokan, serupa, terdiri, tulisan, algoritma, digunakan, K, means, membagi, tersebut, dibentuk, meminimalkan, centroid, setiap, dicari, menggunakan, mean, dimodelkan, n, banyaknya, terbukti, melakukan, apapun, memiliki, kekurangan, terjebak, local, optima, tergantung, centroidawal, ditangani, Genetic, Algorithm, GA, menyelesaikan, pencarian, optimasi, heuristik, menirukan, secara, terjadi, survival, of, the, ttest, Algoritma, dinamakan, pemecahan, masalahnya, space, dikodekan, deretan, disebut, Kumpulan, awalnya, dibangkitkan, dipilih, roulette, wheel, selection, tness, terinspirasi, persilangan, crossover, mutation, membangkitkan, berikutnya, berlangsung, tercapai, berfungsi, menentukan, seberapa, dihasilkan, LANDASAN, TEORIPengelompokan, berkaitan, Pengelom, pokan, bagian, Terdapat, classi, cation, dikelompokkan, Sedangkan, supervised, ditentukan, penelitian, De, nisi, sebuah, menggabungkan, himpunan, sedemikian, seringkali, tertukar, bertugas, memisahkan, Masukan, Keluaran, beserta, anggotanya, Setiap, Sebagai, terdapat, ditandai, berwarna, dianggap, dimasukkan, berbeda, dipisahkan, clusterhasil, ANALISISBab, membahas, dijelaskan, dataset, pengujian, pemodelan, dibahas, genetik, membuat, berbasis, Dataset, berisi, BBC, News, disediakan, menjadi, Karakteristik, datasetini, Terdiri, berasal, website, Newsdari, ditulis, Terbagi, business, entertainment, politics, dantech, sportterdapat, techterdapat, plain, textyang, le, TXT, diproses, terlebih, membersihkan, mengambil, berupa, karakter, kapitalisasi, diabaikan, diubah, tech, dilampirkan, Lampiran, menemukan, direpresentasikan, diambil, informasinya, diolah, merepresentasikan, PERANCANGANPada, perancangan, rancangan, pengguna, Kebutuhan, kebutuhan, masukan, diakomodasi, Graphical, User, Interface, Rincian, melalui, berformat, CSV, dibuka, pengolah, spreadsheet, Microsoft, Excel, File, laporan, dibutuhkan, keluaran, leCSV, dilihat, penamaan, YYYY, MM, DD, hh, mm, ss, csv, Januari, KMeans, PENGUJIAN, Pengujian, spesi, berikut, processor, R, Core, TM, i, HQ, CPU, GHz, MB, Windows, Build, diteliti, antaranya, terikat, tujuan, mengetahui, hubungan, Banyaknya, individu, pembobotan, penghitungan, TF, IDF, terjadinya, pembentukan, keturunan, Individu, elitisme, tnessterbaik, selanjutnya, selama, terakhir, nya, KESIMPULAN, Kesimpulan, Berdasarkan, penge, lompokan, diperlukan, sebelum, mengelompokkan, tasi, Merepresentasikan, tersusun, Kcentroid, tnessyang, intracluster, berhasil, dibuat, purity, sebesar, mengatasi, membutuhkan, disebabkan, komputasi, alasan, berjalan, Mulai, kedua, menyusun, bersifat, sparse, bernilai, Centroid, memperlambat, perhitungan, cosine, seharusnya, mengabaikan, berbobot, merepre, sentasikan, berbanding, kemungkinannya, semakin, sejauh, Kemungkinan, jaraknya
+
+
+ERROR 2
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Format penamaan dari le ini adalah "algoritma-YYYY.MM.DD hh_mm_ss.csv"
+
+
+ERROR 3
+==================
+Error Code: KAL-02
+Note: Berilah kata pengantar untuk setiap bab
+Excerpt: BAB 1 PENDAHULUAN 1.1Latar BelakangPengelompokan ( clustering ) merupakan prosedur untuk mencari struktur alami dari suatu kumpulan data
+
+
+ERROR 4
+==================
+Error Code: KAL-02
+Note: Berilah kata pengantar untuk setiap bab
+Excerpt: BAB 5 PENGUJIAN DAN EKSPERIMEN 5.1Skenario Pengujian Eksperimental Eksperimen dilakukan dengan menggunakan spesikasi komputer sebagai berikut: 1.Tipe processor : Intel(R) Core(TM) i7-4720HQ CPU @2.60GHz 2.Memori: 12288MB RAM 3.Sistem operasi: Windows 10 Pro 64-bit (10.0, Build 17763)Pada suatu penelitian, ada beberapa jenis variabel yang diteliti di antaranya variabel bebas, variabel terikat, dan variabel kontrol
+
+
+ERROR 5
+==================
+Error Code: KAL-02
+Note: Berilah kata pengantar untuk setiap bab
+Excerpt: BAB 6 KESIMPULAN DAN SARAN 6.1Kesimpulan Kesimpulan yang dapat diambil dari penelitian ini adalah sebagai berikut: 1.Berdasarkan dataset yang telah digunakan, algoritma genetika dapat digunakan dalam penge- lompokan dokumen
+
+
+ERROR 6
+==================
+Error Code: NAT-01
+Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
+Excerpt: Pembagian kelompok dalam clustering tidak berdasarkan sesuatu yang telah diketahui sebelumnya, melainkan berdasarkan kesamaan tertentu menurut suatu ukuran tertentu [ ?]
+
+
+ERROR 7
+==================
+Error Code: NAT-01
+Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
+Excerpt: Pengelompokan dokumen diterapkan dalam beberapa bidang seperti penambangan web, mesin pencari ( search engine ), dan temu kembali informasi (information retrieval ) [ ?]
+
+
+ERROR 8
+==================
+Error Code: NAT-01
+Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
+Excerpt: GA merupakan teknik pencarian heuristik tingkat tinggi yang menirukan proses evolusi yang secara alami terjadi [ ?] berdasarkan prinsip survival of the ttest 
+
+
+ERROR 9
+==================
+Error Code: NAT-01
+Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
+Excerpt: Algoritma ini dinamakan demikian karena menggunakan konsep-konsep dalam genetika sebagai model pemecahan masalahnya [ ?]
+
+
+ERROR 10
+==================
+Error Code: NAT-01
+Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
+Excerpt: 2.1Pengelompokan 2.1.1Denisi Pengelompokan Pengelompokan ( clustering ) merupakan sebuah metode untuk menggabungkan himpunan objek ke dalam kelompok-kelompok sedemikian rupa sehingga objek dalam satu kelompok ( cluster ) lebih mirip (karena suatu hal) satu sama lain daripada objek di kelompok lain [ ?]
+

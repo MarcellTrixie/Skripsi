@@ -1,0 +1,157 @@
+
+Notice: Undefined offset: 31 in D:\Skripsi\src\pdf_checker\Checkers\PS09_SubChapterChecker.php on line 21
+
+ERROR 1
+==================
+Error Code: PS-01
+Note: Ditemukan penulisan kata yang tidak sesuai dengan kamus
+Excerpt: 
+
+PENDAHULUAN, BelakangAplikasi, merupakan, sebuah, membantu, penggunanya, meninjau, dihasilkan, secara, sebelum, pengguna, tersebut, melakukan, pembuatan, Kelebihan, adalah, peninjauan, berbagai, memaksimalkan, memungkinkan, merubah, bertujuan, memutuskan, dasarnya, terhindar, ekspektasi, Penggunaan, web, memudahkan, mela, kukan, menggunakan, berbasis, lingkungan, Windows, Linux, Mac, OS, membatasi, cakupan, dibuat, kustomisasi, mengajar, perkuliahan, Melalui, diharapkan, memiliki, gambaran, mengenai, ruangan, komposisi, memanfaatkan, WebGL, Three, js, Application, Programming, Interface, gra, s, berdasar, OpenGL, terbuka, ECMAScript, melalui, canvas, HTML, membuat, digunakan, sebagai, Ruangan, dilengkapi, peralatan, menunjang, pengajaran, internet, learning, menjamin, kenyamanan, selama, pendingin, Rumusan, Berikut, dibahas, pendukung, lainnya, direpsentasikan, tampilan, terlihat, dicetak, LANDASAN, TEORIBab, berisi, penjelasan, menjadi, penelitian, library, membangun, dirancang, diturunkan, menyediakan, pembangunan, sejenis, Canvas, programatik, menampilkan, dibangun, pembangun, berbeda, interfacesdan, Types, interface, bagian, selanjutnya, dijelaskan, t, y, p, d, f, u, n, i, g, l, o, GLenum, b, G, L, GLbyte, h, r, z, c, GLubyte, m, Listing, WebGLContextAttributes, menggam, diberikan, kedua, getContext, namanya, ANALISISBab, pemodelan, pemanfaatan, penggunaan, Pemodelan, dibuatnya, masing, satuan, dimiliki, dilakukan, pembentukan, menyerupai, dimodelkan, Penulis, bantuan, Terdapat, tahapan, memodelkan, berikut, Pembentukan, memanipulasi, bentuknya, Dilakukan, selecting, extruding, rotating, scaling, moving, dilihat, Pemetaan, pemetaan, permukaan, Setiap, dibuka, ditempelkan, pembukaan, setiap, akhirnya, pengimplementasian, Berbasis, Web, disediakan, scene, menempatkan, Scene, diimplementasikan, diperlukan, listing, https, www, org, PERANCANGANPada, perancangan, meliputi, struk, Perancangan, susunan, direktori, terdiri, dipisahkan, berdasarkan, fungsinya, css, mengatur, memperindah, custom, le, JavaScript, berkasnya, three, Nantinya, terdapat, dipanggil, OrbitControls, berkaitan, index, html, HyperText, Markup, Language, mem, json, JSON, constant, diinisialisasi, imported, repsentasi, ujian, berlangsung, img, jpg, pilihan, textureatap, PENGUJIANBab, membahas, pengujian, rancangan, Lingkungan, Pengujian, Sedangkan, spesi, Processor, GHz, Core, Graphics, Processing, GPU, HD, MB, Random, Access, Memory, GB, MHz, DDR, Storage, SSD, macOS, Sierra, Pemrograman, CSS, Text, Code, MAMP, version, Google, Chrome, Ver, sion, O, cial, Build, sebelumnya, Pengimplementasian, pemro, graman, dijabarkan, KESIMPULAN, SARANBab, kesimpulan, pengembangan, Kesimpulan, Berdasarkan, Prantijau, diperoleh, tujuan, merepresentasikan, Parahyangan, Fitur, dikembangkan, Mengganti, Unggah, Object, Notation, mengubah, Menghasilkan, cetakan, dikarenakan, keterbatasan, ngembangan, Mengimplementasi, penyembunyian, menutupi, penyediaan, kemudahan, mengunggah
+
+
+ERROR 2
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Perangkat lunak akan dibuat dengan memanfaatkan WebGL dan pustaka Three.js
+
+
+ERROR 3
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Sementara itu pustaka Three.js bertujuan membuat pustaka 3 dimensi yang mudah dan ringan untuk digunakan
+
+
+ERROR 4
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: 1.2Rumusan Masalah Berikut ini masalah-masalah yang dibahas dalam skripsi ini:  Bagaimana ruangan kelas dan objek pendukung lainnya dapat direpsentasikan dalam WebGL? Bagaimana membuat tampilan responsif pada aplikasi agar terlihat bagus saat dicetak? BAB 2 LANDASAN TEORIBab ini berisi penjelasan mengenai teori-teori yang menjadi dasar penelitian ini, seperti WebGL dan Three.js library
+
+
+ERROR 5
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: BAB 3 ANALISISBab ini berisi analisis pemodelan properti kelas, analisis pemanfaatan pustaka Three.js, dan analisis penggunaan WebGL
+
+
+ERROR 6
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: 3.2Analisis pemanfaatan pustaka Three.js Pada pengimplementasian Aplikasi Pratinjau 3 Dimensi Berbasis Web digunakan banyak tur yang telah disediakan oleh pustaka Three.js
+
+
+ERROR 7
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Berikut ini merupakan daftar tur pustaka Three.js yang digunakan pada implementasi Aplikasi Pratinjau 3 Dimensi Berbasis Web: 3.2.1Panggung Panggung ( scene ) merupakan sebuah wadah untuk menempatkan sesuatu pada pustaka Three.js (subbab2.2.1)
+
+
+ERROR 8
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: 1 https://www.blender.org/ BAB 4 PERANCANGANPada bab ini dibahas mengenai perancangan perangkat lunak yang meliputi: perancangan struk- tur web, perancangan antarmuka, dan perancangan tur yang diimplementasikan pada Aplikasi Pratinjau 3 Dimensi Berbasis
+
+
+ERROR 9
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Berkas yang ada pada folder ini hanya satu yaitu custom.css
+
+
+ERROR 10
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Terdapat berbagai le JavaScript di dalam folder ini, daftar berkasnya adalah sebagai berikut: Main.js , berkas JavaScript ini berisi berbagai fungsi utama yang digunakan untuk membangun Aplikasi Pratinjau 3 Dimensi Berbasis Web
+
+
+ERROR 11
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: three.js , berkas JavaScript ini berisi berbagai fungsi yang disediakan oleh pustaka Three.js
+
+
+ERROR 12
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Nantinya fungsi yang terdapat di dalam berkas ini akan dipanggil oleh Main.js OrbitControls.js , berkas JavaScript ini berisi berbagai fungsi yang juga disediakan oleh pustaka Three.js
+
+
+ERROR 13
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt:  berkas index.html , merupakan berkas HyperText Markup Language (HTML) yang mem- bentuk web untuk aplikasi pratinjau ini
+
+
+ERROR 14
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Terdapat 2 berkas json di dalam folder ini yaitu sebagai berikut: constant.json , berkas ini berisi berbagai informasi awal untuk diinisialisasi ke aplikasi sehingga dapat menampilkan gambaran awal dari ruangan kelas Fakultas Teknologi Informasi dan Sains
+
+
+ERROR 15
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: imported.json , berkas ini berisi informasi untuk repsentasi ruangan kelas saat ujian sedang berlangsung di Fakultas Teknologi Informasi dan Sains
+
+
+ERROR 16
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Berikut ini merupakan daftar berkas yang ada pada folder ini: textureatap.jpg, merupakan tekstur untuk bagian atap ruangan kelas
+
+
+ERROR 17
+==================
+Error Code: PS-05
+Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
+Excerpt: t y p e d e f u n s i g n e d l o n g GLenum ; t y p e d e f b o o l e a n G L b o o l e a n ; t y p e d e f u n s i g n e d l o n g G L b i t f i e l d ; t y p e d e f b y t e GLbyte ; t y p e d e f s h o r t G L s h o r t ; t y p e d e f l o n g G L i n t ; t y p e d e f l o n g G L s i z e i ; t y p e d e f l o n g l o n g G L i n t p t r ; t y p e d e f l o n g l o n g G L s i z e i p t r ; t y p e d e f o c t e t GLubyte ; t y p e d e f u n s i g n e d s h o r t G L u s h o r t ; t y p e d e f u n s i g n e d l o n g G L u i n t ; t y p e d e f u n r e s t r i c t e d f l o a t G L f l o a t ; t y p e d e f u n r e s t r i c t e d f l o a t G L c l a m p f ; Listing 2.1: Alias untuk tipe pada WebGL
+
+
+ERROR 18
+==================
+Error Code: PS-05
+Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
+Excerpt: Berkas yang ada pada folder ini hanya satu yaitu custom.css
+
+
+ERROR 19
+==================
+Error Code: PS-09
+Note: Bab/Subbab 4.2.1 ini hanya terdapat 1 sub bab/sub sub bab
+
+
+ERROR 20
+==================
+Error Code: KAL-02
+Note: Berilah kata pengantar untuk setiap bab
+Excerpt: BAB 1 PENDAHULUAN 1.1Latar BelakangAplikasi pratinjau 3 dimensi merupakan sebuah perangkat lunak yang membantu penggunanya untuk meninjau kembali desain dari produk yang ingin dihasilkan secara 3 dimensi, sebelum pengguna tersebut melakukan implementasi pembuatan produk
+
+
+ERROR 21
+==================
+Error Code: KAL-03
+Note: Ada data skripsi yang belum dilengkapi pada halaman cover
+Excerpt: SKRIPSI APLIKASI PRATINJAU 3 DIMENSI BERBASIS WEB Nancy Valentina NPM: 2014730049 PROGRAM STUDI TEKNIK INFORMATIKA FAKULTAS TEKNOLOGI INFORMASI DAN SAINS UNIVERSITAS KATOLIK PARAHYANGAN tahun UNDERGRADUATE THESIS JUDUL BAHASA INGGRIS Nancy Valentina NPM: 2014730049 DEPARTMENT OF INFORMATICS FACULTY OF INFORMATION TECHNOLOGY AND SCIENCES PARAHYANGAN CATHOLIC UNIVERSITY tahun 
+
+
+ERROR 22
+==================
+Error Code: NAT-01
+Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
+Excerpt: Canvas pada HTML menyediakan suatu destinasi untuk pembangunan objek secara programatik pada halaman web dan memungkinkan menampilkan objek yang sedang dibangun menggunakan API pembangun objek yang berbeda [ ?]
+
