@@ -221,51 +221,22 @@ Kelas karakter adalah karakter yang memiliki atribut yang spesifik yang dikelomp
 \textit{PdfParser}~\cite{pdfparser} adalah sebuah \textit{library} yang digunakan untuk mengekstrak data yang ada dalam sebuah file PDF. \textit{Library} ini digunakan untuk kebutuhan pengguna yang menggunakan bahasa pemrograman PHP. \textit{PDF Parser} dapat digunakan pada \textit{PHP} dengan versi 5.3 ke atas. Terdapat beberapa fitur yang dimiliki oleh \textit{library} ini. Berikut adalah fitur yang sudah dapat digunakan:
 
 \begin{itemize}
-	\item Memuat / mengurai objek dan header
-	\item Menampilkan data meta, seperti nama penulis, deskripsi dan sebagainya
-	\item Menampilkan isi dari teks PDF
-	\item Dapat digunakan untuk kompresi PDF
-	\item Mendukung \textit{MAC OS Roman charset encoding}
-	\item Menangani \textit{encoding} heksa dan oktal pada teks
+	\item Memuat / mengurai objek dan header.
+	\item Menampilkan data meta, seperti nama penulis, deskripsi dan sebagainya.
+	\item Menampilkan isi dari teks PDF.
+	\item Dapat digunakan untuk kompresi PDF.
+	\item Mendukung \textit{MAC OS Roman charset encoding}.
+	\item Menangani \textit{encoding} heksa dan oktal pada teks.
 \end{itemize}
 
-Dari fitur yang sudah ada, masih ada yang belum bisa ditangani oleh \textit{library} ini. \textit{PdfParser} belum dapat mengekstrak dokumen yang diamankan. Selain itu, \textit{library} ini tidak dapat mendeteksi jenis teks yang dicetak miring, tebal dan bergaris bawah. Hingga saat ini, pengembangan \textit{library PdfParser} masih terus berjalan. \textit{PdfParser} memiliki beberapa kelas yang menjalankan fungsional dari \textit{library ini}, salah satunya kelas \textit{Parser}. Kelas \textit{Parser} berfungsi untuk mengatur ekstraksi file PDF. \textit{Method-method} yang terdapat pada kelas ini adalah sebagai berikut:
+Dari fitur yang sudah ada, masih ada yang belum bisa ditangani oleh \textit{library} ini. Berikut adalah beberapa kekurangan yang dimiliki oleh \textit{PdfParser} berdasarkan pengamatan:
 
-\begin{enumerate}
-	\item \$object \\
-	Atribut ini adalah sebuah array, yang akan menyimpan objek-objek dari file PDF yang akan diekstrak.
-
-	\item public function \_construct() \\
-	Berfungsi untuk konstruktor kelas Parser.
-	
-	\item public function parseFile(\$filename) \\
-	Method ini berfungsi untuk mengekstrak isi file dokumen PDF. \newline
-	Parameter: nama file yang akan diekstrak. \newline
-	Kembalian: konten dari file yang akan diekstrak.
-	
-	\item public function parseContent(\$content) \\
-	Method ini berfungsi untuk mengekstrak konten pada dokumen. \newline
-	Parameter: konten dari file PDF. \newline
-	Kembalian: dokumen yang akan diekstrak.
-	
-	\item protected function parseTrailer(\$structure, \$document) \\
-	Method ini berfungsi untuk \newline
-	Parameter: struktur dan dokumen. \newline
-	Kembalian: header dengan parameter trailer dan dokumen.
-	
-	\item protected function parseObject(\$id, \$structure, \$document) \\
-	Method ini berfungsi untuk. \newline
-	Parameter: id, struktur dan dokumen
-	
-	\item protected function parseHeader(\$structure, \$document) \\
-	Method ini berfungsi untuk mengekstrak header pada dokumen. \newline
-	Parameter: struktur dan dokumen \newline	
-	Kembalian: header dengan parameter trailer dan dokumen.
-	
-	\item protected function parseHeaderElement(\$type, \$value, \$document) \\
-	Method ini berfungsi untuk mengekstrak elemen-elemen yang ada pada header. \newline
-	Parameter: tipe, value dan dokumen
-\end{enumerate}
+\begin{itemize}
+	\item Tidak dapat mengekstrak PDF yang termasuk dokumen \textit{secured}.
+	\item Tidak dapat mendeteksi jenis teks (cetak miring, tebal dan garis bawah)
+	\item Tidak dapat mengesktrak gambar
+	\item Hasil ekstrak tabel hanya berupa string saja (tidak dalam bentuk tabel)
+\end{itemize}
 
 \begin{comment}
 \subsection{Page}
