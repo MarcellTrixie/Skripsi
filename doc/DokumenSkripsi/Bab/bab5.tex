@@ -114,7 +114,7 @@ Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat mene
 
 	\item Kasus uji TC\_PF\_01.pdf
 	
-\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.0\textwidth]
+\begin{lstlisting}[caption={Laporan Kesalahan Kasus Uji TC\_PF\_01}	\label{lst:ps-01-1},language=php,xleftmargin=.0\textwidth]
 ERROR 1
 ==================
 Error Code: PS-01
@@ -126,7 +126,7 @@ PENDAHULUANPada, dijelaskan, mengenai, penulisan, rumusan, tujuan, batasan, pene
 	
 	\item Kasus uji TC\_PF\_02.pdf
 
-\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.0\textwidth]
+\begin{lstlisting}[caption={Laporan Kesalahan Kasus Uji TC\_PF\_02}	\label{lst:ps-01-2},language=php,xleftmargin=.0\textwidth]
 ERROR 1
 ==================
 Error Code: PS-01
@@ -137,7 +137,18 @@ PENDAHULUANpada, dijelaskan, mengenai, penulisan, rumusan, tujuan, batasan, pene
 \end{lstlisting}
 \end{enumerate}
 
-Laporan yang ditunjukan pada listing sudah sesuai dengan yang diharapkan. Fitur ini melakukan pengecekan pada setiap kata yang ada pada dokumen. Namun fitur ini belum dapat membedakan kata yang termasuk nama orang, nama tempat, nama barang, kata yang berimbuhan dan kata yang menggunakan bahasa asing.
+Laporan yang ditunjukan pada listing \ref{lst:ps-01-2} sudah sesuai dengan yang diharapkan. Fitur ini melakukan pengecekan pada setiap kata yang ada pada dokumen. Namun, ada beberapa hal yang belum dapat dilakukan fitur ini, berikut adalah contohnya:
+
+\begin{enumerate}
+	\item Mendeteksi nama orang. \newline
+	Pada listing \ref{lst:ps-01-2} terdapat beberapa nama orang yang termasuk ke dalam kesalahan, contohnya Osfaldo, Mickael, Ricky dan yang lainnya.
+	
+	\item Mendeteksi kata yang menggunakan bahasa asing \newline
+	Pada listing \ref{lst:ps-01-2} terdapat beberapa bahasa asing yang termasuk ke dalam kesalahan, contohnya \textit{outside}, \textit{square}, \textit{brackets} dan yang lainnya.
+	
+	\item Mendeteksi kata yang memiliki imbuhan \newline
+	Pada listing \ref{lst:ps-01-2} terdapat beberapa kata berimbuhan yang termasuk ke dalam kesalahan, contohnya menggunakan, pengecekan, perancangan dan yang lainnya.
+\end{enumerate}
 
 \subsection{Menguji fitur PS-03}
 Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan kata-kata yang tidak diberi spasi setelah tanda baca. Berikut ini adalah hasil dari pengujian yang telah dilakukan:
@@ -145,7 +156,7 @@ Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat mene
 \begin{enumerate}
 	\item Kasus uji TC\_PF\_01.pdf
 	
-\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.0\textwidth]
+\begin{lstlisting}[caption={PLaporan Kesalahan Kasus Uji TC\_PF\_01}	\label{lst:ps-03-1},language=php,xleftmargin=.0\textwidth]
 ERROR 1
 ==================
 Error Code: PS-03
@@ -155,7 +166,7 @@ Excerpt: Listing 5.1: Perintah yang digunakan untuk menjalankan perangkat lunak 
 	
 	\item Kasus uji TC\_PF\_02.pdf
 	
-\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.0\textwidth]
+\begin{lstlisting}[caption={Laporan Kesalahan Kasus Uji TC\_PF\_02}	\label{lst:ps-03-2},language=php,xleftmargin=.0\textwidth]
 ERROR 1
 ==================
 Error Code: PS-03
@@ -170,7 +181,7 @@ Excerpt: Regex biasanya dimanfaatkan untuk memverifikasi kecocokan antara input 
 \end{lstlisting}
 \end{enumerate}
 
-Laporan yang ditunjukan pada gambar \ref{fig:ujips03} sudah sesuai dengan yang diharapkan. Fitur ini masih belum bisa membedakan penggunaan tanda titik pada gelar pendidikan, perangkat lunak mendeteksi hal tersebut menjadi sebuah kesalahan dalam fitur ini.
+Laporan yang ditunjukan pada listing \ref{lst:ps-03-2} sudah sesuai dengan yang diharapkan. Namun, ada beberapa hal yang belum dapat dilakukan fitur ini. Fitur ini masih belum bisa membedakan penggunaan tanda titik pada gelar pendidikan, perangkat lunak mendeteksi hal tersebut menjadi sebuah kesalahan dalam fitur ini. Pada listing \ref{lst:ps-03-1}, fitur ini juga belum dapat membedakan penggunaan tanda titik pada nama file.
 
 \subsection{Menguji fitur PS-05}
 Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan karakter pertama yang tidak menggunakan huruf kapital pada sebuah kalimat. Berikut ini adalah hasil dari pengujian yang telah dilakukan:
@@ -181,7 +192,7 @@ Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat mene
 	
 	\item Kasus uji TC\_PF\_02.pdf
 	
-\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.0\textwidth]
+\begin{lstlisting}[caption={Laporan Kesalahan Kasus Uji TC\_PF\_02}	\label{lst:ps-05-2},language=php,xleftmargin=.0\textwidth]
 ERROR 1
 ==================
 Error Code: PS-05
@@ -232,7 +243,7 @@ Excerpt: aplikasi menerima masukan berupa file PDF skripsi dan menampilkan lapor
 \end{lstlisting}
 \end{enumerate}
 
-Laporan yang ditunjukan pada gambar \ref{fig:ujips05} sudah sesuai dengan yang diharapkan.
+Laporan yang ditunjukan pada listing \ref{lst:ps-05-2} sudah sesuai dengan yang diharapkan.
 
 \subsection{Menguji fitur PS-09}
 Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan bab atau sub bab yang hanya memiliki satu sub bab atau sub sub bab. Berikut ini adalah hasil dari pengujian yang telah dilakukan:
@@ -243,7 +254,7 @@ Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat mene
 	
 	\item Kasus uji TC\_PF\_02.pdf
 	
-\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.0\textwidth]
+\begin{lstlisting}[caption={Laporan Kesalahan Kasus Uji TC\_PF\_02}	\label{lst:ps-09-2},language=php,xleftmargin=.0\textwidth]
 ERROR 1
 ==================
 Error Code: PS-09
@@ -281,7 +292,7 @@ Note: Bab/Subbab 5.1.1 ini hanya terdapat 1 sub bab/sub sub bab
 \end{lstlisting}
 \end{enumerate}
 
-Laporan yang ditunjukan pada gambar \ref{fig:ujips09} sudah sesuai dengan yang diharapkan.
+Laporan yang ditunjukan pada listing \ref{lst:ps-09-2} sudah sesuai dengan yang diharapkan.
 
 \subsection{Menguji fitur KAL-02}
 Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan bab yang tidak diberikan kata pengantar. Berikut ini adalah hasil dari pengujian yang telah dilakukan:
@@ -292,7 +303,7 @@ Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat mene
 	
 	\item Kasus uji TC\_PF\_02.pdf
 	
-\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.0\textwidth]
+\begin{lstlisting}[caption={Laporan Kesalahan Kasus Uji TC\_PF\_02}	\label{lst:kal-02-2},language=php,xleftmargin=.0\textwidth]
 ERROR 1
 ==================
 Error Code: KAL-02
@@ -301,7 +312,7 @@ Excerpt: BAB 3 ANALISIS MASALAH 3.1Survei Kesalahan UmumPda baggian ini akan dij
 \end{lstlisting}
 \end{enumerate}
 
-Laporan yang ditunjukan pada gambar \ref{fig:ujikal02} sudah sesuai dengan yang diharapkan.
+Laporan yang ditunjukan pada listing \ref{lst:kal-02-2} sudah sesuai dengan yang diharapkan.
 
 \subsection{Menguji fitur KAL-03}
 Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan data skripsi yang belum diisi. Berikut ini adalah hasil dari pengujian yang telah dilakukan:
@@ -312,7 +323,7 @@ Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat mene
 	
 	\item Kasus uji TC\_PF\_02.pdf
 	
-\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.0\textwidth]
+\begin{lstlisting}[caption={Laporan Kesalahan Kasus Uji TC\_PF\_02}	\label{lst:kal-03-2},language=php,xleftmargin=.0\textwidth]
 ERROR 1
 ==================
 Error Code: KAL-03
@@ -321,7 +332,7 @@ Excerpt: SKRIPSI/TUGAS AKHIR JUDUL BAHASA INDONESIA Nama Lengkap NPM: 10 digit N
 \end{lstlisting}
 \end{enumerate}
 
-Laporan yang ditunjukan pada gambar \ref{fig:ujikal03} sudah sesuai dengan yang diharapkan.
+Laporan yang ditunjukan pada listing \ref{lst:kal-03-2} sudah sesuai dengan yang diharapkan.
 
 \subsection{Menguji fitur NAT-01}
 Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan referensi yang tidak dirujuk dengan baik. Berikut ini adalah hasil dari pengujian yang telah dilakukan:
@@ -332,7 +343,7 @@ Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat mene
 	
 	\item Kasus uji TC\_PF\_02.pdf
 	
-\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.0\textwidth]
+\begin{lstlisting}[caption={Laporan Kesalahan Kasus Uji TC\_PF\_02}	\label{lst:nat-01-2},language=php,xleftmargin=.0\textwidth]
 ERROR 1
 ==================
 Error Code: NAT-01
@@ -348,7 +359,7 @@ Excerpt: PCRE [ ?] adalah serangkaian fungsi yang menerapkan pencocokan pola reg
 \end{lstlisting}
 \end{enumerate}
 
-Laporan yang ditunjukan pada gambar \ref{fig:ujinat01} sudah sesuai dengan yang diharapkan.
+Laporan yang ditunjukan pada listing \ref{lst:nat-01-2} sudah sesuai dengan yang diharapkan.
 
 \subsection{Menguji fitur VAN-03}
 Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan kata ganti orang pada kalimat. Berikut ini adalah hasil dari pengujian yang telah dilakukan:
@@ -359,7 +370,7 @@ Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat mene
 	
 	\item Kasus uji TC\_PF\_02.pdf
 	
-\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.0\textwidth]
+\begin{lstlisting}[caption={Laporan Kesalahan Kasus Uji TC\_PF\_02}	\label{lst:van-03-2},language=php,xleftmargin=.0\textwidth]
 ERROR 1
 ==================
 Error Code: VAN-03
@@ -374,7 +385,7 @@ Excerpt: 6.2Saran Saran yang saya berikan untuk pengembangan perangkat lunak ini
 \end{lstlisting}
 \end{enumerate}
 
-Laporan yang ditunjukan pada gambar \ref{fig:ujivan03} sudah sesuai dengan yang diharapkan.
+Laporan yang ditunjukan pada listing \ref{lst:van-03-2} sudah sesuai dengan yang diharapkan.
 
 \section{Pengujian Eksperimental}
 Pada pengujian eksperimental, perangkat lunak akan diuji dengan 5 buah kasus uji dokumen skripsi yang diambil dari \textit{Github} FTIS Unpar \footnote{https://github.com/ftisunpar/Skripsi}. Dokumen yang digunakan sebagai pengujian, yaitu:
@@ -945,7 +956,7 @@ if ($decoded === false) {
 return $decoded;
 \end{lstlisting}
 
-	Dengan menggunakan kode pada baris ke-2 di listing\ref{lst:checkKode9}, perangkat lunak berhasil mengeluarkan laporan kesalahan.
+	Dengan memakai kode pada baris ke-2 di listing \ref{lst:checkKode9}, perangkat lunak berhasil mengeluarkan laporan kesalahan.
 	
 \begin{lstlisting}[caption={Pesan kesalahan memory limit}	\label{lst:checkKode9},language=php,xleftmargin=.0\textwidth]
 Fatal error: Allowed memory size of 134217728 bytes exhausted (tried to allocate .......(size tergantung file) bytes) in D:\Skripsi\src\vendor\tecnickcom\tcpdf\include\tcpdf_filters.php on line 357
