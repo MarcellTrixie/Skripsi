@@ -92,7 +92,7 @@ Pengujian fungsional bertujuan untuk menguji fungsionalitas perangkat lunak. Per
 Pada pengujian ini, perangkat lunak akan diuji dengan 2 buah kasus uji. Kedua kasus uji tersebut menggunakan \textit{template} dokumen skripsi Informatika Unpar. Mode dokumen yang digunakan adalah mode \textit{final}. Kedua \textit{test case} tersebut diberi nama 'TC\_PF\_01.pdf'' dan ''TC\_PF\_02.pdf''. Isi dari kedua file tersebut serupa, namun pada file ''TC\_PF\_02.pdf'' sudah disisipkan kesalahan-kesalahan yang dapat dideteksi oleh setiap fitur yang ada. Berikut ini adalah rincian dari kesalahan-kesalahan yang dimasukan ke dalam kasus uji tersebut.
 
 \begin{enumerate}
-	\item Pada halaman cover bahasa Indonesia dan bahasa Inggris, data yang meliputi judul, nama mahasiswa, npm mahasiswa, dan yang lainnya tidak diisi. Hal ini dilakukan untuk menguji fitur pemeriksa kelengkapan data skripsi (KAL-03).
+	\item Pada halaman cover bahasa Indonesia dan bahasa Inggris, data yang meliputi judul, nama mahasiswa, NPM mahasiswa, dan yang lainnya tidak diisi. Hal ini dilakukan untuk menguji fitur pemeriksa kelengkapan data skripsi (KAL-03).
 	
 	\item Pada bab 1, beberapa karakter pertama dalam awal kalimat menggunakan huruf kecil. Hal ini dilakukan untuk menguji fitur pemeriksa huruf kapital (PS-05).
 	
@@ -380,11 +380,16 @@ Laporan yang ditunjukan pada gambar \ref{fig:ujivan03} sudah sesuai dengan yang 
 Pada pengujian eksperimental, perangkat lunak akan diuji dengan 5 buah kasus uji dokumen skripsi yang diambil dari \textit{Github} FTIS Unpar \footnote{https://github.com/ftisunpar/Skripsi}. Dokumen yang digunakan sebagai pengujian, yaitu:
 
 \begin{enumerate}
-	\item TC\_PE\_01.pdf~\cite{pe01}
-	\item TC\_PE\_02.pdf~\cite{pe02}
-	\item TC\_PE\_03.pdf~\cite{pe03}
-	\item TC\_PE\_04.pdf~\cite{pe04}
-	\item TC\_PE\_05.pdf~\cite{pe05} 
+	\item Skripsi yang ditulis oleh Cornelius David Herianto, dengan judul Pengelompokan Dokumen Berbasis Algoritma Genetika. Dokumen ini diberi nama TC\_PE\_01.pdf~\cite{pe01}
+	
+	\item Skripsi yang ditulis oleh Stillmen Vallian, dengan judul Kustomisasi Sharif Judge untuk Kebutuhan Program Studi Teknik Informatika. Dokumen ini diberi nama TC\_PE\_02.pdf~\cite{pe02}
+	
+	\item Skripsi yang ditulis oleh Nancy Valentina, dengan judul Aplikasi Pratinjau 3 Dimensi Berbasis Web. Dokumen ini diberi nama TC\_PE\_03.pdf~\cite{pe03}
+	
+	\item Skripsi yang ditulis oleh Evelyn Wijaya, dengan judul Pembangunan Gim Snake 360 Berbasis Web dengan Kode Terbuka. Dokumen ini diberi nama TC\_PE\_04.pdf~\cite{pe04}
+	
+	\item Skripsi yang ditulis oleh Ellena Angelica, dengan judul Kolektor Pengumuman Informatika. Dokumen ini diberi nama TC\_PE\_05.pdf~\cite{pe05} 
+	
 \end{enumerate}
 
 Pada pengujian ini, ke-5 kasus uji tersebut akan dijalankan pada perangkat lunak. Berikut adalah hasil yang dikeluarkan oleh perangkat lunak dari setiap kasus uji yang digunakan:
@@ -402,13 +407,229 @@ Stack trace:
   thrown in D:\Skripsi\src\vendor\smalot\pdfparser\src\Smalot\PdfParser\Parser.php on line 105
 \end{lstlisting}
 
-	Pada kasus uji ini, perangkat lunak mendeteksi bahwa file ini merupakan file yang \textit{secured}. Hal ini sudah dijelaskan pada sub bab \ref{sec:pdfparser}, bahwa \textit{library} ini tidak dapat melakukan ekstrak dokumen yang \textit{secured}.
+	Pada kasus uji ini, perangkat lunak mendeteksi bahwa file ini merupakan file yang \textit{secured}. Sebagaimana telah dijelaskan pada sub bab \ref{sec:pdfparser}, bahwa \textit{library} ini tidak dapat melakukan ekstrak dokumen yang \textit{secured}. Namun masalah ini dapat diatasi dan akan dibahas lebih lanjut pada sub sub bab \ref{secured}. Berikut ini adalah laporan kesalahan yang ditemukan:
+
+\begin{lstlisting}[caption={Laporan Kesalahan Kasus Uji TC\_PE\_01}	\label{lst:pe01},language=php,xleftmargin=.0\textwidth]
+
+ERROR 1
+==================
+Error Code: PS-01
+Note: Ditemukan penulisan kata yang tidak sesuai dengan kamus
+Excerpt: PENDAHULUAN, BelakangPengelompokan, clustering, merupakan, mencari, kumpulan, melibatkan, pemilihan, cluster, dibandingkan, berada, Clustering, berguna, mereduksi, karakteristik, tertentu, mengembangkan, klasi, dikenal, sebagai, memberikan, masukkan, dukungan, terhadap, mengenai, pembelajaran, terarah, unsupervised, learning, Pembagian, berdasarkan, diketahui, sebelumnya, melainkan, kesamaan, menurut, ukuran, Document, pengelompokan, lakukan, Pengelompokan, diterapkan, penambangan, web, pencari, search, engine, information, retrieval, dilakukan, adalah, mengukur, kemiripan, similarity, mengelompokan, serupa, terdiri, tulisan, algoritma, digunakan, K, means, membagi, tersebut, dibentuk, meminimalkan, centroid, setiap, dicari, menggunakan, mean, dimodelkan, n, banyaknya, terbukti, melakukan, apapun, memiliki, kekurangan, terjebak, local, optima, tergantung, centroidawal, ditangani, Genetic, Algorithm, GA, menyelesaikan, pencarian, optimasi, heuristik, menirukan, secara, terjadi, survival, of, the, ttest, News, disediakan, menjadi, Karakteristik, datasetini, Terdiri, berasal, website, Newsdari, ditulis, Terbagi, business, entertainment, politics, dantech, sportterdapat, techterdapat, plain, textyang, le, TXT, diproses, terlebih, membersihkan, mengambil, berupa, karakter, kapitalisasi, diabaikan, diubah, tech, dilampirkan, Lampiran, menemukan, direpresentasikan, diambil, informasinya, diolah, merepresentasikan, PERANCANGANPada, perancangan, rancangan, pengguna, Kebutuhan, kebutuhan, masukan, diakomodasi, Graphical, User, Interface, Rincian, melalui, berformat, CSV, dibuka, pengolah, spreadsheet, Microsoft, Excel, File, laporan, dibutuhkan, keluaran, leCSV, dilihat, penamaan, YYYY, MM, DD, hh, mm, ss, csv, Januari, KMeans, PENGUJIAN, Pengujian, spesi, berikut, processor, R, Core, TM, i, HQ, CPU, GHz, MB, Windows, Build, diteliti, antaranya, terikat, tujuan, mengetahui, hubungan, Banyaknya, individu, pembobotan, penghitungan, TF, IDF, terjadinya, pembentukan, keturunan, Individu, elitisme, tnessterbaik, selanjutnya, selama, terakhir, nya, KESIMPULAN, Kesimpulan, Berdasarkan, penge, lompokan, diperlukan, sebelum, mengelompokkan, tasi, Merepresentasikan, tersusun, Kcentroid, tnessyang, intracluster, berhasil, dibuat, purity, sebesar, mengatasi, membutuhkan, disebabkan, komputasi, alasan, berjalan, Mulai, kedua, menyusun, bersifat, sparse, bernilai, Centroid, memperlambat, perhitungan, cosine, seharusnya, mengabaikan, berbobot, merepre, sentasikan, berbanding, kemungkinannya, semakin, sejauh, Kemungkinan, jaraknya
+
+ERROR 2
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Format penamaan dari file ini adalah "algoritma-YYYY.MM.DD hh_mm_ss.csv"
+
+ERROR 3
+==================
+Error Code: KAL-02
+Note: Berilah kata pengantar untuk setiap bab
+Excerpt: BAB 1 PENDAHULUAN 1.1Latar BelakangPengelompokan ( clustering ) merupakan prosedur untuk mencari struktur alami dari suatu kumpulan data
+
+ERROR 4
+==================
+Error Code: KAL-02
+Note: Berilah kata pengantar untuk setiap bab
+Excerpt: BAB 5 PENGUJIAN DAN EKSPERIMEN 5.1Skenario Pengujian Eksperimental Eksperimen dilakukan dengan menggunakan spesifikasi komputer sebagai berikut: 1.Tipe processor : Intel(R) Core(TM) i7-4720HQ CPU @2.60GHz 2.Memori: 12288MB RAM 3.Sistem operasi: Windows 10 Pro 64-bit (10.0, Build 17763)Pada suatu penelitian, ada beberapa jenis variabel yang diteliti di antaranya variabel bebas, variabel terikat, dan variabel kontrol
+
+ERROR 5
+==================
+Error Code: KAL-02
+Note: Berilah kata pengantar untuk setiap bab
+Excerpt: BAB 6 KESIMPULAN DAN SARAN 6.1Kesimpulan Kesimpulan yang dapat diambil dari penelitian ini adalah sebagai berikut: 1.Berdasarkan dataset yang telah digunakan, algoritma genetika dapat digunakan dalam penge- lompokan dokumen
+
+ERROR 6
+==================
+Error Code: NAT-01
+Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
+Excerpt: Pembagian kelompok dalam clustering tidak berdasarkan sesuatu yang telah diketahui sebelumnya, melainkan berdasarkan kesamaan tertentu menurut suatu ukuran tertentu [ ?]
+
+ERROR 7
+==================
+Error Code: NAT-01
+Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
+Excerpt: Pengelompokan dokumen diterapkan dalam beberapa bidang seperti penambangan web, mesin pencari ( search engine ), dan temu kembali informasi (information retrieval ) [ ?]
+
+ERROR 8
+==================
+Error Code: NAT-01
+Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
+Excerpt: GA merupakan teknik pencarian heuristik tingkat tinggi yang menirukan proses evolusi yang secara alami terjadi [ ?] berdasarkan prinsip survival of the fittest 
+
+ERROR 9
+==================
+Error Code: NAT-01
+Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
+Excerpt: Algoritma ini dinamakan demikian karena menggunakan konsep-konsep dalam genetika sebagai model pemecahan masalahnya [ ?]
+
+ERROR 10
+==================
+Error Code: NAT-01
+Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
+Excerpt: 2.1Pengelompokan 2.1.1Definisi Pengelompokan Pengelompokan ( clustering ) merupakan sebuah metode untuk menggabungkan himpunan objek ke dalam kelompok-kelompok sedemikian rupa sehingga objek dalam satu kelompok ( cluster ) lebih mirip (karena suatu hal) satu sama lain daripada objek di kelompok lain [ ?]
+
+
+\end{lstlisting}
 	
 	\item TC\_PE\_02.pdf \newline
-	Perangkat lunak tidak mengeluarkan laporan kesalahan yang ditemukan pada dokumen. Pada terminal juga tidak diberikan pesan error yang menandakan bahwa terdapat kesalahan pada perangkat lunak.	
+	Perangkat lunak tidak mengeluarkan laporan kesalahan yang ditemukan pada dokumen. Pada terminal juga tidak diberikan pesan error yang menandakan bahwa terdapat kesalahan pada perangkat lunak. Namun masalah ini dapat diatasi dan akan dibahas lebih lanjut pada sub sub bab \ref{kosong}. Berikut ini adalah laporan kesalahan yang ditemukan:
+
+\begin{lstlisting}[caption={Laporan Kesalahan Kasus Uji TC\_PE\_02}	\label{lst:pe02},language=php,xleftmargin=.0\textwidth]
+ERROR 1
+==================
+Error Code: PS-01
+Note: Ditemukan penulisan kata yang tidak sesuai dengan kamus
+Excerpt: PENDAHULUAN, BelakangPengumuman, jurusan, UNPAR, umumnya, dilakukan, Pengumuman, pengumuman, dijamin, dituju, setelah, dikirim, layanan, memiliki, terorganisir, Berbagai, tercampur, menyulitkan, pemilik, mencari, mengakibatkan, terbaca, secara, Penelitian, membuat, kekurangan, tersebut, BlueTape, adalah, berfungsi, membantu, urusan, paper, based, FTIS, menjadi, paperless, Fitur, mengumpulkan, berisi, menampilkannya, penerima, memanfaatkan, LINE, Line, Corporation, memungkinkan, disebut, mengirim, pengikut, bersamaan, Penerima, diminta, mengikuti, menerima, noti, diakses, melalui, internet, Heroku, cloud, ketiga, penggunanya, membangun, menjalankan, mengoperasikan, Rumusan, memodi, berjalan, mengimplementasikan, menguji, Tujuan, Mempelajari, Memodi, Mengimplementasikan, Menguji, LANDASAN, landasan, dipakai, menjalan, mendukung, pemrograman, meliputi, Ruby, Node, js, Java, Python, Clojure, Scala, Go, PHP, menyebarkan, mengelola, ditulis, didukung, mende, nisikan, sebagai, gabungan, source, code, dependencyyang, leProc, le, Dependency, dibangun, dijalankan, membutuhkan, dependency, Aturan, peletakkan, berbeda, menuliskan, lepackage, json, Dyno, berbasis, Unix, web, dyno, disebar, dikelompokkan, Web, process, type, satunya, HTTP, routerHeroku, Worker, PERANCANGANBab, membahas, perancangan, Pembahasan, dibagi, bagian, Perancangan, Class, merupakan, pembangunan, Penjelasan, diberikan, control, view, PENGUJIAN, pengujian, ImplementasiBagian, terlebih, deploy, dalamnya, diberi, Shadowtape, shadowtape, herokuapp, Setelah, dimodi, peneliti, Gmail, shadowbluetape, gmail, bernama, Lingkungan, Pengembangan, Berikut, spesi, Spesi, Processor, R, Celeron, CPU, U, GHz, x, Graphics, Ivybridge, Mobile, GB, Harddisk, SATA, Ubuntu, LTS, Code, version, apache, v, cli, Composer, pgAdmin, Application, Desktop, psql, PostgreSQL, heroku, linux, node, KESIMPULAN, Kesimpulan, kesimpulan, diambil, penelitian, comsetiap, diidenti, ditampilkan, memunculkan, teruji, Mengadaptasi, kon, gurasi, O, cial, Account, Meneliti, loginyang, ditemukan, Meningkatkan, usabilitas, menggunakannya
+
+ERROR 2
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Heroku mendukung beberapa bahasa pemrograman, meliputi: Ruby, Node.js, Java, Python, Clojure, Scala, Go, dan PHP
+
+ERROR 
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Contoh: Aplikasi dengan bahasa Node.js menuliskan deskripsi dependency padafilepackage.json 
+
+ERROR 4
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: azurewebsites.net/ (Gambar3.1)
+
+ERROR 5
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Kode program ini dapat diakses di https://github.com/ftisunpar/BlueTape 
+
+ERROR 6
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: MVC (Model-View-Control ler ) adalah sebuah metode untuk membuat perangkat lunak menjadi tiga1 https://github.com/ftisunpar/BlueTape BAB 4 PERANCANGANBab ini membahas perancangan fitur kolektor pengumuman
+
+ERROR 7
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Aplikasi web tersebut diberi nama Shadowtape dan dapat diakses di https://shadowtape.herokuapp.com/ 
+
+ERROR 8
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Akun email baru menggunakan layanan email Gmail dengan alamat shadowbluetape@gmail.com
+
+ERROR 9
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: BlueTape versi skripsi ini diberi nama shadowtape dan dapat diakses di https://shadowtape.herokuapp.com/
+
+ERROR 10
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Fitur ini dapat melakukan sinkronisasi kotak masuk untuk alamat email shadowbluetape@gmail.comsetiap jam
+
+ERROR 11
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Email yang diidentifikasi sebagai pengumuman dapat ditampilkan di https://shadowtape.herokuapp
+
+ERROR 12
+==================
+Error Code: PS-09
+Note: Bab/Subbab 2.1 ini hanya terdapat 1 sub bab/sub sub bab
+
+ERROR 13
+==================
+Error Code: PS-09
+Note: Bab/Subbab 3.1 ini hanya terdapat 1 sub bab/sub sub bab
+
+ERROR 14
+==================
+Error Code: PS-09
+Note: Bab/Subbab 3.1.1 ini hanya terdapat 1 sub bab/sub sub bab
+
+ERROR 15
+==================
+Error Code: KAL-02
+Note: Berilah kata pengantar untuk setiap bab
+Excerpt: BAB 1 PENDAHULUAN 1.1Latar BelakangPengumuman di jurusan Teknik Informatika UNPAR pada umumnya dilakukan lewat email 
+\end{lstlisting}
 	
 	\item TC\_PE\_03.pdf \newline
-	Perangkat lunak tidak mengeluarkan laporan kesalahan yang ditemukan pada dokumen. Pada terminal juga tidak diberikan pesan error yang menandakan bahwa terdapat kesalahan pada perangkat lunak.	
+	Perangkat lunak tidak mengeluarkan laporan kesalahan yang ditemukan pada dokumen. Pada terminal juga tidak diberikan pesan error yang menandakan bahwa terdapat kesalahan pada perangkat lunak. Namun masalah ini dapat diatasi dan akan dibahas lebih lanjut pada sub sub bab \ref{kosong}. Berikut ini adalah laporan kesalahan yang ditemukan:
+
+\begin{lstlisting}[caption={Laporan Kesalahan Kasus Uji TC\_PE\_03}	\label{lst:pe03},language=php,xleftmargin=.0\textwidth]
+ERROR 1
+==================
+Error Code: PS-01
+Note: Ditemukan penulisan kata yang tidak sesuai dengan kamus
+Excerpt: PENDAHULUAN, BelakangSnake, merupakan, sebuah, permainan, dibuat, Peter, Trefonas, Snake, berasal, Blockade, Awalnya, dimainkan, Nokia, bermain, adalah, pemain, menggerakan, tersebut, mendapatkan, makanan, sebanyak, banyaknya, menabrak, Setiap, memakan, memanjang, semakin, meng, gerakan, menutupi, HTML, Hyper, Text, Markup, Language, digunakan, membuat, web, penerus, XHTML, memiliki, satunya, Canvas, menggambar, pixel, ditulis, gunakan, pemrograman, JavaScript, Javascript, menjadi, jQuery, library, traversal, penanganan, event, Ajax, de, ngan, Application, Programming, Interface, GitHub, layanan, hosting, bersama, pengembangan, menggunakan, version, control, Git, adanya, programmer, etahui, perubahan, termakan, ditempatkan, secara, Permainan, berakhir, tubuhnya,  jumlahnya, warnanya, bermacam, menambah, Silther, PERANCANGANPada, mengenai, perancangan, dibangun, Perancangan, dilakukan, meliputi, sequence, state, tampilan, Rancangan, Sequence, ditunjukan, dijelaskan, Source, sequenceyang, memuat, sequenceuntuk, memilih, Berikut, penjelasan, menerima, input, mencari, le, Filelabirin, ditemukan, memanggil, method, Maze, lelabirin, Setelah, DrawingObject, digambar, PENGUJIANPada, pengujian, linkini, generaldevilx, github, lingkungan, Lingkungan, pembangunan, Processor, Core, i, U, GHz, GB, Card, GeForce, MX, Storage, TB, mobile, berbasis, Android, desktop, SM, J, G, Exynos, Octa, MHz, Cortex, KESIMPULAN, SARANPada, berisi, kesimpulan, Kesimpulan, diambil, diantaranya, Pembangunan, berhasil, berbelok, smartphone, diharapkan, menekan, Play, Menambahkan, berdasarkan, penguji, buatan, Menyimpan, disimpan, dimuat, Berdasarkan, dipaparkan, mengurangi, kesalahan, pembuatan, terutama, memposisikan, Seharusnya, melainkan, dituliskan, Sebelum, sebaiknya, preview, terlebih, melihat, dipilih
+
+ERROR 2
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: 1.2Rumusan Masalah Rumusan dari masalah yang akan dibahas pada skripsi ini adalah sebagai berikut: Bagaimana membangun permainan Snakemenggunakan HTML5 Canvas? Bagaimana cara menyimpan labirin pada fileeksternal? 1 https://en.wikipedia.org/wiki/Snake_(video_ game_ genre) BAB 2 LANDASAN TEORI 2.1 Snake GameSnake Game merupakan permainan mengendalikan ular untuk mendapatkan makanan yang terdapat pada labirin
+
+ERROR 3
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Contoh singleplayer game Snake adalah Snake pada telepon genggam Nokia yang dapat dilihat pada Gambar2.1 1dan contoh multiplayer game Snake adalah Slither.io yang dapat dilihat Gambar2.2 2 
+
+ERROR 4
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Gambar 2.1: Permainan Snake pada telepon genggam NokiaGambar 2.2: Permainan Slither.iopadaAndroid 1 https://en.wikipedia.org/wiki/Snake_(video_game_genre) 2 https://play.google.com/store/apps/details?id=air.com.hypah.io.slither BAB 3 ANALISIS 3.1Analisis Permainan Snakeyang Sudah AdaPermainan Snake yang akan dianalisis adalah Slither.io dan Snake pada telepon genggam Nokia 
+
+ERROR 5
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Slither.io adalah permainan web yang dapat dimainkan oleh lebih dari 1 pemain( multiplayer )
+
+ERROR 6
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: 3.1.1Ular dan Makanan Ular pada Slither.io dibentuk dengan menggunakan sekumpulan lingkaran yang saling berdempetan satu sama lain seperti pada Gambar3.1
+
+ERROR 7
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Makanan pada Slither.io berbentuk lingkaran
+
+ERROR 8
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Gambar 3.1: Ular pada Silther.io BAB 4 PERANCANGANPada bab ini akan dibahas mengenai perancangan permainan yang dibangun
+
+ERROR 9
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Permainan ini dapat dimainkan pada linkini : https://generaldevilx.github.io/Snake360/ 5.1Implementasi Pada bagian ini akan dijelaskan mengenai lingkungan yang digunakan untuk membangun dan implementasi antarmuka dari Open Source Snake 360
+
+ERROR 10
+==================
+Error Code: KAL-02
+Note: Berilah kata pengantar untuk setiap bab
+Excerpt: BAB 1 PENDAHULUAN 1.1Latar BelakangSnake merupakan sebuah permainan yang pertama kali dibuat oleh Peter Trefonas pada tahun 1978
+\end{lstlisting}	
 	
 	\item TC\_PE\_04.pdf
 
@@ -422,14 +643,203 @@ Stack trace:
   thrown in D:\Skripsi\src\vendor\smalot\pdfparser\src\Smalot\PdfParser\Parser.php on line 105
 \end{lstlisting}
 
-	Pada kasus uji ini, perangkat lunak mendeteksi bahwa file ini merupakan file yang \textit{secured}. Hal ini sama dengan yang terjadi pada kasus uji TC\_PE\_01.pdf.
+	Pada kasus uji ini, perangkat lunak mendeteksi bahwa file ini merupakan file yang \textit{secured}. Hal ini sama dengan yang terjadi pada kasus uji TC\_PE\_01.pdf. Namun masalah ini dapat diatasi dan akan dibahas lebih lanjut pada sub sub bab \ref{secured}. Berikut ini adalah laporan kesalahan yang ditemukan:
+
+\begin{lstlisting}[caption={Laporan Kesalahan Kasus Uji TC\_PE\_04}	\label{lst:pe04},language=php,xleftmargin=.0\textwidth]
+ERROR 1
+==================
+Error Code: PS-01
+Note: Ditemukan penulisan kata yang tidak sesuai dengan kamus
+Excerpt:PENDAHULUAN, BelakangAplikasi, merupakan, sebuah, membantu, penggunanya, meninjau, dihasilkan, secara, sebelum, pengguna, tersebut, melakukan, pembuatan, Kelebihan, adalah, peninjauan, berbagai, memaksimalkan, memungkinkan, merubah, bertujuan, memutuskan, dasarnya, terhindar, ekspektasi, Penggunaan, web, memudahkan, mela, kukan, menggunakan, berbasis, lingkungan, Windows, Linux, Mac, OS, membatasi, cakupan, dibuat, kustomisasi, mengajar, perkuliahan, Melalui, diharapkan, memiliki, gambaran, mengenai, ruangan, komposisi, memanfaatkan, WebGL, Three, js, Application, Programming, Interface, gra, s, berdasar, OpenGL, terbuka, ECMAScript, melalui, canvas, HTML, membuat, digunakan, sebagai, Ruangan, dilengkapi, peralatan, menunjang, pengajaran, internet, learning, menjamin, kenyamanan, selama, pendingin, Rumusan, Berikut, dibahas, pendukung, lainnya, direpsentasikan, tampilan, OrbitControls, berkaitan, index, html, HyperText, Markup, Language, mem, json, JSON, constant, diinisialisasi, imported, repsentasi, ujian, berlangsung, img, jpg, pilihan, textureatap, PENGUJIANBab, membahas, pengujian, rancangan, Lingkungan, Pengujian, Sedangkan, spesi, Processor, GHz, Core, Graphics, Processing, GPU, HD, MB, Random, Access, Memory, GB, MHz, DDR, Storage, SSD, macOS, Sierra, Pemrograman, CSS, Text, Code, MAMP, version, Google, Chrome, Ver, sion, O, cial, Build, sebelumnya, Pengimplementasian, pemro, graman, dijabarkan, KESIMPULAN, SARANBab, kesimpulan, pengembangan, Kesimpulan, Berdasarkan, Prantijau, diperoleh, tujuan, merepresentasikan, Parahyangan, Fitur, dikembangkan, Mengganti, Unggah, Object, Notation, mengubah, Menghasilkan, cetakan, dikarenakan, keterbatasan, ngembangan, Mengimplementasi, penyembunyian, menutupi, penyediaan, kemudahan, mengunggah
+
+ERROR 2
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Perangkat lunak akan dibuat dengan memanfaatkan WebGL dan pustaka Three.js
+
+ERROR 3
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Sementara itu pustaka Three.js bertujuan membuat pustaka 3 dimensi yang mudah dan ringan untuk digunakan
+
+ERROR 4
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: 1.2Rumusan Masalah Berikut ini masalah-masalah yang dibahas dalam skripsi ini: Bagaimana ruangan kelas dan objek pendukung lainnya dapat direpsentasikan dalam WebGL? Bagaimana membuat tampilan responsif pada aplikasi agar terlihat bagus saat dicetak? BAB 2 LANDASAN TEORIBab ini berisi penjelasan mengenai teori-teori yang menjadi dasar penelitian ini, seperti WebGL dan Three.js library
+
+ERROR 5
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: BAB 3 ANALISISBab ini berisi analisis pemodelan properti kelas, analisis pemanfaatan pustaka Three.js, dan analisis penggunaan WebGL
+
+ERROR 6
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: 3.2Analisis pemanfaatan pustaka Three.js Pada pengimplementasian Aplikasi Pratinjau 3 Dimensi Berbasis Web digunakan banyak fitur yang telah disediakan oleh pustaka Three.js
+
+ERROR 7
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Berikut ini merupakan daftar fitur pustaka Three.js yang digunakan pada implementasi Aplikasi Pratinjau 3 Dimensi Berbasis Web: 3.2.1Panggung Panggung ( scene ) merupakan sebuah wadah untuk menempatkan sesuatu pada pustaka Three.js (subbab2.2.1)
+
+ERROR 8
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: 1 https://www.blender.org/ BAB 4 PERANCANGANPada bab ini dibahas mengenai perancangan perangkat lunak yang meliputi: perancangan struk- tur web, perancangan antarmuka, dan perancangan fitur yang diimplementasikan pada Aplikasi Pratinjau 3 Dimensi Berbasis
+
+ERROR 9
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Berkas yang ada pada folder ini hanya satu yaitu custom.css
+
+ERROR 10
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Terdapat berbagai file JavaScript di dalam folder ini, daftar berkasnya adalah sebagai berikut: Main.js , berkas JavaScript ini berisi berbagai fungsi utama yang digunakan untuk membangun Aplikasi Pratinjau 3 Dimensi Berbasis Web
+
+ERROR 11
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: three.js , berkas JavaScript ini berisi berbagai fungsi yang disediakan oleh pustaka Three.js
+
+ERROR 12
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Nantinya fungsi yang terdapat di dalam berkas ini akan dipanggil oleh Main.js OrbitControls.js , berkas JavaScript ini berisi berbagai fungsi yang juga disediakan oleh pustaka Three.js
+
+ERROR 13
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: berkas index.html , merupakan berkas HyperText Markup Language (HTML) yang mem- bentuk web untuk aplikasi pratinjau ini
+
+ERROR 14
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Terdapat 2 berkas json di dalam folder ini yaitu sebagai berikut: constant.json , berkas ini berisi berbagai informasi awal untuk diinisialisasi ke aplikasi sehingga dapat menampilkan gambaran awal dari ruangan kelas Fakultas Teknologi Informasi dan Sains
+
+ERROR 15
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: imported.json , berkas ini berisi informasi untuk repsentasi ruangan kelas saat ujian sedang berlangsung di Fakultas Teknologi Informasi dan Sains
+
+ERROR 16
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Berikut ini merupakan daftar berkas yang ada pada folder ini: textureatap.jpg, merupakan tekstur untuk bagian atap ruangan kelas
+
+ERROR 17
+==================
+Error Code: PS-05
+Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
+Excerpt: t y p e d e f u n s i g n e d l o n g GLenum ; t y p e d e f b o o l e a n G L b o o l e a n ; t y p e d e f u n s i g n e d l o n g G L b i t f i e l d ; t y p e d e f b y t e GLbyte ; t y p e d e f s h o r t G L s h o r t ; t y p e d e f l o n g G L i n t ; t y p e d e f l o n g G L s i z e i ; t y p e d e f l o n g l o n g G L i n t p t r ; t y p e d e f l o n g l o n g G L s i z e i p t r ; t y p e d e f o c t e t GLubyte ; t y p e d e f u n s i g n e d s h o r t G L u s h o r t ; t y p e d e f u n s i g n e d l o n g G L u i n t ; t y p e d e f u n r e s t r i c t e d f l o a t G L f l o a t ; t y p e d e f u n r e s t r i c t e d f l o a t G L c l a m p f ; Listing 2.1: Alias untuk tipe pada WebGL
+
+ERROR 18
+==================
+Error Code: PS-05
+Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
+Excerpt: Berkas yang ada pada folder ini hanya satu yaitu custom.css
+
+ERROR 19
+==================
+Error Code: PS-09
+Note: Bab/Subbab 4.2.1 ini hanya terdapat 1 sub bab/sub sub bab
+
+ERROR 20
+==================
+Error Code: KAL-02
+Note: Berilah kata pengantar untuk setiap bab
+Excerpt: BAB 1 PENDAHULUAN 1.1Latar BelakangAplikasi pratinjau 3 dimensi merupakan sebuah perangkat lunak yang membantu penggunanya untuk meninjau kembali desain dari produk yang ingin dihasilkan secara 3 dimensi, sebelum pengguna tersebut melakukan implementasi pembuatan produk
+
+ERROR 21
+==================
+Error Code: KAL-03
+Note: Ada data skripsi yang belum dilengkapi pada halaman cover
+Excerpt: SKRIPSI APLIKASI PRATINJAU 3 DIMENSI BERBASIS WEB Nancy Valentina NPM: 2014730049 PROGRAM STUDI TEKNIK INFORMATIKA FAKULTAS TEKNOLOGI INFORMASI DAN SAINS UNIVERSITAS KATOLIK PARAHYANGAN tahun UNDERGRADUATE THESIS JUDUL BAHASA INGGRIS Nancy Valentina NPM: 2014730049 DEPARTMENT OF INFORMATICS FACULTY OF INFORMATION TECHNOLOGY AND SCIENCES PARAHYANGAN CATHOLIC UNIVERSITY tahun
+
+ERROR 22
+==================
+Error Code: NAT-01
+Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
+Excerpt: Canvas pada HTML menyediakan suatu destinasi untuk pembangunan objek secara programatik pada halaman web dan memungkinkan menampilkan objek yang sedang dibangun menggunakan API pembangun objek yang berbeda [ ?]
+\end{lstlisting}
 	
 	\item TC\_PE\_05.pdf \newline
-	Perangkat lunak tidak mengeluarkan laporan kesalahan yang ditemukan pada dokumen. Pada terminal juga tidak diberikan pesan error yang menandakan bahwa terdapat kesalahan pada perangkat lunak.
+	Perangkat lunak tidak mengeluarkan laporan kesalahan yang ditemukan pada dokumen. Pada terminal juga tidak diberikan pesan error yang menandakan bahwa terdapat kesalahan pada perangkat lunak. Namun masalah ini dapat diatasi dan akan dibahas lebih lanjut pada sub sub bab \ref{kosong}. Berikut ini adalah laporan kesalahan yang ditemukan:
+
+\begin{lstlisting}[caption={Laporan Kesalahan Kasus Uji TC\_PE\_05}	\label{lst:pe05},language=php,xleftmargin=.0\textwidth]
+ERROR 1
+==================
+Error Code: PS-01
+Note: Ditemukan penulisan kata yang tidak sesuai dengan kamus
+Excerpt: PENDAHULUAN, BelakangOnline, judge, merupakan, sebuah, online, dirancang, mengevaluasi, algoritma, dikumpulkan, pengguna, mengcompile, mengeksekusi, mengujinya, lingkungan, menggunakan, disediakan, dijalankan, batasan, time, memory, keamanan, sebagainya, Penggunaan, ditemukan, pemrograman, Sharif, Judge, adalah, C, Java, Python, diciptakan, Mohammad, Javad, Naderi, bersifat, source, ditulis, PHP, framework, CodeIgniter, danbackend, BASH, menilai, jawaban, peserta, secara, penilaian, dimulai, membuat, assignment, dibutuhkan, mulai, berhenti, tambahan, mengunduh, mengerjakan, tersebut, Peserta, mengumpulkan, menjalankan, membandingkan, Setelah, menyesuaikan, keluaran, digunakan, Parahyangan, Algoritma, membantu, memanfaatkan, memberikan, ujian, melihat, setelah, memperbaiki, dikerjakan, melewati, pengumpulan, prakteknya, terkini, pengembangan, Pengembangan, memiliki, kebutuhan, spesi, k, Kebutuhan, login, terintegrasi, server, membatasi, pengaksesan, lainnya, terakhir, dicommit, GitHub, Juli, bug, diperbaiki, menyebabkan, memenuhi, dikemnbangkan, sebutkan, disebutkan,  Flow, Chart, menunjukan, mengalir, ANALISISBab, ditawarkan, didapat, issue, repository, dicatat, Google, Sheets, didiskusikan, pembimbing, dilakukan, menganalisis, setiap, terbuka, terdapat, diikuti, urutan, dibuat, analisa, didapatkan, pertanyaan, usulan, Bebera, dijadikan, pertimbangan, melalui, diwawancarai, Husnul, Claudio, Franciscus, Vania, Natali, Luciana, Abednego, Joanna, Helga, PERANCANGANBab, perancangan, diimplementasi, Mengganti, Method, shel, l, exec, rm, Menjadiunlink, menghapus, le, control, Assignment, diubah, method, unlink, Listing, perubahan, syntax, Perubahan, classAssignmentsextendsCI, Controller, Upload, Tests, zip, file, shell, f, assignments, root, config, array, upload, path, allowed, types, else, foreach, old, pdf, files, name, this, messages, type, success, text, PDF, uploaded, successfully, Chrome, Version, O, cial, Build, Firefox, Quantum, Microsoft, Excel, Kedua, KESIMPULAN, SARANBab, kesimpulan, selanjutnya, Kesimpulan, Berdasarkan, diperoleh, sebagai, berikut, dikembangkan, mengimplementasi, dilihat, padaTabel, Membatasi, Mensupport, ledengan, TXT, Display, Name, pendaftaran, Lock, Student, Archived, Logs, Fame, loginkeserver, Branding, Mengubah, PHPExcel, menjadilibrary, PHPSpreadsheet, menjadiunlink, methodrekoneksi, berhasil, ditentukan, Fitur, JAR, dikarenakan, keterbatasan, pembaruan, Mengimplementasi, multi, class, masukan, padasub, Round, Robin, menggunakanCactiuntuk
+
+ERROR 2
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Contoh perbandingan URL biasa dengan Clean URL s: URL biasa: \example.com\index.php?page=news ,Clean URLs :\ example.com ews 
+
+ERROR 3
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: 4.1Mengganti Method shel l_exec("rm ...")Menjadiunlink() Method shel l_exec("rm ...") yang memiliki fungsi untuk menghapus sebuah file terdapat pada kelas control ler Assignment.php 
+
+ERROR 4
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Listing 4.1: Perubahan kode program pada Assignment.php@@-433,8+433,7@@classAssignmentsextendsCI_Controller // Upload Tests (zip file) -shell_exec('rm-f'.$assignments_root.'/*.zip'); +unlink($assignments_root.'/*.zip'); $config = array( 'upload_path' => $assignments_root, 'allowed_types' => 'zip', @@-482,7+481,7@@classAssignmentsextendsCI_Controller else { foreach($old_pdf_files as $old_name) -shell_exec("rm-f$old_name"); +unlink($old_name); $this->messages[] = array( 'type' => 'success', 'text' => 'PDF file uploaded successfully.' 4.2Menambahkan Method Rekoneksi ke Database Method rekoneksi ke database ditambahkan pada kelas control ler Queueprocess.php .Method yang digunakan yaitu $this->db->reconnect() 
+
+ERROR 5
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: Listing4.2menunjukan perubahan kode program yang dilakukan diQueueprocess.php Listing 4.2: Perubahan kode program pada Queueprocess.php1 GNU Operating System, "Comparing and Merging Files" terakhir diubah 6 Mei 2017
+
+ERROR 6
+==================
+Error Code: PS-03
+Note: Perhatikan spasi setelah tanda baca.
+Excerpt: https://www.gnu.org/software/diutils/manual/diutils.html#Detailed-Unified BAB 5 IMPLEMENTASI DAN PENGUJIANBab ini membahas tentang implementasi dan pengujian perangkat lunak berdasarkan rancangan yang sudah dibuat
+
+ERROR 7
+==================
+Error Code: PS-05
+Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
+Excerpt: Contoh perbandingan URL biasa dengan Clean URL s: URL biasa: \example.com\index.php?page=news ,Clean URLs :\ example.com ews 
+
+ERROR 8
+==================
+Error Code: PS-09
+Note: Bab/Subbab 3.1 ini hanya terdapat 1 sub bab/sub sub bab
+
+ERROR 9
+==================
+Error Code: KAL-02
+Note: Berilah kata pengantar untuk setiap bab
+Excerpt: BAB 1 PENDAHULUAN 1.1Latar BelakangOnline judge merupakan sebuah sistem online yang dirancang untuk mengevaluasi kode algoritma yang dikumpulkan oleh pengguna
+\end{lstlisting}
 	
 \end{enumerate}
 
 \subsection{Pengujian terhadap PDF yang tidak mengeluarkan laporan}
+\label{kosong}
 Hipotesis yang didapatkan dari laporan yang dikeluarkan saat perangkat lunak menggunakan kasus uji TC\_PF\_02.pdf, TC\_PF\_03.pdf dan TC\_PF\_05.pdf adalah ada kesalahan yang perlu ditelusuri pada \textit{library PdfParser}.
 
 \begin{enumerate}
@@ -552,6 +962,8 @@ php -d memory_limit=(ukuran sesuai kebutuhan)M main.php ../res/nama_file.pdf
 \end{enumerate}
 
 \subsection{Pengujian terhadap Secured PDF}
+\label{secured}
+
 Pada beberapa kasus uji, perangkat lunak mengeluarkan kesalahan yang mengatakan bahwa file yang digunakan termasuk \textit{secured PDF}. File yang terkait yaitu ''TC\_PE\_01.pdf'' dan ''TC\_PE\_04.pdf''. Hipotesis yang didapatkan dari laporan adalah kemungkinan bahwa file yang diunggah ke \textit{Github} akan menjadi \textit{secured file}.
 
 Berdasarkan hipotesis yang telah disampaikan, ada sebuah percobaan yang dilakukan pada kasus uji yang terkait. Hal yang dilakukan adalah mengunduh seluruh data skripsi dari file yang terkait. Setelah itu dilakukan proses \textit{compile} ulang, untuk mendapatkan PDF dokumen skripsi yang baru. Dokumen hasil \textit{compile} ulang diberi nama TC\_PE\_01\_v2.pdf dan TC\_PE\_04\_v2.pdf. 
