@@ -15,7 +15,7 @@
 		public function errorChecking($pdf_extract){
 			$result = [];
 			$cover = $pdf_extract->getCoverPage();
-			$pattern = "/JUDUL BAHASA INDONESIA|JUDUL BAHASA INGGRIS|Nama Lengkap|10 digit NPM UNPAR|tahun/";
+			$pattern = "/\bJUDUL BAHASA INDONESIA\b|\bJUDUL BAHASA INGGRIS\b|\bNama Lengkap\b|\b10 digit NPM UNPAR\b|\btahun\b/";
 			if (preg_match($pattern, $cover)) {
 				$result[] = [
 					"Error Code" => "KAL-03",

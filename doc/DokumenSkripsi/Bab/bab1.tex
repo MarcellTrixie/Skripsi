@@ -7,9 +7,11 @@ Pada bab ini dijelaskan mengenai latar belakang penulisan skripsi, rumusan masal
 \section{Latar Belakang}
 \label{sec:label}
 
-Skripsi merupakan karangan ilmiah yang wajib ditulis oleh mahasiswa sebagai bagian dari persyaratan akhir pendidikan akademiknya di Perguruan Tinggi. Namun dalam penulisannya, mahasiswa sering melakukan kesalahan kecil yang tidak dapat diabaikan. Kesalahan sering terjadi dalam penggunaan imbuhan, kata keterangan, penulisan kata dan sebagainya. Hal-hal seperti ini seharusnya dapat diperiksa dan diminimalisir oleh diri sendiri. Pada saat bimbingan, waktu dosen pembimbing lebih baik dimanfaatkan untuk membahas konten dibanding memeriksa kesalahan-kesalahan tersebut. 
+Skripsi merupakan karangan ilmiah yang wajib ditulis oleh mahasiswa sebagai bagian dari persyaratan akhir pendidikan akademiknya di perguruan tinggi. Namun, mahasiswa sering melakukan kesalahan-kesalahan dalam penulisan dokumen, misalnya dalam penggunaan imbuhan, kata keterangan, penulisan kata dan sebagainya. Hal-hal seperti itu seharusnya dapat diperiksa dan diminimalisir oleh diri sendiri. Pada saat bimbingan, waktu dosen pembimbing lebih baik dimanfaatkan untuk membahas konten dalam skripsi. Dosen pembimbing tidak memiliki waktu untuk memeriksa kesalahan-kesalahan dalam penulisan dokumen. 
 
-Dari masalah tersebut dapat dibuat sebuah aplikasi untuk melakukan pemeriksaan pada dokumen skripsi. Kesalahan yang akan diperiksa berasal dari survei yang dilakukan kepada dosen-dosen Informatika Unpar. Hasil dari survei tersebut akan diseleksi untuk diimplementasikan ke dalam aplikasi. Aplikasi sederhana ini dapat dimanfaatkan oleh mahasiswa Informatika Unpar secara mandiri. Aplikasi akan memeriksa dokumen \textit{PDF} skripsi dan menampilkan laporan yang berisi kesalahan-kesalahan yang ditemukan pada dokumen tersebut. 
+Pada saat memeriksa dokumen secara manual, seringkali ada beberapa kesalahan yang terlewat atau tidak terlihat oleh mahasiswa. Namun, dengan menggunakan komputer, tingkat keakuratan pemeriksaan akan lebih baik daripada manual. Dari masalah tersebut dapat dibuat sebuah aplikasi untuk melakukan pemeriksaan pada dokumen skripsi. Kesalahan yang akan diperiksa berasal dari survei yang dilakukan kepada dosen-dosen Informatika UNPAR. Hasil dari survei tersebut akan diseleksi untuk diimplementasikan ke dalam aplikasi. Kesalahan-kesalahan tersebut akan diperiksa dengan menggunakan teknik \textit{pattern matching} menggunakan \textit{regular expression}.
+
+Aplikasi sederhana ini dapat dimanfaatkan oleh mahasiswa Informatika UNPAR secara mandiri. Aplikasi akan memeriksa dokumen \textit{PDF} skripsi Informatika UNPAR yang menggunakan mode \textit{final}. Selanjutnya, aplikasi akan menampilkan laporan yang berisi kesalahan-kesalahan yang ditemukan pada dokumen tersebut.
 
 \section{Rumusan Masalah}
 \label{sec:rumusan}
@@ -23,29 +25,29 @@ Berdasarkan latar belakang yang sudah ditulis, dapat dirumuskan masalah sebagai 
 \label{sec:tujuan}
 Tujuan dari skripsi ini adalah sebagai berikut:
 \begin{enumerate}
-	\item Dapat memeriksa kesalahan yang ada pada dokumen skripsi.
-	\item Dapat membangun perangkat lunak untuk memeriksa kesalahan yang ada pada dokumen skripsi.
+	\item Merumuskan cara untuk memeriksa kesalahan yang ada pada dokumen skripsi dengan menggunakan \textit{regular expression}.
+	\item Membangun perangkat lunak untuk memeriksa kesalahan yang ada pada dokumen skripsi.
 \end{enumerate}
 
 \section{Batasan Masalah}
 \label{sec:batasan}
 Batasan masalah skripsi ini adalah sebagai berikut:
 \begin{enumerate}
-	\item Jenis dokumen yang dapat diperiksa oleh perangkat lunak yang dibuat adalah dokumen skripsi Informatika Unpar dengan mode \textit{final}.
-	\item Pemeriksaan menggunakan \textit{pattern matching} tanpa analisis gramatikal.
-	\item Pemeriksaan kosakata tanpa imbuhan.
+	\item Jenis dokumen yang dapat diperiksa oleh perangkat lunak yang dibuat adalah dokumen skripsi Informatika UNPAR dengan mode \textit{final}.
+	\item Pemeriksaan menggunakan \textit{pattern matching} tanpa analisis gramatikal dengan \textit{regular expression}
+	\item Pemeriksaan penulisan kata dasar bahasa Indonesia tanpa memperhitungkan imbuhan
 \end{enumerate}
 
 \section{Metodologi Penelitian}
 \label{sec:metlit}
 Metodologi penelitian yang digunakan pada skripsi ini adalah sebagai berikut:
 \begin{enumerate}
-	\item Melakukan survei kepada dosen-dosen Informatika mengenai kesalahan-kesalahan penulisan yang ditemui dalam dokumen skripsi.
+	\item Melakukan survei kepada dosen-dosen Informatika UNPAR mengenai kesalahan-kesalahan penulisan yang ditemui dalam dokumen skripsi.
 	\item Melakukan studi literatur \textit{Regular Expression} untuk mendeteksi kesalahan-kesalahan dalam file \textit{PDF} skripsi.
 	\item Mempelajari \textit{library PDF Parser} untuk mengestraksi file \textit{PDF} skripsi yang akan diperiksa.
 	\item Melakukan perancangan perangkat lunak.
 	\item Melakukan implementasi perancangan perangkat lunak.
-	\item Melakukan pengujian terhadap perancangan perangkat lunak.
+	\item Melakukan pengujian dan eksperimen terhadap perangkat lunak.
 	\item Menulis dokumen skripsi.
 \end{enumerate}
 
@@ -64,9 +66,9 @@ Sistematika penulisan pada skripsi ini terdiri dari 6 bab, yaitu:
 	
 	\item Bab 3 Analisis Masalah
 	\\
-	Bab 3 berisi analisis masalah yang muncul dalam menyelesaikan masalah tersebut. Pada bab ini akan dianalisa masalah yang ditemukan pada saat melakukan pengamatan beberapa sidang skripsi semester Ganjil 2018/2019 dan survei secara personal kepada dosen-dosen Informatika Unpar. Hasil dari setiap survei akan dipilih mana saja yang dapat diimplementasikan dalam perangkat lunak.
+	Bab 3 berisi analisis masalah yang muncul dalam menyelesaikan masalah tersebut. Pada bab ini akan dianalisa masalah yang ditemukan pada saat melakukan pengamatan beberapa sidang skripsi semester Ganjil 2018/2019 dan wawancara secara personal kepada dosen-dosen Informatika UNPAR. Hasil dari setiap survei akan dipilih mana saja yang dapat diimplementasikan dalam perangkat lunak.
 	
-	\item Bab 4 Perancangan
+	\item Bab 4 Analisis dan Perancangan Perangkat Lunak
 	\\
 	Bab 4 berisi rancangan perangkat lunak yang akan dibuat, seperti perancangan kelas dan algoritma yang digunakan dalam pembangunan perangkat lunak. Perangkat lunak akan dibuat dengan menggunakan bahasa pemrogramam \textit{PHP}.
 	

@@ -33,12 +33,12 @@ Pada bab ini akan dibahas mengenai landasan teori yang membahas \textit{regular 
 
 \textit{Regex} sudah banyak digunakan dalam pencocokan pola, misalnya untuk validasi beberapa string seperti \textit{username} dan \textit{password}, alamat \textit{e-mail}, alamat \textit{IP} ataupun nomor telepon. Pemanfaatan \textit{regex} dengan baik, dapat menyederhanakan banyak tugas pemrograman dan pemrosesan teks dalam kehidupan sehari-hari. Istilah \textit{regex} berasal dari teori matematika dan komputer sains, yang mencerminkan sifat ekspresi dalam matematika yang disebut keteraturan. Ekspresi tersebut dapat diimplementasikan dalam perangkat lunak, dengan menggunakan \textit{Deterministic Finite Automaton} (DFA). DFA adalah \textit{finite state machine} yang tidak menggunakan \textit{backtracking}.
 
-\textit{Regex} dapat digunakan dalam berbagai bahasa pemrograman, salah satunya yaitu, \textit{Perl Compatible Regular Expression} (PCRE). PCRE~\cite{pcre} adalah serangkaian fungsi yang menerapkan pencocokan pola \textit{regex} dengan menggunakan sintaks dan semantik yang sama dengan bahasa pemrograman \textit{Perl 5}, meskipun ada beberapa sedikit perbedaan. Pada saat ini, implementasi yang digunakan sesuai dengan \textit{Perl} versi 5.005. PCRE memiliki beberapa fungsi yang dapat digunakan untuk mencocokan pola \textit{regex}. Berikut ini adalah fungsi-fungsi yang terdapat pada PCRE:
+\textit{Regex} dapat digunakan dalam berbagai bahasa pemrograman, salah satunya yaitu, \textit{Perl Compatible Regular Expression} (PCRE). PCRE~\cite{pcre} adalah serangkaian fungsi yang menerapkan pencocokan pola \textit{regex} dengan menggunakan sintaks dan semantik yang sama dengan bahasa pemrograman \textit{Perl 5}, meskipun ada beberapa sedikit perbedaan. Pada saat ini, implementasi yang digunakan sesuai dengan \textit{Perl} versi 5.005.
 
 \subsection{Metakarakter}
 
-Karakter meta pada \textit{regex} dibedakan menjadi 2 jenis berdasarkan dari posisinya, yaitu karakter meta \textit{inside square brackets} dan karakter meta \textit{outside square brackets}. Meskipun ada beberapa simbol karakter meta yang sama, namun fungsinya agak berbeda. Pada karakter meta \textit{outside square brackets} terdapat 14 simbol, sedangkan karakter meta \textit{inside square brackets} terdapat 3 simbol. Rincian dari ke-2 karakter meta tersebut akan dijelaskan sebagai berikut:
-	
+Karakter meta pada \textit{regex} dibedakan menjadi 2 jenis berdasarkan dari posisinya, yaitu karakter meta \textit{inside square brackets} dan karakter meta \textit{outside square brackets}. Meskipun ada beberapa simbol karakter meta yang sama, namun fungsinya agak berbeda. Karakter meta \textit{outside square brackets} memiliki 14 jenis karakter, sedangkan karakter meta \textit{inside square brackets} hanya memiliki 3 jenis karakter. Rincian dari ke-2 karakter meta tersebut akan dijelaskan sebagai berikut:
+
 \begin{table}[H]
 	\renewcommand{\arraystretch}{1.5}
 	\caption {Tabel metakarakter \textit{outside square brackets}} 
@@ -54,15 +54,34 @@ Karakter meta pada \textit{regex} dibedakan menjadi 2 jenis berdasarkan dari pos
 		\hline 
 		\$ & Dollar Anchor\\ 
 		\hline 
+		\end{tabular} 
+	\end{center}
+\end{table}
+	
+\begin{table}[H]
+	\renewcommand{\arraystretch}{1.5}
+	\caption {Tabel metakarakter \textit{outside square brackets}} 
+	\label{tab:metacharacters-outside2}
+	\begin{center}
+		\begin{tabular}{|c|l|}
+		\hline 
+		Simbol & Nama \\ 
+		\hline 
 		. & Dot \\ 
 		\hline 
-		[ ] & Square Bracket \\ 
+		[ & Left Square Bracket \\ 
+		\hline
+		] & Right Square Bracket \\ 
 		\hline 
 		$\vert$ & Vertical Bar \\ 
 		\hline 
-		( ) & Parenthesis \\ 
+		( & Left Parenthesis \\ 
 		\hline 
-		$\lbrace$ $\rbrace$ & Curly Bracket \\ 
+		) & Right Parenthesis \\ 
+		\hline 
+		$\lbrace$ & Left Curly Bracket \\ 
+		\hline
+		$\rbrace$ & Right Curly Bracket \\ 
 		\hline 
 		? & Question Mark \\ 
 		\hline 
@@ -74,7 +93,7 @@ Karakter meta pada \textit{regex} dibedakan menjadi 2 jenis berdasarkan dari pos
 	\end{center}
 \end{table}
 
-Pada tabel \ref{tab:metacharacters-outside}, terdapat 11 simbol yang termasuk karakter meta \textit{outside square brackets}. Setiap simbol yang ada pada tabel tersebut memiliki fungsi yang berbeda-beda. Berikut ini adalah penjelasan fungsi dari setiap karakter meta.
+Pada Tabel \ref{tab:metacharacters-outside} dan \ref{tab:metacharacters-outside2}, terdapat 14 karakter yang termasuk karakter meta \textit{outside square brackets}. Setiap karakter yang ada pada tabel tersebut memiliki fungsi yang berbeda-beda. Berikut ini adalah penjelasan fungsi dari setiap karakter meta.
 
 \begin{enumerate}
 	\item \textit{Backslash} \\
@@ -113,18 +132,18 @@ Pada tabel \ref{tab:metacharacters-outside}, terdapat 11 simbol yang termasuk ka
 	\textit{Quantifiers} berfungsi untuk menunjukkan berapa banyak instance karakter, set karakter, atau kelas karakter yang harus dicocokkan. Pada karakter meta ini terdapat 3 jenis, yaitu:
 	\begin{itemize}
 		\item \textit{Question mark} (?)\\
-		Pengulangan yang dapat dilakukan oleh kuantifier ini yaitu $\lbrace$ 0,1 $\rbrace$ (0 hingga 1). Contohnya pola ''/Hello?World/'' akan cocok dengan ''World'' atau ''HelloWorld''.
+		Pengulangan yang dapat dilakukan oleh kuantifier ini yaitu $\lbrace$ 0,1 $\rbrace$ (0 hingga 1). Contohnya pola ''/(Hello)?World/'' akan cocok dengan ''World'' atau ''HelloWorld''.
 		
 		\item \textit{Asterisk} (*) \\
-		Pengulangan yang dapat dilakukan oleh kuantifier ini yaitu $\lbrace$ 0, $\rbrace$ (0 atau lebih). Contohnya pola ''/He*lloWorld/'' akan cocok dengan ''lloWorld'', ''HelloWorld'' atau ''HeHelloWorld''.
+		Pengulangan yang dapat dilakukan oleh kuantifier ini yaitu $\lbrace$ 0, $\rbrace$ (0 atau lebih). Contohnya pola ''/(He)*lloWorld/'' akan cocok dengan ''lloWorld'', ''HelloWorld'' atau ''HeHelloWorld''.
 		 
 		\item \textit{Plus} (+) \\
-		Pengulangan yang dapat dilakukan oleh kuantifier ini yaitu $\lbrace$ 1, $\rbrace$ (1 atau lebih). Contohnya pola ''/HelloWorld+/'' akan cocok dengan ''HelloWorld'', ''HelloWorldHelloWorld'' dan seterusnya.
+		Pengulangan yang dapat dilakukan oleh kuantifier ini yaitu $\lbrace$ 1, $\rbrace$ (1 atau lebih). Contohnya pola ''/(HelloWorld)+/'' akan cocok dengan ''HelloWorld'', ''HelloWorldHelloWorld'' dan seterusnya.
 	\end{itemize}	 
 	
 \end{enumerate}
 		
-Karakter meta \textit{inside square brackets} merupakan bagian dari kelas karakter. Pada bagian kelas karakter ini hanya terdapat 3 macam karakter meta saja. Jenis-jenis karakter meta tersebut akan dijelaskan pada tabel \ref{tab:metacharacters-inside}.
+Karakter meta \textit{inside square brackets} merupakan bagian dari kelas karakter. Pada bagian kelas karakter ini hanya terdapat 3 macam karakter meta saja. Jenis-jenis karakter meta tersebut akan dijelaskan pada Tabel \ref{tab:metacharacters-inside}.
 		
 \begin{table}[H]
 	\renewcommand{\arraystretch}{1.5}
@@ -145,7 +164,7 @@ Karakter meta \textit{inside square brackets} merupakan bagian dari kelas karakt
 	\end{center}
 \end{table}
 
-Pada tabel \ref{tab:metacharacters-inside} telah disebutkan macam-macam karakter meta \textit{inside square brackets}. Dari ke-3 metakarakter tersebut ada beberapa yang memiliki simbol yang sama dengan karakter meta \textit{outside square brackets}, namun fungsinya berbeda. Fungsi dari setiap karakter meta tersebut akan dijelaskan sebagai berikut.
+Pada Tabel \ref{tab:metacharacters-inside} telah disebutkan macam-macam karakter meta \textit{inside square brackets}. Dari ke-3 metakarakter tersebut ada beberapa yang memiliki simbol yang sama dengan karakter meta \textit{outside square brackets}, namun fungsinya berbeda. Fungsi dari setiap karakter meta tersebut akan dijelaskan sebagai berikut.
 
 \begin{enumerate}
 	\item \textit{Backslash} \\
@@ -161,11 +180,11 @@ Pada tabel \ref{tab:metacharacters-inside} telah disebutkan macam-macam karakter
 	
 \subsection{Kelas Karakter}
 
-Kelas karakter adalah karakter yang memiliki atribut yang spesifik yang dikelompokan dalam sebuah kelas. Karakter tersebut dapat berbeda di setiap negara. Kelas karakter hanya valid digunakan pada \textit{regex} didalam tanda kurung siku pada \textit{bracket expression}. Perl mendukung notasi POSIX yang digunakan untuk kelas karakter. Dalam penggunaannya, kelas-kelas tersebut ditulis diantara ''[:'' dan '':]''. PCRE juga mendukung penggunaan notasi ini. Sebagai contoh untuk kelas alfanumerik, penulisannya yaitu [:alnum:]. Berikut ini akan dijelaskan macam-macam kelas karakter yang digunakan:
+Kelas karakter adalah karakter yang memiliki atribut yang spesifik yang dikelompokan dalam sebuah kelas. Karakter tersebut dapat berbeda di setiap negara. Kelas karakter hanya valid digunakan pada \textit{regex} didalam tanda kurung siku pada \textit{bracket expression}. Perl mendukung notasi POSIX yang digunakan untuk kelas karakter. Dalam penggunaannya, kelas-kelas tersebut ditulis diantara ''[:'' dan '':]''. PCRE juga mendukung penggunaan notasi ini. Sebagai contoh untuk kelas alfanumerik, penulisannya yaitu [:alnum:]. Berikut ini akan dijelaskan macam-macam kelas karakter yang digunakan pada Tabel \ref{tab:character classes1} dan \ref{tab:character classes2}.
 
 \begin{table}[H]
 	\renewcommand{\arraystretch}{1.5}
-	\caption {Tabel kelas karakter} \label{tab:character classes}
+	\caption {Tabel kelas karakter} \label{tab:character classes1}
 	\begin{center}
 		\begin{tabular}{|p{2 cm}|>{\raggedright} p{5 cm}| p{7.5 cm}|}
 		\hline
@@ -179,6 +198,20 @@ Kelas karakter adalah karakter yang memiliki atribut yang spesifik yang dikelomp
 		\hline 
 		blank & Spasi dan Tab & Karakter-karakter yang termasuk yaitu, TAB dan spasi. \newline \\ 
 		\hline
+		\end{tabular} 
+	\end{center}
+\end{table}
+
+\begin{table}[H]
+	\renewcommand{\arraystretch}{1.5}
+	\caption {Tabel kelas karakter} \label{tab:character classes2}
+	\begin{center}
+		\begin{tabular}{|p{2 cm}|>{\raggedright} p{5 cm}| p{7.5 cm}|}
+		\hline
+		Kelas & Deskripsi & Keterangan \\ 
+		\hline 
+		blank & Spasi dan Tab & Karakter-karakter yang termasuk yaitu, TAB dan spasi. \newline \\ 
+		\hline
 		cntrl & Karakter kontrol & Karakter kontrol adalah karakter yang tidak merepresentasikan simbol tetapi merepresentasikan character encoding. \newline \\ 		
 		\hline 
 		digit & Angka desimal & Kelas yang berisi dengan karakter numerik. Karakter-karakter yang termasuk yaitu, angka 0-9. \newline \\ 		
@@ -188,29 +221,17 @@ Kelas karakter adalah karakter yang memiliki atribut yang spesifik yang dikelomp
 		lower & Huruf kecil & Kelas yang berisi karakter dengan huruf kecil. Karakter yang termasuk kelas ini adalah huruf a-z. \newline \\ 
 		\hline
 		print & Karakter cetak (termasuk spasi) & Kelas yang berisi karakter yang dapat dicetak. Karakter yang termasuk kelas ini adalah spasi. \newline \\ 
-		\hline 
-		\end{tabular} 
-	\end{center}
-\end{table}
-
-\begin{table}[H]
-	\renewcommand{\arraystretch}{1.5}
-	\caption {Tabel kelas karakter} \label{tab:character classes}
-	\begin{center}
-		\begin{tabular}{|p{2 cm}|>{\raggedright} p{5 cm}| p{7.5 cm}|}
-		\hline
-		Kelas & Deskripsi & Keterangan \\ 
 		\hline   
 		punct & Karakter cetak (kecuali alfanumerik) & Kelas yang berisi karakter yang dapat dicetak, namun tidak termasuk alfanumerik. \newline \\ 
 		\hline		
-		space & Ruang putih & Karakter yang termasuk kelas ini adalah spasi dan TAB. \newline \\ 
-		\hline 
+		space & Ruang putih & Karakter yang termasuk kelas ini adalah spasi dan TAB. \newline \\ 		
+		\hline
 		upper & Huruf kapital & Kelas yang berisi karakter dengan huruf kapital. \newline \\ 
 		\hline 
 		word & Karakter ''word'' & Kelas yang berisi karakter kata. \newline \\ 
 		\hline 
 		xdigit & Heksadesimal & Kelas yang merepresentasikan bilangan hexadesimal, a-f atau A-F dan 0-9. \newline \\ 
-		\hline 
+		\hline
 		\end{tabular} 
 	\end{center}
 \end{table}
@@ -229,7 +250,7 @@ Kelas karakter adalah karakter yang memiliki atribut yang spesifik yang dikelomp
 	\item Menangani \textit{encoding} heksa dan oktal pada teks.
 \end{itemize}
 
-Dari fitur yang sudah ada, masih ada yang belum bisa ditangani oleh \textit{library} ini. Berikut adalah beberapa kekurangan yang dimiliki oleh \textit{PdfParser} berdasarkan pengamatan:
+Dari fitur yang sudah ada, masih ada beberapa hal yang masih belum bisa ditangani oleh \textit{library} ini. Berikut adalah beberapa kekurangan yang dimiliki oleh \textit{PdfParser} berdasarkan pengamatan:
 
 \begin{itemize}
 	\item Tidak dapat mengekstrak PDF yang termasuk dokumen \textit{secured}.
@@ -238,54 +259,18 @@ Dari fitur yang sudah ada, masih ada yang belum bisa ditangani oleh \textit{libr
 	\item Hasil ekstrak tabel hanya berupa string saja (tidak dalam bentuk tabel)
 \end{itemize}
 
-\begin{comment}
-\subsection{Page}
-Kelas ini merepresentasikan halaman-halaman yang ada pada dokumen PDF. \textit{Method-method} yang terdapat pada kelas ini adalah sebagai berikut:
-
-\begin{itemize}
-	\item public function getFonts() \\
-	Method ini berfungsi untuk mendapatkan font yang digunakan dalam PDF dalam bentuk array. \newline
-	Kembalian: mengembalikan array font.	
-	
-	\item public function getFont(\$id) \\
-	Method ini memiliki fungsi yang sama dengan method getFonts(). Namun method ini hanya mengembalikan nilai pada indeks tertentu saja, berdasarkan id yang didapatkan dari parameter. \newline
-	Parameter: id dengan tipe data String. \newline
-	Kembalian: megembalikan font.
-	
-	\item public function getXObjects() \\
-	Method ini berfungsi untuk. \newline
-	Kembalian: mengembalikan sebuah array PDFObject.
-	
-	\item public function getXObject(\$id) \\
-	Method ini berfungsi untuk. \newline
-	Parameter: id dengan tipe data String. \newline
-	Kembalian: mengembalikan PDFObject.
-	
-	\item public function getText(Page \$page = null )\\
-	Method ini berfungsi untuk mendapatkan isi teks dari file PDF yang telah melalui proses ekstrak dalam bentuk string. \newline
-	Parameter: atribut \textit{page} dengan tipe data kelas Page. \newline
-	Kembalian: mengembalikan isi teks.
-		
-	\item public function getTextArray(Page \$page = null) \\
-	Method ini berfungsi untuk mendapatkan isi teks dari file PDF yang telah melalui proses ekstrak dalam bentuk array. \newline
-	Parameter: atribut \textit{page} dengan tipe data kelas Page. \newline
-	Kembalian: mengembalikan isi teks dalam sebuah array.
-	
-\end{itemize}
-\end{comment}
-
 \section{Kamus Indonesia \textit{LibreOffice}}
 \label{sec:kamusindo}
 
 LibreOffice~\cite{libreoffice} adalah sebuah paket aplikasi perkantoran berfitur lengkap yang tersedia secara gratis. LibreOffice menggunakan \textit{Open Document Format} (ODF) sebagai format aslinya untuk menyimpan dokumen. ODF menjadi format standar terbuka yang sedang diadopsi sebagai format file yang dibutuhkan untuk penerbitan dan penerimaan dokumen. LibreOffice juga dapat membuka dan menyimpan dokumen dalam format lainnya. Salah satunya format yang digunakan oleh beberapa versi dari Microsoft Office.
 
-LibreOffice memiliki ekstensi untuk kamus Indonesia. Ekstensi ini sudah mengalami beberapa perkembangan, mulai dari versi 1.0 yang rilis pada tanggal 19 Mei 2012. Versi 1.0 merupakan hasil unggahan kembali dari ekstensi \textit{OpenOffice} yang terakhir diperbaharui pada tahun 2009. Pada tanggal 17 Mei 2014 versi 1.1 dirilis, pada versi ini LibreOffice versi 4.0 dapat menggunakan ekstensi ini. Selanjutnya, pada tanggal 15 Juli 2014 versi 2.0 dirilis. Pada versi yang paling baru ini digunakan metode baru dengan sirkumfiks yang kemudian mengubah daftar kata, sehingga memuat semua lema dari Kamus Besar Indonesia.
+LibreOffice memiliki ekstensi kamus Indonesia yang digunakan pada LibreOffice Writer, untuk melakukan pemeriksaan kata yang dituliskan oleh pengguna. Ekstensi ini sudah mengalami beberapa perkembangan, mulai dari versi 1.0 yang rilis pada tanggal 19 Mei 2012. Versi 1.0 merupakan hasil unggahan kembali dari ekstensi \textit{OpenOffice} yang terakhir diperbaharui pada tahun 2009. Pada tanggal 17 Mei 2014 versi 1.1 dirilis, pada versi ini LibreOffice versi 4.0 dapat menggunakan ekstensi ini. Selanjutnya, pada tanggal 15 Juli 2014 versi 2.0 dirilis. Pada versi yang paling baru ini digunakan metode baru dengan sirkumfiks yang kemudian mengubah daftar kata, sehingga memuat semua lema dari Kamus Besar Indonesia.
 
 Ekstensi kamus Indonesia ini dapat diunduh secara gratis oleh para pengguna melalui halaman resmi dari \textit{LibreOffice}. Ekstensi yang dapat diunduh tersebut memiliki nama \textit{id\_id.oxt}. Dalam ekstensi tersebut, terdapat beberapa file yang berisi informasi tentang kamus Indonesia, yaitu \textit{id\_ID.aff} dan \textit{id\_ID.dic}.
 
 \subsection{File \textit{id\_ID.dic}}
 
-File ini berisi kata-kata yang akan digunakan dalam kamus bahasa Indonesia. File ini dapat dibuka dengan menggunakan aplikasi \textit{notepad} atau teks editor lainnya. Setelah dibuka menggunakan teks editor, akan terlihat 31129 baris yang berisi kata-kata yang ada dalam kamus bahasa Indonesia \textit{LibreOffice}. Untuk menjelaskan hal tersebut, akan diambil beberapa potong baris dari file tersebut.
+File ini berisi kata-kata yang akan digunakan dalam kamus bahasa Indonesia. File ini dapat dibuka dengan menggunakan aplikasi \textit{notepad} atau teks editor lainnya. Setelah dibuka menggunakan teks editor, akan terlihat 31129 baris yang berisi kata-kata dasar yang ada dalam kamus bahasa Indonesia \textit{LibreOffice}. Untuk menjelaskan hal tersebut, akan diambil beberapa potong baris dari file tersebut.
 	
 	\begin{lstlisting}[caption={Potongan kode untuk file \textit{id\_ID.dic}}			\label{lst:idDic},language=plaintext,xleftmargin=.35\textwidth] 
 31128
@@ -301,11 +286,11 @@ abah-abah
 	\end{lstlisting}
 \medskip
 	
-Pada listing \ref{lst:idDic}, baris pertama pada file ini menyatakan banyaknya kata yang ada pada kamus. Kata yang ada dalam kamus tersebut berjumlah 31128 buah. Baris ke-2 hingga ke-31128 merupakan kata-kata yang ada pada kamus. Dalam kamus ini belum dapat pengelompokan kata berdasarkan jenisnya, misalkan kata benda, kata sifat, dan sebagainya. Namun ada beberapa kata tersebut ada yang terlihat berbeda, seperti pada baris 6, 7 dan 9. Di sebelah kiri dari kata tersebut terdapat garis miring yang disertai sebuah kode. Kode tersebut berarti bahwa kata tersebut dapat ditambahkan oleh imbuhan tertentu. Penjelasan tentang kode tersebut akan diuraikan lebih lanjut pada pembahasan file \textit{id\_ID.aff}. 
+Pada Listing \ref{lst:idDic}, baris pertama pada file ini menyatakan banyaknya kata yang ada pada kamus. Kata yang ada dalam kamus tersebut berjumlah 31128 buah. Baris ke-2 hingga ke-31129 merupakan kata-kata yang ada pada kamus. Dalam kamus ini belum dapat pengelompokan kata berdasarkan jenisnya, misalkan kata benda, kata sifat, dan sebagainya. Namun ada beberapa kata tersebut ada yang terlihat berbeda, seperti pada baris 6, 7 dan 9. Di sebelah kiri dari kata tersebut terdapat garis miring yang disertai sebuah kode. Kode tersebut berarti bahwa kata tersebut dapat ditambahkan oleh imbuhan tertentu. Penjelasan tentang kode tersebut akan diuraikan lebih lanjut pada pembahasan file \textit{id\_ID.aff}. 
 
 \subsection{File \textit{id\_ID.aff}}
 
-File ini berisi daftar awalan dan akhiran untuk kamus Indonesia. Awalan akan disimbolkan dengan huruf kapital, sedangkan akhiran akan disimbolkan dengan huruf kecil. Selain ke-2 hal tesebut, ada juga yang merupakan gabungan dari awalan dan akhiran. Setiap imbuhan memiliki kodenya masing-masing, dan sebuah kata dapat memiliki lebih dari 1 kombinasi imbuhan. Berikut adalah penjelasan dari imbuhan yang telah disebutkan:
+File ini berisi daftar prefiks, sufiks dan konfiks, untuk kamus Indonesia. Prefiks akan disimbolkan dengan huruf kapital, sedangkan sufiks akan disimbolkan dengan huruf kecil. Selain ke-2 hal tesebut, ada juga yang merupakan gabungan dari prefiks dan sufiks, yaitu konfiks. Setiap imbuhan memiliki kodenya masing-masing, dan sebuah kata dapat memiliki lebih dari 1 kombinasi imbuhan. Berikut adalah penjelasan dari imbuhan yang telah disebutkan:
 
 \begin{enumerate}
 	\item \textit{Prefiks} \\
@@ -361,7 +346,7 @@ SFX k0 0  kankah
 	\end{itemize}
 	
 	\item \textit{Konfiks} \\	
-	\textit{Konfiks} adalah imbuhan tunggal yang terbentuk dari perpaduan awalan dan akhiran.
+	\textit{Konfiks} adalah afiks tunggal yang terjadi dari dua unsur yang terpisah, misalnya ke-...-an dalam kemerdekaan.
 	
 	\begin{lstlisting}[caption={Potongan kode untuk konfiks}			\label{lst:konfiks},language=plaintext,xleftmargin=.35\textwidth] 
 PFX KT Y 2	# keter- (keter-an)
@@ -372,8 +357,7 @@ SFX Sa Y 1	# -an (se-an) 	+ o0
 SFX Sa 0 an/S1o0A1 . 
 	\end{lstlisting}
 	
-	Listing \ref{lst:konfiks} merupakan salah satu contoh dari konfiks yang terdapat pada kamus bahasa
-Indonesia. Berikut ini adalah penjelasan dari baris kode tersebut:
+	Listing \ref{lst:konfiks} merupakan salah satu contoh dari konfiks yang terdapat pada kamus bahasa Indonesia. Berikut ini adalah penjelasan dari baris kode tersebut:
 	
 	\begin{itemize}
 		\item Kolom pertama biasanya digunakan sebagai tanda untuk mengetahui apakah kode tersebut termasuk awalan atau akhiran. Namun pada konfiks tidak ada simbol khusus yang menandakan bahwa kode tersebut adalah sebuah konfiks. Pada baris 1 tertulis ”PFX”, yang berarti konfiks ini berakar pada awalan tertentu. Pada baris 5 tertulis ”SFX”, yang berarti konfiks ini berakar pada akhiran tertentu.

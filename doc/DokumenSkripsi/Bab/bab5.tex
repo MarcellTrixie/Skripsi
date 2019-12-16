@@ -17,7 +17,7 @@
     tabsize=1,
     breaklines=true,
     breakatwhitespace=false,
-    frame=leftline
+    frame=leftline,
 }
 
 \chapter{Implementasi dan Pengujian}
@@ -56,37 +56,46 @@ Berikut spesifikasi perangkat keras dan perangkat lunak yang digunakan dalam pem
 \subsection{Hasil Implementasi}
 Perangkat lunak dibangun menggunakan bahasa pemrograman \textit{PHP} dan \textit{library PdfParser}. Perangkat lunak tidak memiliki \textit{Graphical User Interface}, sehingga seluruh kegiatan dilakukan melalui terminal. Perangkat lunak akan menerima input berupa file PDF skripsi yang disimpan pada folder yang telah disediakan, dan mengeluarkan laporan kesalahan pada terminal.
 
-\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.3\textwidth] 
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=plaintext,xleftmargin=.3\textwidth] 
 php main.php ../res/nama_file.pdf
 \end{lstlisting}
 \medskip
 
 Listing \ref{lst:command} merupakan perintah yang perlu dituliskan pada terminal, untuk menjalankan perangkat lunak. Kelas Main menjadi kelas yang digunakan untuk menjalankan seluruh proses yang berjalan dalam perangkat lunak. File PDF skripsi yang akan diperiksa harus berada di folder yang telah disediakan, yaitu pada folder Skripsi$\backslash$src$\backslash$res. Nama file yang digunakan pada umumnya sesuai dengan \textit{template} skripsi yang diberikan, yaitu ''skripsi.pdf''. Namun pengguna juga dapat menggunakan nama yang berbeda, yang paling utama file tersebut memiliki ekstensi PDF.
 
-\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:error_report},language=php,xleftmargin=.05\textwidth] 
+\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:error_report},language=plaintext,xleftmargin=.05\textwidth] 
 ERROR 1
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Namun dalam penulisannya, peserta skripsi sering melakukan kesalahan kecil yang tidak dapat diabaikan.kesalahan sering terjadi dalam penggunaan imbuhan, kata keterangan, penulisan kata dan sebagainya
+Excerpt: Namun dalam penulisannya, peserta skripsi sering melakukan kesalahan 
+kecil yang tidak dapat diabaikan.kesalahan sering terjadi dalam penggunaan 
+imbuhan, kata keterangan, penulisan kata dan sebagainya
 
 ERROR 2
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Regex biasanya dimanfaatkan untuk memverifikasi kecocokan antara input dengan pola teks,untuk menemukan teks yang cocok dengan pola dalam teks yang lebih besar, untuk mengganti teks yang cocok dengan pola dengan teks lain atau menyusun ulang bit dari teks yang cocok dan untuk membagi sebuah blok teks menjadi beberapa subteks
+Excerpt: Regex biasanya dimanfaatkan untuk memverifikasi kecocokan antara input 
+dengan pola teks,untuk menemukan teks yang cocok dengan pola dalam teks yang 
+lebih besar, untuk mengganti teks yang cocok dengan pola dengan teks lain atau 
+menyusun ulang bit dari teks yang cocok dan untuk membagi sebuah blok teks
+menjadi beberapa subteks
 
 ERROR 3
 ==================
 Error Code: PS-05
 Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
-Excerpt: Namun dalam penulisannya, peserta skripsi sering melakukan kesalahan kecil yang tidak dapat diabaikan.kesalahan sering terjadi dalam penggunaan imbuhan, kata keterangan, penulisan kata dan sebagainya
+Excerpt: Namun dalam penulisannya, peserta skripsi sering melakukan kesalahan
+kecil yang tidak dapat diabaikan.kesalahan sering terjadi dalam penggunaan 
+imbuhan, kata keterangan, penulisan kata dan sebagainya
 \end{lstlisting}
 \medskip
 
 Listing \ref{lst:error_report} merupakan hasil laporan yang dikeluarkan oleh perangkat lunak melalui \textit{terminal windows}. Informasi yang diberikan oleh laporan tersebut yaitu, kode kesalahan, jenis kesalahan yang ditemukan dan kesalahan yang ditemukan. Laporan kesalahan yang dikeluarkan sudah diurutkan dari fitur pertama hingga terakhir, yaitu dari fitur PS-01 hingga NAT-03.
 
 \section{Pengujian Fungsional}
+\label{PengFung}
 Pengujian fungsional bertujuan untuk menguji fungsionalitas perangkat lunak. Perangkat lunak memiliki 8 fitur yang telah diimplementasikan. Fitur-fitur tersebut akan diuji untuk melihat kebenaran dan kesesuaian fitur tersebut dengan yang diharapkan. Untuk melakukan pengujian ini, perangkat lunak akan dijalankan sebanyak jumlah fitur yang ada. Setiap pengujian yang dilakukan, fitur yang diaktifkan hanya 1 saja secara bergantian. Hal ini dilakukan hingga seluruh fitur telah diuji.
 
 Pada pengujian ini, perangkat lunak akan diuji dengan 2 buah kasus uji. Kedua kasus uji tersebut menggunakan \textit{template} dokumen skripsi Informatika Unpar. Mode dokumen yang digunakan adalah mode \textit{final}. Kedua \textit{test case} tersebut diberi nama 'TC\_PF\_01.pdf'' dan ''TC\_PF\_02.pdf''. Isi dari kedua file tersebut serupa, namun pada file ''TC\_PF\_02.pdf'' sudah disisipkan kesalahan-kesalahan yang dapat dideteksi oleh setiap fitur yang ada. Berikut ini adalah rincian dari kesalahan-kesalahan yang dimasukan ke dalam kasus uji tersebut.
@@ -94,15 +103,15 @@ Pada pengujian ini, perangkat lunak akan diuji dengan 2 buah kasus uji. Kedua ka
 \begin{enumerate}
 	\item Pada halaman cover bahasa Indonesia dan bahasa Inggris, data yang meliputi judul, nama mahasiswa, NPM mahasiswa, dan yang lainnya tidak diisi. Hal ini dilakukan untuk menguji fitur pemeriksa kelengkapan data skripsi (KAL-03).
 	
+	\item Untuk menguji fitur pemeriksa jumlah sub bab atau sub sub bab (PS-09), pada beberapa bab hanya memiliki sebuah sub bab atau sebuah sub sub bab.
+	
 	\item Pada bab 1, beberapa karakter pertama dalam awal kalimat menggunakan huruf kecil. Hal ini dilakukan untuk menguji fitur pemeriksa huruf kapital (PS-05).
 	
 	\item Pada bab 2, terdapat teori yang referensinya tidak dirujuk dengan baik. File referensi.bib tidak diikutsertakan pada saat file latex dieksekusi. Hal ini dilakukan untuk menguji fitur pemeriksa referensi (NAT-01).
 	
-	\item Pada bab 3, terdapat beberapa kata yang diketik tidak sesuai dengan kamus bahasa Indonesia. Hal ini dilakukan untuk menguji fitur pemeriksa kata (PS-01). Selain itu pada bab ini tidak diberikan kata pengantar sebelum memulai subbab, untuk menguji fitur pemeriksa kata pengantar pada bab (KAL-02).
-	
-	\item Pada bab 4, terdapat beberapa kata yang tidak diberikan karakter spasi sebelum ataupun setelah tanda baca. Hal ini dilakukan untuk menguji fitur pemeriksa karakter spasi sebelumm atau setelah tanda baca (PS-03).	
+	\item Pada bab 1 dan 2, terdapat beberapa kata yang tidak diberikan karakter spasi sebelum ataupun setelah tanda baca. Hal ini dilakukan untuk menguji fitur pemeriksa karakter spasi sebelumm atau setelah tanda baca (PS-03).	
 
-	\item Untuk menguji fitur pemeriksa jumlah sub bab atau sub sub bab (PS-09), pada beberapa bab hanya memiliki sebuah sub bab atau sebuah sub sub bab.
+	\item Pada bab 3, terdapat beberapa kata yang diketik tidak sesuai dengan kamus bahasa Indonesia. Hal ini dilakukan untuk menguji fitur pemeriksa kata (PS-01). Selain itu pada bab ini tidak diberikan kata pengantar sebelum memulai subbab, untuk menguji fitur pemeriksa kata pengantar pada bab (KAL-02).
 		
 	\item Pada bab 6, terdapat kalimat yang disisipkan kata ganti orang , untuk menguji fitur pemeriksa kata ganti orang (VAN-03).
 \end{enumerate}
@@ -121,7 +130,44 @@ Error Code: PS-01
 Note: Ditemukan penulisan kata yang tidak sesuai dengan kamus
 Excerpt: 
 
-PENDAHULUANPada, dijelaskan, mengenai, penulisan, rumusan, tujuan, batasan, penelitian, merupakan, karangan, ditulis, sebagai, bagian, persya, ratan, pendidikan, akademiknya, penulisannya, peserta, melakukan, kesalahan, diabaikan, Kesalahan, terjadi, penggunaan, imbuhan, keterangan, sebagainya, seharusnya, diperiksa, diminimalisir, bimbingan, pembimbing, dimanfaatkan, membahas, konten, dibanding, memeriksa, tersebut, dibuat, sebuah, pemeriksaan, berasal, dilakukan, Unpar, diseleksi, diimplementasikan, secara, dijalankan, melalui, command, Windows, menerima, masukan, berupa, le, PDF, menampilkan, laporan, berisi, ditemukan, Rumusan, Berdasarkan, dirumuskan, berikut, membuat, Tujuan, adalah, membangun, LANDASAN, TEORIPada, dibahas, landasan, expression, library, LibreO, Expression, regex, tertentu, digunakan, pemrograman, Regex, biasanya, memveri, kecocokan, input, menemukan, mengganti, menyusun, membagi, menjadi, subteks, pencocokan, misalnya, validasi, string, username, password, mail, IP, Pemanfaatan, menyederhanakan, pemrosesan, kehidupan, sehari, mencerminkan, disebut, keteraturan, menggunakan, Deterministic, Finite, DFA, nite, state, machineyang, backtracking, berbagai, satunya, Perl, Compa, tible, PCRE, serangkaian, menerapkan, sintaks, perbedaan, Perlversi, Metakarakter, dibedakan, berdasarkan, posisinya, metakarakter, outside, square, brackets, fungsinya, berbeda, terdapat, sedangkan, inside, bracketsterdapat, Karakter, karakter, memiliki, spesi, k, dikelompokan, setiap, didalam, bracket, mendukung, POSIX, penggunaannya, diantara, Sebagai, alnum, keputusan, UmumPada, mengumpulkan, dibutuhkan, pengembangan, dicari, dipilih, pelaksanaannya, dibagi, pengamatan, Pengamatan, berlangsung, Mei, diamati, melainkan, diambil, pertimbangan, diuji, menghadiri, disajikan, Penguji, Osfaldo, Mickael, Oktavianus, Naibaho, Penjualan, Vania, Natali, S, M, T, Elisati, Ricky, Wahyudi, Menggunakan, Fitur, Surf, Dr, rer, nat, Cecilia, Esti, Nugraheni, ST, MT, Ir, Veronica, Moer, tini, selanjutnya, diminta, PERANCANGANPada, perancangan, dibangun, meliputi, algoritma, pengecekan, Perancangan, rancangan, Rancangan, ditunjukan, Pemeriksa, PENGUJIANPada, pengujian, terhadap, Lingkungan, Pengujian, lingkungan, beserta, implementasinya, Berikut, pembangunan, Spesi, Processor, AMD, Bristol, Ridge, Quad, Core, FX, P, GHz, GB, GPU, Radeon, RX, Storage, Harddisk, TB, PHP, cli, Composer, Sublime, Text, PdfParser, Graphical, User, Interface, kegiatan, disimpan, disediakan, mengeluarkan, Listing, menjalankan, phpmain, php, r, s, n, m, f, i, l, p, d, KESIMPULAN, SARANPada, kesimpulan, Kesimpulan
+PENDAHULUANPada, dijelaskan, mengenai, penulisan, rumusan, tujuan, batasan, 
+penelitian, merupakan, karangan, ditulis, sebagai, bagian, persya, ratan,
+pendidikan, akademiknya, penulisannya, peserta, melakukan, kesalahan,
+diabaikan, Kesalahan, terjadi, penggunaan, imbuhan, keterangan, 
+sebagainya, seharusnya, diperiksa, diminimalisir, bimbingan, pembimbing, 
+dimanfaatkan, membahas, konten, dibanding, memeriksa, tersebut, dibuat, 
+sebuah, pemeriksaan, berasal, dilakukan, Unpar, diseleksi, 
+diimplementasikan, secara, dijalankan, melalui, command, Windows, 
+menerima, masukan, berupa, le, PDF, menampilkan, laporan, berisi, 
+ditemukan, Rumusan, Berdasarkan, dirumuskan, berikut, membuat, Tujuan, 
+adalah, membangun, LANDASAN, TEORIPada, dibahas, landasan, expression, 
+library, LibreO, Expression, regex, tertentu, digunakan, pemrograman, 
+Regex, biasanya, memveri, kecocokan, input, menemukan, mengganti, 
+menyusun, membagi, menjadi, subteks, pencocokan, misalnya, validasi, 
+string, username, password, mail, IP, Pemanfaatan, menyederhanakan, 
+pemrosesan, kehidupan, sehari, mencerminkan, disebut, keteraturan, 
+menggunakan, Deterministic, Finite, DFA, nite, state, machineyang, 
+backtracking, berbagai, satunya, Perl, Compa, tible, PCRE, serangkaian, 
+menerapkan, sintaks, perbedaan, Perlversi, Metakarakter, dibedakan, 
+berdasarkan, posisinya, metakarakter, outside, square, brackets, 
+fungsinya, berbeda, terdapat, sedangkan, inside, bracketsterdapat, 
+Karakter, karakter, memiliki, spesi, k, dikelompokan, setiap, didalam, 
+bracket, mendukung, POSIX, penggunaannya, diantara, Sebagai, alnum, 
+keputusan, UmumPada, mengumpulkan, dibutuhkan, pengembangan, dicari, 
+dipilih, pelaksanaannya, dibagi, pengamatan, Pengamatan, berlangsung, Mei, 
+diamati, melainkan, diambil, pertimbangan, diuji, menghadiri, disajikan, 
+Penguji, Osfaldo, Mickael, Oktavianus, Naibaho, Penjualan, Vania, Natali, 
+S, M, T, Elisati, Ricky, Wahyudi, Menggunakan, Fitur, Surf, Dr, rer, nat, 
+Cecilia, Esti, Nugraheni, ST, MT, Ir, Veronica, Moer, tini, selanjutnya, 
+diminta, PERANCANGANPada, perancangan, dibangun, meliputi, algoritma, 
+pengecekan, Perancangan, rancangan, Rancangan, ditunjukan, Pemeriksa, 
+PENGUJIANPada, pengujian, terhadap, Lingkungan, Pengujian, lingkungan, 
+beserta, implementasinya, Berikut, pembangunan, Spesi, Processor, AMD, 
+Bristol, Ridge, Quad, Core, FX, P, GHz, GB, GPU, Radeon, RX, Storage, 
+Harddisk, TB, PHP, cli, Composer, Sublime, Text, PdfParser, Graphical, 
+User, Interface, kegiatan, disimpan, disediakan, mengeluarkan, Listing, 
+menjalankan, phpmain, php, r, s, n, m, f, i, l, p, d, KESIMPULAN, 
+SARANPada, kesimpulan, Kesimpulan
 \end{lstlisting}
 	
 	\item Kasus uji TC\_PF\_02.pdf
@@ -133,13 +179,47 @@ Error Code: PS-01
 Note: Ditemukan penulisan kata yang tidak sesuai dengan kamus
 Excerpt: 
 
-PENDAHULUANpada, dijelaskan, mengenai, penulisan, rumusan, tujuan, batasan, penelitian, merupakan, karangan, ditulis, sebagai, bagian, persya, ratan, pendidikan, akademiknya, penulisannya, peserta, melakukan, kesalahan, diabaikan, terjadi, penggunaan, imbuhan, keterangan, sebagainya, seharusnya, diperiksa, diminimalisir, bimbingan, pembimbing, dimanfaatkan, membahas, konten, dibanding, memeriksa, tersebut, dibuat, sebuah, pemeriksaan, berasal, dilakukan, Unpar, diseleksi, diimplementasikan, secara, dijalankan, melalui, command, Windows, menerima, masukan, berupa, le, PDF, menampilkan, laporan, berisi, ditemukan, Rumusan, Berdasarkan, dirumuskan, berikut, membuat, Tujuan, adalah, membangun, LANDASAN, TEORIPada, dibahas, landasan, expression, library, LibreO, Expression, regex, tertentu, digunakan, pemrograman, Regex, biasanya, memveri, kecocokan, input, menemukan, mengganti, menyusun, membagi, menjadi, subteks, pencocokan, misalnya, validasi, string, username, password, mail, IP, Pemanfaatan, menyederhanakan, pemrosesan, kehidupan, sehari, mencerminkan, disebut, keteraturan, menggunakan, Deterministic, Finite, DFA, nite, state, machineyang, backtracking, berbagai, satunya, Perl, Compa, tible, PCRE, serangkaian, menerapkan, sintaks, perbedaan, Perlversi, Metakarakter, dibedakan, berdasarkan, posisinya, metakarakter, outside, square, brackets, fungsinya, berbeda, terdapat, sedangkan, inside, bracketsterdapat, Kesalahan, UmumPda, baggian, mengumpulkan, dibutuhkan, pengembangan, Infrmasi, yng, dicari, ksalahan, umumm, yaang, serring, terjaadi, paada, metod, ang, dipilih, pelaksanaannya, dibagi, menjhadi, pengamatan, Pengamatan, berlangsung, Mei, diamati, melainkan, diambil, pertimbangan, diuji, menghadiri, disajikan, Penguji, Osfaldo, Mickael, Oktavianus, Naibaho, Penjualan, Vania, Natali, S, M, T, Elisati, Ricky, Wahyudi, Menggunakan, Fitur, Surf, Dr, rer, nat, Cecilia, Esti, Nugraheni, ST, MT, Ir, Veronica, Moer, tini, PERANCANGANPada, perancangan, dibangun, meliputi, algoritma, pengecekan, Perancangan, rancangan, Rancangan, ditunjukan, Pemeriksa, PENGUJIANPada, pengujian, terhadap, Lingkungan, Pengujian, lingkungan, beserta, implementasinya, Berikut, spesi, pembangunan, Spesi, Processor, AMD, Bristol, Ridge, Quad, Core, FX, P, GHz, GB, GPU, Radeon, RX, Storage, Harddisk, TB, PHP, cli, Composer, Sublime, Text, KESIMPULAN, SARANPada, kesimpulan, Kesimpulan, berikan
+PENDAHULUANpada, dijelaskan, mengenai, penulisan, rumusan, tujuan, 
+batasan, penelitian, merupakan, karangan, ditulis, sebagai, bagian, 
+persya, ratan, pendidikan, akademiknya, penulisannya, peserta, melakukan, 
+kesalahan, diabaikan, terjadi, penggunaan, imbuhan, keterangan, 
+sebagainya, seharusnya, diperiksa, diminimalisir, bimbingan, pembimbing, 
+dimanfaatkan, membahas, konten, dibanding, memeriksa, tersebut, dibuat, 
+sebuah, pemeriksaan, berasal, dilakukan, Unpar, diseleksi, 
+diimplementasikan, secara, dijalankan, melalui, command, Windows, 
+menerima, masukan, berupa, le, PDF, menampilkan, laporan, berisi, 
+ditemukan, Rumusan, Berdasarkan, dirumuskan, berikut, membuat, Tujuan, 
+adalah, membangun, LANDASAN, TEORIPada, dibahas, landasan, expression, 
+library, LibreO, Expression, regex, tertentu, digunakan, pemrograman, 
+Regex, biasanya, memveri, kecocokan, input, menemukan, mengganti, 
+menyusun, membagi, menjadi, subteks, pencocokan, misalnya, validasi, 
+string, username, password, mail, IP, Pemanfaatan, menyederhanakan, 
+pemrosesan, kehidupan, sehari, mencerminkan, disebut, keteraturan, 
+menggunakan, Deterministic, Finite, DFA, nite, state, machineyang, 
+backtracking, berbagai, satunya, Perl, Compa, tible, PCRE, serangkaian, 
+menerapkan, sintaks, perbedaan, Perlversi, Metakarakter, dibedakan, 
+berdasarkan, posisinya, metakarakter, outside, square, brackets, 
+fungsinya, berbeda, terdapat, sedangkan, inside, bracketsterdapat, 
+Kesalahan, UmumPda, baggian, mengumpulkan, dibutuhkan, pengembangan, 
+Infrmasi, yng, dicari, ksalahan, umumm, yaang, serring, terjaadi, paada, 
+metod, ang, dipilih, pelaksanaannya, dibagi, menjhadi, pengamatan, 
+Pengamatan, berlangsung, Mei, diamati, melainkan, diambil, pertimbangan, 
+diuji, menghadiri, disajikan, Penguji, Osfaldo, Mickael, Oktavianus, 
+Naibaho, Penjualan, Vania, Natali, S, M, T, Elisati, Ricky, Wahyudi, 
+Menggunakan, Fitur, Surf, Dr, rer, nat, Cecilia, Esti, Nugraheni, ST, MT, 
+Ir, Veronica, Moer, tini, PERANCANGANPada, perancangan, dibangun, 
+meliputi, algoritma, pengecekan, Perancangan, rancangan, Rancangan, 
+ditunjukan, Pemeriksa, PENGUJIANPada, pengujian, terhadap, Lingkungan, 
+Pengujian, lingkungan, beserta, implementasinya, Berikut, spesi, 
+pembangunan, Spesi, Processor, AMD, Bristol, Ridge, Quad, Core, FX, P, 
+GHz, GB, GPU, Radeon, RX, Storage, Harddisk, TB, PHP, cli, Composer, 
+Sublime, Text, KESIMPULAN, SARANPada, kesimpulan, Kesimpulan, berikan
 \end{lstlisting}
 \end{enumerate}
 
-Laporan yang ditunjukan pada listing \ref{lst:ps-01-2} sudah sesuai dengan yang diharapkan. Fitur ini melakukan pengecekan pada setiap kata yang ada pada dokumen. Namun, ada beberapa hal yang belum dapat dilakukan fitur ini, berikut adalah contohnya:
+Pada kasus uji TC\_PF\_02.pdf disisipkan 10 buah kesalahan penulisan kata. Kata-kata yang disisipkan dalam kasus uji tersebut, yaitu: ''Pda'', ''baggian'', ''Infrmasi'', ''yng'', ''ksalahan'', ''umumm'', ''yaang'', ''serring'', ''terjaadi'', ''paada'', ''metod'', ''ang'' dan ''menjadhi''. Seluruh kesalahan yang disisipkan berhasil diperiksa dan dikeluarkan pada laporan yang ditunjukan oleh Listing \ref{lst:ps-01-2}. Tingkat akurasi untuk fitur ini adalah 100\%. Namun, ada beberapa hal yang belum dapat dilakukan fitur ini, berikut adalah contohnya:
 
-\begin{enumerate}
+\begin{itemize}
 	\item Mendeteksi nama orang. \newline
 	Pada listing \ref{lst:ps-01-2} terdapat beberapa nama orang yang termasuk ke dalam kesalahan, contohnya Osfaldo, Mickael, Ricky dan yang lainnya.
 	
@@ -148,7 +228,13 @@ Laporan yang ditunjukan pada listing \ref{lst:ps-01-2} sudah sesuai dengan yang 
 	
 	\item Mendeteksi kata yang memiliki imbuhan \newline
 	Pada listing \ref{lst:ps-01-2} terdapat beberapa kata berimbuhan yang termasuk ke dalam kesalahan, contohnya menggunakan, pengecekan, perancangan dan yang lainnya.
-\end{enumerate}
+	
+	\item Mendeteksi kata yang saling berdempetan \newline
+	Pada listing \ref{lst:ps-01-2} terdapat beberapa kata berdempetan yang termasuk ke dalam kesalahan, contohnya PERANCANGANPada, UmumPda dan yang lainnya.
+	
+	\item Mendeteksi kata yang tidak utuh \newline
+	Pada listing \ref{lst:ps-01-2} terdapat beberapa kata yang tidak utuh (terpotong oleh ''-'') yang termasuk ke dalam kesalahan, contohnya persya-ratan menjadi persya dan ratan.
+\end{itemize}
 
 \subsection{Menguji fitur PS-03}
 Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan kata-kata yang tidak diberi spasi setelah tanda baca. Berikut ini adalah hasil dari pengujian yang telah dilakukan:
@@ -161,7 +247,8 @@ ERROR 1
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Listing 5.1: Perintah yang digunakan untuk menjalankan perangkat lunak 1phpmain.php
+Excerpt: Listing 5.1: Perintah yang digunakan untuk menjalankan perangkat lunak
+1phpmain.php
 \end{lstlisting}
 	
 	\item Kasus uji TC\_PF\_02.pdf
@@ -171,23 +258,35 @@ ERROR 1
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Namun dalam penulisannya, peserta skripsi sering melakukan kesalahan kecil yang tidak dapat diabaikan.kesalahan sering terjadi dalam penggunaan imbuhan, kata keterangan, penulisan kata dan sebagainya
+Excerpt: Namun dalam penulisannya, peserta skripsi sering melakukan kesalahan 
+kecil yang tidak dapat diabaikan.kesalahan sering terjadi dalam penggunaan 
+imbuhan, kata keterangan, penulisan kata dan sebagainya
 
 ERROR 2
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Regex biasanya dimanfaatkan untuk memverifikasi kecocokan antara input dengan pola teks,untuk menemukan teks yang cocok dengan pola dalam teks yang lebih besar, untuk mengganti teks yang cocok dengan pola dengan teks lain atau menyusun ulang bit dari teks yang cocok dan untuk membagi sebuah blok teks menjadi beberapa subteks
+Excerpt: Regex biasanya dimanfaatkan untuk memverifikasi kecocokan antara input 
+dengan pola teks,untuk menemukan teks yang cocok dengan pola dalam teks yang 
+lebih besar, untuk mengganti teks yang cocok dengan pola dengan teks lain atau 
+menyusun ulang bit dari teks yang cocok dan untuk membagi sebuah blok teks 
+menjadi beberapa subteks
 \end{lstlisting}
 \end{enumerate}
 
-Laporan yang ditunjukan pada listing \ref{lst:ps-03-2} sudah sesuai dengan yang diharapkan. Namun, ada beberapa hal yang belum dapat dilakukan fitur ini. Fitur ini masih belum bisa membedakan penggunaan tanda titik pada gelar pendidikan, perangkat lunak mendeteksi hal tersebut menjadi sebuah kesalahan dalam fitur ini. Pada listing \ref{lst:ps-03-1}, fitur ini juga belum dapat membedakan penggunaan tanda titik pada nama file.
+Pada kasus uji TC\_PF\_02.pdf disisipkan 2 buah kesalahan dalam penggunaan spasi setelah tanda baca. Kesalahan tersebut terdapat pada sub bab 1.1 baris ke-3 dan sub bab 2.1 baris ke-3. Kedua kesalahan tersebut berhasil diperiksa dan dikeluarkan pada laporan yang ditunjukan oleh Listing \ref{lst:ps-03-2}. Tingkat akurasi untuk fitur ini adalah 100\%. Namun, ada beberapa hal yang belum dapat dilakukan fitur ini, berikut adalah contohnya:
+
+\begin{itemize}
+	\item Fitur ini masih belum bisa membedakan penggunaan tanda titik pada gelar pendidikan, perangkat lunak mendeteksi hal tersebut menjadi sebuah kesalahan.
+	
+	\item Pada listing \ref{lst:ps-03-1}, fitur ini juga belum dapat membedakan penggunaan tanda titik pada nama file. Hal ini juga berlaku untuk kata yang merujuk tabel, gambar dan lain-lain. Misalnya Tabel 4.1, Gambar 2.5 dan lain-lain.
+\end{itemize}
 
 \subsection{Menguji fitur PS-05}
 Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan karakter pertama yang tidak menggunakan huruf kapital pada sebuah kalimat. Berikut ini adalah hasil dari pengujian yang telah dilakukan:
 
 \begin{enumerate}
-	\item Kasus uji TC\_PF\_01.pdf
+	\item Kasus uji TC\_PF\_01.pdf \newline
 	Pada kasus uji ini, perangkat lunak tidak menemukan kesalahan dalam dokumen skripsi.
 	
 	\item Kasus uji TC\_PF\_02.pdf
@@ -197,37 +296,44 @@ ERROR 1
 ==================
 Error Code: PS-05
 Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
-Excerpt: Namun dalam penulisannya, peserta skripsi sering melakukan kesalahan kecil yang tidak dapat diabaikan.kesalahan sering terjadi dalam penggunaan imbuhan, kata keterangan, penulisan kata dan sebagainya
+Excerpt: Namun dalam penulisannya, peserta skripsi sering melakukan kesalahan 
+kecil yang tidak dapat diabaikan.kesalahan sering terjadi dalam penggunaan 
+imbuhan, kata keterangan, penulisan kata dan sebagainya
 
 ERROR 2
 ==================
 Error Code: PS-05
 Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
-Excerpt: pada saat bimbingan, waktu dosen pembimbing lebih baik dimanfaatkan untuk membahas konten dibanding memeriksa kesalahan-kesalahan tersebut
+Excerpt: pada saat bimbingan, waktu dosen pembimbing lebih baik dimanfaatkan 
+untuk membahas konten dibanding memeriksa kesalahan-kesalahan tersebut
 
 ERROR 3
 ==================
 Error Code: PS-05
 Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
-Excerpt: dari masalah tersebut dapat dibuat sebuah aplikasi untuk melakukan pemeriksaan pada dokumen skripsi
+Excerpt: dari masalah tersebut dapat dibuat sebuah aplikasi untuk melakukan 
+pemeriksaan pada dokumen skripsi
 
 ERROR 4
 ==================
 Error Code: PS-05
 Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
-Excerpt: kesalahan yang akan diperiksa berasal dari survei yang dilakukan kepada dosen-dosen Informatika Unpar
+Excerpt: kesalahan yang akan diperiksa berasal dari survei yang dilakukan 
+kepada dosen-dosen Informatika Unpar
 
 ERROR 5
 ==================
 Error Code: PS-05
 Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
-Excerpt: hasil dari survei tersebut akan diseleksi untuk diimplementasikan ke dalam aplikasi
+Excerpt: hasil dari survei tersebut akan diseleksi untuk diimplementasikan ke 
+dalam aplikasi
 
 ERROR 6
 ==================
 Error Code: PS-05
 Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
-Excerpt: aplikasi sederhana ini dapat dimanfaatkan oleh mahasiswa Informatika Unpar secara mandiri
+Excerpt: aplikasi sederhana ini dapat dimanfaatkan oleh mahasiswa Informatika 
+Unpar secara mandiri
 
 ERROR 7
 ==================
@@ -239,17 +345,18 @@ ERROR 8
 ==================
 Error Code: PS-05
 Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
-Excerpt: aplikasi menerima masukan berupa file PDF skripsi dan menampilkan laporan yang berisi kesalahan-kesalahan yang ditemukan pada dokumen skripsi
+Excerpt: aplikasi menerima masukan berupa file PDF skripsi dan menampilkan 
+laporan yang berisi kesalahan-kesalahan yang ditemukan pada dokumen skripsi
 \end{lstlisting}
 \end{enumerate}
 
-Laporan yang ditunjukan pada listing \ref{lst:ps-05-2} sudah sesuai dengan yang diharapkan.
+Pada kasus uji TC\_PF\_02.pdf disisipkan 9 buah kesalahan dalam penggunaan huruf kapital pada awal kalimat. Kesalahan tersebut disisipkan pada 9 kalimat yang ada pada bab 1. Listing \ref{lst:ps-05-2} hanya menemukan 8 buah kesalahan. Satu kesalahan yang tidak ditemukan berada pada kata pengantar setelah penulisan bab dan judulnya. Kesalahan ini tidak terdeteksi karena hasil ekstrak judul bab dan kata pertama pada kalimat pengantar tergabung menjadi satu. Tingkat akurasi untuk fitur ini adalah 88,89\%.
 
 \subsection{Menguji fitur PS-09}
 Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan bab atau sub bab yang hanya memiliki satu sub bab atau sub sub bab. Berikut ini adalah hasil dari pengujian yang telah dilakukan:
 
 \begin{enumerate}
-	\item Kasus uji TC\_PF\_01.pdf
+	\item Kasus uji TC\_PF\_01.pdf \newline
 	Pada kasus uji ini, perangkat lunak tidak menemukan kesalahan dalam dokumen skripsi.
 	
 	\item Kasus uji TC\_PF\_02.pdf
@@ -292,13 +399,15 @@ Note: Bab/Subbab 5.1.1 ini hanya terdapat 1 sub bab/sub sub bab
 \end{lstlisting}
 \end{enumerate}
 
-Laporan yang ditunjukan pada listing \ref{lst:ps-09-2} sudah sesuai dengan yang diharapkan.
+Laporan yang ditunjukan pada Listing \ref{lst:ps-09-2} sudah sesuai dengan yang diharapkan.
+
+Pada kasus uji TC\_PF\_02.pdf disisipkan 7 buah kesalahan. Kesalahan tersebut berkaitan dengan jumlah sub bab atau sub sub bab yang ada. Ada 4 bab yang hanya memiliki 1 sub bab, yaitu bab 2, 3, 4 dan 5. Selain itu ada 3 sub bab yang hanya memiliki 1 sub sub bab, yaitu sub bab 2.1, 3.1 dan 5.1. Pada Listing \ref{lst:ps-05-2} seluruh kesalahan berhasil ditemukan. Tingkat akurasi untuk fitur ini adalah 100\%.
 
 \subsection{Menguji fitur KAL-02}
 Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan bab yang tidak diberikan kata pengantar. Berikut ini adalah hasil dari pengujian yang telah dilakukan:
 
 \begin{enumerate}
-	\item Kasus uji TC\_PF\_01.pdf
+	\item Kasus uji TC\_PF\_01.pdf \newline
 	Pada kasus uji ini, perangkat lunak tidak menemukan kesalahan dalam dokumen skripsi.
 	
 	\item Kasus uji TC\_PF\_02.pdf
@@ -308,17 +417,19 @@ ERROR 1
 ==================
 Error Code: KAL-02
 Note: Berilah kata pengantar untuk setiap bab
-Excerpt: BAB 3 ANALISIS MASALAH 3.1Survei Kesalahan UmumPda baggian ini akan dijelaskan tentang survei yang dilakukan untuk mengumpulkan informasi yang dibutuhkan dalam pengembangan perangkat lunak
+Excerpt: BAB 3 ANALISIS MASALAH 3.1Survei Kesalahan UmumPda baggian ini akan 
+dijelaskan tentang survei yang dilakukan untuk mengumpulkan informasi yang 
+dibutuhkan dalam pengembangan perangkat lunak
 \end{lstlisting}
 \end{enumerate}
 
-Laporan yang ditunjukan pada listing \ref{lst:kal-02-2} sudah sesuai dengan yang diharapkan.
+Pada kasus uji TC\_PF\_02.pdf disisipkan sebuah kesalahan. Kesalahan tersebut disisipkan pada bab 3. Pada bab 3 setelah penulisan bab dan judul bab, tidak diberikan kata pengantar. Pada Listing \ref{lst:kal-02-2} kesalahan tersebut berhasil ditemukan. Tingkat akurasi untuk fitur ini adalah 100\%.
 
 \subsection{Menguji fitur KAL-03}
 Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan data skripsi yang belum diisi. Berikut ini adalah hasil dari pengujian yang telah dilakukan:
 
 \begin{enumerate}
-	\item Kasus uji TC\_PF\_01.pdf
+	\item Kasus uji TC\_PF\_01.pdf \newline
 	Pada kasus uji ini, perangkat lunak tidak menemukan kesalahan dalam dokumen skripsi.
 	
 	\item Kasus uji TC\_PF\_02.pdf
@@ -328,17 +439,22 @@ ERROR 1
 ==================
 Error Code: KAL-03
 Note: Ada data skripsi yang belum dilengkapi pada halaman cover
-Excerpt: SKRIPSI/TUGAS AKHIR JUDUL BAHASA INDONESIA Nama Lengkap NPM: 10 digit NPM UNPAR PROGRAM STUDI MATEMATIKA/FISIKA/TEKNIK INFORMATIKA FAKULTAS TEKNOLOGI INFORMASI DAN SAINS UNIVERSITAS KATOLIK PARAHYANGAN tahun FINAL PROJECT/UNDERGRADUATE THESIS JUDUL BAHASA INGGRIS Nama Lengkap NPM: 10 digit NPM UNPAR DEPARTMENT OF MATHEMATICS/PHYSICS/INFORMATICS FACULTY OF INFORMATION TECHNOLOGY AND SCIENCES PARAHYANGAN CATHOLIC UNIVERSITY tahun 
+Excerpt: SKRIPSI/TUGAS AKHIR JUDUL BAHASA INDONESIA Nama Lengkap NPM: 10 digit 
+NPM UNPAR PROGRAM STUDI MATEMATIKA/FISIKA/TEKNIK INFORMATIKA FAKULTAS 
+TEKNOLOGI INFORMASI DAN SAINS UNIVERSITAS KATOLIK PARAHYANGAN tahun FINAL 
+PROJECT/UNDERGRADUATE THESIS JUDUL BAHASA INGGRIS Nama Lengkap NPM: 10 digit 
+NPM UNPAR DEPARTMENT OF MATHEMATICS/PHYSICS/INFORMATICS FACULTY OF INFORMATION 
+TECHNOLOGY AND SCIENCES PARAHYANGAN CATHOLIC UNIVERSITY tahun 
 \end{lstlisting}
 \end{enumerate}
 
-Laporan yang ditunjukan pada listing \ref{lst:kal-03-2} sudah sesuai dengan yang diharapkan.
+Pada kasus uji TC\_PF\_02.pdf disisipkan dua buah kesalahan. Kesalahan tersebut disisipkan pada halaman cover Bahasa Indonesia dan Bahasa Inggris. Isi dari file data.tex tidak diisi satupun, sehingga masih berisi kode \textit{template} yang diberikan. Pada Listing \ref{lst:kal-03-2} kesalahan tersebut berhasil ditemukan. Tingkat akurasi untuk fitur ini adalah 100\%.
 
 \subsection{Menguji fitur NAT-01}
 Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan referensi yang tidak dirujuk dengan baik. Berikut ini adalah hasil dari pengujian yang telah dilakukan:
 
 \begin{enumerate}
-	\item Kasus uji TC\_PF\_01.pdf
+	\item Kasus uji TC\_PF\_01.pdf \newline
 	Pada kasus uji ini, perangkat lunak tidak menemukan kesalahan dalam dokumen skripsi.
 	
 	\item Kasus uji TC\_PF\_02.pdf
@@ -347,26 +463,32 @@ Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat mene
 ERROR 1
 ==================
 Error Code: NAT-01
-Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
-Excerpt: 2.1 Regular Expression Regular expression (regex ) [ ?] adalah jenis pola teks tertentu yang dapat digunakan pada banyak aplikasi modern dan bahasa pemrograman
+Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->
+PDFLatex->PDFLatex untuk memperbaikinya
+Excerpt: 2.1 Regular Expression Regular expression (regex ) [ ?] adalah jenis 
+pola teks tertentu yang dapat digunakan pada banyak aplikasi modern dan bahasa 
+pemrograman
 
 
 ERROR 2
 ==================
 Error Code: NAT-01
-Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
-Excerpt: PCRE [ ?] adalah serangkaian fungsi yang menerapkan pencocokan pola regex dengan menggunakan sintaks dan semantik yang sama dengan bahasa pemrograman Perl 5 , meskipun ada beberapa sedikit perbedaan
+Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->
+PDFLatex->PDFLatex untuk memperbaikinya
+Excerpt: PCRE [ ?] adalah serangkaian fungsi yang menerapkan pencocokan pola 
+regex dengan menggunakan sintaks dan semantik yang sama dengan bahasa 
+pemrograman Perl 5, meskipun ada beberapa sedikit perbedaan
 \end{lstlisting}
 \end{enumerate}
 
-Laporan yang ditunjukan pada listing \ref{lst:nat-01-2} sudah sesuai dengan yang diharapkan.
+Pada kasus uji TC\_PF\_02.pdf disisipkan dua buah kesalahan. Kesalahan tersebut disisipkan pada bab 2. Pada bab 2, terdapat 2 buah landasan teori yang referensinya tidak muncul. Pada Listing \ref{lst:nat-01-2} kedua kesalahan tersebut berhasil ditemukan. Tingkat akurasi untuk fitur ini adalah 100\%.
 
 \subsection{Menguji fitur VAN-03}
 Hasil yang diharapkan dari pengujian fitur ini adalah perangkat lunak dapat menemukan kata ganti orang pada kalimat. Berikut ini adalah hasil dari pengujian yang telah dilakukan:
 
 \begin{enumerate}
-	\item Kasus uji TC\_PF\_01.pdf
-	Pada \textit{test case} ini, perangkat lunak tidak menemukan kesalahan dalam dokumen skripsi.
+	\item Kasus uji TC\_PF\_01.pdf \newline
+	Pada kasus uji ini, perangkat lunak tidak menemukan kesalahan dalam dokumen skripsi.
 	
 	\item Kasus uji TC\_PF\_02.pdf
 	
@@ -375,17 +497,30 @@ ERROR 1
 ==================
 Error Code: VAN-03
 Note: Kalimat ini mengandung kata ganti orang
-Excerpt: 6.1Kesimpulan Kesimpulan yang saya dapat dari pengembangan perangkat lunak ini adalah sebagai berikut
+Excerpt: 6.1Kesimpulan Kesimpulan yang saya dapat dari pengembangan perangkat 
+lunak ini adalah sebagai berikut
 
 ERROR 2
 ==================
 Error Code: VAN-03
 Note: Kalimat ini mengandung kata ganti orang
-Excerpt: 6.2Saran Saran yang saya berikan untuk pengembangan perangkat lunak ini adalah sebagai berikut
+Excerpt: 6.2Saran Saran yang saya berikan untuk pengembangan perangkat lunak 
+ini adalah sebagai berikut
 \end{lstlisting}
 \end{enumerate}
 
-Laporan yang ditunjukan pada listing \ref{lst:van-03-2} sudah sesuai dengan yang diharapkan.
+Pada kasus uji TC\_PF\_02.pdf disisipkan dua buah kesalahan. Kesalahan tersebut disisipkan pada bab 6. Pada bab 6, terdapat 2 sub bab untuk kesimpulan dan saran. Masing-masing sub bab disisipkan kata ganti orang sebanyak 1 kata. Pada Listing \ref{lst:van-03-2} kedua kesalahan tersebut berhasil ditemukan. Tingkat akurasi untuk fitur ini adalah 100\%.
+
+\subsection{Kesimpulan Pengujian Fungsional}
+
+Pengujian fungsional telah dilakukan dengan menggunakan 2 kasus uji, berupa dokumen skripsi yang dibuat menggunakan \textit{template} skripsi FTIS UNPAR. Pada pengujian ini dapat ditarik beberapa kesimpulan, yaitu sebagai berikut:
+
+\begin{itemize}
+	\item Fitur-fitur yang ada pada perangkat lunak dapat mengeluarkan laporan kesalahan sesuai dengan hasil yang diharapkan. Hal tersebut dapat dilihat dari presentase keakuratan dari setiap fitur yang sangat tinggi.
+	
+	\item Dari 8 fitur yang diimplementasi, masih ada 2 fitur yang perlu disempurnakan lagi. Masih ada yang belum bisa ditangani seperti yang sudah dijelaskan pada sub bab \ref{PengFung}.
+	
+\end{itemize}
 
 \section{Pengujian Eksperimental}
 Pada pengujian eksperimental, perangkat lunak akan diuji dengan 5 buah kasus uji dokumen skripsi yang diambil dari \textit{Github} FTIS Unpar \footnote{https://github.com/ftisunpar/Skripsi}. Dokumen yang digunakan sebagai pengujian, yaitu:
@@ -408,14 +543,19 @@ Pada pengujian ini, ke-5 kasus uji tersebut akan dijalankan pada perangkat lunak
 \begin{enumerate}
 	\item TC\_PE\_01.pdf
 	
-\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.0\textwidth]
-Fatal error: Uncaught Exception: Object list not found. Possible secured file. in D:\Skripsi\src\vendor\smalot\pdfparser\src\Smalot\PdfParser\Parser.php:105
+\begin{lstlisting}[caption={Pesan Kesalahan Secured PDF}	\label{lst:secured-pe01},language=php,xleftmargin=.0\textwidth]
+Fatal error: Uncaught Exception: Object list not found. Possible secured file. 
+in D:\Skripsi\src\vendor\smalot\pdfparser\src\Smalot\PdfParser\Parser.php:105
 Stack trace:
-#0 D:\Skripsi\src\vendor\smalot\pdfparser\src\Smalot\PdfParser\Parser.php(81): Smalot\PdfParser\Parser->parseContent('%PDF-1.5\n%\xD0\xD4\xC5\xD8\n...')
-#1 D:\Skripsi\src\pdf_checker\SkripsiExtract.php(26): Smalot\PdfParser\Parser->parseFile('D:\\Skripsi\\src\\...')
-#2 D:\Skripsi\src\pdf_checker\Main.php(9): SkripsiExtract->extractFromPDF('../res/TC_PE_01...')
+#0 D:\Skripsi\src\vendor\smalot\pdfparser\src\Smalot\PdfParser\Parser.php(81): 
+Smalot\PdfParser\Parser->parseContent('%PDF-1.5\n%\xD0\xD4\xC5\xD8\n...')
+#1 D:\Skripsi\src\pdf_checker\SkripsiExtract.php(26): Smalot\PdfParser\Parser->
+parseFile('D:\\Skripsi\\src\\...')
+#2 D:\Skripsi\src\pdf_checker\Main.php(9): SkripsiExtract->extractFromPDF('../
+res/TC_PE_01...')
 #3 {main}
-  thrown in D:\Skripsi\src\vendor\smalot\pdfparser\src\Smalot\PdfParser\Parser.php on line 105
+thrown in D:\Skripsi\src\vendor\smalot\pdfparser\src\Smalot\PdfParser\Parser.
+php on line 105
 \end{lstlisting}
 
 	Pada kasus uji ini, perangkat lunak mendeteksi bahwa file ini merupakan file yang \textit{secured}. Sebagaimana telah dijelaskan pada sub bab \ref{sec:pdfparser}, bahwa \textit{library} ini tidak dapat melakukan ekstrak dokumen yang \textit{secured}. Namun masalah ini dapat diatasi dan akan dibahas lebih lanjut pada sub sub bab \ref{secured}. Berikut ini adalah laporan kesalahan yang ditemukan:
@@ -426,63 +566,125 @@ ERROR 1
 ==================
 Error Code: PS-01
 Note: Ditemukan penulisan kata yang tidak sesuai dengan kamus
-Excerpt: PENDAHULUAN, BelakangPengelompokan, clustering, merupakan, mencari, kumpulan, melibatkan, pemilihan, cluster, dibandingkan, berada, Clustering, berguna, mereduksi, karakteristik, tertentu, mengembangkan, klasi, dikenal, sebagai, memberikan, masukkan, dukungan, terhadap, mengenai, pembelajaran, terarah, unsupervised, learning, Pembagian, berdasarkan, diketahui, sebelumnya, melainkan, kesamaan, menurut, ukuran, Document, pengelompokan, lakukan, Pengelompokan, diterapkan, penambangan, web, pencari, search, engine, information, retrieval, dilakukan, adalah, mengukur, kemiripan, similarity, mengelompokan, serupa, terdiri, tulisan, algoritma, digunakan, K, means, membagi, tersebut, dibentuk, meminimalkan, centroid, setiap, dicari, menggunakan, mean, dimodelkan, n, banyaknya, terbukti, melakukan, apapun, memiliki, kekurangan, terjebak, local, optima, tergantung, centroidawal, ditangani, Genetic, Algorithm, GA, menyelesaikan, pencarian, optimasi, heuristik, menirukan, secara, terjadi, survival, of, the, ttest, News, disediakan, menjadi, Karakteristik, datasetini, Terdiri, berasal, website, Newsdari, ditulis, Terbagi, business, entertainment, politics, dantech, sportterdapat, techterdapat, plain, textyang, le, TXT, diproses, terlebih, membersihkan, mengambil, berupa, karakter, kapitalisasi, diabaikan, diubah, tech, dilampirkan, Lampiran, menemukan, direpresentasikan, diambil, informasinya, diolah, merepresentasikan, PERANCANGANPada, perancangan, rancangan, pengguna, Kebutuhan, kebutuhan, masukan, diakomodasi, Graphical, User, Interface, Rincian, melalui, berformat, CSV, dibuka, pengolah, spreadsheet, Microsoft, Excel, File, laporan, dibutuhkan, keluaran, leCSV, dilihat, penamaan, YYYY, MM, DD, hh, mm, ss, csv, Januari, KMeans, PENGUJIAN, Pengujian, spesi, berikut, processor, R, Core, TM, i, HQ, CPU, GHz, MB, Windows, Build, diteliti, antaranya, terikat, tujuan, mengetahui, hubungan, Banyaknya, individu, pembobotan, penghitungan, TF, IDF, terjadinya, pembentukan, keturunan, Individu, elitisme, tnessterbaik, selanjutnya, selama, terakhir, nya, KESIMPULAN, Kesimpulan, Berdasarkan, penge, lompokan, diperlukan, sebelum, mengelompokkan, tasi, Merepresentasikan, tersusun, Kcentroid, tnessyang, intracluster, berhasil, dibuat, purity, sebesar, mengatasi, membutuhkan, disebabkan, komputasi, alasan, berjalan, Mulai, kedua, menyusun, bersifat, sparse, bernilai, Centroid, memperlambat, perhitungan, cosine, seharusnya, mengabaikan, berbobot, merepre, sentasikan, berbanding, kemungkinannya, semakin, sejauh, Kemungkinan, jaraknya
+Excerpt: 
+
+PENDAHULUAN, BelakangPengelompokan, clustering, merupakan, mencari, 
+kumpulan, melibatkan, pemilihan, cluster, dibandingkan, berada, 
+Clustering, berguna, mereduksi, karakteristik, tertentu, mengembangkan, 
+klasi, dikenal, sebagai, memberikan, masukkan, dukungan, terhadap, 
+mengenai, pembelajaran, terarah, unsupervised, learning, Pembagian, 
+berdasarkan, diketahui, sebelumnya, melainkan, kesamaan, menurut, ukuran, 
+Document, pengelompokan, lakukan, Pengelompokan, diterapkan, penambangan, 
+web, pencari, search, engine, information, retrieval, dilakukan, adalah, 
+mengukur, kemiripan, similarity, mengelompokan, serupa, terdiri, tulisan, 
+algoritma, digunakan, K, means, membagi, tersebut, dibentuk, meminimalkan, 
+centroid, setiap, dicari, menggunakan, mean, dimodelkan, n, banyaknya, 
+terbukti, melakukan, apapun, memiliki, kekurangan, terjebak, local, 
+optima, tergantung, centroidawal, ditangani, Genetic, Algorithm, GA, 
+menyelesaikan, pencarian, optimasi, heuristik, menirukan, secara, terjadi, 
+survival, of, the, ttest, News, disediakan, menjadi, Karakteristik, 
+datasetini, Terdiri, berasal, website, Newsdari, ditulis, Terbagi, 
+business, entertainment, politics, dantech, sportterdapat, techterdapat, 
+plain, textyang, le, TXT, diproses, terlebih, membersihkan, mengambil, 
+berupa, karakter, kapitalisasi, diabaikan, diubah, tech, dilampirkan, 
+Lampiran, menemukan, direpresentasikan, diambil, informasinya, diolah, 
+merepresentasikan, PERANCANGANPada, perancangan, rancangan, pengguna, 
+Kebutuhan, kebutuhan, masukan, diakomodasi, Graphical, User, Interface, 
+Rincian, melalui, berformat, CSV, dibuka, pengolah, spreadsheet, 
+Microsoft, Excel, File, laporan, dibutuhkan, keluaran, leCSV, dilihat, 
+penamaan, YYYY, MM, DD, hh, mm, ss, csv, Januari, KMeans, PENGUJIAN, 
+Pengujian, spesi, berikut, processor, R, Core, TM, i, HQ, CPU, GHz, MB, 
+Windows, Build, diteliti, antaranya, terikat, tujuan, mengetahui, 
+hubungan, Banyaknya, individu, pembobotan, penghitungan, TF, IDF, 
+terjadinya, pembentukan, keturunan, Individu, elitisme, tnessterbaik, 
+selanjutnya, selama, terakhir, nya, KESIMPULAN, Kesimpulan, Berdasarkan, 
+penge, lompokan, diperlukan, sebelum, mengelompokkan, tasi, 
+Merepresentasikan, tersusun, Kcentroid, tnessyang, intracluster, berhasil, 
+dibuat, purity, sebesar, mengatasi, membutuhkan, disebabkan, komputasi, 
+alasan, berjalan, Mulai, kedua, menyusun, bersifat, sparse, bernilai, 
+Centroid, memperlambat, perhitungan, cosine, seharusnya, mengabaikan, 
+berbobot, merepre, sentasikan, berbanding, kemungkinannya, semakin, 
+sejauh, Kemungkinan, jaraknya
 
 ERROR 2
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Format penamaan dari file ini adalah "algoritma-YYYY.MM.DD hh_mm_ss.csv"
+Excerpt: Format penamaan dari file ini adalah "algoritma-YYYY.MM.DD hh_mm_ss.
+csv"
 
 ERROR 3
 ==================
 Error Code: KAL-02
 Note: Berilah kata pengantar untuk setiap bab
-Excerpt: BAB 1 PENDAHULUAN 1.1Latar BelakangPengelompokan ( clustering ) merupakan prosedur untuk mencari struktur alami dari suatu kumpulan data
+Excerpt: BAB 1 PENDAHULUAN 1.1Latar BelakangPengelompokan ( clustering ) 
+merupakan prosedur untuk mencari struktur alami dari suatu kumpulan data
 
 ERROR 4
 ==================
 Error Code: KAL-02
 Note: Berilah kata pengantar untuk setiap bab
-Excerpt: BAB 5 PENGUJIAN DAN EKSPERIMEN 5.1Skenario Pengujian Eksperimental Eksperimen dilakukan dengan menggunakan spesifikasi komputer sebagai berikut: 1.Tipe processor : Intel(R) Core(TM) i7-4720HQ CPU @2.60GHz 2.Memori: 12288MB RAM 3.Sistem operasi: Windows 10 Pro 64-bit (10.0, Build 17763)Pada suatu penelitian, ada beberapa jenis variabel yang diteliti di antaranya variabel bebas, variabel terikat, dan variabel kontrol
+Excerpt: BAB 5 PENGUJIAN DAN EKSPERIMEN 5.1Skenario Pengujian 
+Eksperimental Eksperimen dilakukan dengan menggunakan spesifikasi komputer 
+sebagai berikut: 1.Tipe processor : Intel(R) Core(TM) i7-4720HQ CPU 
+@2.60GHz 2.Memori: 12288MB RAM 3.Sistem operasi: Windows 10 Pro 64-bit 
+(10.0, Build 17763)Pada suatu penelitian, ada beberapa jenis variabel yang 
+diteliti di antaranya variabel bebas, variabel terikat, dan variabel 
+kontrol
 
 ERROR 5
 ==================
 Error Code: KAL-02
 Note: Berilah kata pengantar untuk setiap bab
-Excerpt: BAB 6 KESIMPULAN DAN SARAN 6.1Kesimpulan Kesimpulan yang dapat diambil dari penelitian ini adalah sebagai berikut: 1.Berdasarkan dataset yang telah digunakan, algoritma genetika dapat digunakan dalam penge- lompokan dokumen
+Excerpt: BAB 6 KESIMPULAN DAN SARAN 6.1Kesimpulan Kesimpulan yang dapat diambil 
+dari penelitian ini adalah sebagai berikut: 1.Berdasarkan dataset yang telah 
+digunakan, algoritma genetika dapat digunakan dalam penge- lompokan dokumen
 
 ERROR 6
 ==================
 Error Code: NAT-01
-Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
-Excerpt: Pembagian kelompok dalam clustering tidak berdasarkan sesuatu yang telah diketahui sebelumnya, melainkan berdasarkan kesamaan tertentu menurut suatu ukuran tertentu [ ?]
+Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->
+PDFLatex->PDFLatex untuk memperbaikinya
+Excerpt: Pembagian kelompok dalam clustering tidak berdasarkan sesuatu yang 
+telah diketahui sebelumnya, melainkan berdasarkan kesamaan tertentu menurut 
+suatu ukuran tertentu [ ?]
 
 ERROR 7
 ==================
 Error Code: NAT-01
-Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
-Excerpt: Pengelompokan dokumen diterapkan dalam beberapa bidang seperti penambangan web, mesin pencari ( search engine ), dan temu kembali informasi (information retrieval ) [ ?]
+Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->
+PDFLatex->PDFLatex untuk memperbaikinya
+Excerpt: Pengelompokan dokumen diterapkan dalam beberapa bidang seperti 
+penambangan web, mesin pencari ( search engine ), dan temu kembali informasi 
+(information retrieval ) [ ?]
 
 ERROR 8
 ==================
 Error Code: NAT-01
-Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
-Excerpt: GA merupakan teknik pencarian heuristik tingkat tinggi yang menirukan proses evolusi yang secara alami terjadi [ ?] berdasarkan prinsip survival of the fittest 
+Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->
+PDFLatex->PDFLatex untuk memperbaikinya
+Excerpt: GA merupakan teknik pencarian heuristik tingkat tinggi yang menirukan 
+proses evolusi yang secara alami terjadi [ ?] berdasarkan prinsip survival of
+the fittest 
 
 ERROR 9
 ==================
 Error Code: NAT-01
-Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
-Excerpt: Algoritma ini dinamakan demikian karena menggunakan konsep-konsep dalam genetika sebagai model pemecahan masalahnya [ ?]
+Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->
+PDFLatex->PDFLatex untuk memperbaikinya
+Excerpt: Algoritma ini dinamakan demikian karena menggunakan konsep-konsep 
+dalam genetika sebagai model pemecahan masalahnya [ ?]
 
 ERROR 10
 ==================
 Error Code: NAT-01
-Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
-Excerpt: 2.1Pengelompokan 2.1.1Definisi Pengelompokan Pengelompokan ( clustering ) merupakan sebuah metode untuk menggabungkan himpunan objek ke dalam kelompok-kelompok sedemikian rupa sehingga objek dalam satu kelompok ( cluster ) lebih mirip (karena suatu hal) satu sama lain daripada objek di kelompok lain [ ?]
-
-
+Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->
+PDFLatex->PDFLatex untuk memperbaikinya
+Excerpt: 2.1Pengelompokan 2.1.1Definisi Pengelompokan Pengelompokan ( 
+clustering ) merupakan sebuah metode untuk menggabungkan himpunan objek ke 
+dalam kelompok-kelompok sedemikian rupa sehingga objek dalam satu kelompok 
+( cluster ) lebih mirip (karena suatu hal) satu sama lain daripada objek di 
+kelompok lain [ ?]
 \end{lstlisting}
 	
 	\item TC\_PE\_02.pdf \newline
@@ -493,19 +695,52 @@ ERROR 1
 ==================
 Error Code: PS-01
 Note: Ditemukan penulisan kata yang tidak sesuai dengan kamus
-Excerpt: PENDAHULUAN, BelakangPengumuman, jurusan, UNPAR, umumnya, dilakukan, Pengumuman, pengumuman, dijamin, dituju, setelah, dikirim, layanan, memiliki, terorganisir, Berbagai, tercampur, menyulitkan, pemilik, mencari, mengakibatkan, terbaca, secara, Penelitian, membuat, kekurangan, tersebut, BlueTape, adalah, berfungsi, membantu, urusan, paper, based, FTIS, menjadi, paperless, Fitur, mengumpulkan, berisi, menampilkannya, penerima, memanfaatkan, LINE, Line, Corporation, memungkinkan, disebut, mengirim, pengikut, bersamaan, Penerima, diminta, mengikuti, menerima, noti, diakses, melalui, internet, Heroku, cloud, ketiga, penggunanya, membangun, menjalankan, mengoperasikan, Rumusan, memodi, berjalan, mengimplementasikan, menguji, Tujuan, Mempelajari, Memodi, Mengimplementasikan, Menguji, LANDASAN, landasan, dipakai, menjalan, mendukung, pemrograman, meliputi, Ruby, Node, js, Java, Python, Clojure, Scala, Go, PHP, menyebarkan, mengelola, ditulis, didukung, mende, nisikan, sebagai, gabungan, source, code, dependencyyang, leProc, le, Dependency, dibangun, dijalankan, membutuhkan, dependency, Aturan, peletakkan, berbeda, menuliskan, lepackage, json, Dyno, berbasis, Unix, web, dyno, disebar, dikelompokkan, Web, process, type, satunya, HTTP, routerHeroku, Worker, PERANCANGANBab, membahas, perancangan, Pembahasan, dibagi, bagian, Perancangan, Class, merupakan, pembangunan, Penjelasan, diberikan, control, view, PENGUJIAN, pengujian, ImplementasiBagian, terlebih, deploy, dalamnya, diberi, Shadowtape, shadowtape, herokuapp, Setelah, dimodi, peneliti, Gmail, shadowbluetape, gmail, bernama, Lingkungan, Pengembangan, Berikut, spesi, Spesi, Processor, R, Celeron, CPU, U, GHz, x, Graphics, Ivybridge, Mobile, GB, Harddisk, SATA, Ubuntu, LTS, Code, version, apache, v, cli, Composer, pgAdmin, Application, Desktop, psql, PostgreSQL, heroku, linux, node, KESIMPULAN, Kesimpulan, kesimpulan, diambil, penelitian, comsetiap, diidenti, ditampilkan, memunculkan, teruji, Mengadaptasi, kon, gurasi, O, cial, Account, Meneliti, loginyang, ditemukan, Meningkatkan, usabilitas, menggunakannya
+Excerpt: 
+
+PENDAHULUAN, BelakangPengumuman, jurusan, UNPAR, umumnya, dilakukan, 
+Pengumuman, pengumuman, dijamin, dituju, setelah, dikirim, layanan, 
+memiliki, terorganisir, Berbagai, tercampur, menyulitkan, pemilik, 
+mencari, mengakibatkan, terbaca, secara, Penelitian, membuat, kekurangan, 
+tersebut, BlueTape, adalah, berfungsi, membantu, urusan, paper, based, 
+FTIS, menjadi, paperless, Fitur, mengumpulkan, berisi, menampilkannya, 
+penerima, memanfaatkan, LINE, Line, Corporation, memungkinkan, disebut, 
+mengirim, pengikut, bersamaan, Penerima, diminta, mengikuti, menerima, 
+noti, diakses, melalui, internet, Heroku, cloud, ketiga, penggunanya, 
+membangun, menjalankan, mengoperasikan, Rumusan, memodi, berjalan, 
+mengimplementasikan, menguji, Tujuan, Mempelajari, Memodi, Menguji, 
+LANDASAN, landasan, dipakai, menjalan, mendukung, pemrograman, meliputi, 
+Ruby, Node, js, Java, Python, Clojure, Scala, Go, PHP, menyebarkan, 
+mengelola, ditulis, didukung, mende, nisikan, sebagai, gabungan, source, 
+code, dependencyyang, leProc, le, Dependency, dibangun, dijalankan, 
+membutuhkan, dependency, Aturan, peletakkan, berbeda, menuliskan, 
+lepackage, json, Dyno, berbasis, Unix, web, dyno, disebar, dikelompokkan, 
+Web, process, type, satunya, HTTP, routerHeroku, Worker, PERANCANGANBab, 
+membahas, perancangan, Pembahasan, dibagi, bagian, Perancangan, Class, 
+merupakan, pembangunan, Penjelasan, diberikan, control, view, PENGUJIAN, 
+pengujian, ImplementasiBagian, terlebih, deploy, dalamnya, diberi, 
+Shadowtape, shadowtape, herokuapp, Setelah, dimodi, peneliti, Gmail, 
+shadowbluetape, gmail, bernama, Lingkungan, Pengembangan, Berikut, spesi, 
+Spesi, Processor, R, Celeron, CPU, U, GHz, x, Graphics, Ivybridge, Mobile, 
+GB, Harddisk, SATA, Ubuntu, LTS, Code, version, apache, v, cli, Composer, 
+pgAdmin, Application, Desktop, psql, PostgreSQL, heroku, linux, node, 
+KESIMPULAN, Kesimpulan, kesimpulan, diambil, penelitian, comsetiap, 
+diidenti, ditampilkan, memunculkan, teruji, Mengadaptasi, kon, gurasi, O, 
+cial, Account, Meneliti, loginyang, ditemukan, Meningkatkan, usabilitas, 
+menggunakannya
 
 ERROR 2
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Heroku mendukung beberapa bahasa pemrograman, meliputi: Ruby, Node.js, Java, Python, Clojure, Scala, Go, dan PHP
+Excerpt: Heroku mendukung beberapa bahasa pemrograman, meliputi: Ruby, Node.js, 
+Java, Python, Clojure, Scala, Go, dan PHP
 
 ERROR 
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Contoh: Aplikasi dengan bahasa Node.js menuliskan deskripsi dependency padafilepackage.json 
+Excerpt: Contoh: Aplikasi dengan bahasa Node.js menuliskan deskripsi dependency 
+padafilepackage.json 
 
 ERROR 4
 ==================
@@ -517,43 +752,51 @@ ERROR 5
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Kode program ini dapat diakses di https://github.com/ftisunpar/BlueTape 
+Excerpt: Kode program ini dapat diakses di https://github.com/ftisunpar/
+BlueTape 
 
 ERROR 6
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: MVC (Model-View-Control ler ) adalah sebuah metode untuk membuat perangkat lunak menjadi tiga1 https://github.com/ftisunpar/BlueTape BAB 4 PERANCANGANBab ini membahas perancangan fitur kolektor pengumuman
+Excerpt: MVC (Model-View-Control ler ) adalah sebuah metode untuk membuat 
+perangkat lunak menjadi tiga1 https://github.com/ftisunpar/BlueTape BAB 4 
+PERANCANGANBab ini membahas perancangan fitur kolektor pengumuman
 
 ERROR 7
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Aplikasi web tersebut diberi nama Shadowtape dan dapat diakses di https://shadowtape.herokuapp.com/ 
+Excerpt: Aplikasi web tersebut diberi nama Shadowtape dan dapat diakses di 
+https://shadowtape.herokuapp.com/ 
 
 ERROR 8
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Akun email baru menggunakan layanan email Gmail dengan alamat shadowbluetape@gmail.com
+Excerpt: Akun email baru menggunakan layanan email Gmail dengan alamat 
+shadowbluetape@gmail.com
 
 ERROR 9
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: BlueTape versi skripsi ini diberi nama shadowtape dan dapat diakses di https://shadowtape.herokuapp.com/
+Excerpt: BlueTape versi skripsi ini diberi nama shadowtape dan dapat diakses di 
+https://shadowtape.herokuapp.com/
 
 ERROR 10
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Fitur ini dapat melakukan sinkronisasi kotak masuk untuk alamat email shadowbluetape@gmail.comsetiap jam
+Excerpt: Fitur ini dapat melakukan sinkronisasi kotak masuk untuk alamat 
+email shadowbluetape@gmail.comsetiap jam
 
 ERROR 11
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Email yang diidentifikasi sebagai pengumuman dapat ditampilkan di https://shadowtape.herokuapp
+Excerpt: Email yang diidentifikasi sebagai pengumuman dapat ditampilkan di 
+https://shadowtape.herokuapp
 
 ERROR 12
 ==================
@@ -574,7 +817,8 @@ ERROR 15
 ==================
 Error Code: KAL-02
 Note: Berilah kata pengantar untuk setiap bab
-Excerpt: BAB 1 PENDAHULUAN 1.1Latar BelakangPengumuman di jurusan Teknik Informatika UNPAR pada umumnya dilakukan lewat email 
+Excerpt: BAB 1 PENDAHULUAN 1.1Latar BelakangPengumuman di jurusan Teknik 
+Informatika UNPAR pada umumnya dilakukan lewat email 
 \end{lstlisting}
 	
 	\item TC\_PE\_03.pdf \newline
@@ -585,37 +829,80 @@ ERROR 1
 ==================
 Error Code: PS-01
 Note: Ditemukan penulisan kata yang tidak sesuai dengan kamus
-Excerpt: PENDAHULUAN, BelakangSnake, merupakan, sebuah, permainan, dibuat, Peter, Trefonas, Snake, berasal, Blockade, Awalnya, dimainkan, Nokia, bermain, adalah, pemain, menggerakan, tersebut, mendapatkan, makanan, sebanyak, banyaknya, menabrak, Setiap, memakan, memanjang, semakin, meng, gerakan, menutupi, HTML, Hyper, Text, Markup, Language, digunakan, membuat, web, penerus, XHTML, memiliki, satunya, Canvas, menggambar, pixel, ditulis, gunakan, pemrograman, JavaScript, Javascript, menjadi, jQuery, library, traversal, penanganan, event, Ajax, de, ngan, Application, Programming, Interface, GitHub, layanan, hosting, bersama, pengembangan, menggunakan, version, control, Git, adanya, programmer, etahui, perubahan, termakan, ditempatkan, secara, Permainan, berakhir, tubuhnya,  jumlahnya, warnanya, bermacam, menambah, Silther, PERANCANGANPada, mengenai, perancangan, dibangun, Perancangan, dilakukan, meliputi, sequence, state, tampilan, Rancangan, Sequence, ditunjukan, dijelaskan, Source, sequenceyang, memuat, sequenceuntuk, memilih, Berikut, penjelasan, menerima, input, mencari, le, Filelabirin, ditemukan, memanggil, method, Maze, lelabirin, Setelah, DrawingObject, digambar, PENGUJIANPada, pengujian, linkini, generaldevilx, github, lingkungan, Lingkungan, pembangunan, Processor, Core, i, U, GHz, GB, Card, GeForce, MX, Storage, TB, mobile, berbasis, Android, desktop, SM, J, G, Exynos, Octa, MHz, Cortex, KESIMPULAN, SARANPada, berisi, kesimpulan, Kesimpulan, diambil, diantaranya, Pembangunan, berhasil, berbelok, smartphone, diharapkan, menekan, Play, Menambahkan, berdasarkan, penguji, buatan, Menyimpan, disimpan, dimuat, Berdasarkan, dipaparkan, mengurangi, kesalahan, pembuatan, terutama, memposisikan, Seharusnya, melainkan, dituliskan, Sebelum, sebaiknya, preview, terlebih, melihat, dipilih
+Excerpt: 
+
+PENDAHULUAN, BelakangSnake, merupakan, sebuah, permainan, dibuat, 
+Peter, Trefonas, Snake, berasal, Blockade, Awalnya, dimainkan, Nokia, 
+bermain, adalah, pemain, menggerakan, tersebut, mendapatkan, makanan, 
+sebanyak, banyaknya, menabrak, Setiap, memakan, memanjang, semakin, meng, 
+gerakan, menutupi, HTML, Hyper, Text, Markup, Language, digunakan, 
+membuat, web, penerus, XHTML, memiliki, satunya, Canvas, menggambar, 
+pixel, ditulis, gunakan, pemrograman, JavaScript, Javascript, menjadi, 
+jQuery, library, traversal, penanganan, event, Ajax, de, ngan, 
+Application, Programming, Interface, GitHub, layanan, hosting, bersama, 
+pengembangan, menggunakan, version, control, Git, adanya, programmer, 
+etahui, perubahan, termakan, ditempatkan, secara, Permainan, berakhir, 
+tubuhnya,  jumlahnya, warnanya, bermacam, menambah, Silther, 
+PERANCANGANPada, mengenai, perancangan, dibangun, Perancangan, dilakukan, 
+meliputi, sequence, state, tampilan, Rancangan, Sequence, ditunjukan, 
+dijelaskan, Source, sequenceyang, memuat, sequenceuntuk, memilih, Berikut, 
+penjelasan, menerima, input, mencari, le, Filelabirin, ditemukan, 
+memanggil, method, Maze, lelabirin, Setelah, DrawingObject, digambar, 
+PENGUJIANPada, pengujian, linkini, generaldevilx, github, lingkungan, 
+Lingkungan, pembangunan, Processor, Core, i, U, GHz, GB, Card, GeForce, 
+MX, Storage, TB, mobile, berbasis, Android, desktop, SM, J, G, Exynos, 
+Octa, MHz, Cortex, KESIMPULAN, SARANPada, berisi, kesimpulan, Kesimpulan, 
+diambil, diantaranya, Pembangunan, berhasil, berbelok, smartphone, 
+diharapkan, menekan, Play, Menambahkan, berdasarkan, penguji, buatan, 
+Menyimpan, disimpan, dimuat, Berdasarkan, dipaparkan, mengurangi, 
+kesalahan, pembuatan, terutama, memposisikan, Seharusnya, melainkan, 
+dituliskan, Sebelum, sebaiknya, preview, terlebih, melihat, dipilih
 
 ERROR 2
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: 1.2Rumusan Masalah Rumusan dari masalah yang akan dibahas pada skripsi ini adalah sebagai berikut: Bagaimana membangun permainan Snakemenggunakan HTML5 Canvas? Bagaimana cara menyimpan labirin pada fileeksternal? 1 https://en.wikipedia.org/wiki/Snake_(video_ game_ genre) BAB 2 LANDASAN TEORI 2.1 Snake GameSnake Game merupakan permainan mengendalikan ular untuk mendapatkan makanan yang terdapat pada labirin
+Excerpt: 1.2Rumusan Masalah Rumusan dari masalah yang akan dibahas pada skripsi 
+ini adalah sebagai berikut: Bagaimana membangun permainan Snakemenggunakan 
+HTML5 Canvas? Bagaimana cara menyimpan labirin pada fileeksternal? 1 
+https://en.wikipedia.org/wiki/Snake_(video_ game_ genre) BAB 2 LANDASAN 
+TEORI 
+2.1 Snake GameSnake Game merupakan permainan mengendalikan ular untuk 
+mendapatkan makanan yang terdapat pada labirin
 
 ERROR 3
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Contoh singleplayer game Snake adalah Snake pada telepon genggam Nokia yang dapat dilihat pada Gambar2.1 1dan contoh multiplayer game Snake adalah Slither.io yang dapat dilihat Gambar2.2 2 
+Excerpt: Contoh singleplayer game Snake adalah Snake pada telepon genggam Nokia 
+yang dapat dilihat pada Gambar2.1 1dan contoh multiplayer game Snake adalah 
+Slither.io yang dapat dilihat Gambar2.2 2 
 
 ERROR 4
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Gambar 2.1: Permainan Snake pada telepon genggam NokiaGambar 2.2: Permainan Slither.iopadaAndroid 1 https://en.wikipedia.org/wiki/Snake_(video_game_genre) 2 https://play.google.com/store/apps/details?id=air.com.hypah.io.slither BAB 3 ANALISIS 3.1Analisis Permainan Snakeyang Sudah AdaPermainan Snake yang akan dianalisis adalah Slither.io dan Snake pada telepon genggam Nokia 
+Excerpt: Gambar 2.1: Permainan Snake pada telepon genggam NokiaGambar 2.2: 
+Permainan Slither.iopadaAndroid 1 https://en.wikipedia.org/wiki/
+Snake_(video_game_genre) 2 https://play.google.com/store/apps/details?
+id=air.com.hypah.io.slither BAB 3 ANALISIS 3.1Analisis Permainan Snakeyang 
+Sudah AdaPermainan Snake yang akan dianalisis adalah Slither.io dan Snake 
+pada telepon genggam Nokia 
 
 ERROR 5
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Slither.io adalah permainan web yang dapat dimainkan oleh lebih dari 1 pemain( multiplayer )
+Excerpt: Slither.io adalah permainan web yang dapat dimainkan oleh lebih dari 1 
+pemain( multiplayer )
 
 ERROR 6
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: 3.1.1Ular dan Makanan Ular pada Slither.io dibentuk dengan menggunakan sekumpulan lingkaran yang saling berdempetan satu sama lain seperti pada Gambar3.1
+Excerpt: 3.1.1Ular dan Makanan Ular pada Slither.io dibentuk dengan menggunakan 
+sekumpulan lingkaran yang saling berdempetan satu sama lain seperti pada 
+Gambar3.1
 
 ERROR 7
 ==================
@@ -627,31 +914,41 @@ ERROR 8
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Gambar 3.1: Ular pada Silther.io BAB 4 PERANCANGANPada bab ini akan dibahas mengenai perancangan permainan yang dibangun
+Excerpt: Gambar 3.1: Ular pada Silther.io BAB 4 PERANCANGANPada bab ini akan 
+dibahas mengenai perancangan permainan yang dibangun
 
 ERROR 9
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Permainan ini dapat dimainkan pada linkini : https://generaldevilx.github.io/Snake360/ 5.1Implementasi Pada bagian ini akan dijelaskan mengenai lingkungan yang digunakan untuk membangun dan implementasi antarmuka dari Open Source Snake 360
+Excerpt: Permainan ini dapat dimainkan pada linkini : https://generaldevilx.
+github.io/Snake360/ 5.1Implementasi Pada bagian ini akan dijelaskan mengenai 
+lingkungan yang digunakan untuk membangun dan implementasi antarmuka dari Open 
+Source Snake 360
 
 ERROR 10
 ==================
 Error Code: KAL-02
 Note: Berilah kata pengantar untuk setiap bab
-Excerpt: BAB 1 PENDAHULUAN 1.1Latar BelakangSnake merupakan sebuah permainan yang pertama kali dibuat oleh Peter Trefonas pada tahun 1978
+Excerpt: BAB 1 PENDAHULUAN 1.1Latar BelakangSnake merupakan sebuah permainan 
+yang pertama kali dibuat oleh Peter Trefonas pada tahun 1978
 \end{lstlisting}	
 	
 	\item TC\_PE\_04.pdf
 
-\begin{lstlisting}[caption={Perintah yang digunakan untuk menjalankan perangkat lunak}	\label{lst:command},language=php,xleftmargin=.0\textwidth]
-Fatal error: Uncaught Exception: Object list not found. Possible secured file. in D:\Skripsi\src\vendor\smalot\pdfparser\src\Smalot\PdfParser\Parser.php:105
+\begin{lstlisting}[caption={Pesan Kesalahan Secured PDF}	\label{lst:secured-pe04},language=php,xleftmargin=.0\textwidth]
+Fatal error: Uncaught Exception: Object list not found. Possible secured file. 
+in D:\Skripsi\src\vendor\smalot\pdfparser\src\Smalot\PdfParser\Parser.php:105
 Stack trace:
-#0 D:\Skripsi\src\vendor\smalot\pdfparser\src\Smalot\PdfParser\Parser.php(81): Smalot\PdfParser\Parser->parseContent('%PDF-1.5\n%\xD0\xD4\xC5\xD8\n...')
-#1 D:\Skripsi\src\pdf_checker\SkripsiExtract.php(26): Smalot\PdfParser\Parser->parseFile('D:\\Skripsi\\src\\...')
-#2 D:\Skripsi\src\pdf_checker\Main.php(9): SkripsiExtract->extractFromPDF('../res/TC_PE_04...')
+#0 D:\Skripsi\src\vendor\smalot\pdfparser\src\Smalot\PdfParser\Parser.php(81): 
+Smalot\PdfParser\Parser->parseContent('%PDF-1.5\n%\xD0\xD4\xC5\xD8\n...')
+#1 D:\Skripsi\src\pdf_checker\SkripsiExtract.php(26): Smalot\PdfParser\Parser->
+parseFile('D:\\Skripsi\\src\\...')
+#2 D:\Skripsi\src\pdf_checker\Main.php(9): SkripsiExtract->extractFromPDF('../
+res/TC_PE_04...')
 #3 {main}
-  thrown in D:\Skripsi\src\vendor\smalot\pdfparser\src\Smalot\PdfParser\Parser.php on line 105
+thrown in D:\Skripsi\src\vendor\smalot\pdfparser\src\Smalot\PdfParser\Parser.
+php on line 105
 \end{lstlisting}
 
 	Pada kasus uji ini, perangkat lunak mendeteksi bahwa file ini merupakan file yang \textit{secured}. Hal ini sama dengan yang terjadi pada kasus uji TC\_PE\_01.pdf. Namun masalah ini dapat diatasi dan akan dibahas lebih lanjut pada sub sub bab \ref{secured}. Berikut ini adalah laporan kesalahan yang ditemukan:
@@ -661,49 +958,92 @@ ERROR 1
 ==================
 Error Code: PS-01
 Note: Ditemukan penulisan kata yang tidak sesuai dengan kamus
-Excerpt:PENDAHULUAN, BelakangAplikasi, merupakan, sebuah, membantu, penggunanya, meninjau, dihasilkan, secara, sebelum, pengguna, tersebut, melakukan, pembuatan, Kelebihan, adalah, peninjauan, berbagai, memaksimalkan, memungkinkan, merubah, bertujuan, memutuskan, dasarnya, terhindar, ekspektasi, Penggunaan, web, memudahkan, mela, kukan, menggunakan, berbasis, lingkungan, Windows, Linux, Mac, OS, membatasi, cakupan, dibuat, kustomisasi, mengajar, perkuliahan, Melalui, diharapkan, memiliki, gambaran, mengenai, ruangan, komposisi, memanfaatkan, WebGL, Three, js, Application, Programming, Interface, gra, s, berdasar, OpenGL, terbuka, ECMAScript, melalui, canvas, HTML, membuat, digunakan, sebagai, Ruangan, dilengkapi, peralatan, menunjang, pengajaran, internet, learning, menjamin, kenyamanan, selama, pendingin, Rumusan, Berikut, dibahas, pendukung, lainnya, direpsentasikan, tampilan, OrbitControls, berkaitan, index, html, HyperText, Markup, Language, mem, json, JSON, constant, diinisialisasi, imported, repsentasi, ujian, berlangsung, img, jpg, pilihan, textureatap, PENGUJIANBab, membahas, pengujian, rancangan, Lingkungan, Pengujian, Sedangkan, spesi, Processor, GHz, Core, Graphics, Processing, GPU, HD, MB, Random, Access, Memory, GB, MHz, DDR, Storage, SSD, macOS, Sierra, Pemrograman, CSS, Text, Code, MAMP, version, Google, Chrome, Ver, sion, O, cial, Build, sebelumnya, Pengimplementasian, pemro, graman, dijabarkan, KESIMPULAN, SARANBab, kesimpulan, pengembangan, Kesimpulan, Berdasarkan, Prantijau, diperoleh, tujuan, merepresentasikan, Parahyangan, Fitur, dikembangkan, Mengganti, Unggah, Object, Notation, mengubah, Menghasilkan, cetakan, dikarenakan, keterbatasan, ngembangan, Mengimplementasi, penyembunyian, menutupi, penyediaan, kemudahan, mengunggah
+Excerpt:
+
+PENDAHULUAN, BelakangAplikasi, merupakan, sebuah, membantu, penggunanya, 
+meninjau, dihasilkan, secara, sebelum, pengguna, tersebut, melakukan, 
+pembuatan, Kelebihan, adalah, peninjauan, berbagai, memaksimalkan, 
+memungkinkan, merubah, bertujuan, memutuskan, dasarnya, terhindar, 
+ekspektasi, Penggunaan, web, memudahkan, mela, kukan, menggunakan, 
+berbasis, lingkungan, Windows, Linux, Mac, OS, membatasi, cakupan, dibuat, 
+kustomisasi, mengajar, perkuliahan, Melalui, diharapkan, memiliki, 
+gambaran, mengenai, ruangan, komposisi, memanfaatkan, WebGL, Three, js, 
+Application, Programming, Interface, gra, s, berdasar, OpenGL, terbuka, 
+ECMAScript, melalui, canvas, HTML, membuat, digunakan, sebagai, Ruangan, 
+dilengkapi, peralatan, menunjang, pengajaran, internet, learning, 
+menjamin, kenyamanan, selama, pendingin, Rumusan, Berikut, dibahas, 
+pendukung, lainnya, direpsentasikan, tampilan, OrbitControls, berkaitan, 
+index, html, HyperText, Markup, Language, mem, json, JSON, constant, 
+diinisialisasi, imported, repsentasi, ujian, berlangsung, img, jpg, 
+pilihan, textureatap, PENGUJIANBab, membahas, pengujian, rancangan, 
+Lingkungan, Pengujian, Sedangkan, spesi, Processor, GHz, Core, Graphics, 
+Processing, GPU, HD, MB, Random, Access, Memory, GB, MHz, DDR, Storage, 
+SSD, macOS, Sierra, Pemrograman, CSS, Text, Code, MAMP, version, Google, 
+Chrome, Ver, sion, O, cial, Build, sebelumnya, Pengimplementasian, pemro, 
+graman, dijabarkan, KESIMPULAN, SARANBab, kesimpulan, pengembangan, 
+Kesimpulan, Berdasarkan, Prantijau, diperoleh, tujuan, merepresentasikan, 
+Parahyangan, Fitur, dikembangkan, Mengganti, Unggah, Object, Notation, 
+mengubah, Menghasilkan, cetakan, dikarenakan, keterbatasan, ngembangan, 
+Mengimplementasi, penyembunyian, menutupi, penyediaan, kemudahan, 
+mengunggah
 
 ERROR 2
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Perangkat lunak akan dibuat dengan memanfaatkan WebGL dan pustaka Three.js
+Excerpt: Perangkat lunak akan dibuat dengan memanfaatkan WebGL dan pustaka 
+Three.js
 
 ERROR 3
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Sementara itu pustaka Three.js bertujuan membuat pustaka 3 dimensi yang mudah dan ringan untuk digunakan
+Excerpt: Sementara itu pustaka Three.js bertujuan membuat pustaka 3 dimensi 
+yang mudah dan ringan untuk digunakan
 
 ERROR 4
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: 1.2Rumusan Masalah Berikut ini masalah-masalah yang dibahas dalam skripsi ini: Bagaimana ruangan kelas dan objek pendukung lainnya dapat direpsentasikan dalam WebGL? Bagaimana membuat tampilan responsif pada aplikasi agar terlihat bagus saat dicetak? BAB 2 LANDASAN TEORIBab ini berisi penjelasan mengenai teori-teori yang menjadi dasar penelitian ini, seperti WebGL dan Three.js library
+Excerpt: 1.2Rumusan Masalah Berikut ini masalah-masalah yang dibahas dalam 
+skripsi ini: Bagaimana ruangan kelas dan objek pendukung lainnya dapat 
+direpsentasikan dalam WebGL? Bagaimana membuat tampilan responsif pada 
+aplikasi agar terlihat bagus saat dicetak? BAB 2 LANDASAN TEORIBab ini 
+berisi penjelasan mengenai teori-teori yang menjadi dasar penelitian ini, 
+seperti WebGL dan Three.js library
 
 ERROR 5
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: BAB 3 ANALISISBab ini berisi analisis pemodelan properti kelas, analisis pemanfaatan pustaka Three.js, dan analisis penggunaan WebGL
+Excerpt: BAB 3 ANALISISBab ini berisi analisis pemodelan properti kelas, 
+analisis pemanfaatan pustaka Three.js, dan analisis penggunaan WebGL
 
 ERROR 6
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: 3.2Analisis pemanfaatan pustaka Three.js Pada pengimplementasian Aplikasi Pratinjau 3 Dimensi Berbasis Web digunakan banyak fitur yang telah disediakan oleh pustaka Three.js
+Excerpt: 3.2Analisis pemanfaatan pustaka Three.js Pada pengimplementasian 
+Aplikasi Pratinjau 3 Dimensi Berbasis Web digunakan banyak fitur yang telah 
+disediakan oleh pustaka Three.js
 
 ERROR 7
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Berikut ini merupakan daftar fitur pustaka Three.js yang digunakan pada implementasi Aplikasi Pratinjau 3 Dimensi Berbasis Web: 3.2.1Panggung Panggung ( scene ) merupakan sebuah wadah untuk menempatkan sesuatu pada pustaka Three.js (subbab2.2.1)
+Excerpt: Berikut ini merupakan daftar fitur pustaka Three.js yang digunakan 
+pada implementasi Aplikasi Pratinjau 3 Dimensi Berbasis Web: 3.2.1Panggung 
+Panggung ( scene ) merupakan sebuah wadah untuk menempatkan sesuatu pada 
+pustaka Three.js (subbab2.2.1)
 
 ERROR 8
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: 1 https://www.blender.org/ BAB 4 PERANCANGANPada bab ini dibahas mengenai perancangan perangkat lunak yang meliputi: perancangan struk- tur web, perancangan antarmuka, dan perancangan fitur yang diimplementasikan pada Aplikasi Pratinjau 3 Dimensi Berbasis
+Excerpt: 1 https://www.blender.org/ BAB 4 PERANCANGANPada bab ini dibahas 
+mengenai perancangan perangkat lunak yang meliputi: perancangan struk- tur 
+web, perancangan antarmuka, dan perancangan fitur yang diimplementasikan 
+pada Aplikasi Pratinjau 3 Dimensi Berbasis
 
 ERROR 9
 ==================
@@ -715,49 +1055,70 @@ ERROR 10
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Terdapat berbagai file JavaScript di dalam folder ini, daftar berkasnya adalah sebagai berikut: Main.js , berkas JavaScript ini berisi berbagai fungsi utama yang digunakan untuk membangun Aplikasi Pratinjau 3 Dimensi Berbasis Web
+Excerpt: Terdapat berbagai file JavaScript di dalam folder ini, daftar 
+berkasnya adalah sebagai berikut: Main.js , berkas JavaScript ini berisi 
+berbagai fungsi utama yang digunakan untuk membangun Aplikasi Pratinjau 3 
+Dimensi Berbasis Web
 
 ERROR 11
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: three.js , berkas JavaScript ini berisi berbagai fungsi yang disediakan oleh pustaka Three.js
+Excerpt: three.js , berkas JavaScript ini berisi berbagai fungsi yang 
+disediakan oleh pustaka Three.js
 
 ERROR 12
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Nantinya fungsi yang terdapat di dalam berkas ini akan dipanggil oleh Main.js OrbitControls.js , berkas JavaScript ini berisi berbagai fungsi yang juga disediakan oleh pustaka Three.js
+Excerpt: Nantinya fungsi yang terdapat di dalam berkas ini akan dipanggil oleh 
+Main.js OrbitControls.js , berkas JavaScript ini berisi berbagai fungsi yang 
+juga disediakan oleh pustaka Three.js
 
 ERROR 13
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: berkas index.html , merupakan berkas HyperText Markup Language (HTML) yang mem- bentuk web untuk aplikasi pratinjau ini
+Excerpt: berkas index.html , merupakan berkas HyperText Markup Language (HTML) 
+yang mem- bentuk web untuk aplikasi pratinjau ini
 
 ERROR 14
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Terdapat 2 berkas json di dalam folder ini yaitu sebagai berikut: constant.json , berkas ini berisi berbagai informasi awal untuk diinisialisasi ke aplikasi sehingga dapat menampilkan gambaran awal dari ruangan kelas Fakultas Teknologi Informasi dan Sains
+Excerpt: Terdapat 2 berkas json di dalam folder ini yaitu sebagai berikut: 
+constant.json , berkas ini berisi berbagai informasi awal untuk 
+diinisialisasi ke aplikasi sehingga dapat menampilkan gambaran awal dari 
+ruangan kelas Fakultas Teknologi Informasi dan Sains
 
 ERROR 15
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: imported.json , berkas ini berisi informasi untuk repsentasi ruangan kelas saat ujian sedang berlangsung di Fakultas Teknologi Informasi dan Sains
+Excerpt: imported.json , berkas ini berisi informasi untuk repsentasi ruangan 
+kelas saat ujian sedang berlangsung di Fakultas Teknologi Informasi dan Sains
 
 ERROR 16
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Berikut ini merupakan daftar berkas yang ada pada folder ini: textureatap.jpg, merupakan tekstur untuk bagian atap ruangan kelas
+Excerpt: Berikut ini merupakan daftar berkas yang ada pada folder ini: 
+textureatap.jpg, merupakan tekstur untuk bagian atap ruangan kelas
 
 ERROR 17
 ==================
 Error Code: PS-05
 Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
-Excerpt: t y p e d e f u n s i g n e d l o n g GLenum ; t y p e d e f b o o l e a n G L b o o l e a n ; t y p e d e f u n s i g n e d l o n g G L b i t f i e l d ; t y p e d e f b y t e GLbyte ; t y p e d e f s h o r t G L s h o r t ; t y p e d e f l o n g G L i n t ; t y p e d e f l o n g G L s i z e i ; t y p e d e f l o n g l o n g G L i n t p t r ; t y p e d e f l o n g l o n g G L s i z e i p t r ; t y p e d e f o c t e t GLubyte ; t y p e d e f u n s i g n e d s h o r t G L u s h o r t ; t y p e d e f u n s i g n e d l o n g G L u i n t ; t y p e d e f u n r e s t r i c t e d f l o a t G L f l o a t ; t y p e d e f u n r e s t r i c t e d f l o a t G L c l a m p f ; Listing 2.1: Alias untuk tipe pada WebGL
+Excerpt: t y p e d e f u n s i g n e d l o n g GLenum ; t y p e d e f b o 
+o l e a n G L b o o l e a n ; t y p e d e f u n s i g n e d l o n g G L b 
+i t f i e l d ; t y p e d e f b y t e GLbyte ; t y p e d e f s h o r t G L 
+s h o r t ; t y p e d e f l o n g G L i n t ; t y p e d e f l o n g G L s 
+i z e i ; t y p e d e f l o n g l o n g G L i n t p t r ; t y p e d e f l 
+o n g l o n g G L s i z e i p t r ; t y p e d e f o c t e t GLubyte ; t y 
+p e d e f u n s i g n e d s h o r t G L u s h o r t ; t y p e d e f u n s 
+i g n e d l o n g G L u i n t ; t y p e d e f u n r e s t r i c t e d f l 
+o a t G L f l o a t ; t y p e d e f u n r e s t r i c t e d f l o a t G L 
+c l a m p f ; Listing 2.1: Alias untuk tipe pada WebGL
 
 ERROR 18
 ==================
@@ -774,19 +1135,30 @@ ERROR 20
 ==================
 Error Code: KAL-02
 Note: Berilah kata pengantar untuk setiap bab
-Excerpt: BAB 1 PENDAHULUAN 1.1Latar BelakangAplikasi pratinjau 3 dimensi merupakan sebuah perangkat lunak yang membantu penggunanya untuk meninjau kembali desain dari produk yang ingin dihasilkan secara 3 dimensi, sebelum pengguna tersebut melakukan implementasi pembuatan produk
+Excerpt: BAB 1 PENDAHULUAN 1.1Latar BelakangAplikasi pratinjau 3 dimensi 
+merupakan sebuah perangkat lunak yang membantu penggunanya untuk meninjau 
+kembali desain dari produk yang ingin dihasilkan secara 3 dimensi, sebelum 
+pengguna tersebut melakukan implementasi pembuatan produk
 
 ERROR 21
 ==================
 Error Code: KAL-03
 Note: Ada data skripsi yang belum dilengkapi pada halaman cover
-Excerpt: SKRIPSI APLIKASI PRATINJAU 3 DIMENSI BERBASIS WEB Nancy Valentina NPM: 2014730049 PROGRAM STUDI TEKNIK INFORMATIKA FAKULTAS TEKNOLOGI INFORMASI DAN SAINS UNIVERSITAS KATOLIK PARAHYANGAN tahun UNDERGRADUATE THESIS JUDUL BAHASA INGGRIS Nancy Valentina NPM: 2014730049 DEPARTMENT OF INFORMATICS FACULTY OF INFORMATION TECHNOLOGY AND SCIENCES PARAHYANGAN CATHOLIC UNIVERSITY tahun
+Excerpt: SKRIPSI APLIKASI PRATINJAU 3 DIMENSI BERBASIS WEB Nancy Valentina 
+NPM: 2014730049 PROGRAM STUDI TEKNIK INFORMATIKA FAKULTAS TEKNOLOGI 
+INFORMASI DAN SAINS UNIVERSITAS KATOLIK PARAHYANGAN tahun UNDERGRADUATE 
+THESIS JUDUL BAHASA INGGRIS Nancy Valentina NPM: 2014730049 DEPARTMENT OF 
+INFORMATICS FACULTY OF INFORMATION TECHNOLOGY AND SCIENCES PARAHYANGAN 
+CATHOLIC UNIVERSITY tahun
 
 ERROR 22
 ==================
 Error Code: NAT-01
-Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->PDFLatex->PDFLatex untuk memperbaikinya
-Excerpt: Canvas pada HTML menyediakan suatu destinasi untuk pembangunan objek secara programatik pada halaman web dan memungkinkan menampilkan objek yang sedang dibangun menggunakan API pembangun objek yang berbeda [ ?]
+Note: Referensi tidak dirujuk dengan baik, lakukan perintah PDFLatex->BibTex->
+PDFLatex->PDFLatex untuk memperbaikinya
+Excerpt: Canvas pada HTML menyediakan suatu destinasi untuk pembangunan objek 
+secara programatik pada halaman web dan memungkinkan menampilkan objek yang 
+sedang dibangun menggunakan API pembangun objek yang berbeda [ ?]
 \end{lstlisting}
 	
 	\item TC\_PE\_05.pdf \newline
@@ -797,43 +1169,100 @@ ERROR 1
 ==================
 Error Code: PS-01
 Note: Ditemukan penulisan kata yang tidak sesuai dengan kamus
-Excerpt: PENDAHULUAN, BelakangOnline, judge, merupakan, sebuah, online, dirancang, mengevaluasi, algoritma, dikumpulkan, pengguna, mengcompile, mengeksekusi, mengujinya, lingkungan, menggunakan, disediakan, dijalankan, batasan, time, memory, keamanan, sebagainya, Penggunaan, ditemukan, pemrograman, Sharif, Judge, adalah, C, Java, Python, diciptakan, Mohammad, Javad, Naderi, bersifat, source, ditulis, PHP, framework, CodeIgniter, danbackend, BASH, menilai, jawaban, peserta, secara, penilaian, dimulai, membuat, assignment, dibutuhkan, mulai, berhenti, tambahan, mengunduh, mengerjakan, tersebut, Peserta, mengumpulkan, menjalankan, membandingkan, Setelah, menyesuaikan, keluaran, digunakan, Parahyangan, Algoritma, membantu, memanfaatkan, memberikan, ujian, melihat, setelah, memperbaiki, dikerjakan, melewati, pengumpulan, prakteknya, terkini, pengembangan, Pengembangan, memiliki, kebutuhan, spesi, k, Kebutuhan, login, terintegrasi, server, membatasi, pengaksesan, lainnya, terakhir, dicommit, GitHub, Juli, bug, diperbaiki, menyebabkan, memenuhi, dikemnbangkan, sebutkan, disebutkan,  Flow, Chart, menunjukan, mengalir, ANALISISBab, ditawarkan, didapat, issue, repository, dicatat, Google, Sheets, didiskusikan, pembimbing, dilakukan, menganalisis, setiap, terbuka, terdapat, diikuti, urutan, dibuat, analisa, didapatkan, pertanyaan, usulan, Bebera, dijadikan, pertimbangan, melalui, diwawancarai, Husnul, Claudio, Franciscus, Vania, Natali, Luciana, Abednego, Joanna, Helga, PERANCANGANBab, perancangan, diimplementasi, Mengganti, Method, shel, l, exec, rm, Menjadiunlink, menghapus, le, control, Assignment, diubah, method, unlink, Listing, perubahan, syntax, Perubahan, classAssignmentsextendsCI, Controller, Upload, Tests, zip, file, shell, f, assignments, root, config, array, upload, path, allowed, types, else, foreach, old, pdf, files, name, this, messages, type, success, text, PDF, uploaded, successfully, Chrome, Version, O, cial, Build, Firefox, Quantum, Microsoft, Excel, Kedua, KESIMPULAN, SARANBab, kesimpulan, selanjutnya, Kesimpulan, Berdasarkan, diperoleh, sebagai, berikut, dikembangkan, mengimplementasi, dilihat, padaTabel, Membatasi, Mensupport, ledengan, TXT, Display, Name, pendaftaran, Lock, Student, Archived, Logs, Fame, loginkeserver, Branding, Mengubah, PHPExcel, menjadilibrary, PHPSpreadsheet, menjadiunlink, methodrekoneksi, berhasil, ditentukan, Fitur, JAR, dikarenakan, keterbatasan, pembaruan, Mengimplementasi, multi, class, masukan, padasub, Round, Robin, menggunakanCactiuntuk
+Excerpt: 
+
+PENDAHULUAN, BelakangOnline, judge, merupakan, sebuah, online, dirancang, 
+mengevaluasi, algoritma, dikumpulkan, pengguna, mengcompile, mengeksekusi, 
+mengujinya, lingkungan, menggunakan, disediakan, dijalankan, batasan, 
+time, memory, keamanan, sebagainya, Penggunaan, ditemukan, pemrograman, 
+Sharif, Judge, adalah, C, Java, Python, diciptakan, Mohammad, Javad, 
+Naderi, bersifat, source, ditulis, PHP, framework, CodeIgniter, 
+danbackend, BASH, menilai, jawaban, peserta, secara, penilaian, dimulai, 
+membuat, assignment, dibutuhkan, mulai, berhenti, tambahan, mengunduh, 
+mengerjakan, tersebut, Peserta, mengumpulkan, menjalankan, membandingkan, 
+Setelah, menyesuaikan, keluaran, digunakan, Parahyangan, Algoritma, 
+membantu, memanfaatkan, memberikan, ujian, melihat, setelah, memperbaiki, 
+dikerjakan, melewati, pengumpulan, prakteknya, terkini, pengembangan, 
+Pengembangan, memiliki, kebutuhan, spesi, k, Kebutuhan, login, 
+terintegrasi, server, membatasi, pengaksesan, lainnya, terakhir, dicommit, 
+GitHub, Juli, bug, diperbaiki, menyebabkan, memenuhi, dikemnbangkan, 
+sebutkan, disebutkan,  Flow, Chart, menunjukan, mengalir, ANALISISBab, 
+ditawarkan, didapat, issue, repository, dicatat, Google, Sheets,
+didiskusikan, pembimbing, dilakukan, menganalisis, setiap, terbuka, 
+terdapat, diikuti, urutan, dibuat, analisa, didapatkan, pertanyaan, 
+usulan, Bebera, dijadikan, pertimbangan, melalui, diwawancarai, Husnul, 
+Claudio, Franciscus, Vania, Natali, Luciana, Abednego, Joanna, Helga, 
+PERANCANGANBab, perancangan, diimplementasi, Mengganti, Method, shel, l, 
+exec, rm, Menjadiunlink, menghapus, le, control, Assignment, diubah, 
+method, unlink, Listing, perubahan, syntax, Perubahan, 
+classAssignmentsextendsCI, Controller, Upload, Tests, zip, file, shell, f, 
+assignments, root, config, array, upload, path, allowed, types, else, 
+foreach, old, pdf, files, name, this, messages, type, success, text, PDF, 
+uploaded, successfully, Chrome, Version, O, cial, Build, Firefox, Quantum, 
+Microsoft, Excel, Kedua, KESIMPULAN, SARANBab, kesimpulan, selanjutnya, 
+Kesimpulan, Berdasarkan, diperoleh, sebagai, berikut, dikembangkan, 
+mengimplementasi, dilihat, padaTabel, Membatasi, Mensupport, ledengan, 
+TXT, Display, Name, pendaftaran, Lock, Student, Archived, Logs, Fame, 
+loginkeserver, Branding, Mengubah, PHPExcel, menjadilibrary, 
+PHPSpreadsheet, menjadiunlink, methodrekoneksi, berhasil, ditentukan, 
+Fitur, JAR, dikarenakan, keterbatasan, pembaruan, Mengimplementasi, multi, 
+class, masukan, padasub, Round, Robin, menggunakanCactiuntuk
 
 ERROR 2
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Contoh perbandingan URL biasa dengan Clean URL s: URL biasa: \example.com\index.php?page=news ,Clean URLs :\ example.com ews 
+Excerpt: Contoh perbandingan URL biasa dengan Clean URL s: URL biasa: \example.
+com\index.php?page=news ,Clean URLs :\ example.com ews 
 
 ERROR 3
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: 4.1Mengganti Method shel l_exec("rm ...")Menjadiunlink() Method shel l_exec("rm ...") yang memiliki fungsi untuk menghapus sebuah file terdapat pada kelas control ler Assignment.php 
+Excerpt: 4.1Mengganti Method shel l_exec("rm ...")Menjadiunlink() Method shel 
+l_exec("rm ...") yang memiliki fungsi untuk menghapus sebuah file terdapat 
+pada kelas control ler Assignment.php 
 
 ERROR 4
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Listing 4.1: Perubahan kode program pada Assignment.php@@-433,8+433,7@@classAssignmentsextendsCI_Controller // Upload Tests (zip file) -shell_exec('rm-f'.$assignments_root.'/*.zip'); +unlink($assignments_root.'/*.zip'); $config = array( 'upload_path' => $assignments_root, 'allowed_types' => 'zip', @@-482,7+481,7@@classAssignmentsextendsCI_Controller else { foreach($old_pdf_files as $old_name) -shell_exec("rm-f$old_name"); +unlink($old_name); $this->messages[] = array( 'type' => 'success', 'text' => 'PDF file uploaded successfully.' 4.2Menambahkan Method Rekoneksi ke Database Method rekoneksi ke database ditambahkan pada kelas control ler Queueprocess.php .Method yang digunakan yaitu $this->db->reconnect() 
+Excerpt: Listing 4.1: Perubahan kode program pada Assignment.php@@-433,8+433,7
+@@classAssignmentsextendsCI_Controller // Upload Tests (zip file) -
+shell_exec('rm-f'.$assignments_root.'/*.zip'); 
++unlink($assignments_root.'/*.zip'); $config = array( 'upload_path' => 
+$assignments_root, 'allowed_types' => 'zip', 
+@@-482,7+481,7@@classAssignmentsextendsCI_Controller else { 
+foreach($old_pdf_files as $old_name) -shell_exec("rm-f$old_name"); 
++unlink($old_name); $this->messages[] = array( 'type' => 'success', 'text' 
+=> 'PDF file uploaded successfully.' 4.2Menambahkan Method Rekoneksi ke 
+Database Method rekoneksi ke database ditambahkan pada kelas control ler 
+Queueprocess.php .Method yang digunakan yaitu $this->db->reconnect() 
 
 ERROR 5
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: Listing4.2menunjukan perubahan kode program yang dilakukan diQueueprocess.php Listing 4.2: Perubahan kode program pada Queueprocess.php1 GNU Operating System, "Comparing and Merging Files" terakhir diubah 6 Mei 2017
+Excerpt: Listing4.2menunjukan perubahan kode program yang dilakukan 
+diQueueprocess.php Listing 4.2: Perubahan kode program pada Queueprocess.
+php1 GNU Operating System, "Comparing and Merging Files" terakhir diubah 6 
+Mei 2017
 
 ERROR 6
 ==================
 Error Code: PS-03
 Note: Perhatikan spasi setelah tanda baca.
-Excerpt: https://www.gnu.org/software/diutils/manual/diutils.html#Detailed-Unified BAB 5 IMPLEMENTASI DAN PENGUJIANBab ini membahas tentang implementasi dan pengujian perangkat lunak berdasarkan rancangan yang sudah dibuat
+Excerpt: https://www.gnu.org/software/diutils/manual/diutils.html#Detailed-
+Unified BAB 5 IMPLEMENTASI DAN PENGUJIANBab ini membahas tentang 
+implementasi dan pengujian perangkat lunak berdasarkan rancangan yang sudah 
+dibuat
 
 ERROR 7
 ==================
 Error Code: PS-05
 Note: Huruf pertama pada kalimat ini tidak menggunakan huruf kapital
-Excerpt: Contoh perbandingan URL biasa dengan Clean URL s: URL biasa: \example.com\index.php?page=news ,Clean URLs :\ example.com ews 
+Excerpt: Contoh perbandingan URL biasa dengan Clean URL s: URL biasa: \example.
+com\index.php?page=news ,Clean URLs :\ example.com ews 
 
 ERROR 8
 ==================
@@ -844,12 +1273,14 @@ ERROR 9
 ==================
 Error Code: KAL-02
 Note: Berilah kata pengantar untuk setiap bab
-Excerpt: BAB 1 PENDAHULUAN 1.1Latar BelakangOnline judge merupakan sebuah sistem online yang dirancang untuk mengevaluasi kode algoritma yang dikumpulkan oleh pengguna
+Excerpt: BAB 1 PENDAHULUAN 1.1Latar BelakangOnline judge merupakan sebuah 
+sistem online yang dirancang untuk mengevaluasi kode algoritma yang 
+dikumpulkan oleh pengguna
 \end{lstlisting}
 	
 \end{enumerate}
 
-\subsection{Pengujian terhadap PDF yang tidak mengeluarkan laporan}
+\subsection{Perangkat Lunak Tidak Mengeluarkan Laporan Kesalahan}
 \label{kosong}
 Hipotesis yang didapatkan dari laporan yang dikeluarkan saat perangkat lunak menggunakan kasus uji TC\_PF\_02.pdf, TC\_PF\_03.pdf dan TC\_PF\_05.pdf adalah ada kesalahan yang perlu ditelusuri pada \textit{library PdfParser}.
 
@@ -972,11 +1403,23 @@ php -d memory_limit=(ukuran sesuai kebutuhan)M main.php ../res/nama_file.pdf
 
 \end{enumerate}
 
-\subsection{Pengujian terhadap Secured PDF}
+\subsection{Perangkat Lunak Tidak Dapat Memeriksa Dokumen Skripsi}
 \label{secured}
 
-Pada beberapa kasus uji, perangkat lunak mengeluarkan kesalahan yang mengatakan bahwa file yang digunakan termasuk \textit{secured PDF}. File yang terkait yaitu ''TC\_PE\_01.pdf'' dan ''TC\_PE\_04.pdf''. Hipotesis yang didapatkan dari laporan adalah kemungkinan bahwa file yang diunggah ke \textit{Github} akan menjadi \textit{secured file}.
+Pada beberapa kasus uji, perangkat lunak mengeluarkan kesalahan yang mengatakan bahwa file yang digunakan termasuk \textit{secured document}. File yang terkait yaitu ''TC\_PE\_01.pdf'' dan ''TC\_PE\_04.pdf''. Hipotesis yang didapatkan dari laporan adalah kemungkinan bahwa dokumen yang diunggah ke \textit{Github} akan menjadi \textit{secured document}.
 
 Berdasarkan hipotesis yang telah disampaikan, ada sebuah percobaan yang dilakukan pada kasus uji yang terkait. Hal yang dilakukan adalah mengunduh seluruh data skripsi dari file yang terkait. Setelah itu dilakukan proses \textit{compile} ulang, untuk mendapatkan PDF dokumen skripsi yang baru. Dokumen hasil \textit{compile} ulang diberi nama TC\_PE\_01\_v2.pdf dan TC\_PE\_04\_v2.pdf. 
 
 Pengujian file yang sebelumnya bermasalah dilakukan dengan menggunakan file hasil \textit{compile} ulang. Perangkat lunak berhasil mengeluarkan laporan kesalahan yang ada pada dokumen skripsi. Permasalahan yang berkaitan dengan \textit{secured} PDF berhasil diatasi.
+
+\subsection{Kesimpulan Pengujian Eksperimental}
+
+Pengujian eksperimental telah dilakukan dengan menggunakan 5 kasus uji, berupa dokumen skripsi milik mahasiswa Informatika UNPAR. Pada pengujian ini dapat ditarik beberapa kesimpulan, yaitu sebagai berikut:
+
+\begin{itemize}
+	\item Dokumen PDF skripsi yang ada pada \textit{Github} FTIS UNPAR, tidak dapat digunakan sebagai kasus uji. Ada faktor bahwa file dokumen PDF yang telah diunggah pada Github akan menjadi \textit{secured document}. \textit{Library PdfParser} tidak dapat mengesktrak dokumen tersebut. Untuk dapat mengatasi hal ini, pengguna perangkat lunak memerlukan file latex dari dokumen tersebut, lalu dicompile ulang. Hal ini sudah dibuktikan pada pengujian eksperimental, dan perangkat lunak dapat mengeluarkan laporan kesalahan dari dokumen tersebut.
+	
+	\item Kasus dimana perangkat lunak tidak mengeluarkan laporan kesalahan, terjadi karena adanya \textit{memory limit}. \textit{Memory limit} yang diatur pada konfigurasi \textit{php.ini} adalah 128Mb. Masalah ini dapat diselesaikan dengan menambahkan memori seperti yang sudah dilakukan pada pengujian eksperimental.
+	
+	\item Dari pengujian ini, dapat dilihat bahwa ada sebuah \textit{library Pdf Parser} yang tidak ditangani dan kesalahan tersebut tidak dimunculkan pada \textit{exception}. Pada pengujian ini telah dijelaskan bahwa pesan kesalahan dari sistem disembunyikan dengan menggunakan tanda ''@''.
+\end{itemize}
